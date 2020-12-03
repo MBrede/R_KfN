@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3 Daten manipulieren | 02_Aufgaben</title>
+  <meta name="description" content="Kurze Einführung in den Umgang mit R" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3 Daten manipulieren | 02_Aufgaben" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Kurze Einführung in den Umgang mit R" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3 Daten manipulieren | 02_Aufgaben" />
+  
+  <meta name="twitter:description" content="Kurze Einführung in den Umgang mit R" />
+  
+
+<meta name="author" content="Max Brede" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="rste-schritte.html"/>
+<link rel="next" href="daten-einlesen.html"/>
+<script src="libs/header-attrs-2.5/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="/home/brede/MEGA/Honorar/111220_KfN/styles.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R - KfN <br> 11.12.20</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Vorwort</a>
+<ul>
+<li class="chapter" data-level="1.0.1" data-path="index.html"><a href="index.html#ablaufplan"><i class="fa fa-check"></i><b>1.0.1</b> Ablaufplan</a></li>
+<li class="chapter" data-level="1.0.2" data-path="index.html"><a href="index.html#voraussetzungen"><i class="fa fa-check"></i><b>1.0.2</b> Voraussetzungen</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="rste-schritte.html"><a href="rste-schritte.html"><i class="fa fa-check"></i><b>2</b> Rste Schritte</a>
+<ul>
+<li class="chapter" data-level="2.0.1" data-path="rste-schritte.html"><a href="rste-schritte.html#warum-r"><i class="fa fa-check"></i><b>2.0.1</b> Warum R?</a></li>
+<li class="chapter" data-level="2.0.2" data-path="rste-schritte.html"><a href="rste-schritte.html#das-sind-nicht-alles-wissenschaftler"><i class="fa fa-check"></i><b>2.0.2</b> …das sind nicht alles Wissenschaftler!</a></li>
+<li class="chapter" data-level="2.0.3" data-path="rste-schritte.html"><a href="rste-schritte.html#das-sind-doch-alles-nur-hilfeschreie"><i class="fa fa-check"></i><b>2.0.3</b> … das sind doch alles nur Hilfeschreie!</a></li>
+<li class="chapter" data-level="2.0.4" data-path="rste-schritte.html"><a href="rste-schritte.html#warum-r-1"><i class="fa fa-check"></i><b>2.0.4</b> Warum R?</a></li>
+<li class="chapter" data-level="2.0.5" data-path="rste-schritte.html"><a href="rste-schritte.html#warum-benutzen-wir-dann-nicht-alle-r"><i class="fa fa-check"></i><b>2.0.5</b> Warum benutzen wir dann nicht alle R?</a></li>
+<li class="chapter" data-level="2.0.6" data-path="rste-schritte.html"><a href="rste-schritte.html#r-syntax-basics"><i class="fa fa-check"></i><b>2.0.6</b> R-Syntax Basics</a></li>
+<li class="chapter" data-level="2.0.7" data-path="rste-schritte.html"><a href="rste-schritte.html#zuweisungen-und-das-environment"><i class="fa fa-check"></i><b>2.0.7</b> 1. Zuweisungen und das Environment</a></li>
+<li class="chapter" data-level="2.0.8" data-path="rste-schritte.html"><a href="rste-schritte.html#zuweisungen-und-das-environment-1"><i class="fa fa-check"></i><b>2.0.8</b> 1. Zuweisungen und das <code>Environment</code></a></li>
+<li class="chapter" data-level="2.0.9" data-path="rste-schritte.html"><a href="rste-schritte.html#zuweisungen-und-das-environment-2"><i class="fa fa-check"></i><b>2.0.9</b> 1. Zuweisungen und das <code>Environment</code></a></li>
+<li class="chapter" data-level="2.0.10" data-path="rste-schritte.html"><a href="rste-schritte.html#funktionen-und-argumente"><i class="fa fa-check"></i><b>2.0.10</b> 2. Funktionen und Argumente</a></li>
+<li class="chapter" data-level="2.0.11" data-path="rste-schritte.html"><a href="rste-schritte.html#obligatorische-und-optionale-argumente"><i class="fa fa-check"></i><b>2.0.11</b> 2. obligatorische und optionale Argumente</a></li>
+<li class="chapter" data-level="2.0.12" data-path="rste-schritte.html"><a href="rste-schritte.html#obligatorische-und-optionale-argumente-1"><i class="fa fa-check"></i><b>2.0.12</b> 2. obligatorische und optionale Argumente</a></li>
+<li class="chapter" data-level="2.0.13" data-path="rste-schritte.html"><a href="rste-schritte.html#obligatorische-und-optionale-argumente-2"><i class="fa fa-check"></i><b>2.0.13</b> 2. obligatorische und optionale Argumente</a></li>
+<li class="chapter" data-level="2.0.14" data-path="rste-schritte.html"><a href="rste-schritte.html#obligatorische-und-optionale-argumente-3"><i class="fa fa-check"></i><b>2.0.14</b> 2. obligatorische und optionale Argumente</a></li>
+<li class="chapter" data-level="2.0.15" data-path="rste-schritte.html"><a href="rste-schritte.html#position-von-argumente"><i class="fa fa-check"></i><b>2.0.15</b> Position von Argumente</a></li>
+<li class="chapter" data-level="2.0.16" data-path="rste-schritte.html"><a href="rste-schritte.html#positionelle-argumente"><i class="fa fa-check"></i><b>2.0.16</b> positionelle Argumente</a></li>
+<li class="chapter" data-level="2.0.17" data-path="rste-schritte.html"><a href="rste-schritte.html#operatoren"><i class="fa fa-check"></i><b>2.0.17</b> Operatoren</a></li>
+<li class="chapter" data-level="2.0.18" data-path="rste-schritte.html"><a href="rste-schritte.html#indizierung"><i class="fa fa-check"></i><b>2.0.18</b> 3. Indizierung</a></li>
+<li class="chapter" data-level="2.0.19" data-path="rste-schritte.html"><a href="rste-schritte.html#indizierung-1"><i class="fa fa-check"></i><b>2.0.19</b> 3. Indizierung</a></li>
+<li class="chapter" data-level="2.0.20" data-path="rste-schritte.html"><a href="rste-schritte.html#indizierung-2"><i class="fa fa-check"></i><b>2.0.20</b> 3. Indizierung</a></li>
+<li class="chapter" data-level="2.0.21" data-path="rste-schritte.html"><a href="rste-schritte.html#indizierung-3"><i class="fa fa-check"></i><b>2.0.21</b> 3. Indizierung</a></li>
+<li class="chapter" data-level="2.0.22" data-path="rste-schritte.html"><a href="rste-schritte.html#logische-indizierung"><i class="fa fa-check"></i><b>2.0.22</b> logische Indizierung</a></li>
+<li class="chapter" data-level="2.0.23" data-path="rste-schritte.html"><a href="rste-schritte.html#logische-indizierung-1"><i class="fa fa-check"></i><b>2.0.23</b> 3. logische Indizierung</a></li>
+<li class="chapter" data-level="2.0.24" data-path="rste-schritte.html"><a href="rste-schritte.html#datenformate-in-r"><i class="fa fa-check"></i><b>2.0.24</b> Datenformate in R</a></li>
+<li class="chapter" data-level="2.0.25" data-path="rste-schritte.html"><a href="rste-schritte.html#datenformate-in-r-1"><i class="fa fa-check"></i><b>2.0.25</b> Datenformate in R</a></li>
+<li class="chapter" data-level="2.0.26" data-path="rste-schritte.html"><a href="rste-schritte.html#datenformate-in-r-2"><i class="fa fa-check"></i><b>2.0.26</b> Datenformate in R</a></li>
+<li class="chapter" data-level="2.0.27" data-path="rste-schritte.html"><a href="rste-schritte.html#datenformate-in-r-3"><i class="fa fa-check"></i><b>2.0.27</b> Datenformate in R</a></li>
+<li class="chapter" data-level="2.0.28" data-path="rste-schritte.html"><a href="rste-schritte.html#datenformate-in-r-4"><i class="fa fa-check"></i><b>2.0.28</b> Datenformate in R</a></li>
+<li class="chapter" data-level="2.0.29" data-path="rste-schritte.html"><a href="rste-schritte.html#datenformate-in-r-5"><i class="fa fa-check"></i><b>2.0.29</b> Datenformate in R</a></li>
+<li class="chapter" data-level="2.0.30" data-path="rste-schritte.html"><a href="rste-schritte.html#datenformate-in-r-6"><i class="fa fa-check"></i><b>2.0.30</b> Datenformate in R</a></li>
+<li class="chapter" data-level="2.0.31" data-path="rste-schritte.html"><a href="rste-schritte.html#datenformate-in-r-7"><i class="fa fa-check"></i><b>2.0.31</b> Datenformate in R</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html"><i class="fa fa-check"></i><b>3</b> Daten manipulieren</a>
+<ul>
+<li class="chapter" data-level="3.0.1" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#datensätze-in-r"><i class="fa fa-check"></i><b>3.0.1</b> Datensätze in R</a></li>
+<li class="chapter" data-level="3.0.2" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#datensätze-in-r-1"><i class="fa fa-check"></i><b>3.0.2</b> Datensätze in R</a></li>
+<li class="chapter" data-level="3.0.3" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#datensätze-in-r-2"><i class="fa fa-check"></i><b>3.0.3</b> Datensätze in R</a></li>
+<li class="chapter" data-level="3.0.4" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#übersicht-über-datensatz-verschaffen"><i class="fa fa-check"></i><b>3.0.4</b> Übersicht über Datensatz verschaffen</a></li>
+<li class="chapter" data-level="3.0.5" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#übersicht-über-datensatz-verschaffen-1"><i class="fa fa-check"></i><b>3.0.5</b> Übersicht über Datensatz verschaffen</a></li>
+<li class="chapter" data-level="3.0.6" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#aufgabe-deskriptive-kennwerte-berechnen"><i class="fa fa-check"></i><b>3.0.6</b> Aufgabe: Deskriptive Kennwerte berechnen</a></li>
+<li class="chapter" data-level="3.0.7" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#aufgabe-base-r-lösung"><i class="fa fa-check"></i><b>3.0.7</b> Aufgabe: Base-R Lösung</a></li>
+<li class="chapter" data-level="3.0.8" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#auftritt-tidyverse"><i class="fa fa-check"></i><b>3.0.8</b> Auftritt tidyverse</a></li>
+<li class="chapter" data-level="3.0.9" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#tidy-aggregation"><i class="fa fa-check"></i><b>3.0.9</b> tidy aggregation</a></li>
+<li class="chapter" data-level="3.0.10" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#tidy-aggregation-1"><i class="fa fa-check"></i><b>3.0.10</b> tidy aggregation</a></li>
+<li class="chapter" data-level="3.0.11" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#tidy-aggregation-2"><i class="fa fa-check"></i><b>3.0.11</b> tidy aggregation</a></li>
+<li class="chapter" data-level="3.0.12" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#tidy-aggregation-3"><i class="fa fa-check"></i><b>3.0.12</b> tidy aggregation</a></li>
+<li class="chapter" data-level="3.0.13" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#tidy-aggregation-4"><i class="fa fa-check"></i><b>3.0.13</b> tidy aggregation</a></li>
+<li class="chapter" data-level="3.0.14" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#tidy-aggregation-5"><i class="fa fa-check"></i><b>3.0.14</b> tidy aggregation</a></li>
+<li class="chapter" data-level="3.0.15" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#tidy-aggregation-6"><i class="fa fa-check"></i><b>3.0.15</b> tidy aggregation</a></li>
+<li class="chapter" data-level="3.0.16" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#aufgabe"><i class="fa fa-check"></i><b>3.0.16</b> Aufgabe</a></li>
+<li class="chapter" data-level="3.0.17" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#regressionen-in-r"><i class="fa fa-check"></i><b>3.0.17</b> Regressionen in R</a></li>
+<li class="chapter" data-level="3.0.18" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#beispiel-terme"><i class="fa fa-check"></i><b>3.0.18</b> Beispiel-Terme</a></li>
+<li class="chapter" data-level="3.0.19" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#regression"><i class="fa fa-check"></i><b>3.0.19</b> Regression</a></li>
+<li class="chapter" data-level="3.0.20" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#regression-1"><i class="fa fa-check"></i><b>3.0.20</b> Regression</a></li>
+<li class="chapter" data-level="3.0.21" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#regressionsanalyse"><i class="fa fa-check"></i><b>3.0.21</b> Regressionsanalyse</a></li>
+<li class="chapter" data-level="3.0.22" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#aufgabe-1"><i class="fa fa-check"></i><b>3.0.22</b> Aufgabe</a></li>
+<li class="chapter" data-level="3.0.23" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#aufgabe-2"><i class="fa fa-check"></i><b>3.0.23</b> Aufgabe</a></li>
+<li class="chapter" data-level="3.0.24" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#literatur"><i class="fa fa-check"></i><b>3.0.24</b> Literatur</a></li>
+<li class="chapter" data-level="3.0.25" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#aufgabe-1-1"><i class="fa fa-check"></i><b>3.0.25</b> Aufgabe 1</a></li>
+<li class="chapter" data-level="3.0.26" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#aufgabe-2-1"><i class="fa fa-check"></i><b>3.0.26</b> Aufgabe 2</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="daten-einlesen.html"><a href="daten-einlesen.html"><i class="fa fa-check"></i><b>4</b> Daten einlesen</a>
+<ul>
+<li class="chapter" data-level="4.0.1" data-path="daten-einlesen.html"><a href="daten-einlesen.html#einlesen-von-daten"><i class="fa fa-check"></i><b>4.0.1</b> Einlesen von Daten</a></li>
+<li class="chapter" data-level="4.0.2" data-path="daten-einlesen.html"><a href="daten-einlesen.html#einlesen-von-textdaten"><i class="fa fa-check"></i><b>4.0.2</b> Einlesen von Textdaten</a></li>
+<li class="chapter" data-level="4.0.3" data-path="daten-einlesen.html"><a href="daten-einlesen.html#problem"><i class="fa fa-check"></i><b>4.0.3</b> Problem</a></li>
+<li class="chapter" data-level="4.0.4" data-path="daten-einlesen.html"><a href="daten-einlesen.html#textbasierte-daten"><i class="fa fa-check"></i><b>4.0.4</b> textbasierte Daten</a></li>
+<li class="chapter" data-level="4.0.5" data-path="daten-einlesen.html"><a href="daten-einlesen.html#einlesen-von-textdaten-1"><i class="fa fa-check"></i><b>4.0.5</b> Einlesen von Textdaten</a></li>
+<li class="chapter" data-level="4.0.6" data-path="daten-einlesen.html"><a href="daten-einlesen.html#einlesen-von-textdateien"><i class="fa fa-check"></i><b>4.0.6</b> Einlesen von Textdateien</a></li>
+<li class="chapter" data-level="4.0.7" data-path="daten-einlesen.html"><a href="daten-einlesen.html#einlesen-von-textdateien-1"><i class="fa fa-check"></i><b>4.0.7</b> Einlesen von Textdateien</a></li>
+<li class="chapter" data-level="4.0.8" data-path="daten-einlesen.html"><a href="daten-einlesen.html#einlesen-von-textdateien-2"><i class="fa fa-check"></i><b>4.0.8</b> Einlesen von Textdateien</a></li>
+<li class="chapter" data-level="4.0.9" data-path="daten-einlesen.html"><a href="daten-einlesen.html#excel-arbeitsmappen"><i class="fa fa-check"></i><b>4.0.9</b> Excel-Arbeitsmappen</a></li>
+<li class="chapter" data-level="4.0.10" data-path="daten-einlesen.html"><a href="daten-einlesen.html#excel-arbeitsmappen-1"><i class="fa fa-check"></i><b>4.0.10</b> Excel-Arbeitsmappen</a></li>
+<li class="chapter" data-level="4.0.11" data-path="daten-einlesen.html"><a href="daten-einlesen.html#dateien-aus-anderer-software"><i class="fa fa-check"></i><b>4.0.11</b> Dateien aus anderer Software</a></li>
+<li class="chapter" data-level="4.0.12" data-path="daten-einlesen.html"><a href="daten-einlesen.html#dateien-aus-spss-einlesen"><i class="fa fa-check"></i><b>4.0.12</b> Dateien aus SPSS einlesen</a></li>
+<li class="chapter" data-level="4.0.13" data-path="daten-einlesen.html"><a href="daten-einlesen.html#dateien-aus-spss-einlesen-1"><i class="fa fa-check"></i><b>4.0.13</b> Dateien aus SPSS einlesen</a></li>
+<li class="chapter" data-level="4.0.14" data-path="daten-einlesen.html"><a href="daten-einlesen.html#dateien-aus-spss-einlesen-2"><i class="fa fa-check"></i><b>4.0.14</b> Dateien aus SPSS einlesen</a></li>
+<li class="chapter" data-level="4.0.15" data-path="daten-einlesen.html"><a href="daten-einlesen.html#datenaufbereitung"><i class="fa fa-check"></i><b>4.0.15</b> Datenaufbereitung</a></li>
+<li class="chapter" data-level="4.0.16" data-path="daten-einlesen.html"><a href="daten-einlesen.html#ausreißer-behandlung"><i class="fa fa-check"></i><b>4.0.16</b> Ausreißer-Behandlung</a></li>
+<li class="chapter" data-level="4.0.17" data-path="daten-einlesen.html"><a href="daten-einlesen.html#ausreißer-behandlung-1"><i class="fa fa-check"></i><b>4.0.17</b> Ausreißer-Behandlung</a></li>
+<li class="chapter" data-level="4.0.18" data-path="daten-einlesen.html"><a href="daten-einlesen.html#umgang-mit-fehlenden-werten"><i class="fa fa-check"></i><b>4.0.18</b> Umgang mit fehlenden Werten</a></li>
+<li class="chapter" data-level="4.0.19" data-path="daten-einlesen.html"><a href="daten-einlesen.html#umgang-mit-fehlenden-werten-1"><i class="fa fa-check"></i><b>4.0.19</b> Umgang mit fehlenden Werten</a></li>
+<li class="chapter" data-level="4.0.20" data-path="daten-einlesen.html"><a href="daten-einlesen.html#umgang-mit-fehlenden-werten-2"><i class="fa fa-check"></i><b>4.0.20</b> Umgang mit fehlenden Werten</a></li>
+<li class="chapter" data-level="4.0.21" data-path="daten-einlesen.html"><a href="daten-einlesen.html#recodieren-von-werten"><i class="fa fa-check"></i><b>4.0.21</b> Recodieren von Werten</a></li>
+<li class="chapter" data-level="4.0.22" data-path="daten-einlesen.html"><a href="daten-einlesen.html#zusammenführen-von-datensätzen"><i class="fa fa-check"></i><b>4.0.22</b> Zusammenführen von Datensätzen</a></li>
+<li class="chapter" data-level="4.0.23" data-path="daten-einlesen.html"><a href="daten-einlesen.html#vorbereitung"><i class="fa fa-check"></i><b>4.0.23</b> Vorbereitung</a></li>
+<li class="chapter" data-level="4.0.24" data-path="daten-einlesen.html"><a href="daten-einlesen.html#vorbereitung-1"><i class="fa fa-check"></i><b>4.0.24</b> Vorbereitung</a></li>
+<li class="chapter" data-level="4.0.25" data-path="daten-einlesen.html"><a href="daten-einlesen.html#vorbereitung-2"><i class="fa fa-check"></i><b>4.0.25</b> Vorbereitung</a></li>
+<li class="chapter" data-level="4.0.26" data-path="daten-einlesen.html"><a href="daten-einlesen.html#zusammenführen-von-datensätzen-1"><i class="fa fa-check"></i><b>4.0.26</b> Zusammenführen von Datensätzen</a></li>
+<li class="chapter" data-level="4.0.27" data-path="daten-einlesen.html"><a href="daten-einlesen.html#zusammenführen-von-datensätzen-2"><i class="fa fa-check"></i><b>4.0.27</b> Zusammenführen von Datensätzen</a></li>
+<li class="chapter" data-level="4.0.28" data-path="daten-einlesen.html"><a href="daten-einlesen.html#zusammenführen-von-datensätzen-3"><i class="fa fa-check"></i><b>4.0.28</b> Zusammenführen von Datensätzen</a></li>
+<li class="chapter" data-level="4.0.29" data-path="daten-einlesen.html"><a href="daten-einlesen.html#zusammenführen-von-datensätzen-4"><i class="fa fa-check"></i><b>4.0.29</b> Zusammenführen von Datensätzen</a></li>
+<li class="chapter" data-level="4.0.30" data-path="daten-einlesen.html"><a href="daten-einlesen.html#literatur-1"><i class="fa fa-check"></i><b>4.0.30</b> Literatur</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="daten-darstellen.html"><a href="daten-darstellen.html"><i class="fa fa-check"></i><b>5</b> Daten darstellen</a>
+<ul>
+<li class="chapter" data-level="5.0.1" data-path="daten-darstellen.html"><a href="daten-darstellen.html#pivotieren-von-datensätzen"><i class="fa fa-check"></i><b>5.0.1</b> pivotieren von Datensätzen</a></li>
+<li class="chapter" data-level="5.0.2" data-path="daten-darstellen.html"><a href="daten-darstellen.html#vorbereitung-zum-pivotieren"><i class="fa fa-check"></i><b>5.0.2</b> Vorbereitung zum Pivotieren</a></li>
+<li class="chapter" data-level="5.0.3" data-path="daten-darstellen.html"><a href="daten-darstellen.html#vorbereitung-zum-pivotieren-1"><i class="fa fa-check"></i><b>5.0.3</b> Vorbereitung zum Pivotieren</a></li>
+<li class="chapter" data-level="5.0.4" data-path="daten-darstellen.html"><a href="daten-darstellen.html#pivotieren-von-datensätzen-1"><i class="fa fa-check"></i><b>5.0.4</b> pivotieren von Datensätzen</a></li>
+<li class="chapter" data-level="5.0.5" data-path="daten-darstellen.html"><a href="daten-darstellen.html#vorbereitung-für-die-grafische-darstellung"><i class="fa fa-check"></i><b>5.0.5</b> Vorbereitung für die grafische Darstellung</a></li>
+<li class="chapter" data-level="5.0.6" data-path="daten-darstellen.html"><a href="daten-darstellen.html#ggplot2"><i class="fa fa-check"></i><b>5.0.6</b> ggplot2</a></li>
+<li class="chapter" data-level="5.0.7" data-path="daten-darstellen.html"><a href="daten-darstellen.html#ggplot2-1"><i class="fa fa-check"></i><b>5.0.7</b> ggplot2</a></li>
+<li class="chapter" data-level="5.0.8" data-path="daten-darstellen.html"><a href="daten-darstellen.html#ggplot2-2"><i class="fa fa-check"></i><b>5.0.8</b> ggplot2</a></li>
+<li class="chapter" data-level="5.0.9" data-path="daten-darstellen.html"><a href="daten-darstellen.html#aesthetics"><i class="fa fa-check"></i><b>5.0.9</b> aesthetics</a></li>
+<li class="chapter" data-level="5.0.10" data-path="daten-darstellen.html"><a href="daten-darstellen.html#aesthetics-1"><i class="fa fa-check"></i><b>5.0.10</b> aesthetics</a></li>
+<li class="chapter" data-level="5.0.11" data-path="daten-darstellen.html"><a href="daten-darstellen.html#aesthetics-2"><i class="fa fa-check"></i><b>5.0.11</b> aesthetics</a></li>
+<li class="chapter" data-level="5.0.12" data-path="daten-darstellen.html"><a href="daten-darstellen.html#aesthetics-3"><i class="fa fa-check"></i><b>5.0.12</b> aesthetics</a></li>
+<li class="chapter" data-level="5.0.13" data-path="daten-darstellen.html"><a href="daten-darstellen.html#geoms"><i class="fa fa-check"></i><b>5.0.13</b> geoms</a></li>
+<li class="chapter" data-level="5.0.14" data-path="daten-darstellen.html"><a href="daten-darstellen.html#geoms-1"><i class="fa fa-check"></i><b>5.0.14</b> geoms</a></li>
+<li class="chapter" data-level="5.0.15" data-path="daten-darstellen.html"><a href="daten-darstellen.html#aesthetics-4"><i class="fa fa-check"></i><b>5.0.15</b> aesthetics</a></li>
+<li class="chapter" data-level="5.0.16" data-path="daten-darstellen.html"><a href="daten-darstellen.html#facets"><i class="fa fa-check"></i><b>5.0.16</b> facets!</a></li>
+<li class="chapter" data-level="5.0.17" data-path="daten-darstellen.html"><a href="daten-darstellen.html#additional-tweeks"><i class="fa fa-check"></i><b>5.0.17</b> additional tweeks</a></li>
+<li class="chapter" data-level="5.0.18" data-path="daten-darstellen.html"><a href="daten-darstellen.html#additional-tweeks-1"><i class="fa fa-check"></i><b>5.0.18</b> additional tweeks</a></li>
+<li class="chapter" data-level="5.0.19" data-path="daten-darstellen.html"><a href="daten-darstellen.html#themes"><i class="fa fa-check"></i><b>5.0.19</b> themes</a></li>
+<li class="chapter" data-level="5.0.20" data-path="daten-darstellen.html"><a href="daten-darstellen.html#grafiken-exportieren"><i class="fa fa-check"></i><b>5.0.20</b> Grafiken exportieren</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>6</b> Appendix</a></li>
+<li class="chapter" data-level="" data-path="literatur-2.html"><a href="literatur-2.html"><i class="fa fa-check"></i>Literatur</a></li>
+<li class="divider"></li>
+<li><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons Lizenzvertrag" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">02_Aufgaben</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="daten-manipulieren" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Daten manipulieren</h1>
+<div id="datensätze-in-r" class="section level3" number="3.0.1">
+<h3><span class="header-section-number">3.0.1</span> Datensätze in R</h3>
+<p>Wie alle anderen Programme zur statistischen Auswertung hat R natürlich neben den Vektoren auch rechteckige Datenformate.
+<br></p>
+<p>Das typische rechteckige Datenformat in <code>base R</code> ist der <code>data.frame</code>. <br> Im Prinzip nichts anderes, als spaltenweise zusammengeklebte Vektoren.<br>
+Der Konstruktor für ein solches Objekt heißt ist die gleichnamige Funktion, die die Spalten als benannte Argumente nimmt:</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="daten-manipulieren.html#cb47-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">a =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,</span>
+<span id="cb47-2"><a href="daten-manipulieren.html#cb47-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">b =</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>),</span>
+<span id="cb47-3"><a href="daten-manipulieren.html#cb47-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">c =</span> <span class="fu">c</span>(<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>))</span>
+<span id="cb47-4"><a href="daten-manipulieren.html#cb47-4" aria-hidden="true" tabindex="-1"></a>df</span></code></pre></div>
+<pre><code>##   a     b c
+## 1 1  TRUE a
+## 2 2 FALSE b
+## 3 3  TRUE c</code></pre>
+</div>
+<div id="datensätze-in-r-1" class="section level3" number="3.0.2">
+<h3><span class="header-section-number">3.0.2</span> Datensätze in R</h3>
+<p>Das Indizieren im Datensatz geht dann am <em>Lesbarsten</em>, durch das Angeben der gewünschten Spalte mit dem <code>$</code>-Operator und der Auswahl der Zeile durch den schon bekannten <code>[]</code>-Operator.</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="daten-manipulieren.html#cb49-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>c[<span class="dv">2</span>] <span class="do">## 2. Wert in der &#39;c&#39;-Spalte.</span></span></code></pre></div>
+<pre><code>## [1] &quot;b&quot;</code></pre>
+<p class="q">
+Wie könnte ich den 3. Wert in der <code>b</code>-Spalte indizieren?
+</p>
+<div class='build'>
+<code>df$b[3]</code>
+<div>
+
+
+</div>
+<div id="datensätze-in-r-2" class="section level3 scrollable" number="3.0.3">
+<h3><span class="header-section-number">3.0.3</span> Datensätze in R</h3>
+<p>Der <code>iris</code>-Datensatz ist ein im Grundumfang von R mitgelieferter Datensatz, der historische botanische Daten nach <span class="citation"><a href="literatur-2.html#ref-andersonIrisesGaspePeninsula1935" role="doc-biblioref">Anderson</a> (<a href="literatur-2.html#ref-andersonIrisesGaspePeninsula1935" role="doc-biblioref">1935</a>)</span> enthält.</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="daten-manipulieren.html#cb51-1" aria-hidden="true" tabindex="-1"></a>iris</span></code></pre></div>
+<pre><code>##     Sepal.Length Sepal.Width Petal.Length
+## 1            5.1         3.5          1.4
+## 2            4.9         3.0          1.4
+## 3            4.7         3.2          1.3
+## 4            4.6         3.1          1.5
+## 5            5.0         3.6          1.4
+## 6            5.4         3.9          1.7
+## 7            4.6         3.4          1.4
+## 8            5.0         3.4          1.5
+## 9            4.4         2.9          1.4
+## 10           4.9         3.1          1.5
+## 11           5.4         3.7          1.5
+## 12           4.8         3.4          1.6
+## 13           4.8         3.0          1.4
+## 14           4.3         3.0          1.1
+## 15           5.8         4.0          1.2
+## 16           5.7         4.4          1.5
+## 17           5.4         3.9          1.3
+## 18           5.1         3.5          1.4
+## 19           5.7         3.8          1.7
+## 20           5.1         3.8          1.5
+## 21           5.4         3.4          1.7
+## 22           5.1         3.7          1.5
+## 23           4.6         3.6          1.0
+## 24           5.1         3.3          1.7
+## 25           4.8         3.4          1.9
+## 26           5.0         3.0          1.6
+## 27           5.0         3.4          1.6
+## 28           5.2         3.5          1.5
+## 29           5.2         3.4          1.4
+## 30           4.7         3.2          1.6
+## 31           4.8         3.1          1.6
+## 32           5.4         3.4          1.5
+## 33           5.2         4.1          1.5
+## 34           5.5         4.2          1.4
+## 35           4.9         3.1          1.5
+## 36           5.0         3.2          1.2
+## 37           5.5         3.5          1.3
+## 38           4.9         3.6          1.4
+## 39           4.4         3.0          1.3
+## 40           5.1         3.4          1.5
+## 41           5.0         3.5          1.3
+## 42           4.5         2.3          1.3
+## 43           4.4         3.2          1.3
+## 44           5.0         3.5          1.6
+## 45           5.1         3.8          1.9
+## 46           4.8         3.0          1.4
+## 47           5.1         3.8          1.6
+## 48           4.6         3.2          1.4
+## 49           5.3         3.7          1.5
+## 50           5.0         3.3          1.4
+## 51           7.0         3.2          4.7
+## 52           6.4         3.2          4.5
+## 53           6.9         3.1          4.9
+## 54           5.5         2.3          4.0
+## 55           6.5         2.8          4.6
+## 56           5.7         2.8          4.5
+## 57           6.3         3.3          4.7
+## 58           4.9         2.4          3.3
+## 59           6.6         2.9          4.6
+## 60           5.2         2.7          3.9
+## 61           5.0         2.0          3.5
+## 62           5.9         3.0          4.2
+## 63           6.0         2.2          4.0
+## 64           6.1         2.9          4.7
+## 65           5.6         2.9          3.6
+## 66           6.7         3.1          4.4
+## 67           5.6         3.0          4.5
+## 68           5.8         2.7          4.1
+## 69           6.2         2.2          4.5
+## 70           5.6         2.5          3.9
+## 71           5.9         3.2          4.8
+## 72           6.1         2.8          4.0
+## 73           6.3         2.5          4.9
+## 74           6.1         2.8          4.7
+## 75           6.4         2.9          4.3
+## 76           6.6         3.0          4.4
+## 77           6.8         2.8          4.8
+## 78           6.7         3.0          5.0
+## 79           6.0         2.9          4.5
+## 80           5.7         2.6          3.5
+## 81           5.5         2.4          3.8
+## 82           5.5         2.4          3.7
+## 83           5.8         2.7          3.9
+## 84           6.0         2.7          5.1
+## 85           5.4         3.0          4.5
+## 86           6.0         3.4          4.5
+## 87           6.7         3.1          4.7
+## 88           6.3         2.3          4.4
+## 89           5.6         3.0          4.1
+## 90           5.5         2.5          4.0
+## 91           5.5         2.6          4.4
+## 92           6.1         3.0          4.6
+## 93           5.8         2.6          4.0
+## 94           5.0         2.3          3.3
+## 95           5.6         2.7          4.2
+## 96           5.7         3.0          4.2
+## 97           5.7         2.9          4.2
+## 98           6.2         2.9          4.3
+## 99           5.1         2.5          3.0
+## 100          5.7         2.8          4.1
+## 101          6.3         3.3          6.0
+## 102          5.8         2.7          5.1
+## 103          7.1         3.0          5.9
+## 104          6.3         2.9          5.6
+## 105          6.5         3.0          5.8
+## 106          7.6         3.0          6.6
+## 107          4.9         2.5          4.5
+## 108          7.3         2.9          6.3
+## 109          6.7         2.5          5.8
+## 110          7.2         3.6          6.1
+## 111          6.5         3.2          5.1
+## 112          6.4         2.7          5.3
+## 113          6.8         3.0          5.5
+## 114          5.7         2.5          5.0
+## 115          5.8         2.8          5.1
+## 116          6.4         3.2          5.3
+## 117          6.5         3.0          5.5
+## 118          7.7         3.8          6.7
+## 119          7.7         2.6          6.9
+## 120          6.0         2.2          5.0
+## 121          6.9         3.2          5.7
+## 122          5.6         2.8          4.9
+## 123          7.7         2.8          6.7
+## 124          6.3         2.7          4.9
+## 125          6.7         3.3          5.7
+## 126          7.2         3.2          6.0
+## 127          6.2         2.8          4.8
+## 128          6.1         3.0          4.9
+## 129          6.4         2.8          5.6
+## 130          7.2         3.0          5.8
+## 131          7.4         2.8          6.1
+## 132          7.9         3.8          6.4
+## 133          6.4         2.8          5.6
+## 134          6.3         2.8          5.1
+## 135          6.1         2.6          5.6
+## 136          7.7         3.0          6.1
+## 137          6.3         3.4          5.6
+## 138          6.4         3.1          5.5
+## 139          6.0         3.0          4.8
+## 140          6.9         3.1          5.4
+## 141          6.7         3.1          5.6
+## 142          6.9         3.1          5.1
+## 143          5.8         2.7          5.1
+## 144          6.8         3.2          5.9
+## 145          6.7         3.3          5.7
+## 146          6.7         3.0          5.2
+## 147          6.3         2.5          5.0
+## 148          6.5         3.0          5.2
+## 149          6.2         3.4          5.4
+## 150          5.9         3.0          5.1
+##     Petal.Width    Species
+## 1           0.2     setosa
+## 2           0.2     setosa
+## 3           0.2     setosa
+## 4           0.2     setosa
+## 5           0.2     setosa
+## 6           0.4     setosa
+## 7           0.3     setosa
+## 8           0.2     setosa
+## 9           0.2     setosa
+## 10          0.1     setosa
+## 11          0.2     setosa
+## 12          0.2     setosa
+## 13          0.1     setosa
+## 14          0.1     setosa
+## 15          0.2     setosa
+## 16          0.4     setosa
+## 17          0.4     setosa
+## 18          0.3     setosa
+## 19          0.3     setosa
+## 20          0.3     setosa
+## 21          0.2     setosa
+## 22          0.4     setosa
+## 23          0.2     setosa
+## 24          0.5     setosa
+## 25          0.2     setosa
+## 26          0.2     setosa
+## 27          0.4     setosa
+## 28          0.2     setosa
+## 29          0.2     setosa
+## 30          0.2     setosa
+## 31          0.2     setosa
+## 32          0.4     setosa
+## 33          0.1     setosa
+## 34          0.2     setosa
+## 35          0.2     setosa
+## 36          0.2     setosa
+## 37          0.2     setosa
+## 38          0.1     setosa
+## 39          0.2     setosa
+## 40          0.2     setosa
+## 41          0.3     setosa
+## 42          0.3     setosa
+## 43          0.2     setosa
+## 44          0.6     setosa
+## 45          0.4     setosa
+## 46          0.3     setosa
+## 47          0.2     setosa
+## 48          0.2     setosa
+## 49          0.2     setosa
+## 50          0.2     setosa
+## 51          1.4 versicolor
+## 52          1.5 versicolor
+## 53          1.5 versicolor
+## 54          1.3 versicolor
+## 55          1.5 versicolor
+## 56          1.3 versicolor
+## 57          1.6 versicolor
+## 58          1.0 versicolor
+## 59          1.3 versicolor
+## 60          1.4 versicolor
+## 61          1.0 versicolor
+## 62          1.5 versicolor
+## 63          1.0 versicolor
+## 64          1.4 versicolor
+## 65          1.3 versicolor
+## 66          1.4 versicolor
+## 67          1.5 versicolor
+## 68          1.0 versicolor
+## 69          1.5 versicolor
+## 70          1.1 versicolor
+## 71          1.8 versicolor
+## 72          1.3 versicolor
+## 73          1.5 versicolor
+## 74          1.2 versicolor
+## 75          1.3 versicolor
+## 76          1.4 versicolor
+## 77          1.4 versicolor
+## 78          1.7 versicolor
+## 79          1.5 versicolor
+## 80          1.0 versicolor
+## 81          1.1 versicolor
+## 82          1.0 versicolor
+## 83          1.2 versicolor
+## 84          1.6 versicolor
+## 85          1.5 versicolor
+## 86          1.6 versicolor
+## 87          1.5 versicolor
+## 88          1.3 versicolor
+## 89          1.3 versicolor
+## 90          1.3 versicolor
+## 91          1.2 versicolor
+## 92          1.4 versicolor
+## 93          1.2 versicolor
+## 94          1.0 versicolor
+## 95          1.3 versicolor
+## 96          1.2 versicolor
+## 97          1.3 versicolor
+## 98          1.3 versicolor
+## 99          1.1 versicolor
+## 100         1.3 versicolor
+## 101         2.5  virginica
+## 102         1.9  virginica
+## 103         2.1  virginica
+## 104         1.8  virginica
+## 105         2.2  virginica
+## 106         2.1  virginica
+## 107         1.7  virginica
+## 108         1.8  virginica
+## 109         1.8  virginica
+## 110         2.5  virginica
+## 111         2.0  virginica
+## 112         1.9  virginica
+## 113         2.1  virginica
+## 114         2.0  virginica
+## 115         2.4  virginica
+## 116         2.3  virginica
+## 117         1.8  virginica
+## 118         2.2  virginica
+## 119         2.3  virginica
+## 120         1.5  virginica
+## 121         2.3  virginica
+## 122         2.0  virginica
+## 123         2.0  virginica
+## 124         1.8  virginica
+## 125         2.1  virginica
+## 126         1.8  virginica
+## 127         1.8  virginica
+## 128         1.8  virginica
+## 129         2.1  virginica
+## 130         1.6  virginica
+## 131         1.9  virginica
+## 132         2.0  virginica
+## 133         2.2  virginica
+## 134         1.5  virginica
+## 135         1.4  virginica
+## 136         2.3  virginica
+## 137         2.4  virginica
+## 138         1.8  virginica
+## 139         1.8  virginica
+## 140         2.1  virginica
+## 141         2.4  virginica
+## 142         2.3  virginica
+## 143         1.9  virginica
+## 144         2.3  virginica
+## 145         2.5  virginica
+## 146         2.3  virginica
+## 147         1.9  virginica
+## 148         2.0  virginica
+## 149         2.3  virginica
+## 150         1.8  virginica</code></pre>
+</div>
+<div id="übersicht-über-datensatz-verschaffen" class="section level3" number="3.0.4">
+<h3><span class="header-section-number">3.0.4</span> Übersicht über Datensatz verschaffen</h3>
+<p>Das ist natürlich ein bisschen unübersichtlich, wie kann man damit umgehen?</p>
+<div id="möglichkeit" class="section level4" number="3.0.4.1">
+<h4><span class="header-section-number">3.0.4.1</span> 1. Möglichkeit:</h4>
+<p>Wenn man iris explizit in das Environment nimmt, kann man die Oberfläche von RStudio nutze, um sich einen Überblick zu verschaffen<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>:</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="daten-manipulieren.html#cb53-1" aria-hidden="true" tabindex="-1"></a>iris <span class="ot">&lt;-</span> iris</span></code></pre></div>
+<div class="half-left">
+<p><img src="imgs/summ1.png" width="100%" style="display: block; margin: auto;" /></p>
+</div>
+<div class="half-right">
+<p><img src="imgs/summ2.png" width="100%" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+</div>
+<div id="übersicht-über-datensatz-verschaffen-1" class="section level3 smaller" number="3.0.5">
+<h3><span class="header-section-number">3.0.5</span> Übersicht über Datensatz verschaffen</h3>
+<div id="möglichkeit-1" class="section level4" number="3.0.5.1">
+<h4><span class="header-section-number">3.0.5.1</span> 2. Möglichkeit:</h4>
+<p>Die <code>summary</code>-Funktion, die genau das macht, was ihr Name suggeriert:</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="daten-manipulieren.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(iris)</span></code></pre></div>
+<pre><code>##   Sepal.Length    Sepal.Width     Petal.Length  
+##  Min.   :4.300   Min.   :2.000   Min.   :1.000  
+##  1st Qu.:5.100   1st Qu.:2.800   1st Qu.:1.600  
+##  Median :5.800   Median :3.000   Median :4.350  
+##  Mean   :5.843   Mean   :3.057   Mean   :3.758  
+##  3rd Qu.:6.400   3rd Qu.:3.300   3rd Qu.:5.100  
+##  Max.   :7.900   Max.   :4.400   Max.   :6.900  
+##   Petal.Width          Species  
+##  Min.   :0.100   setosa    :50  
+##  1st Qu.:0.300   versicolor:50  
+##  Median :1.300   virginica :50  
+##  Mean   :1.199                  
+##  3rd Qu.:1.800                  
+##  Max.   :2.500</code></pre>
+</div>
+</div>
+<div id="aufgabe-deskriptive-kennwerte-berechnen" class="section level3" number="3.0.6">
+<h3><span class="header-section-number">3.0.6</span> Aufgabe: Deskriptive Kennwerte berechnen</h3>
+<p>Wir wollen für diesen Datensatz jetzt die folgenden Schritte der Auswertung vollziehen:</p>
+<ol style="list-style-type: decimal">
+<li><p>Ausschluss der Blumen, die breitere Blütenblätter als das 1.5-fache der mittleren Blütenblätter haben und Kelche, die kürzer als das Mittel der Kelchlänge sind</p></li>
+<li><p>Darstellung der Mittelwerte und Streuungen der Blütenblattlänge und -breite pro verbleibende Spezies als Tabelle</p></li>
+</ol>
+</div>
+<div id="aufgabe-base-r-lösung" class="section level3 small" number="3.0.7">
+<h3><span class="header-section-number">3.0.7</span> Aufgabe: Base-R Lösung</h3>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="daten-manipulieren.html#cb56-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> iris[iris<span class="sc">$</span>Petal.Width <span class="sc">&lt;=</span> <span class="fl">1.5</span> <span class="sc">*</span> <span class="fu">mean</span>(iris<span class="sc">$</span>Petal.Width) <span class="sc">&amp;</span></span>
+<span id="cb56-2"><a href="daten-manipulieren.html#cb56-2" aria-hidden="true" tabindex="-1"></a>             iris<span class="sc">$</span>Sepal.Length <span class="sc">&gt;=</span> <span class="fu">mean</span>(iris<span class="sc">$</span>Sepal.Length),]</span>
+<span id="cb56-3"><a href="daten-manipulieren.html#cb56-3" aria-hidden="true" tabindex="-1"></a>means <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(<span class="fu">cbind</span>(df<span class="sc">$</span>Petal.Length,df<span class="sc">$</span>Petal.Width),</span>
+<span id="cb56-4"><a href="daten-manipulieren.html#cb56-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">by =</span> <span class="fu">list</span>(<span class="at">Species =</span> df<span class="sc">$</span>Species),</span>
+<span id="cb56-5"><a href="daten-manipulieren.html#cb56-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">FUN =</span> mean)</span>
+<span id="cb56-6"><a href="daten-manipulieren.html#cb56-6" aria-hidden="true" tabindex="-1"></a>sds <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(<span class="fu">cbind</span>(df<span class="sc">$</span>Petal.Length,df<span class="sc">$</span>Petal.Width),</span>
+<span id="cb56-7"><a href="daten-manipulieren.html#cb56-7" aria-hidden="true" tabindex="-1"></a>          <span class="at">by =</span> <span class="fu">list</span>(<span class="at">Species =</span> df<span class="sc">$</span>Species),</span>
+<span id="cb56-8"><a href="daten-manipulieren.html#cb56-8" aria-hidden="true" tabindex="-1"></a>          <span class="at">FUN =</span> sd)</span>
+<span id="cb56-9"><a href="daten-manipulieren.html#cb56-9" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(means, sds[,<span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>])</span>
+<span id="cb56-10"><a href="daten-manipulieren.html#cb56-10" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(tab)[<span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>] <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&#39;m_Length&#39;</span>, <span class="st">&#39;m_Width&#39;</span>, <span class="st">&#39;sd_Length&#39;</span>, <span class="st">&#39;sd_Width&#39;</span>)</span>
+<span id="cb56-11"><a href="daten-manipulieren.html#cb56-11" aria-hidden="true" tabindex="-1"></a>tab</span></code></pre></div>
+<pre><code>##      Species m_Length m_Width sd_Length
+## 1 versicolor    4.560   1.424 0.2783882
+## 2  virginica    5.375   1.500 0.3862210
+##     sd_Width
+## 1 0.14798649
+## 2 0.08164966</code></pre>
+</div>
+<div id="auftritt-tidyverse" class="section level3" number="3.0.8">
+<h3><span class="header-section-number">3.0.8</span> Auftritt tidyverse</h3>
+<p>Die selbe Aufgabe wie gerade, jetzt mit dem <code>tidyverse</code>:</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="daten-manipulieren.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb58-2"><a href="daten-manipulieren.html#cb58-2" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span>
+<span id="cb58-3"><a href="daten-manipulieren.html#cb58-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Petal.Width <span class="sc">&lt;=</span> <span class="fl">1.5</span> <span class="sc">*</span> <span class="fu">mean</span>(Petal.Width) <span class="sc">&amp;</span></span>
+<span id="cb58-4"><a href="daten-manipulieren.html#cb58-4" aria-hidden="true" tabindex="-1"></a>           Sepal.Length <span class="sc">&gt;=</span> <span class="fu">mean</span>(Sepal.Length)) <span class="sc">%&gt;%</span> </span>
+<span id="cb58-5"><a href="daten-manipulieren.html#cb58-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span> </span>
+<span id="cb58-6"><a href="daten-manipulieren.html#cb58-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">m_Length =</span> <span class="fu">mean</span>(Petal.Length),</span>
+<span id="cb58-7"><a href="daten-manipulieren.html#cb58-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">sd_Length =</span> <span class="fu">sd</span>(Petal.Length),</span>
+<span id="cb58-8"><a href="daten-manipulieren.html#cb58-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">m_Width =</span> <span class="fu">mean</span>(Petal.Width), </span>
+<span id="cb58-9"><a href="daten-manipulieren.html#cb58-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">sd_Width =</span> <span class="fu">sd</span>(Petal.Width))</span></code></pre></div>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<pre><code>## # A tibble: 2 x 5
+##   Species    m_Length sd_Length m_Width sd_Width
+##   &lt;fct&gt;         &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;
+## 1 versicolor     4.56     0.278    1.42   0.148 
+## 2 virginica      5.38     0.386    1.5    0.0816</code></pre>
+</div>
+<div id="tidy-aggregation" class="section level3" number="3.0.9">
+<h3><span class="header-section-number">3.0.9</span> tidy aggregation</h3>
+<p>Das <code>tidyverse</code> ist eine Sammlung von Paketen, deren Hauptziel es ist, Datenaufbereitung in R intuitiver und leichter lesbar zu machen.</p>
+<p>Ein zentrales Element dabei ist der <code>%&gt;%</code>-Operator, die sogenannte Pipeline. Beim Skript-Lesen und -Schreiben kann man sich diese am Besten als <em>‘dann’</em> vorstellen</p>
+<p>Mit ihrer Hilfe werden Aufbereitungsschritte in einer stringenten Reihe an Operationen formuliert, die sich am Besten als Satz verstehen lassen.</p>
+<p>Da die Funktionen im tidyverse alle mit einfachen Verben benannt sind, lässt sich die Operation von eben auch so lesen.</p>
+</div>
+<div id="tidy-aggregation-1" class="section level3" number="3.0.10">
+<h3><span class="header-section-number">3.0.10</span> tidy aggregation</h3>
+<div class="tt-left">
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="daten-manipulieren.html#cb61-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span></code></pre></div>
+</div>
+<div class="ot-right">
+<p class="codeComment">
+Nimm <code>iris</code>, dann …
+</p>
+</div>
+<div class="tt-left">
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="daten-manipulieren.html#cb62-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Petal.Width <span class="sc">&lt;=</span> <span class="fl">1.5</span> <span class="sc">*</span> <span class="fu">mean</span>(Petal.Width) <span class="sc">&amp;</span></span>
+<span id="cb62-2"><a href="daten-manipulieren.html#cb62-2" aria-hidden="true" tabindex="-1"></a>           Sepal.Length <span class="sc">&gt;=</span> <span class="fu">mean</span>(Sepal.Length)) <span class="sc">%&gt;%</span> </span></code></pre></div>
+</div>
+<div class="ot-right">
+<p class="codeComment">
+… filter Zeilenweise nach den gesetzten Regeln, dann…
+</p>
+</div>
+<div class="tt-left">
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="daten-manipulieren.html#cb63-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span> </span></code></pre></div>
+</div>
+<div class="ot-right">
+<p class="codeComment">
+…gruppiere nach der Spezies, dann…
+</p>
+</div>
+<div class="tt-left">
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="daten-manipulieren.html#cb64-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">m_Length =</span> <span class="fu">mean</span>(Petal.Length),</span>
+<span id="cb64-2"><a href="daten-manipulieren.html#cb64-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">sd_Length =</span> <span class="fu">sd</span>(Petal.Length),</span>
+<span id="cb64-3"><a href="daten-manipulieren.html#cb64-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">m_Width =</span> <span class="fu">mean</span>(Petal.Width), </span>
+<span id="cb64-4"><a href="daten-manipulieren.html#cb64-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">sd_Width =</span> <span class="fu">sd</span>(Petal.Width))</span></code></pre></div>
+</div>
+<div class="ot-right">
+<p class="codeComment">
+… berechne die angegebenen Kenngrößen über die Gruppen.
+</p>
+</div>
+</div>
+<div id="tidy-aggregation-2" class="section level3" number="3.0.11">
+<h3><span class="header-section-number">3.0.11</span> tidy aggregation</h3>
+<p>Zweite Beispielaufgabe:</p>
+<p>Wir möchten für den <code>iris</code>-Datensatz:</p>
+<ol style="list-style-type: decimal">
+<li><p>Eine Spalte hinzufügen, die die z-transformierte Blattlänge enthält</p></li>
+<li><p>Eine Spalte hinzufügen, die als character das Ergebnis eines Mediansplits der gerade erstellten Variable enthält</p></li>
+<li><p>Einen Datensatz erstellen, der nur die Spezies, die z-Transformierte und die Mediansplit-Variable enthält</p></li>
+<li><p>Die Häufigkeiten der Kombinationen von Mediansplit-Gruppe und Spezies auszählen</p></li>
+</ol>
+</div>
+<div id="tidy-aggregation-3" class="section level3 small" number="3.0.12">
+<h3><span class="header-section-number">3.0.12</span> tidy aggregation</h3>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="daten-manipulieren.html#cb65-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> </span>
+<span id="cb65-2"><a href="daten-manipulieren.html#cb65-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">z_length =</span> (Petal.Length<span class="sc">-</span><span class="fu">mean</span>(Petal.Length))<span class="sc">/</span><span class="fu">sd</span>(Petal.Length),</span>
+<span id="cb65-3"><a href="daten-manipulieren.html#cb65-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">med_split =</span> <span class="fu">ifelse</span>(z_length <span class="sc">&gt;=</span> <span class="fu">median</span>(z_length),</span>
+<span id="cb65-4"><a href="daten-manipulieren.html#cb65-4" aria-hidden="true" tabindex="-1"></a>                            <span class="st">&#39;upper&#39;</span>,</span>
+<span id="cb65-5"><a href="daten-manipulieren.html#cb65-5" aria-hidden="true" tabindex="-1"></a>                            <span class="st">&#39;lower&#39;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb65-6"><a href="daten-manipulieren.html#cb65-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Species, z_length, med_split) </span></code></pre></div>
+</div>
+<div id="tidy-aggregation-4" class="section level3" number="3.0.13">
+<h3><span class="header-section-number">3.0.13</span> tidy aggregation</h3>
+<p>Hat das geklappt?</p>
+<p class="q">
+Wie könnte ich das überprüfen?
+</p>
+<div class="build">
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="daten-manipulieren.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df)</span></code></pre></div>
+<pre><code>##        Species      z_length      
+##  setosa    :50   Min.   :-1.5623  
+##  versicolor:50   1st Qu.:-1.2225  
+##  virginica :50   Median : 0.3354  
+##                  Mean   : 0.0000  
+##                  3rd Qu.: 0.7602  
+##                  Max.   : 1.7799  
+##   med_split        
+##  Length:150        
+##  Class :character  
+##  Mode  :character  
+##                    
+##                    
+## </code></pre>
+</div>
+</div>
+<div id="tidy-aggregation-5" class="section level3" number="3.0.14">
+<h3><span class="header-section-number">3.0.14</span> tidy aggregation</h3>
+<p>Jetzt noch Häufigkeiten auszählen:</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="daten-manipulieren.html#cb68-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb68-2"><a href="daten-manipulieren.html#cb68-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Species, med_split) <span class="sc">%&gt;%</span> </span>
+<span id="cb68-3"><a href="daten-manipulieren.html#cb68-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>())</span></code></pre></div>
+<pre><code>## `summarise()` regrouping output by &#39;Species&#39; (override with `.groups` argument)</code></pre>
+<pre><code>## # A tibble: 4 x 3
+## # Groups:   Species [3]
+##   Species    med_split     n
+##   &lt;fct&gt;      &lt;chr&gt;     &lt;int&gt;
+## 1 setosa     lower        50
+## 2 versicolor lower        25
+## 3 versicolor upper        25
+## 4 virginica  upper        50</code></pre>
+</div>
+<div id="tidy-aggregation-6" class="section level3" number="3.0.15">
+<h3><span class="header-section-number">3.0.15</span> tidy aggregation</h3>
+<div class="tt-left">
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="daten-manipulieren.html#cb71-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span></code></pre></div>
+</div>
+<div class="ot-right">
+<p class="codeComment">
+Nimm <code>df</code>, dann …
+</p>
+</div>
+<div class="tt-left">
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="daten-manipulieren.html#cb72-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Species, med_split) <span class="sc">%&gt;%</span> </span></code></pre></div>
+</div>
+<div class="ot-right">
+<p class="codeComment">
+… gruppiere nach <code>Species</code> und <code>med_split</code>, dann…
+</p>
+</div>
+<div class="tt-left">
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="daten-manipulieren.html#cb73-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>()) </span></code></pre></div>
+</div>
+<div class="ot-right">
+<p class="codeComment">
+…Zähle die absoluten Häufigkeiten aus.
+</p>
+</div>
+</div>
+<div id="aufgabe" class="section level3" number="3.0.16">
+<h3><span class="header-section-number">3.0.16</span> Aufgabe</h3>
+<p>Machen Sie sich mit dem <code>swiss</code>-Datensatz vertraut. Lesen Sie dazu auch die Hilfeseite zu dem Datensatz.
+Erstellen Sie mit Hilfe einer pipeline einen Datensatz, der…</p>
+<ol style="list-style-type: decimal">
+<li><p>den Anteil der männlichen Population in der Landwirtschaft, die Kindersterblichkeit, das Bildungsniveau und den Anteil der katholischen Familien in Prozent enthält</p></li>
+<li><p>nur Provinzen enthält, deren Einwohner zu mehr als 10% Bestnoten bei der Armee-Untersuchung erhalten haben</p></li>
+<li><p>eine numerische Variable enthält, die für die so ausgewählten Fälle einen Mediansplit der Kindersterblichkeit codiert.</p></li>
+</ol>
+<p>Erstellen Sie anschließend eine kurze pipeline, die den Datensatz mit dem Absteigenden Bildungsniveau als ersten Sortierschlüssel und dem aufsteigenden Anteil katholischer Familien als zweitem Schlüssel sortiert. Nutzen Sie dafür die Hilfeseite der <code>arrange</code>-Funktion.</p>
+</div>
+<div id="regressionen-in-r" class="section level3" number="3.0.17">
+<h3><span class="header-section-number">3.0.17</span> Regressionen in R</h3>
+Viele Modelle in R benutzen eine <code>formula</code>, um die Modellparameter festzulegen.<br>
+Dabei besteht jede <code>formula</code> erstmal aus einem Vorhersage- und einem vorhergesagten Term, die durch eine Tilde getrennt werden:<br>
+<center>
+<code>Vorhergesagt</code> ~ <code>Vorhersage</code>
+</center>
+<p><br>
+Die Syntax dafür folgt dem folgenden Schema:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Operator</th>
+<th>Bedeutung in Modellformel</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">+</td>
+<td>den folgenden Vorhersageterm hinzufügen</td>
+</tr>
+<tr class="even">
+<td align="left">-</td>
+<td>den folgenden Vorhersageterm ausschließen</td>
+</tr>
+<tr class="odd">
+<td align="left">&lt;A&gt; : &lt;B&gt;</td>
+<td>Interaktion AxB als <br> Vorhersageterm</td>
+</tr>
+<tr class="even">
+<td align="left">&lt;A&gt; * &lt;B&gt;</td>
+<td>alle additiven und <br> Interaktionseffekte</td>
+</tr>
+<tr class="odd">
+<td align="left">1</td>
+<td>absoluter Term <br> (Gesamterwartungswert)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="beispiel-terme" class="section level3" number="3.0.18">
+<h3><span class="header-section-number">3.0.18</span> Beispiel-Terme</h3>
+<p>Die Vohersage von <code>A</code> durch <code>B</code>:</p>
+<center>
+<code>A</code> ~ <code>B</code>
+</center>
+<p><br></p>
+<p>Die Vohersage von <code>A</code> durch <code>B</code> und <code>C</code>:</p>
+<center>
+<code>A</code> ~ <code>B</code> + <code>C</code>
+</center>
+<p><br></p>
+<p>Die Vohersage von <code>A</code> durch die Interaktion von <code>B</code> und <code>C</code>:</p>
+<center>
+<code>A</code> ~ <code>B</code> : <code>C</code>
+</center>
+<p><br></p>
+<p>Die Vohersage von <code>A</code> durch <code>B</code>, <code>C</code> und die Interaktion von <code>B</code> und <code>C</code>:</p>
+<center>
+<code>A</code> ~ <code>B</code> * <code>C</code>
+</center>
+<p><br></p>
+</div>
+<div id="regression" class="section level3" number="3.0.19">
+<h3><span class="header-section-number">3.0.19</span> Regression</h3>
+<p>Alle linearen Regressionen lassen sich mit dem <code>base</code>-Umfang von R umsetzen.</p>
+<p>Dazu übergibt man einfach die gewünschte Modellformel der <code>lm</code>(für linear model)-Funktion. Mit dem <code>data</code>-Argument lässt sich außerdem der Datensatz festlegen, auf dessen Basis das Modell gerechnet werden soll.</p>
+<p>Als Beispiel rechnen wir hier mal die Vorhersage der Blatt-Breite duch die Kelch-Länge der Blumen im <code>iris</code>-Datansatz.</p>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="daten-manipulieren.html#cb74-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Petal.Width <span class="sc">~</span> Sepal.Length,<span class="at">data =</span> iris)</span></code></pre></div>
+</div>
+<div id="regression-1" class="section level3" number="3.0.20">
+<h3><span class="header-section-number">3.0.20</span> Regression</h3>
+<p>Der einfache Ausdruck des Modells sind erstmal nur die Schätzer:</p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="daten-manipulieren.html#cb75-1" aria-hidden="true" tabindex="-1"></a>model</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = Petal.Width ~ Sepal.Length, data = iris)
+## 
+## Coefficients:
+##  (Intercept)  Sepal.Length  
+##      -3.2002        0.7529</code></pre>
+<p>Mit der <code>summary</code>-Funktion lässt sich dann auch eine Regresssionsanalyse durchführen.</p>
+</div>
+<div id="regressionsanalyse" class="section level3 scrollable" number="3.0.21">
+<h3><span class="header-section-number">3.0.21</span> Regressionsanalyse</h3>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="daten-manipulieren.html#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = Petal.Width ~ Sepal.Length, data = iris)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -0.96671 -0.35936 -0.01787  0.28388  1.23329 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)
+## (Intercept)  -3.20022    0.25689  -12.46   &lt;2e-16
+## Sepal.Length  0.75292    0.04353   17.30   &lt;2e-16
+##                 
+## (Intercept)  ***
+## Sepal.Length ***
+## ---
+## Signif. codes:  
+## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.44 on 148 degrees of freedom
+## Multiple R-squared:  0.669,  Adjusted R-squared:  0.6668 
+## F-statistic: 299.2 on 1 and 148 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+<div id="aufgabe-1" class="section level3" number="3.0.22">
+<h3><span class="header-section-number">3.0.22</span> Aufgabe</h3>
+<p>Bearbeiten Sie auf Basis des eben erstellten Teil-Datensatzes von <code>swiss</code> die folgenden Aufgaben:</p>
+<ol style="list-style-type: decimal">
+<li><p>Ein lineares Regressionsmodell mit dem Bildungsniveau als Kriterium und dem Anteil katholischer Familien als Prädiktor</p></li>
+<li><p>Rufen Sie die Hilfeseiten der <code>tibble</code>-Funktion auf und erstellen Sie mit Ihrer Hilfe einen Datensatz, der Prädiktor und Kriterium enthält. <br> Fügen Sie dann diesem Datensatz in einer <code>pipeline</code> mit Hilfe der <code>mutate</code>-Funktion eine Variable mit den vorhergesagten Werten und eine mit den Residuen hinzu. <br> Rufen Sie dafür die Hilfeseiten der <code>fitted</code> und der <code>residuals</code>- Funktionen auf.</p></li>
+</ol>
+</div>
+<div id="aufgabe-2" class="section level3" number="3.0.23">
+<h3><span class="header-section-number">3.0.23</span> Aufgabe</h3>
+<ol start="3" style="list-style-type: decimal">
+<li>Ein lineares Regressionsmodell mit der Kindersterblichkeit als Kriterium und den folgenden Prädiktoren:
+<ul>
+<li>dem in der Landwirtschaft arbeitenden Anteil der Bevölkerung</li>
+<li>dem Bildungsniveau</li>
+<li>der Interaktion des Anteils katholischer Familien und des Bildungsniveaus</li>
+</ul></li>
+<li>Berechnen Sie auf Basis dieses zweiten Modells das korrigierte <span class="math inline">\(R^2\)</span></li>
+</ol>
+</div>
+<div id="literatur" class="section level3" number="3.0.24">
+<h3><span class="header-section-number">3.0.24</span> Literatur</h3>
+
+<script type="text/javascript">
+<!--
+    function showSolution(x){
+        element=document.getElementById('solution' + x)
+        if(element.style.visibility=='visible'){
+            element.style.visibility='hidden';
+            element.style.display='none';
+        }else{
+            element.style.visibility="visible";
+            element.style.display='block';
+        }
+    }
+
+    -->
+
+</script>
+</div>
+<div id="aufgabe-1-1" class="section level3" number="3.0.25">
+<h3><span class="header-section-number">3.0.25</span> Aufgabe 1</h3>
+<p>Machen Sie sich mit dem <code>swiss</code>-Datensatz vertraut. Lesen Sie dazu auch die Hilfeseite zu dem Datensatz.
+Erstellen Sie mit Hilfe einer pipeline einen Datensatz, der…</p>
+<ol style="list-style-type: decimal">
+<li><p>nur Provinzen enthält, deren Einwohner zu mehr als 10% und weniger als 35% Bestnoten bei der Armee-Untersuchung erhalten haben</p></li>
+<li><p>den Anteil der männlichen Population in der Landwirtschaft, die Kindersterblichkeit, das Bildungsniveau und den Anteil der katholischen Familien enthält</p></li>
+<li><p>eine numerische Variable enthält, die für die so ausgewählten Fälle einen Mediansplit der Kindersterblichkeit codiert.</p></li>
+</ol>
+<p>Erstellen Sie anschließend eine kurze pipeline, die den Datensatz mit dem Absteigenden Bildungsniveau als ersten Sortierschlüssel und dem aufsteigenden Anteil katholischer Familien als zweitem Schlüssel sortiert. Nutzen Sie dafür die Hilfeseite der <code>arrange</code>-Funktion.</p>
+<input type='button' value='Lösung' onclick='showSolution(1);'/>
+<div id="solution1" style="visibility:hidden;display:none">
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="daten-manipulieren.html#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb79-2"><a href="daten-manipulieren.html#cb79-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(swiss)</span></code></pre></div>
+<pre><code>##    Fertility      Agriculture     Examination   
+##  Min.   :35.00   Min.   : 1.20   Min.   : 3.00  
+##  1st Qu.:64.70   1st Qu.:35.90   1st Qu.:12.00  
+##  Median :70.40   Median :54.10   Median :16.00  
+##  Mean   :70.14   Mean   :50.66   Mean   :16.49  
+##  3rd Qu.:78.45   3rd Qu.:67.65   3rd Qu.:22.00  
+##  Max.   :92.50   Max.   :89.70   Max.   :37.00  
+##    Education        Catholic      
+##  Min.   : 1.00   Min.   :  2.150  
+##  1st Qu.: 6.00   1st Qu.:  5.195  
+##  Median : 8.00   Median : 15.140  
+##  Mean   :10.98   Mean   : 41.144  
+##  3rd Qu.:12.00   3rd Qu.: 93.125  
+##  Max.   :53.00   Max.   :100.000  
+##  Infant.Mortality
+##  Min.   :10.80   
+##  1st Qu.:18.15   
+##  Median :20.00   
+##  Mean   :19.94   
+##  3rd Qu.:21.70   
+##  Max.   :26.60</code></pre>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="daten-manipulieren.html#cb81-1" aria-hidden="true" tabindex="-1"></a>sub_swiss <span class="ot">&lt;-</span> swiss <span class="sc">%&gt;%</span> </span>
+<span id="cb81-2"><a href="daten-manipulieren.html#cb81-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Examination <span class="sc">&gt;</span> <span class="dv">10</span> <span class="sc">&amp;</span> Examination <span class="sc">&lt;</span> <span class="dv">35</span>) <span class="sc">%&gt;%</span>  <span class="co"># 1</span></span>
+<span id="cb81-3"><a href="daten-manipulieren.html#cb81-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Agriculture, Infant.Mortality, Education, Catholic) <span class="sc">%&gt;%</span> <span class="co">#2</span></span>
+<span id="cb81-4"><a href="daten-manipulieren.html#cb81-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">med_split =</span> <span class="fu">if_else</span>(Infant.Mortality <span class="sc">&gt;</span> <span class="fu">median</span>(Infant.Mortality),</span>
+<span id="cb81-5"><a href="daten-manipulieren.html#cb81-5" aria-hidden="true" tabindex="-1"></a>                             <span class="at">true =</span> <span class="dv">1</span>,</span>
+<span id="cb81-6"><a href="daten-manipulieren.html#cb81-6" aria-hidden="true" tabindex="-1"></a>                             <span class="at">false =</span>  <span class="dv">0</span>))</span>
+<span id="cb81-7"><a href="daten-manipulieren.html#cb81-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb81-8"><a href="daten-manipulieren.html#cb81-8" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(<span class="st">&quot;arrange&quot;</span>)</span>
+<span id="cb81-9"><a href="daten-manipulieren.html#cb81-9" aria-hidden="true" tabindex="-1"></a>sub_swiss <span class="sc">%&gt;%</span> </span>
+<span id="cb81-10"><a href="daten-manipulieren.html#cb81-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(Education),</span>
+<span id="cb81-11"><a href="daten-manipulieren.html#cb81-11" aria-hidden="true" tabindex="-1"></a>          Catholic)</span></code></pre></div>
+<pre><code>##    Agriculture Infant.Mortality Education
+## 1         46.6             18.2        29
+## 2         27.7             19.3        29
+## 3         19.4             20.2        28
+## 4         15.2             10.8        20
+## 5         26.8             20.9        19
+## 6         43.5             20.6        15
+## 7         16.7             18.9        13
+## 8         45.2             24.4        13
+## 9         63.1             18.1        13
+## 10        60.7             22.7        12
+## 11        38.4             20.3        12
+## 12        62.0             16.5        12
+## 13        17.0             22.2        12
+## 14        50.9             16.7        12
+## 15         7.7             20.5        11
+## 16        59.8             18.0        10
+## 17        60.8             16.3        10
+## 18        73.0             20.0         9
+## 19        34.0             20.0         8
+## 20        58.1             23.8         8
+## 21        49.5             22.5         8
+## 22        67.8             24.9         8
+## 23        67.5             19.1         7
+## 24        37.6             20.0         7
+## 25        18.7             19.5         7
+## 26        36.5             20.3         7
+## 27        70.2             23.6         7
+## 28        53.3             21.0         7
+## 29        54.1             15.3         6
+## 30        64.5             24.5         6
+## 31        78.2             19.4         6
+## 32        69.3             18.7         5
+## 33        55.1             22.4         3
+## 34        72.6             21.2         2
+## 35        71.2             21.0         1
+##    Catholic med_split
+## 1     50.43         0
+## 2     58.33         0
+## 3     12.11         0
+## 4      2.15         0
+## 5     18.46         1
+## 6      5.16         1
+## 7     11.22         0
+## 8     91.38         1
+## 9     96.83         0
+## 10     4.43         1
+## 11     5.62         1
+## 12     8.52         0
+## 13     9.96         1
+## 14    15.14         0
+## 15    13.79         1
+## 16     5.23         0
+## 17     7.72         0
+## 18     2.84         0
+## 19     3.30         0
+## 20     5.23         1
+## 21     6.10         1
+## 22    97.16         1
+## 23     2.27         0
+## 24     4.97         0
+## 25     8.65         0
+## 26    33.77         1
+## 27    92.85         1
+## 28    97.67         1
+## 29     4.20         0
+## 30    98.61         1
+## 31    98.96         0
+## 32     2.82         0
+## 33     4.52         1
+## 34    24.20         1
+## 35     2.40         1</code></pre>
+</div>
+</div>
+<div id="aufgabe-2-1" class="section level3" number="3.0.26">
+<h3><span class="header-section-number">3.0.26</span> Aufgabe 2</h3>
+<p>Bearbeiten Sie auf Basis des eben erstellten Teil-Datensatzes von <code>swiss</code> die folgenden Aufgaben:</p>
+<ol style="list-style-type: decimal">
+<li><p>Ein lineares Regressionsmodell mit dem Bildungsniveau als Kriterium und dem Anteil katholischer Familien als Prädiktor</p></li>
+<li><p>Erstellen Sie einen Datensatz mit dem Namen <code>reg_swiss</code>, der Prädiktor und Kriterium enthält. Erstellen Sie dafür auch wieder eine pipeline, in die Sie Ihren Unterdatensatz geben. <br> Fügen Sie dann diesem Datensatz in einer <code>pipeline</code> mit Hilfe der <code>mutate</code>-Funktion eine Variable mit den vorhergesagten Werten und eine mit den Residuen hinzu. <br> Rufen Sie dafür die Hilfeseiten der <code>fitted</code> und der <code>residuals</code>- Funktionen auf.</p></li>
+<li><p>Ein lineares Regressionsmodell mit der Kindersterblichkeit als Kriterium und den folgenden Prädiktoren:</p>
+<ul>
+<li>dem in der Landwirtschaft arbeitenden Anteil der Bevölkerung</li>
+<li>dem Bildungsniveau</li>
+<li>der Interaktion des Anteils katholischer Familien und des Bildungsniveaus</li>
+</ul></li>
+<li><p>Lassen Sie sich für dieses zweiten Modells das korrigierte <span class="math inline">\(R^2\)</span> ausgeben</p></li>
+</ol>
+<input type='button' value='Lösung' onclick='showSolution(2);'/>
+<div id="solution2" style="visibility:hidden;display:none">
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="daten-manipulieren.html#cb83-1" aria-hidden="true" tabindex="-1"></a>model_1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Education <span class="sc">~</span> Catholic,<span class="at">data=</span>sub_swiss)</span>
+<span id="cb83-2"><a href="daten-manipulieren.html#cb83-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb83-3"><a href="daten-manipulieren.html#cb83-3" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(<span class="st">&#39;fitted&#39;</span>)</span>
+<span id="cb83-4"><a href="daten-manipulieren.html#cb83-4" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(<span class="st">&quot;residuals&quot;</span>)</span>
+<span id="cb83-5"><a href="daten-manipulieren.html#cb83-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb83-6"><a href="daten-manipulieren.html#cb83-6" aria-hidden="true" tabindex="-1"></a>reg_swiss <span class="ot">&lt;-</span> sub_swiss <span class="sc">%&gt;%</span> </span>
+<span id="cb83-7"><a href="daten-manipulieren.html#cb83-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Education, Catholic) <span class="sc">%&gt;%</span> </span>
+<span id="cb83-8"><a href="daten-manipulieren.html#cb83-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">fitted =</span> <span class="fu">fitted</span>(model_1),</span>
+<span id="cb83-9"><a href="daten-manipulieren.html#cb83-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">resid =</span> <span class="fu">residuals</span>(model_1))</span>
+<span id="cb83-10"><a href="daten-manipulieren.html#cb83-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb83-11"><a href="daten-manipulieren.html#cb83-11" aria-hidden="true" tabindex="-1"></a>model_2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Infant.Mortality <span class="sc">~</span> Agriculture <span class="sc">+</span> Education <span class="sc">+</span> Education<span class="sc">:</span>Catholic,<span class="at">data =</span> sub_swiss)</span>
+<span id="cb83-12"><a href="daten-manipulieren.html#cb83-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb83-13"><a href="daten-manipulieren.html#cb83-13" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model_2)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = Infant.Mortality ~ Agriculture + Education + Education:Catholic, 
+##     data = sub_swiss)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -6.7721 -1.2469 -0.1436  2.2176  4.0171 
+## 
+## Coefficients:
+##                     Estimate Std. Error t value
+## (Intercept)        22.476619   2.115070  10.627
+## Agriculture        -0.015453   0.029344  -0.527
+## Education          -0.239759   0.100405  -2.388
+## Education:Catholic  0.002921   0.001301   2.246
+##                    Pr(&gt;|t|)    
+## (Intercept)        7.36e-12 ***
+## Agriculture          0.6022    
+## Education            0.0232 *  
+## Education:Catholic   0.0320 *  
+## ---
+## Signif. codes:  
+## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 2.671 on 31 degrees of freedom
+## Multiple R-squared:  0.2081, Adjusted R-squared:  0.1314 
+## F-statistic: 2.715 on 3 and 31 DF,  p-value: 0.06169</code></pre>
+</div>
+
+<!-- # --- -->
+<!-- # title: "Daten einlesen" -->
+<!-- # author: "Max Brede" -->
+<!-- # date: "11/12/2020" -->
+<!-- # output: -->
+<!-- #   ioslides_presentation: -->
+<!-- #     transition: faster -->
+<!-- #     css: /home/brede/MEGA/Honorar/111220_KfN/styles.css -->
+<!-- #     slide_level: 3 -->
+<!-- # widescreen: true -->
+<!-- # bibliography: /home/brede/MEGA/Honorar/111220_KfN/references.bib -->
+<!-- # csl: /home/brede/MEGA/Honorar/111220_KfN/apa.csl -->
+<!-- # smaller: true  -->
+<!-- # --- -->
+<!-- ```{r,results='asis', echo = F} -->
+<!-- read_file('/home/brede/MEGA/Honorar/111220_KfN/ioTOC.html') %>% cat -->
+<!-- read_file('/home/brede/MEGA/Honorar/111220_KfN/scrollableSlides.html') %>% cat -->
+<!-- ``` -->
+<!-- ### Ablauf -->
+<!-- <div id="toc"></div> -->
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="2">
+<li id="fn2"><p>Für über eine Übersicht über mehr mögliche geoms lässt sich das <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/master/data-visualization-2.1.pdf">ggplot2-cheatsheet</a> empfehlen.<a href="daten-manipulieren.html#fnref2" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="rste-schritte.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="daten-einlesen.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["R - KfN 11.12.20.pdf"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

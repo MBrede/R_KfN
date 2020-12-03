@@ -1,0 +1,22 @@
+ONS_Code,region,admissions,homicide,Attempted murder,Satisfaction
+E10000006,Cumbria,72,7,3,7.75
+E10000017,Lancashire,214,16,19,7.25
+E10000023,North Yorkshire,44,9,6,7.75
+E10000007,Derbyshire,81,4,6,7.25
+E10000018,Leicestershire,56,6,11,7
+E10000019,Lincolnshire,56,10,13,7.25
+E10000021,Northamptonshire,0,8,5,7.75
+E12000005,West Midlands,552,NA,NA,7.25
+E10000028,Staffordshire,59,14,17,7.25
+E10000031,Warwickshire,26,6,5,7
+E10000003,Cambridgeshire,28,7,13,7.25
+E10000012,Essex,98,11,15,7.25
+E10000015,Hertfordshire,52,9,8,7.5
+E10000020,Norfolk,90,7,3,7.5
+E10000029,Suffolk,52,5,6,7.75
+E10000014,Hampshire,166,17,16,7.5
+E10000016,Kent,171,12,22,7.5
+E10000030,Surrey,114,10,12,7.5
+E10000009,Dorset,48,5,6,7.5
+E10000013,Gloucestershire,29,10,7,7.5
+E06000054,Wiltshire,15,4,2,7.75

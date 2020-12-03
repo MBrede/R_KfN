@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2 Rste Schritte | 02_Aufgaben</title>
+  <meta name="description" content="Kurze Einführung in den Umgang mit R" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2 Rste Schritte | 02_Aufgaben" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Kurze Einführung in den Umgang mit R" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2 Rste Schritte | 02_Aufgaben" />
+  
+  <meta name="twitter:description" content="Kurze Einführung in den Umgang mit R" />
+  
+
+<meta name="author" content="Max Brede" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="daten-manipulieren.html"/>
+<script src="libs/header-attrs-2.5/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="/home/brede/MEGA/Honorar/111220_KfN/styles.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R - KfN <br> 11.12.20</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Vorwort</a>
+<ul>
+<li class="chapter" data-level="1.0.1" data-path="index.html"><a href="index.html#ablaufplan"><i class="fa fa-check"></i><b>1.0.1</b> Ablaufplan</a></li>
+<li class="chapter" data-level="1.0.2" data-path="index.html"><a href="index.html#voraussetzungen"><i class="fa fa-check"></i><b>1.0.2</b> Voraussetzungen</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="rste-schritte.html"><a href="rste-schritte.html"><i class="fa fa-check"></i><b>2</b> Rste Schritte</a>
+<ul>
+<li class="chapter" data-level="2.0.1" data-path="rste-schritte.html"><a href="rste-schritte.html#warum-r"><i class="fa fa-check"></i><b>2.0.1</b> Warum R?</a></li>
+<li class="chapter" data-level="2.0.2" data-path="rste-schritte.html"><a href="rste-schritte.html#das-sind-nicht-alles-wissenschaftler"><i class="fa fa-check"></i><b>2.0.2</b> …das sind nicht alles Wissenschaftler!</a></li>
+<li class="chapter" data-level="2.0.3" data-path="rste-schritte.html"><a href="rste-schritte.html#das-sind-doch-alles-nur-hilfeschreie"><i class="fa fa-check"></i><b>2.0.3</b> … das sind doch alles nur Hilfeschreie!</a></li>
+<li class="chapter" data-level="2.0.4" data-path="rste-schritte.html"><a href="rste-schritte.html#warum-r-1"><i class="fa fa-check"></i><b>2.0.4</b> Warum R?</a></li>
+<li class="chapter" data-level="2.0.5" data-path="rste-schritte.html"><a href="rste-schritte.html#warum-benutzen-wir-dann-nicht-alle-r"><i class="fa fa-check"></i><b>2.0.5</b> Warum benutzen wir dann nicht alle R?</a></li>
+<li class="chapter" data-level="2.0.6" data-path="rste-schritte.html"><a href="rste-schritte.html#r-syntax-basics"><i class="fa fa-check"></i><b>2.0.6</b> R-Syntax Basics</a></li>
+<li class="chapter" data-level="2.0.7" data-path="rste-schritte.html"><a href="rste-schritte.html#zuweisungen-und-das-environment"><i class="fa fa-check"></i><b>2.0.7</b> 1. Zuweisungen und das Environment</a></li>
+<li class="chapter" data-level="2.0.8" data-path="rste-schritte.html"><a href="rste-schritte.html#zuweisungen-und-das-environment-1"><i class="fa fa-check"></i><b>2.0.8</b> 1. Zuweisungen und das <code>Environment</code></a></li>
+<li class="chapter" data-level="2.0.9" data-path="rste-schritte.html"><a href="rste-schritte.html#zuweisungen-und-das-environment-2"><i class="fa fa-check"></i><b>2.0.9</b> 1. Zuweisungen und das <code>Environment</code></a></li>
+<li class="chapter" data-level="2.0.10" data-path="rste-schritte.html"><a href="rste-schritte.html#funktionen-und-argumente"><i class="fa fa-check"></i><b>2.0.10</b> 2. Funktionen und Argumente</a></li>
+<li class="chapter" data-level="2.0.11" data-path="rste-schritte.html"><a href="rste-schritte.html#obligatorische-und-optionale-argumente"><i class="fa fa-check"></i><b>2.0.11</b> 2. obligatorische und optionale Argumente</a></li>
+<li class="chapter" data-level="2.0.12" data-path="rste-schritte.html"><a href="rste-schritte.html#obligatorische-und-optionale-argumente-1"><i class="fa fa-check"></i><b>2.0.12</b> 2. obligatorische und optionale Argumente</a></li>
+<li class="chapter" data-level="2.0.13" data-path="rste-schritte.html"><a href="rste-schritte.html#obligatorische-und-optionale-argumente-2"><i class="fa fa-check"></i><b>2.0.13</b> 2. obligatorische und optionale Argumente</a></li>
+<li class="chapter" data-level="2.0.14" data-path="rste-schritte.html"><a href="rste-schritte.html#obligatorische-und-optionale-argumente-3"><i class="fa fa-check"></i><b>2.0.14</b> 2. obligatorische und optionale Argumente</a></li>
+<li class="chapter" data-level="2.0.15" data-path="rste-schritte.html"><a href="rste-schritte.html#position-von-argumente"><i class="fa fa-check"></i><b>2.0.15</b> Position von Argumente</a></li>
+<li class="chapter" data-level="2.0.16" data-path="rste-schritte.html"><a href="rste-schritte.html#positionelle-argumente"><i class="fa fa-check"></i><b>2.0.16</b> positionelle Argumente</a></li>
+<li class="chapter" data-level="2.0.17" data-path="rste-schritte.html"><a href="rste-schritte.html#operatoren"><i class="fa fa-check"></i><b>2.0.17</b> Operatoren</a></li>
+<li class="chapter" data-level="2.0.18" data-path="rste-schritte.html"><a href="rste-schritte.html#indizierung"><i class="fa fa-check"></i><b>2.0.18</b> 3. Indizierung</a></li>
+<li class="chapter" data-level="2.0.19" data-path="rste-schritte.html"><a href="rste-schritte.html#indizierung-1"><i class="fa fa-check"></i><b>2.0.19</b> 3. Indizierung</a></li>
+<li class="chapter" data-level="2.0.20" data-path="rste-schritte.html"><a href="rste-schritte.html#indizierung-2"><i class="fa fa-check"></i><b>2.0.20</b> 3. Indizierung</a></li>
+<li class="chapter" data-level="2.0.21" data-path="rste-schritte.html"><a href="rste-schritte.html#indizierung-3"><i class="fa fa-check"></i><b>2.0.21</b> 3. Indizierung</a></li>
+<li class="chapter" data-level="2.0.22" data-path="rste-schritte.html"><a href="rste-schritte.html#logische-indizierung"><i class="fa fa-check"></i><b>2.0.22</b> logische Indizierung</a></li>
+<li class="chapter" data-level="2.0.23" data-path="rste-schritte.html"><a href="rste-schritte.html#logische-indizierung-1"><i class="fa fa-check"></i><b>2.0.23</b> 3. logische Indizierung</a></li>
+<li class="chapter" data-level="2.0.24" data-path="rste-schritte.html"><a href="rste-schritte.html#datenformate-in-r"><i class="fa fa-check"></i><b>2.0.24</b> Datenformate in R</a></li>
+<li class="chapter" data-level="2.0.25" data-path="rste-schritte.html"><a href="rste-schritte.html#datenformate-in-r-1"><i class="fa fa-check"></i><b>2.0.25</b> Datenformate in R</a></li>
+<li class="chapter" data-level="2.0.26" data-path="rste-schritte.html"><a href="rste-schritte.html#datenformate-in-r-2"><i class="fa fa-check"></i><b>2.0.26</b> Datenformate in R</a></li>
+<li class="chapter" data-level="2.0.27" data-path="rste-schritte.html"><a href="rste-schritte.html#datenformate-in-r-3"><i class="fa fa-check"></i><b>2.0.27</b> Datenformate in R</a></li>
+<li class="chapter" data-level="2.0.28" data-path="rste-schritte.html"><a href="rste-schritte.html#datenformate-in-r-4"><i class="fa fa-check"></i><b>2.0.28</b> Datenformate in R</a></li>
+<li class="chapter" data-level="2.0.29" data-path="rste-schritte.html"><a href="rste-schritte.html#datenformate-in-r-5"><i class="fa fa-check"></i><b>2.0.29</b> Datenformate in R</a></li>
+<li class="chapter" data-level="2.0.30" data-path="rste-schritte.html"><a href="rste-schritte.html#datenformate-in-r-6"><i class="fa fa-check"></i><b>2.0.30</b> Datenformate in R</a></li>
+<li class="chapter" data-level="2.0.31" data-path="rste-schritte.html"><a href="rste-schritte.html#datenformate-in-r-7"><i class="fa fa-check"></i><b>2.0.31</b> Datenformate in R</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html"><i class="fa fa-check"></i><b>3</b> Daten manipulieren</a>
+<ul>
+<li class="chapter" data-level="3.0.1" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#datensätze-in-r"><i class="fa fa-check"></i><b>3.0.1</b> Datensätze in R</a></li>
+<li class="chapter" data-level="3.0.2" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#datensätze-in-r-1"><i class="fa fa-check"></i><b>3.0.2</b> Datensätze in R</a></li>
+<li class="chapter" data-level="3.0.3" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#datensätze-in-r-2"><i class="fa fa-check"></i><b>3.0.3</b> Datensätze in R</a></li>
+<li class="chapter" data-level="3.0.4" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#übersicht-über-datensatz-verschaffen"><i class="fa fa-check"></i><b>3.0.4</b> Übersicht über Datensatz verschaffen</a></li>
+<li class="chapter" data-level="3.0.5" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#übersicht-über-datensatz-verschaffen-1"><i class="fa fa-check"></i><b>3.0.5</b> Übersicht über Datensatz verschaffen</a></li>
+<li class="chapter" data-level="3.0.6" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#aufgabe-deskriptive-kennwerte-berechnen"><i class="fa fa-check"></i><b>3.0.6</b> Aufgabe: Deskriptive Kennwerte berechnen</a></li>
+<li class="chapter" data-level="3.0.7" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#aufgabe-base-r-lösung"><i class="fa fa-check"></i><b>3.0.7</b> Aufgabe: Base-R Lösung</a></li>
+<li class="chapter" data-level="3.0.8" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#auftritt-tidyverse"><i class="fa fa-check"></i><b>3.0.8</b> Auftritt tidyverse</a></li>
+<li class="chapter" data-level="3.0.9" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#tidy-aggregation"><i class="fa fa-check"></i><b>3.0.9</b> tidy aggregation</a></li>
+<li class="chapter" data-level="3.0.10" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#tidy-aggregation-1"><i class="fa fa-check"></i><b>3.0.10</b> tidy aggregation</a></li>
+<li class="chapter" data-level="3.0.11" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#tidy-aggregation-2"><i class="fa fa-check"></i><b>3.0.11</b> tidy aggregation</a></li>
+<li class="chapter" data-level="3.0.12" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#tidy-aggregation-3"><i class="fa fa-check"></i><b>3.0.12</b> tidy aggregation</a></li>
+<li class="chapter" data-level="3.0.13" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#tidy-aggregation-4"><i class="fa fa-check"></i><b>3.0.13</b> tidy aggregation</a></li>
+<li class="chapter" data-level="3.0.14" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#tidy-aggregation-5"><i class="fa fa-check"></i><b>3.0.14</b> tidy aggregation</a></li>
+<li class="chapter" data-level="3.0.15" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#tidy-aggregation-6"><i class="fa fa-check"></i><b>3.0.15</b> tidy aggregation</a></li>
+<li class="chapter" data-level="3.0.16" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#aufgabe"><i class="fa fa-check"></i><b>3.0.16</b> Aufgabe</a></li>
+<li class="chapter" data-level="3.0.17" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#regressionen-in-r"><i class="fa fa-check"></i><b>3.0.17</b> Regressionen in R</a></li>
+<li class="chapter" data-level="3.0.18" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#beispiel-terme"><i class="fa fa-check"></i><b>3.0.18</b> Beispiel-Terme</a></li>
+<li class="chapter" data-level="3.0.19" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#regression"><i class="fa fa-check"></i><b>3.0.19</b> Regression</a></li>
+<li class="chapter" data-level="3.0.20" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#regression-1"><i class="fa fa-check"></i><b>3.0.20</b> Regression</a></li>
+<li class="chapter" data-level="3.0.21" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#regressionsanalyse"><i class="fa fa-check"></i><b>3.0.21</b> Regressionsanalyse</a></li>
+<li class="chapter" data-level="3.0.22" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#aufgabe-1"><i class="fa fa-check"></i><b>3.0.22</b> Aufgabe</a></li>
+<li class="chapter" data-level="3.0.23" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#aufgabe-2"><i class="fa fa-check"></i><b>3.0.23</b> Aufgabe</a></li>
+<li class="chapter" data-level="3.0.24" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#literatur"><i class="fa fa-check"></i><b>3.0.24</b> Literatur</a></li>
+<li class="chapter" data-level="3.0.25" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#aufgabe-1-1"><i class="fa fa-check"></i><b>3.0.25</b> Aufgabe 1</a></li>
+<li class="chapter" data-level="3.0.26" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#aufgabe-2-1"><i class="fa fa-check"></i><b>3.0.26</b> Aufgabe 2</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="daten-einlesen.html"><a href="daten-einlesen.html"><i class="fa fa-check"></i><b>4</b> Daten einlesen</a>
+<ul>
+<li class="chapter" data-level="4.0.1" data-path="daten-einlesen.html"><a href="daten-einlesen.html#einlesen-von-daten"><i class="fa fa-check"></i><b>4.0.1</b> Einlesen von Daten</a></li>
+<li class="chapter" data-level="4.0.2" data-path="daten-einlesen.html"><a href="daten-einlesen.html#einlesen-von-textdaten"><i class="fa fa-check"></i><b>4.0.2</b> Einlesen von Textdaten</a></li>
+<li class="chapter" data-level="4.0.3" data-path="daten-einlesen.html"><a href="daten-einlesen.html#problem"><i class="fa fa-check"></i><b>4.0.3</b> Problem</a></li>
+<li class="chapter" data-level="4.0.4" data-path="daten-einlesen.html"><a href="daten-einlesen.html#textbasierte-daten"><i class="fa fa-check"></i><b>4.0.4</b> textbasierte Daten</a></li>
+<li class="chapter" data-level="4.0.5" data-path="daten-einlesen.html"><a href="daten-einlesen.html#einlesen-von-textdaten-1"><i class="fa fa-check"></i><b>4.0.5</b> Einlesen von Textdaten</a></li>
+<li class="chapter" data-level="4.0.6" data-path="daten-einlesen.html"><a href="daten-einlesen.html#einlesen-von-textdateien"><i class="fa fa-check"></i><b>4.0.6</b> Einlesen von Textdateien</a></li>
+<li class="chapter" data-level="4.0.7" data-path="daten-einlesen.html"><a href="daten-einlesen.html#einlesen-von-textdateien-1"><i class="fa fa-check"></i><b>4.0.7</b> Einlesen von Textdateien</a></li>
+<li class="chapter" data-level="4.0.8" data-path="daten-einlesen.html"><a href="daten-einlesen.html#einlesen-von-textdateien-2"><i class="fa fa-check"></i><b>4.0.8</b> Einlesen von Textdateien</a></li>
+<li class="chapter" data-level="4.0.9" data-path="daten-einlesen.html"><a href="daten-einlesen.html#excel-arbeitsmappen"><i class="fa fa-check"></i><b>4.0.9</b> Excel-Arbeitsmappen</a></li>
+<li class="chapter" data-level="4.0.10" data-path="daten-einlesen.html"><a href="daten-einlesen.html#excel-arbeitsmappen-1"><i class="fa fa-check"></i><b>4.0.10</b> Excel-Arbeitsmappen</a></li>
+<li class="chapter" data-level="4.0.11" data-path="daten-einlesen.html"><a href="daten-einlesen.html#dateien-aus-anderer-software"><i class="fa fa-check"></i><b>4.0.11</b> Dateien aus anderer Software</a></li>
+<li class="chapter" data-level="4.0.12" data-path="daten-einlesen.html"><a href="daten-einlesen.html#dateien-aus-spss-einlesen"><i class="fa fa-check"></i><b>4.0.12</b> Dateien aus SPSS einlesen</a></li>
+<li class="chapter" data-level="4.0.13" data-path="daten-einlesen.html"><a href="daten-einlesen.html#dateien-aus-spss-einlesen-1"><i class="fa fa-check"></i><b>4.0.13</b> Dateien aus SPSS einlesen</a></li>
+<li class="chapter" data-level="4.0.14" data-path="daten-einlesen.html"><a href="daten-einlesen.html#dateien-aus-spss-einlesen-2"><i class="fa fa-check"></i><b>4.0.14</b> Dateien aus SPSS einlesen</a></li>
+<li class="chapter" data-level="4.0.15" data-path="daten-einlesen.html"><a href="daten-einlesen.html#datenaufbereitung"><i class="fa fa-check"></i><b>4.0.15</b> Datenaufbereitung</a></li>
+<li class="chapter" data-level="4.0.16" data-path="daten-einlesen.html"><a href="daten-einlesen.html#ausreißer-behandlung"><i class="fa fa-check"></i><b>4.0.16</b> Ausreißer-Behandlung</a></li>
+<li class="chapter" data-level="4.0.17" data-path="daten-einlesen.html"><a href="daten-einlesen.html#ausreißer-behandlung-1"><i class="fa fa-check"></i><b>4.0.17</b> Ausreißer-Behandlung</a></li>
+<li class="chapter" data-level="4.0.18" data-path="daten-einlesen.html"><a href="daten-einlesen.html#umgang-mit-fehlenden-werten"><i class="fa fa-check"></i><b>4.0.18</b> Umgang mit fehlenden Werten</a></li>
+<li class="chapter" data-level="4.0.19" data-path="daten-einlesen.html"><a href="daten-einlesen.html#umgang-mit-fehlenden-werten-1"><i class="fa fa-check"></i><b>4.0.19</b> Umgang mit fehlenden Werten</a></li>
+<li class="chapter" data-level="4.0.20" data-path="daten-einlesen.html"><a href="daten-einlesen.html#umgang-mit-fehlenden-werten-2"><i class="fa fa-check"></i><b>4.0.20</b> Umgang mit fehlenden Werten</a></li>
+<li class="chapter" data-level="4.0.21" data-path="daten-einlesen.html"><a href="daten-einlesen.html#recodieren-von-werten"><i class="fa fa-check"></i><b>4.0.21</b> Recodieren von Werten</a></li>
+<li class="chapter" data-level="4.0.22" data-path="daten-einlesen.html"><a href="daten-einlesen.html#zusammenführen-von-datensätzen"><i class="fa fa-check"></i><b>4.0.22</b> Zusammenführen von Datensätzen</a></li>
+<li class="chapter" data-level="4.0.23" data-path="daten-einlesen.html"><a href="daten-einlesen.html#vorbereitung"><i class="fa fa-check"></i><b>4.0.23</b> Vorbereitung</a></li>
+<li class="chapter" data-level="4.0.24" data-path="daten-einlesen.html"><a href="daten-einlesen.html#vorbereitung-1"><i class="fa fa-check"></i><b>4.0.24</b> Vorbereitung</a></li>
+<li class="chapter" data-level="4.0.25" data-path="daten-einlesen.html"><a href="daten-einlesen.html#vorbereitung-2"><i class="fa fa-check"></i><b>4.0.25</b> Vorbereitung</a></li>
+<li class="chapter" data-level="4.0.26" data-path="daten-einlesen.html"><a href="daten-einlesen.html#zusammenführen-von-datensätzen-1"><i class="fa fa-check"></i><b>4.0.26</b> Zusammenführen von Datensätzen</a></li>
+<li class="chapter" data-level="4.0.27" data-path="daten-einlesen.html"><a href="daten-einlesen.html#zusammenführen-von-datensätzen-2"><i class="fa fa-check"></i><b>4.0.27</b> Zusammenführen von Datensätzen</a></li>
+<li class="chapter" data-level="4.0.28" data-path="daten-einlesen.html"><a href="daten-einlesen.html#zusammenführen-von-datensätzen-3"><i class="fa fa-check"></i><b>4.0.28</b> Zusammenführen von Datensätzen</a></li>
+<li class="chapter" data-level="4.0.29" data-path="daten-einlesen.html"><a href="daten-einlesen.html#zusammenführen-von-datensätzen-4"><i class="fa fa-check"></i><b>4.0.29</b> Zusammenführen von Datensätzen</a></li>
+<li class="chapter" data-level="4.0.30" data-path="daten-einlesen.html"><a href="daten-einlesen.html#literatur-1"><i class="fa fa-check"></i><b>4.0.30</b> Literatur</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="daten-darstellen.html"><a href="daten-darstellen.html"><i class="fa fa-check"></i><b>5</b> Daten darstellen</a>
+<ul>
+<li class="chapter" data-level="5.0.1" data-path="daten-darstellen.html"><a href="daten-darstellen.html#pivotieren-von-datensätzen"><i class="fa fa-check"></i><b>5.0.1</b> pivotieren von Datensätzen</a></li>
+<li class="chapter" data-level="5.0.2" data-path="daten-darstellen.html"><a href="daten-darstellen.html#vorbereitung-zum-pivotieren"><i class="fa fa-check"></i><b>5.0.2</b> Vorbereitung zum Pivotieren</a></li>
+<li class="chapter" data-level="5.0.3" data-path="daten-darstellen.html"><a href="daten-darstellen.html#vorbereitung-zum-pivotieren-1"><i class="fa fa-check"></i><b>5.0.3</b> Vorbereitung zum Pivotieren</a></li>
+<li class="chapter" data-level="5.0.4" data-path="daten-darstellen.html"><a href="daten-darstellen.html#pivotieren-von-datensätzen-1"><i class="fa fa-check"></i><b>5.0.4</b> pivotieren von Datensätzen</a></li>
+<li class="chapter" data-level="5.0.5" data-path="daten-darstellen.html"><a href="daten-darstellen.html#vorbereitung-für-die-grafische-darstellung"><i class="fa fa-check"></i><b>5.0.5</b> Vorbereitung für die grafische Darstellung</a></li>
+<li class="chapter" data-level="5.0.6" data-path="daten-darstellen.html"><a href="daten-darstellen.html#ggplot2"><i class="fa fa-check"></i><b>5.0.6</b> ggplot2</a></li>
+<li class="chapter" data-level="5.0.7" data-path="daten-darstellen.html"><a href="daten-darstellen.html#ggplot2-1"><i class="fa fa-check"></i><b>5.0.7</b> ggplot2</a></li>
+<li class="chapter" data-level="5.0.8" data-path="daten-darstellen.html"><a href="daten-darstellen.html#ggplot2-2"><i class="fa fa-check"></i><b>5.0.8</b> ggplot2</a></li>
+<li class="chapter" data-level="5.0.9" data-path="daten-darstellen.html"><a href="daten-darstellen.html#aesthetics"><i class="fa fa-check"></i><b>5.0.9</b> aesthetics</a></li>
+<li class="chapter" data-level="5.0.10" data-path="daten-darstellen.html"><a href="daten-darstellen.html#aesthetics-1"><i class="fa fa-check"></i><b>5.0.10</b> aesthetics</a></li>
+<li class="chapter" data-level="5.0.11" data-path="daten-darstellen.html"><a href="daten-darstellen.html#aesthetics-2"><i class="fa fa-check"></i><b>5.0.11</b> aesthetics</a></li>
+<li class="chapter" data-level="5.0.12" data-path="daten-darstellen.html"><a href="daten-darstellen.html#aesthetics-3"><i class="fa fa-check"></i><b>5.0.12</b> aesthetics</a></li>
+<li class="chapter" data-level="5.0.13" data-path="daten-darstellen.html"><a href="daten-darstellen.html#geoms"><i class="fa fa-check"></i><b>5.0.13</b> geoms</a></li>
+<li class="chapter" data-level="5.0.14" data-path="daten-darstellen.html"><a href="daten-darstellen.html#geoms-1"><i class="fa fa-check"></i><b>5.0.14</b> geoms</a></li>
+<li class="chapter" data-level="5.0.15" data-path="daten-darstellen.html"><a href="daten-darstellen.html#aesthetics-4"><i class="fa fa-check"></i><b>5.0.15</b> aesthetics</a></li>
+<li class="chapter" data-level="5.0.16" data-path="daten-darstellen.html"><a href="daten-darstellen.html#facets"><i class="fa fa-check"></i><b>5.0.16</b> facets!</a></li>
+<li class="chapter" data-level="5.0.17" data-path="daten-darstellen.html"><a href="daten-darstellen.html#additional-tweeks"><i class="fa fa-check"></i><b>5.0.17</b> additional tweeks</a></li>
+<li class="chapter" data-level="5.0.18" data-path="daten-darstellen.html"><a href="daten-darstellen.html#additional-tweeks-1"><i class="fa fa-check"></i><b>5.0.18</b> additional tweeks</a></li>
+<li class="chapter" data-level="5.0.19" data-path="daten-darstellen.html"><a href="daten-darstellen.html#themes"><i class="fa fa-check"></i><b>5.0.19</b> themes</a></li>
+<li class="chapter" data-level="5.0.20" data-path="daten-darstellen.html"><a href="daten-darstellen.html#grafiken-exportieren"><i class="fa fa-check"></i><b>5.0.20</b> Grafiken exportieren</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>6</b> Appendix</a></li>
+<li class="chapter" data-level="" data-path="literatur-2.html"><a href="literatur-2.html"><i class="fa fa-check"></i>Literatur</a></li>
+<li class="divider"></li>
+<li><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons Lizenzvertrag" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">02_Aufgaben</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="rste-schritte" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Rste Schritte</h1>
+<div id="warum-r" class="section level3" number="2.0.1">
+<h3><span class="header-section-number">2.0.1</span> Warum R?</h3>
+<div id="r-ist-beliebt" class="section level4" number="2.0.1.1">
+<h4><span class="header-section-number">2.0.1.1</span> R ist beliebt</h4>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-3"></span>
+<img src="imgs/gTrends.png" alt="Google Suchanfragen, links aus [Deutschland](https://tinyurl.com/vosjrbz) und rechts [weltweit](https://tinyurl.com/vlwwp7a)" width="944" />
+<p class="caption">
+Abb. 2.1: Google Suchanfragen, links aus <a href="https://tinyurl.com/vosjrbz">Deutschland</a> und rechts <a href="https://tinyurl.com/vlwwp7a">weltweit</a>
+</p>
+</div>
+</div>
+</div>
+<div id="das-sind-nicht-alles-wissenschaftler" class="section level3" number="2.0.2">
+<h3><span class="header-section-number">2.0.2</span> …das sind nicht alles Wissenschaftler!</h3>
+<p>…stimmt, der Trend zeigt sich aber auch hier:</p>
+<!-- Wenn Zeit nochmal schöner -->
+<div class="column-left">
+<p><img src="imgs/spss_1.png" width="100%" style="display: block; margin: auto;" /><br/><img src="imgs/spss_2.png" width="100%" style="display: block; margin: auto;" /></p>
+</div>
+<div class="column-center">
+<p><img src="imgs/Stata_1.png" width="100%" style="display: block; margin: auto;" /></p>
+</div>
+<div class="column-right">
+<p><img src="imgs/R_1.png" width="100%" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="das-sind-doch-alles-nur-hilfeschreie" class="section level3" number="2.0.3">
+<h3><span class="header-section-number">2.0.3</span> … das sind doch alles nur Hilfeschreie!</h3>
+<p>…Möglich, aber dafür bekommt man für R auch leicht Hilfe.<br><br>
+Hier ein Beispiel von <a href="https://stackoverflow.com">stack overflow</a>:</p>
+<div class="column-left">
+<p><img src="imgs/so_spss.png" width="80%" style="display: block; margin: auto;" /></p>
+</div>
+<div class="column-center">
+<p><img src="imgs/so_stata.png" width="80%" style="display: block; margin: auto;" /></p>
+</div>
+<div class="column-right">
+<p><img src="imgs/so_r.png" width="80%" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="warum-r-1" class="section level3" number="2.0.4">
+<h3><span class="header-section-number">2.0.4</span> Warum R?</h3>
+<div id="wir-fassen-zusammen" class="section level4" number="2.0.4.1">
+<h4><span class="header-section-number">2.0.4.1</span> Wir fassen zusammen:</h4>
+<p>R ist sehr beliebt und hat eine sehr aktive Community</p>
+</div>
+<div id="woran-liegt-das" class="section level4 build" number="2.0.4.2">
+<h4><span class="header-section-number">2.0.4.2</span> Woran liegt das?</h4>
+<p>Das zentrale Argument:</p>
+<ul>
+<li>R ist Open Source und damit
+<ul>
+<li>kostenlos</li>
+<li>von der Community erweiterbar</li>
+</ul></li>
+</ul>
+</div>
+<!-- >- R ist eine Einstiegsdroge -->
+<!-- $\rightarrow$  das __CRAN__ (**C**omprehensive **R** **A**rchive **N**etwork) -->
+<!-- >- R ermöglicht die offene und vollständige, kommentierte Dokumentation von Datensätzen und Auswertungen -->
+</div>
+<div id="warum-benutzen-wir-dann-nicht-alle-r" class="section level3" number="2.0.5">
+<h3><span class="header-section-number">2.0.5</span> Warum benutzen wir dann nicht alle R?</h3>
+<blockquote>
+<ul>
+<li>Mausnavigierte IDEs wirken erstmal intuitiver</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>Man braucht vor allem am Anfang (ein bisschen) Frustrationstoleranz</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>Die von der Community geschriebenen Erweiterungen (und über Strecken auch <code>base R</code>) haben keine einheitliche Syntax</li>
+</ul>
+</blockquote>
+<div id="aber" class="section level4 build" number="2.0.5.1">
+<h4><span class="header-section-number">2.0.5.1</span> Aber:</h4>
+<ul>
+<li><p>Man findet sehr schnell Hilfe</p></li>
+<li><p>Es gibt Paketsammlungen, die einen Großteil der Datenaufbereitung und -analyse vereinheitlichen (z.B. das <code>tidyverse</code>)</p></li>
+</ul>
+</div>
+</div>
+<div id="r-syntax-basics" class="section level3" number="2.0.6">
+<h3><span class="header-section-number">2.0.6</span> R-Syntax Basics</h3>
+<p>Die Absoluten Grundlagen der R Syntax sind:</p>
+<ol style="list-style-type: decimal">
+<li><p>Zuweisungen und das <code>environment</code></p></li>
+<li><p>Funktionen und Argumente</p></li>
+<li><p>Indizierung</p></li>
+</ol>
+</div>
+<div id="zuweisungen-und-das-environment" class="section level3 subsection" number="2.0.7">
+<h3><span class="header-section-number">2.0.7</span> 1. Zuweisungen und das Environment</h3>
+<p>Unter Zuweisung ist erstmal nichts anderes zu verstehen, als das Ablegen eines Zwischenergebnisses unter einem Namen, um es später weiterzuverwenden.</p>
+<p>Auch wenn es andere Möglichkeiten gibt, ist die Folgende die lesbarste:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="rste-schritte.html#cb2-1" aria-hidden="true" tabindex="-1"></a>a_number <span class="ot">&lt;-</span> <span class="dv">42</span></span></code></pre></div>
+</div>
+<div id="zuweisungen-und-das-environment-1" class="section level3" number="2.0.8">
+<h3><span class="header-section-number">2.0.8</span> 1. Zuweisungen und das <code>Environment</code></h3>
+<p>Die Zahl 42 ist jetzt für weitere Verwendung im <code>Environment</code> abgelegt:</p>
+<p><img src="imgs/environment.png" width="60%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="zuweisungen-und-das-environment-2" class="section level3" number="2.0.9">
+<h3><span class="header-section-number">2.0.9</span> 1. Zuweisungen und das <code>Environment</code></h3>
+<p>Und wie die Zahl alleine weiterzuverwenden:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="rste-schritte.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dv">42</span><span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1] 1764</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="rste-schritte.html#cb5-1" aria-hidden="true" tabindex="-1"></a>a_number<span class="sc">^</span><span class="dv">2</span> <span class="do">## äquivalent</span></span></code></pre></div>
+<pre><code>## [1] 1764</code></pre>
+<p>Jede dieser in grau unterlegten Zeilen nennt man auch eine <em>Anweisung</em>. R wird in der letzten Zeile angewiesen, den ‘Inhalt’ von <code>a_number</code> zu quadrieren. Dabei wird der dahinter durch das <code>#</code>-Symbol eingeleitete Kommentar ignoriert.</p>
+</div>
+<div id="funktionen-und-argumente" class="section level3 subsection" number="2.0.10">
+<h3><span class="header-section-number">2.0.10</span> 2. Funktionen und Argumente</h3>
+<p>Der Großteil des in R erstellten Codes besteht aus <em>Funktionen</em>.<br />
+Jede Funktion ist eine Sammlung an <em>Anweisungen</em>, die nacheinander augeführt werden sollen.<br />
+<code>citation()</code> ist ein sehr einfaches Beispiel für eine solche Funktion.</p>
+<p class="q">
+Was macht <code>citation()</code>?
+</p>
+<div class="build">
+<p><br>
+<code>citation()</code> gibt in der <em>Konsole</em> aus, wie man R am Besten zitiert.
+<img src="imgs/citation.png" width="80%" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="obligatorische-und-optionale-argumente" class="section level3 subsection" number="2.0.11">
+<h3><span class="header-section-number">2.0.11</span> 2. obligatorische und optionale Argumente</h3>
+<p>Die meisten Funktionen kommen aber nicht ohne <em>Argumente</em> aus.<br />
+Argumente können in <em>obligatorische</em> und <em>optionale</em> unterteilt werden. <br></p>
+Wie die Namen schon sagen, sind <em>obligatorische</em> Argumente solche, ohne die die Funktion nicht ausgeführt werden kann.<br />
+Obligatorische Argumente sind meistens die Werte, auf deren Basis gerade die Operationen ausgeführt werden sollen.
+<p class="o">
+Wenn man keins oder ein falsches obligatorisches Argument übergibt, zeigt R einen Fehler an!
+</p>
+<p><em>optionale</em> Argumente nennt man die, für die die Autoren der Funktion einen Standard vorgesehen haben. Das sind dann meist Stellschrauben, an denen das gewünschte Ergebnis genauer festgelegt werden kann. Werden diese Argumente nicht explizit gesetzt, wird einfach der Standard verwendet.</p>
+</div>
+<div id="obligatorische-und-optionale-argumente-1" class="section level3" number="2.0.12">
+<h3><span class="header-section-number">2.0.12</span> 2. obligatorische und optionale Argumente</h3>
+<p>Ein Beispiel für eine Funktion, die obligatorische und optionale Argumente annimmt ist <code>round()</code>. <br></p>
+<p>Auf der Hilfeseite von <code>round()</code> finden wir folgendes<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> :
+<img src="imgs/help.png" width="80%" style="display: block; margin: auto;" /></p>
+<p class="q">
+Was ist hier das optionale Argument und wie erkennt man es?
+</p>
+</div>
+<div id="obligatorische-und-optionale-argumente-2" class="section level3" number="2.0.13">
+<h3><span class="header-section-number">2.0.13</span> 2. obligatorische und optionale Argumente</h3>
+<p><code>x</code> ist hier das obligatorische Argument (kein Standard durch ein <code>=</code>) angegeben</p>
+<p>Wenn man <code>round</code> ohne ausprobiert, gibt es einen Fehler:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="rste-schritte.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>()</span></code></pre></div>
+<pre><code>## Error in eval(expr, envir, enclos): 0 arguments passed to &#39;round&#39; which requires 1 or 2 arguments</code></pre>
+<p>Wen man eine Zahl übergibt, wird auf ganze Zahlen gerundet:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="rste-schritte.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fl">3.1415</span>)</span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+</div>
+<div id="obligatorische-und-optionale-argumente-3" class="section level3" number="2.0.14">
+<h3><span class="header-section-number">2.0.14</span> 2. obligatorische und optionale Argumente</h3>
+<p>Das optionale Argument <code>digits</code>, ermöglicht dann, die gewünschte Anzahl der Nachkommastellen anzugeben:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="rste-schritte.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fl">3.1415</span>, <span class="at">digits =</span> <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## [1] 3.14</code></pre>
+<p>Sowohl <code>3.1415</code> als auch <code>digits = 2</code> setzen Werte für Argumente! <br></p>
+<p>Da die Funktion aber die zu rundende Zahl <code>x</code> an erster Stelle erwartet, ergibt der Aufruf das gewünschte Ergebnis.</p>
+</div>
+<div id="position-von-argumente" class="section level3" number="2.0.15">
+<h3><span class="header-section-number">2.0.15</span> Position von Argumente</h3>
+<p>R braucht also nicht unbedingt die Argumentnamen, wenn keine da sind wird die Reihenfolge interpretiert.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="rste-schritte.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fl">3.1415</span>, <span class="dv">2</span>) <span class="do">## funktioniert, digits wird an zweiter Stelle erwartet</span></span></code></pre></div>
+<pre><code>## [1] 3.14</code></pre>
+<p class="q">
+Was versucht R, wenn ich die folgende Anweisung ausführe?
+</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="rste-schritte.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="dv">2</span>, <span class="fl">3.1415</span>)</span></code></pre></div>
+</div>
+<div id="positionelle-argumente" class="section level3" number="2.0.16">
+<h3><span class="header-section-number">2.0.16</span> positionelle Argumente</h3>
+<p>R rundet die Zahl 2 auf 3.1415 (also 3) Nachkommastellen.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="rste-schritte.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="dv">2</span>, <span class="fl">3.1415</span>) <span class="do">## funktioniert, aber vielleicht nicht wie erwartet</span></span></code></pre></div>
+<p class="o">
+Wenn man Argumente ohne Namen in falscher Reihenfolge übergibt, gibt es keine Fehlermeldung aber Blödsinn!
+</p>
+</div>
+<div id="operatoren" class="section level3" number="2.0.17">
+<h3><span class="header-section-number">2.0.17</span> Operatoren</h3>
+<p>Einzelne Zahlen benutzt man aber ja quasi nie. Deswegen hier eine sehr praktische Funktion:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="rste-schritte.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">3</span></span></code></pre></div>
+<pre><code>## [1] 1 2 3</code></pre>
+Huch! Das sieht ja gar nicht nach einer Funktion aus!
+<br>
+<div class="build">
+<p>Neben den klassischen Funktionen, die durch ein Codewort und Klammern erkenntlich sind, gibt es in R noch eine Reihe <em>Operatoren</em>, die auf den ersten Blick keine Funktionen sind.<br />
+Hier wird aber eigentlich <code>`:`(1,3)</code> ausgeführt, das Funktionsschema gilt also auch hier. <code>`:`(1,3)</code> ist nur schrecklich schlecht lesbar und viel zu viel zu tippen.</p>
+</div>
+</div>
+<div id="indizierung" class="section level3 subsection" number="2.0.18">
+<h3><span class="header-section-number">2.0.18</span> 3. Indizierung</h3>
+<p>Da wir jetzt aber erste <code>Vektoren</code> mit mehr als einem Element erstellen können, gehen wir zu nächsten Part, der <em>Indizierung</em> über.</p>
+<p>In R lassen sich Elemente eines Objektes auf viele verschiedene Arten aufrufen, am Ende laufen diese aber auf den <code>[]</code>, den <code>[[]]</code> und den <code>$</code>-Operator hinaus.</p>
+<p>Für Vektoren reicht erstmal der <code>[]</code>-Operator.</p>
+</div>
+<div id="indizierung-1" class="section level3" number="2.0.19">
+<h3><span class="header-section-number">2.0.19</span> 3. Indizierung</h3>
+<p>Das einfachste Beispiel ist der Versuch, den 3. Wert aus einer Zahlenreihe ausgeben zu lassen.</p>
+<p>Dafür erstellen wir zuerst die Zahlenreihe von 10 bis 15 und speichern diese im <code>Environment</code></p>
+<p class="q">
+Wie mache ich das?
+</p>
+<div class="build">
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="rste-schritte.html#cb19-1" aria-hidden="true" tabindex="-1"></a>eine_reihe_von_zahlen <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">15</span></span></code></pre></div>
+</div>
+</div>
+<div id="indizierung-2" class="section level3" number="2.0.20">
+<h3><span class="header-section-number">2.0.20</span> 3. Indizierung</h3>
+<p>Jetzt kann ich den <code>[]</code>-Operator benutzen, um den 3. Wert anzeigen zu lassen:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="rste-schritte.html#cb20-1" aria-hidden="true" tabindex="-1"></a>eine_reihe_von_zahlen[<span class="dv">3</span>]</span></code></pre></div>
+<pre><code>## [1] 12</code></pre>
+<p>Und fertig. So einfach.</p>
+</div>
+<div id="indizierung-3" class="section level3" number="2.0.21">
+<h3><span class="header-section-number">2.0.21</span> 3. Indizierung</h3>
+<p>Der <code>[]</code>-Operator kann aber noch viel mehr. Ich kann zum Beispiel eine Sequenz übergeben, um eine Reihe von Zahlen ausgeben zu lassen:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="rste-schritte.html#cb22-1" aria-hidden="true" tabindex="-1"></a>eine_reihe_von_zahlen[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span></code></pre></div>
+<pre><code>## [1] 10 11 12</code></pre>
+<p class="o">
+Der erste Wert ist die 10! der Index für die erste Stelle ist also die 1 (im Gegensatz zu Python z.B.)!
+</p>
+<p>Eine weitere Möglichkeit ist die ausschließende Indizierung. Mit einem <code>-</code> gibt man an, dass einen alle außer der angegebenen Stelle interessieren.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="rste-schritte.html#cb24-1" aria-hidden="true" tabindex="-1"></a>eine_reihe_von_zahlen[<span class="sc">-</span><span class="dv">3</span>]</span></code></pre></div>
+<pre><code>## [1] 10 11 13 14 15</code></pre>
+</div>
+<div id="logische-indizierung" class="section level3" number="2.0.22">
+<h3><span class="header-section-number">2.0.22</span> logische Indizierung</h3>
+<p>Der <code>[]</code>-Operator kann außerdem benutzt werden, um über <em>logische Operatoren</em> Werte zu indizieren.</p>
+<p>Die einfachsten sind hier:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="rste-schritte.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">==</span> <span class="dv">2</span> <span class="do">## ist 1 gleich 2</span></span>
+<span id="cb26-2"><a href="rste-schritte.html#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">!=</span> <span class="dv">3</span> <span class="do">## ist 1 ungleich 3</span></span>
+<span id="cb26-3"><a href="rste-schritte.html#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">&lt;</span> <span class="dv">4</span>  <span class="do">## ist 1 kleiner als 4</span></span>
+<span id="cb26-4"><a href="rste-schritte.html#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">&gt;=</span> <span class="dv">1</span> <span class="do">## ist 2 größer gleich 1</span></span></code></pre></div>
+<pre><code>## [1] FALSE
+## [1] TRUE
+## [1] TRUE
+## [1] TRUE</code></pre>
+</div>
+<div id="logische-indizierung-1" class="section level3" number="2.0.23">
+<h3><span class="header-section-number">2.0.23</span> 3. logische Indizierung</h3>
+<p>Diese Operatoren kann ich auch auf Vektoren anwenden:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="rste-schritte.html#cb28-1" aria-hidden="true" tabindex="-1"></a>eine_reihe_von_zahlen<span class="sc">&gt;</span><span class="dv">11</span></span></code></pre></div>
+<pre><code>## [1] FALSE FALSE  TRUE  TRUE  TRUE  TRUE</code></pre>
+<p>Und kann das Ergebnis auch mit dem <code>[]</code>-Operator kombinieren:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="rste-schritte.html#cb30-1" aria-hidden="true" tabindex="-1"></a>eine_reihe_von_zahlen[eine_reihe_von_zahlen<span class="sc">&gt;</span><span class="dv">11</span>]</span></code></pre></div>
+<pre><code>## [1] 12 13 14 15</code></pre>
+</div>
+<div id="datenformate-in-r" class="section level3" number="2.0.24">
+<h3><span class="header-section-number">2.0.24</span> Datenformate in R</h3>
+<p>Bei der letzten Operation haben wir zwei Datenformate kennengelernt:</p>
+<ul>
+<li><p><code>logical</code>, eine binär-logische Angabe und</p></li>
+<li><p><code>numeric</code>, alle ganze und (darstellbare) rationale Zahlen</p></li>
+</ul>
+<p>Jetzt kennen wir schon 2 der 3 wichtigsten einfachen oder <code>atomic</code> Datenformate in R</p>
+</div>
+<div id="datenformate-in-r-1" class="section level3" number="2.0.25">
+<h3><span class="header-section-number">2.0.25</span> Datenformate in R</h3>
+<p>Neben Zahlen muss R aber natürlich auch Text verarbeiten können. Dies geschieht über das <code>character</code>-Datenformat.</p>
+<p class="q">
+Wie könnte ich versuchen, ein <code>character</code>-Objekt mit dem Inhalt “Ich bin ein String” anzulegen?
+</p>
+<div class="build">
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="rste-schritte.html#cb32-1" aria-hidden="true" tabindex="-1"></a>ein_toller_character <span class="ot">&lt;-</span> <span class="st">&quot;Ich bin ein String&quot;</span></span></code></pre></div>
+</div>
+</div>
+<div id="datenformate-in-r-2" class="section level3" number="2.0.26">
+<h3><span class="header-section-number">2.0.26</span> Datenformate in R</h3>
+<p>Diese einfachen Datenformate haben eine Hierarchie, die man so darzustellen versuchen könnte:</p>
+<center>
+<code> logical &lt; numeric &lt; character </code>
+</center>
+<br>
+<br>
+<div class="build">
+<p>Um uns das zu verdeutlichen, lernen wir noch eine neue Funktion:</p>
+<ul>
+<li><code>c()</code> - die Vektor-Funktion. Mit ihr können wir Vektoren erstellen und Werte zu bestehenden Vektoren hinzufügen.</li>
+</ul>
+</div>
+</div>
+<div id="datenformate-in-r-3" class="section level3" number="2.0.27">
+<h3><span class="header-section-number">2.0.27</span> Datenformate in R</h3>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="rste-schritte.html#cb33-1" aria-hidden="true" tabindex="-1"></a>logical_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)</span>
+<span id="cb33-2"><a href="rste-schritte.html#cb33-2" aria-hidden="true" tabindex="-1"></a>logical_vector</span></code></pre></div>
+<pre><code>## [1]  TRUE  TRUE FALSE</code></pre>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="rste-schritte.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(logical_vector,<span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## [1] 1 1 0 1</code></pre>
+<p>Die logischen Werte wurden in Zahlen umgewandelt.</p>
+</div>
+<div id="datenformate-in-r-4" class="section level3" number="2.0.28">
+<h3><span class="header-section-number">2.0.28</span> Datenformate in R</h3>
+<p class="q">
+Was passiert wohl, wenn wir eine 1 <em>und</em> einen <code>character</code> hinzufügen?
+</p>
+<div class="build">
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="rste-schritte.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(logical_vector,<span class="dv">1</span>,<span class="st">&#39;ein character&#39;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;TRUE&quot;          &quot;TRUE&quot;         
+## [3] &quot;FALSE&quot;         &quot;1&quot;            
+## [5] &quot;ein character&quot;</code></pre>
+<p>Die logischen Werte und die Zahl wurden in <code>character</code> umgewandelt</p>
+</div>
+</div>
+<div id="datenformate-in-r-5" class="section level3" number="2.0.29">
+<h3><span class="header-section-number">2.0.29</span> Datenformate in R</h3>
+<p class="o">
+Die <code>atomics</code> haben eine klare Hierarchie!
+</p>
+<p>Rückgängig machen lässt sich das durch <code>as.logical</code>, <code>as.numeric</code> und <code>as.character</code>. Aber Vorsicht, so können auch leicht fehlende Werte, durch <code>NA</code> gekennzeichnet erzeugt werden:</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="rste-schritte.html#cb39-1" aria-hidden="true" tabindex="-1"></a>ein_umzuwandelnder_vektor <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;a&#39;</span>,<span class="dv">1</span>,<span class="dv">15</span>,<span class="cn">TRUE</span>)</span>
+<span id="cb39-2"><a href="rste-schritte.html#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(ein_umzuwandelnder_vektor)</span></code></pre></div>
+<pre><code>## Warning: NAs introduced by coercion</code></pre>
+<pre><code>## [1] NA  1 15 NA</code></pre>
+</div>
+<div id="datenformate-in-r-6" class="section level3" number="2.0.30">
+<h3><span class="header-section-number">2.0.30</span> Datenformate in R</h3>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="rste-schritte.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(ein_umzuwandelnder_vektor)</span></code></pre></div>
+<pre><code>## Warning: NAs introduced by coercion</code></pre>
+<pre><code>## [1] NA  1 15 NA</code></pre>
+<p class="q">
+Warum fehlt auch der letzte Wert?
+</p>
+<div class="build">
+<p>Weil das <code>TRUE</code> inzwischen ein <code>character</code> ist.</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="rste-schritte.html#cb45-1" aria-hidden="true" tabindex="-1"></a>ein_umzuwandelnder_vektor</span></code></pre></div>
+<pre><code>## [1] &quot;a&quot;    &quot;1&quot;    &quot;15&quot;   &quot;TRUE&quot;</code></pre>
+</div>
+</div>
+<div id="datenformate-in-r-7" class="section level3" number="2.0.31">
+<h3><span class="header-section-number">2.0.31</span> Datenformate in R</h3>
+<p>Natürlich gibt es auch komplexere, mehrsimensionale Datenformate in R, um die kümmern wir uns dann nach der Pause.</p>
+
+<!-- # --- -->
+<!-- # title: "Daten manipulieren" -->
+<!-- # author: "Max Brede" -->
+<!-- # date: "11/12/2020" -->
+<!-- # output: -->
+<!-- #   ioslides_presentation: -->
+<!-- #     transition: faster -->
+<!-- #     css: /home/brede/MEGA/Honorar/111220_KfN/styles.css -->
+<!-- #     slide_level: 3 -->
+<!-- # widescreen: true -->
+<!-- # bibliography: /home/brede/MEGA/Honorar/111220_KfN/references.bib -->
+<!-- # csl: /home/brede/MEGA/Honorar/111220_KfN/apa.csl -->
+<!-- # smaller: true  -->
+<!-- # --- -->
+<!-- ```{r,results='asis', echo = F} -->
+<!-- read_file('/home/brede/MEGA/Honorar/111220_KfN/ioTOC.html') %>% cat -->
+<!-- read_file('/home/brede/MEGA/Honorar/111220_KfN/scrollableSlides.html') %>% cat -->
+<!-- ``` -->
+<!-- ### Ablauf -->
+<!-- <div id="toc"></div> -->
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>Für über eine Übersicht über mehr mögliche geoms lässt sich das <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/master/data-visualization-2.1.pdf">ggplot2-cheatsheet</a> empfehlen.<a href="rste-schritte.html#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="daten-manipulieren.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["R - KfN 11.12.20.pdf"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

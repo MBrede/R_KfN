@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>02_Aufgaben</title>
+  <meta name="description" content="Kurze Einführung in den Umgang mit R" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="02_Aufgaben" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Kurze Einführung in den Umgang mit R" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="02_Aufgaben" />
+  
+  <meta name="twitter:description" content="Kurze Einführung in den Umgang mit R" />
+  
+
+<meta name="author" content="Max Brede" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+<link rel="next" href="rste-schritte.html"/>
+<script src="libs/header-attrs-2.5/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="/home/brede/MEGA/Honorar/111220_KfN/styles.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R - KfN <br> 11.12.20</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Vorwort</a>
+<ul>
+<li class="chapter" data-level="1.0.1" data-path="index.html"><a href="index.html#ablaufplan"><i class="fa fa-check"></i><b>1.0.1</b> Ablaufplan</a></li>
+<li class="chapter" data-level="1.0.2" data-path="index.html"><a href="index.html#voraussetzungen"><i class="fa fa-check"></i><b>1.0.2</b> Voraussetzungen</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="rste-schritte.html"><a href="rste-schritte.html"><i class="fa fa-check"></i><b>2</b> Rste Schritte</a>
+<ul>
+<li class="chapter" data-level="2.0.1" data-path="rste-schritte.html"><a href="rste-schritte.html#warum-r"><i class="fa fa-check"></i><b>2.0.1</b> Warum R?</a></li>
+<li class="chapter" data-level="2.0.2" data-path="rste-schritte.html"><a href="rste-schritte.html#das-sind-nicht-alles-wissenschaftler"><i class="fa fa-check"></i><b>2.0.2</b> …das sind nicht alles Wissenschaftler!</a></li>
+<li class="chapter" data-level="2.0.3" data-path="rste-schritte.html"><a href="rste-schritte.html#das-sind-doch-alles-nur-hilfeschreie"><i class="fa fa-check"></i><b>2.0.3</b> … das sind doch alles nur Hilfeschreie!</a></li>
+<li class="chapter" data-level="2.0.4" data-path="rste-schritte.html"><a href="rste-schritte.html#warum-r-1"><i class="fa fa-check"></i><b>2.0.4</b> Warum R?</a></li>
+<li class="chapter" data-level="2.0.5" data-path="rste-schritte.html"><a href="rste-schritte.html#warum-benutzen-wir-dann-nicht-alle-r"><i class="fa fa-check"></i><b>2.0.5</b> Warum benutzen wir dann nicht alle R?</a></li>
+<li class="chapter" data-level="2.0.6" data-path="rste-schritte.html"><a href="rste-schritte.html#r-syntax-basics"><i class="fa fa-check"></i><b>2.0.6</b> R-Syntax Basics</a></li>
+<li class="chapter" data-level="2.0.7" data-path="rste-schritte.html"><a href="rste-schritte.html#zuweisungen-und-das-environment"><i class="fa fa-check"></i><b>2.0.7</b> 1. Zuweisungen und das Environment</a></li>
+<li class="chapter" data-level="2.0.8" data-path="rste-schritte.html"><a href="rste-schritte.html#zuweisungen-und-das-environment-1"><i class="fa fa-check"></i><b>2.0.8</b> 1. Zuweisungen und das <code>Environment</code></a></li>
+<li class="chapter" data-level="2.0.9" data-path="rste-schritte.html"><a href="rste-schritte.html#zuweisungen-und-das-environment-2"><i class="fa fa-check"></i><b>2.0.9</b> 1. Zuweisungen und das <code>Environment</code></a></li>
+<li class="chapter" data-level="2.0.10" data-path="rste-schritte.html"><a href="rste-schritte.html#funktionen-und-argumente"><i class="fa fa-check"></i><b>2.0.10</b> 2. Funktionen und Argumente</a></li>
+<li class="chapter" data-level="2.0.11" data-path="rste-schritte.html"><a href="rste-schritte.html#obligatorische-und-optionale-argumente"><i class="fa fa-check"></i><b>2.0.11</b> 2. obligatorische und optionale Argumente</a></li>
+<li class="chapter" data-level="2.0.12" data-path="rste-schritte.html"><a href="rste-schritte.html#obligatorische-und-optionale-argumente-1"><i class="fa fa-check"></i><b>2.0.12</b> 2. obligatorische und optionale Argumente</a></li>
+<li class="chapter" data-level="2.0.13" data-path="rste-schritte.html"><a href="rste-schritte.html#obligatorische-und-optionale-argumente-2"><i class="fa fa-check"></i><b>2.0.13</b> 2. obligatorische und optionale Argumente</a></li>
+<li class="chapter" data-level="2.0.14" data-path="rste-schritte.html"><a href="rste-schritte.html#obligatorische-und-optionale-argumente-3"><i class="fa fa-check"></i><b>2.0.14</b> 2. obligatorische und optionale Argumente</a></li>
+<li class="chapter" data-level="2.0.15" data-path="rste-schritte.html"><a href="rste-schritte.html#position-von-argumente"><i class="fa fa-check"></i><b>2.0.15</b> Position von Argumente</a></li>
+<li class="chapter" data-level="2.0.16" data-path="rste-schritte.html"><a href="rste-schritte.html#positionelle-argumente"><i class="fa fa-check"></i><b>2.0.16</b> positionelle Argumente</a></li>
+<li class="chapter" data-level="2.0.17" data-path="rste-schritte.html"><a href="rste-schritte.html#operatoren"><i class="fa fa-check"></i><b>2.0.17</b> Operatoren</a></li>
+<li class="chapter" data-level="2.0.18" data-path="rste-schritte.html"><a href="rste-schritte.html#indizierung"><i class="fa fa-check"></i><b>2.0.18</b> 3. Indizierung</a></li>
+<li class="chapter" data-level="2.0.19" data-path="rste-schritte.html"><a href="rste-schritte.html#indizierung-1"><i class="fa fa-check"></i><b>2.0.19</b> 3. Indizierung</a></li>
+<li class="chapter" data-level="2.0.20" data-path="rste-schritte.html"><a href="rste-schritte.html#indizierung-2"><i class="fa fa-check"></i><b>2.0.20</b> 3. Indizierung</a></li>
+<li class="chapter" data-level="2.0.21" data-path="rste-schritte.html"><a href="rste-schritte.html#indizierung-3"><i class="fa fa-check"></i><b>2.0.21</b> 3. Indizierung</a></li>
+<li class="chapter" data-level="2.0.22" data-path="rste-schritte.html"><a href="rste-schritte.html#logische-indizierung"><i class="fa fa-check"></i><b>2.0.22</b> logische Indizierung</a></li>
+<li class="chapter" data-level="2.0.23" data-path="rste-schritte.html"><a href="rste-schritte.html#logische-indizierung-1"><i class="fa fa-check"></i><b>2.0.23</b> 3. logische Indizierung</a></li>
+<li class="chapter" data-level="2.0.24" data-path="rste-schritte.html"><a href="rste-schritte.html#datenformate-in-r"><i class="fa fa-check"></i><b>2.0.24</b> Datenformate in R</a></li>
+<li class="chapter" data-level="2.0.25" data-path="rste-schritte.html"><a href="rste-schritte.html#datenformate-in-r-1"><i class="fa fa-check"></i><b>2.0.25</b> Datenformate in R</a></li>
+<li class="chapter" data-level="2.0.26" data-path="rste-schritte.html"><a href="rste-schritte.html#datenformate-in-r-2"><i class="fa fa-check"></i><b>2.0.26</b> Datenformate in R</a></li>
+<li class="chapter" data-level="2.0.27" data-path="rste-schritte.html"><a href="rste-schritte.html#datenformate-in-r-3"><i class="fa fa-check"></i><b>2.0.27</b> Datenformate in R</a></li>
+<li class="chapter" data-level="2.0.28" data-path="rste-schritte.html"><a href="rste-schritte.html#datenformate-in-r-4"><i class="fa fa-check"></i><b>2.0.28</b> Datenformate in R</a></li>
+<li class="chapter" data-level="2.0.29" data-path="rste-schritte.html"><a href="rste-schritte.html#datenformate-in-r-5"><i class="fa fa-check"></i><b>2.0.29</b> Datenformate in R</a></li>
+<li class="chapter" data-level="2.0.30" data-path="rste-schritte.html"><a href="rste-schritte.html#datenformate-in-r-6"><i class="fa fa-check"></i><b>2.0.30</b> Datenformate in R</a></li>
+<li class="chapter" data-level="2.0.31" data-path="rste-schritte.html"><a href="rste-schritte.html#datenformate-in-r-7"><i class="fa fa-check"></i><b>2.0.31</b> Datenformate in R</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html"><i class="fa fa-check"></i><b>3</b> Daten manipulieren</a>
+<ul>
+<li class="chapter" data-level="3.0.1" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#datensätze-in-r"><i class="fa fa-check"></i><b>3.0.1</b> Datensätze in R</a></li>
+<li class="chapter" data-level="3.0.2" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#datensätze-in-r-1"><i class="fa fa-check"></i><b>3.0.2</b> Datensätze in R</a></li>
+<li class="chapter" data-level="3.0.3" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#datensätze-in-r-2"><i class="fa fa-check"></i><b>3.0.3</b> Datensätze in R</a></li>
+<li class="chapter" data-level="3.0.4" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#übersicht-über-datensatz-verschaffen"><i class="fa fa-check"></i><b>3.0.4</b> Übersicht über Datensatz verschaffen</a></li>
+<li class="chapter" data-level="3.0.5" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#übersicht-über-datensatz-verschaffen-1"><i class="fa fa-check"></i><b>3.0.5</b> Übersicht über Datensatz verschaffen</a></li>
+<li class="chapter" data-level="3.0.6" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#aufgabe-deskriptive-kennwerte-berechnen"><i class="fa fa-check"></i><b>3.0.6</b> Aufgabe: Deskriptive Kennwerte berechnen</a></li>
+<li class="chapter" data-level="3.0.7" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#aufgabe-base-r-lösung"><i class="fa fa-check"></i><b>3.0.7</b> Aufgabe: Base-R Lösung</a></li>
+<li class="chapter" data-level="3.0.8" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#auftritt-tidyverse"><i class="fa fa-check"></i><b>3.0.8</b> Auftritt tidyverse</a></li>
+<li class="chapter" data-level="3.0.9" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#tidy-aggregation"><i class="fa fa-check"></i><b>3.0.9</b> tidy aggregation</a></li>
+<li class="chapter" data-level="3.0.10" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#tidy-aggregation-1"><i class="fa fa-check"></i><b>3.0.10</b> tidy aggregation</a></li>
+<li class="chapter" data-level="3.0.11" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#tidy-aggregation-2"><i class="fa fa-check"></i><b>3.0.11</b> tidy aggregation</a></li>
+<li class="chapter" data-level="3.0.12" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#tidy-aggregation-3"><i class="fa fa-check"></i><b>3.0.12</b> tidy aggregation</a></li>
+<li class="chapter" data-level="3.0.13" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#tidy-aggregation-4"><i class="fa fa-check"></i><b>3.0.13</b> tidy aggregation</a></li>
+<li class="chapter" data-level="3.0.14" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#tidy-aggregation-5"><i class="fa fa-check"></i><b>3.0.14</b> tidy aggregation</a></li>
+<li class="chapter" data-level="3.0.15" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#tidy-aggregation-6"><i class="fa fa-check"></i><b>3.0.15</b> tidy aggregation</a></li>
+<li class="chapter" data-level="3.0.16" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#aufgabe"><i class="fa fa-check"></i><b>3.0.16</b> Aufgabe</a></li>
+<li class="chapter" data-level="3.0.17" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#regressionen-in-r"><i class="fa fa-check"></i><b>3.0.17</b> Regressionen in R</a></li>
+<li class="chapter" data-level="3.0.18" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#beispiel-terme"><i class="fa fa-check"></i><b>3.0.18</b> Beispiel-Terme</a></li>
+<li class="chapter" data-level="3.0.19" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#regression"><i class="fa fa-check"></i><b>3.0.19</b> Regression</a></li>
+<li class="chapter" data-level="3.0.20" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#regression-1"><i class="fa fa-check"></i><b>3.0.20</b> Regression</a></li>
+<li class="chapter" data-level="3.0.21" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#regressionsanalyse"><i class="fa fa-check"></i><b>3.0.21</b> Regressionsanalyse</a></li>
+<li class="chapter" data-level="3.0.22" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#aufgabe-1"><i class="fa fa-check"></i><b>3.0.22</b> Aufgabe</a></li>
+<li class="chapter" data-level="3.0.23" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#aufgabe-2"><i class="fa fa-check"></i><b>3.0.23</b> Aufgabe</a></li>
+<li class="chapter" data-level="3.0.24" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#literatur"><i class="fa fa-check"></i><b>3.0.24</b> Literatur</a></li>
+<li class="chapter" data-level="3.0.25" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#aufgabe-1-1"><i class="fa fa-check"></i><b>3.0.25</b> Aufgabe 1</a></li>
+<li class="chapter" data-level="3.0.26" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#aufgabe-2-1"><i class="fa fa-check"></i><b>3.0.26</b> Aufgabe 2</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="daten-einlesen.html"><a href="daten-einlesen.html"><i class="fa fa-check"></i><b>4</b> Daten einlesen</a>
+<ul>
+<li class="chapter" data-level="4.0.1" data-path="daten-einlesen.html"><a href="daten-einlesen.html#einlesen-von-daten"><i class="fa fa-check"></i><b>4.0.1</b> Einlesen von Daten</a></li>
+<li class="chapter" data-level="4.0.2" data-path="daten-einlesen.html"><a href="daten-einlesen.html#einlesen-von-textdaten"><i class="fa fa-check"></i><b>4.0.2</b> Einlesen von Textdaten</a></li>
+<li class="chapter" data-level="4.0.3" data-path="daten-einlesen.html"><a href="daten-einlesen.html#problem"><i class="fa fa-check"></i><b>4.0.3</b> Problem</a></li>
+<li class="chapter" data-level="4.0.4" data-path="daten-einlesen.html"><a href="daten-einlesen.html#textbasierte-daten"><i class="fa fa-check"></i><b>4.0.4</b> textbasierte Daten</a></li>
+<li class="chapter" data-level="4.0.5" data-path="daten-einlesen.html"><a href="daten-einlesen.html#einlesen-von-textdaten-1"><i class="fa fa-check"></i><b>4.0.5</b> Einlesen von Textdaten</a></li>
+<li class="chapter" data-level="4.0.6" data-path="daten-einlesen.html"><a href="daten-einlesen.html#einlesen-von-textdateien"><i class="fa fa-check"></i><b>4.0.6</b> Einlesen von Textdateien</a></li>
+<li class="chapter" data-level="4.0.7" data-path="daten-einlesen.html"><a href="daten-einlesen.html#einlesen-von-textdateien-1"><i class="fa fa-check"></i><b>4.0.7</b> Einlesen von Textdateien</a></li>
+<li class="chapter" data-level="4.0.8" data-path="daten-einlesen.html"><a href="daten-einlesen.html#einlesen-von-textdateien-2"><i class="fa fa-check"></i><b>4.0.8</b> Einlesen von Textdateien</a></li>
+<li class="chapter" data-level="4.0.9" data-path="daten-einlesen.html"><a href="daten-einlesen.html#excel-arbeitsmappen"><i class="fa fa-check"></i><b>4.0.9</b> Excel-Arbeitsmappen</a></li>
+<li class="chapter" data-level="4.0.10" data-path="daten-einlesen.html"><a href="daten-einlesen.html#excel-arbeitsmappen-1"><i class="fa fa-check"></i><b>4.0.10</b> Excel-Arbeitsmappen</a></li>
+<li class="chapter" data-level="4.0.11" data-path="daten-einlesen.html"><a href="daten-einlesen.html#dateien-aus-anderer-software"><i class="fa fa-check"></i><b>4.0.11</b> Dateien aus anderer Software</a></li>
+<li class="chapter" data-level="4.0.12" data-path="daten-einlesen.html"><a href="daten-einlesen.html#dateien-aus-spss-einlesen"><i class="fa fa-check"></i><b>4.0.12</b> Dateien aus SPSS einlesen</a></li>
+<li class="chapter" data-level="4.0.13" data-path="daten-einlesen.html"><a href="daten-einlesen.html#dateien-aus-spss-einlesen-1"><i class="fa fa-check"></i><b>4.0.13</b> Dateien aus SPSS einlesen</a></li>
+<li class="chapter" data-level="4.0.14" data-path="daten-einlesen.html"><a href="daten-einlesen.html#dateien-aus-spss-einlesen-2"><i class="fa fa-check"></i><b>4.0.14</b> Dateien aus SPSS einlesen</a></li>
+<li class="chapter" data-level="4.0.15" data-path="daten-einlesen.html"><a href="daten-einlesen.html#datenaufbereitung"><i class="fa fa-check"></i><b>4.0.15</b> Datenaufbereitung</a></li>
+<li class="chapter" data-level="4.0.16" data-path="daten-einlesen.html"><a href="daten-einlesen.html#ausreißer-behandlung"><i class="fa fa-check"></i><b>4.0.16</b> Ausreißer-Behandlung</a></li>
+<li class="chapter" data-level="4.0.17" data-path="daten-einlesen.html"><a href="daten-einlesen.html#ausreißer-behandlung-1"><i class="fa fa-check"></i><b>4.0.17</b> Ausreißer-Behandlung</a></li>
+<li class="chapter" data-level="4.0.18" data-path="daten-einlesen.html"><a href="daten-einlesen.html#umgang-mit-fehlenden-werten"><i class="fa fa-check"></i><b>4.0.18</b> Umgang mit fehlenden Werten</a></li>
+<li class="chapter" data-level="4.0.19" data-path="daten-einlesen.html"><a href="daten-einlesen.html#umgang-mit-fehlenden-werten-1"><i class="fa fa-check"></i><b>4.0.19</b> Umgang mit fehlenden Werten</a></li>
+<li class="chapter" data-level="4.0.20" data-path="daten-einlesen.html"><a href="daten-einlesen.html#umgang-mit-fehlenden-werten-2"><i class="fa fa-check"></i><b>4.0.20</b> Umgang mit fehlenden Werten</a></li>
+<li class="chapter" data-level="4.0.21" data-path="daten-einlesen.html"><a href="daten-einlesen.html#recodieren-von-werten"><i class="fa fa-check"></i><b>4.0.21</b> Recodieren von Werten</a></li>
+<li class="chapter" data-level="4.0.22" data-path="daten-einlesen.html"><a href="daten-einlesen.html#zusammenführen-von-datensätzen"><i class="fa fa-check"></i><b>4.0.22</b> Zusammenführen von Datensätzen</a></li>
+<li class="chapter" data-level="4.0.23" data-path="daten-einlesen.html"><a href="daten-einlesen.html#vorbereitung"><i class="fa fa-check"></i><b>4.0.23</b> Vorbereitung</a></li>
+<li class="chapter" data-level="4.0.24" data-path="daten-einlesen.html"><a href="daten-einlesen.html#vorbereitung-1"><i class="fa fa-check"></i><b>4.0.24</b> Vorbereitung</a></li>
+<li class="chapter" data-level="4.0.25" data-path="daten-einlesen.html"><a href="daten-einlesen.html#vorbereitung-2"><i class="fa fa-check"></i><b>4.0.25</b> Vorbereitung</a></li>
+<li class="chapter" data-level="4.0.26" data-path="daten-einlesen.html"><a href="daten-einlesen.html#zusammenführen-von-datensätzen-1"><i class="fa fa-check"></i><b>4.0.26</b> Zusammenführen von Datensätzen</a></li>
+<li class="chapter" data-level="4.0.27" data-path="daten-einlesen.html"><a href="daten-einlesen.html#zusammenführen-von-datensätzen-2"><i class="fa fa-check"></i><b>4.0.27</b> Zusammenführen von Datensätzen</a></li>
+<li class="chapter" data-level="4.0.28" data-path="daten-einlesen.html"><a href="daten-einlesen.html#zusammenführen-von-datensätzen-3"><i class="fa fa-check"></i><b>4.0.28</b> Zusammenführen von Datensätzen</a></li>
+<li class="chapter" data-level="4.0.29" data-path="daten-einlesen.html"><a href="daten-einlesen.html#zusammenführen-von-datensätzen-4"><i class="fa fa-check"></i><b>4.0.29</b> Zusammenführen von Datensätzen</a></li>
+<li class="chapter" data-level="4.0.30" data-path="daten-einlesen.html"><a href="daten-einlesen.html#literatur-1"><i class="fa fa-check"></i><b>4.0.30</b> Literatur</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="daten-darstellen.html"><a href="daten-darstellen.html"><i class="fa fa-check"></i><b>5</b> Daten darstellen</a>
+<ul>
+<li class="chapter" data-level="5.0.1" data-path="daten-darstellen.html"><a href="daten-darstellen.html#pivotieren-von-datensätzen"><i class="fa fa-check"></i><b>5.0.1</b> pivotieren von Datensätzen</a></li>
+<li class="chapter" data-level="5.0.2" data-path="daten-darstellen.html"><a href="daten-darstellen.html#vorbereitung-zum-pivotieren"><i class="fa fa-check"></i><b>5.0.2</b> Vorbereitung zum Pivotieren</a></li>
+<li class="chapter" data-level="5.0.3" data-path="daten-darstellen.html"><a href="daten-darstellen.html#vorbereitung-zum-pivotieren-1"><i class="fa fa-check"></i><b>5.0.3</b> Vorbereitung zum Pivotieren</a></li>
+<li class="chapter" data-level="5.0.4" data-path="daten-darstellen.html"><a href="daten-darstellen.html#pivotieren-von-datensätzen-1"><i class="fa fa-check"></i><b>5.0.4</b> pivotieren von Datensätzen</a></li>
+<li class="chapter" data-level="5.0.5" data-path="daten-darstellen.html"><a href="daten-darstellen.html#vorbereitung-für-die-grafische-darstellung"><i class="fa fa-check"></i><b>5.0.5</b> Vorbereitung für die grafische Darstellung</a></li>
+<li class="chapter" data-level="5.0.6" data-path="daten-darstellen.html"><a href="daten-darstellen.html#ggplot2"><i class="fa fa-check"></i><b>5.0.6</b> ggplot2</a></li>
+<li class="chapter" data-level="5.0.7" data-path="daten-darstellen.html"><a href="daten-darstellen.html#ggplot2-1"><i class="fa fa-check"></i><b>5.0.7</b> ggplot2</a></li>
+<li class="chapter" data-level="5.0.8" data-path="daten-darstellen.html"><a href="daten-darstellen.html#ggplot2-2"><i class="fa fa-check"></i><b>5.0.8</b> ggplot2</a></li>
+<li class="chapter" data-level="5.0.9" data-path="daten-darstellen.html"><a href="daten-darstellen.html#aesthetics"><i class="fa fa-check"></i><b>5.0.9</b> aesthetics</a></li>
+<li class="chapter" data-level="5.0.10" data-path="daten-darstellen.html"><a href="daten-darstellen.html#aesthetics-1"><i class="fa fa-check"></i><b>5.0.10</b> aesthetics</a></li>
+<li class="chapter" data-level="5.0.11" data-path="daten-darstellen.html"><a href="daten-darstellen.html#aesthetics-2"><i class="fa fa-check"></i><b>5.0.11</b> aesthetics</a></li>
+<li class="chapter" data-level="5.0.12" data-path="daten-darstellen.html"><a href="daten-darstellen.html#aesthetics-3"><i class="fa fa-check"></i><b>5.0.12</b> aesthetics</a></li>
+<li class="chapter" data-level="5.0.13" data-path="daten-darstellen.html"><a href="daten-darstellen.html#geoms"><i class="fa fa-check"></i><b>5.0.13</b> geoms</a></li>
+<li class="chapter" data-level="5.0.14" data-path="daten-darstellen.html"><a href="daten-darstellen.html#geoms-1"><i class="fa fa-check"></i><b>5.0.14</b> geoms</a></li>
+<li class="chapter" data-level="5.0.15" data-path="daten-darstellen.html"><a href="daten-darstellen.html#aesthetics-4"><i class="fa fa-check"></i><b>5.0.15</b> aesthetics</a></li>
+<li class="chapter" data-level="5.0.16" data-path="daten-darstellen.html"><a href="daten-darstellen.html#facets"><i class="fa fa-check"></i><b>5.0.16</b> facets!</a></li>
+<li class="chapter" data-level="5.0.17" data-path="daten-darstellen.html"><a href="daten-darstellen.html#additional-tweeks"><i class="fa fa-check"></i><b>5.0.17</b> additional tweeks</a></li>
+<li class="chapter" data-level="5.0.18" data-path="daten-darstellen.html"><a href="daten-darstellen.html#additional-tweeks-1"><i class="fa fa-check"></i><b>5.0.18</b> additional tweeks</a></li>
+<li class="chapter" data-level="5.0.19" data-path="daten-darstellen.html"><a href="daten-darstellen.html#themes"><i class="fa fa-check"></i><b>5.0.19</b> themes</a></li>
+<li class="chapter" data-level="5.0.20" data-path="daten-darstellen.html"><a href="daten-darstellen.html#grafiken-exportieren"><i class="fa fa-check"></i><b>5.0.20</b> Grafiken exportieren</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>6</b> Appendix</a></li>
+<li class="chapter" data-level="" data-path="literatur-2.html"><a href="literatur-2.html"><i class="fa fa-check"></i>Literatur</a></li>
+<li class="divider"></li>
+<li><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons Lizenzvertrag" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">02_Aufgaben</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">02_Aufgaben</h1>
+<p class="author"><em>Max Brede</em></p>
+<p class="date"><em>11.12.2020</em></p>
+</div>
+<div id="vorwort" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Vorwort</h1>
+<p>Dieses mit <code>bookdown</code> erstellte Dokument ist die Sammlung der in der Einführung am 11.12.20 für’s KfN Folien und Aufgaben.</p>
+<footer>
+<div style="font-size: 75%; display: flex; align-items: center; justify-content: center;style="padding-top: 50px;">
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" style="padding-right: 10px;"><img alt="Creative Commons Lizenzvertrag" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a></li><p> Dieses Skript steht, wo nicht anders angegeben, unter der <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"> CC BY-SA 4.0-Lizenz</a>.</p>
+</div>
+</footer>
+<!-- # Lehrplan -->
+<!-- ## Semesterplan -->
+<!-- ```{r,echo = F, message = F} -->
+<!-- plan <- read.csv('/home/brede/MEGA/Andres/EDV1/WS20/semesterplan.csv') %>%  -->
+<!--   mutate_all(~replace_na(.,'')) -->
+<!-- plan <- kableExtra::kbl(plan, format = 'html') %>%  -->
+<!--   kableExtra::kable_styling()  -->
+<!-- if(knitr::is_html_output()){ -->
+<!--   plan -->
+<!-- } -->
+<!-- plan %>%  -->
+<!--   write_file('/home/brede/MEGA/Andres/EDV1/WS20/Semesterplan.html') -->
+<!-- ``` -->
+<!-- ## Übungsformat -->
+<!-- Die Übung soll zur Hälfte in 45-minütigen Sitzungen im Vorlesungsformat zur Vorstellung der Funktionen und zur anderen Hälfte als 45-minütige praktische Übung stattfinden. -->
+<!-- Es wird pro Übungs-Sitzung ein Übungszettel ausgegeben, der mit Hilfe der in der Zugehörigen Vorlesung besprochenen Funktionen bearbeitet werden können soll. -->
+<!-- Diese Zettel sollen nach der jeweiligen Vorlesung für die Übungen vorbereitet werden, in denen der Zettel dann besprochen und mögliche Fragen geklärt werden. -->
+<!-- Nach den Übungssitzungen haben die Studierenden dann eine Woche Zeit, zusätzliche Hausaufgaben zu bearbeiten. -->
+<!-- Eine Ausnahme von diesem Ablauf ist die erste Sitzung, in der organisatorisches und Grundlagen in 90 minütigem Vorlesungsstil besprochen werden sollen. Auch nach dieser Sitzung werden aber Übungszettel und Hausaufgaben ausgegeben. -->
+<!-- ## Lehrziele für jede Sitzung -->
+<!-- Die Studierenden können nach dem Absolvieren der Übung... -->
+<!-- #### Einheit 1{-} -->
+<!-- * Vor- und Nachteile von R und RStudio nennen und diese installieren. -->
+<!-- * erklären was Funktionen und was Argumente sind. -->
+<!-- * die Hilfe benutzen. -->
+<!-- * das Environment von R benutzen um Objekte anzulegen und zu löschen. -->
+<!-- #### Einheit 2{-} -->
+<!-- * Vektoren erstellen, tranformieren und indizieren. -->
+<!-- * verschiedene Datenformate in R erstellen, benutzen und in einander überführen. -->
+<!-- #### Einheit 3{-} -->
+<!-- * Pakete installieren und benutzen. -->
+<!-- * mit Hilfe des "`tidyverse`" Datensätze erstellen, ergänzen, sortieren und indizieren. -->
+<!-- #### Einheit 4{-} -->
+<!-- * Faktoren erstellen. -->
+<!-- * deskriptive Kennwerte berechnen. -->
+<!-- * Daten auf Gruppenebene aggregieren. -->
+<!-- #### Einheit 5{-} -->
+<!-- * Daten auf Gruppenebene noch besser aggregieren. -->
+<!-- * Häufigkeiten auszählen und tabellarisch darstellen. -->
+<!-- * Datensätze aus verschiedenen Formaten einlesen. -->
+<!-- #### Einheit 6{-} -->
+<!-- * eine Anzahl von Grafiken erstellen. -->
+<!-- #### Einheit 7{-} -->
+<!-- * kompliziertere Grafiken erstellen. -->
+<!-- #### Einheit 8{-} -->
+<!-- * die Funktionsschreibweise lesen und anwenden. -->
+<!-- * erfolfreich an der Klausur teilnehmen. -->
+<!-- ## Prüfungsleistung -->
+<!-- Die Studierenden **müssen** während des Semesters die nach den Übungssitzungen ausgegebenen Hausaufgaben innerhalb einer Woche sinnvoll bearbeitet abgeben. -->
+<!-- Mit maximal einer nicht sinnvoll bearbeiteten Serie werden die Studierenden zur Klausur am Ende des Semesters zugelassen. -->
+
+<div id="ablaufplan" class="section level3" number="1.0.1">
+<h3><span class="header-section-number">1.0.1</span> Ablaufplan</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+Uhrzeit
+</th>
+<th style="text-align:left;">
+Thema
+</th>
+<th style="text-align:left;">
+Lernziele
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Die Teilnehmenden…
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09:00
+</td>
+<td style="text-align:left;">
+Rste Schritte
+</td>
+<td style="text-align:left;">
+…haben einen Eindruck von den Vor- und Nachteilen von R<br />
+…können in RStudio navigieren<br />
+…kennen die Grundlagen der R-Syntax<br />
+…können ein R-Skript erstellen<br />
+…kennen die in R gängigsten Datenformate und können diese benutzen
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+10:30
+</td>
+<td style="text-align:left;">
+Kaffeepause
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+10:45
+</td>
+<td style="text-align:left;">
+Daten manipulieren
+</td>
+<td style="text-align:left;">
+…Kennen die Grundlagen des tidyverse-Workflows<br />
+…Können Daten mit Hilfe von R aggregieren<br />
+…Können Regressionsanalytische Verfahren in R durchführen
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+12:15
+</td>
+<td style="text-align:left;">
+Mittagspause
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+13:00
+</td>
+<td style="text-align:left;">
+Daten einlesen und Zusammenfügen
+</td>
+<td style="text-align:left;">
+…können Text-, Excel und SPSS-Daten einlesen<br />
+…können rudimentäre Datenbereinigungen in R ausführen<br />
+…können Datensätze zusammenführen
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+14:30
+</td>
+<td style="text-align:left;">
+Kaffeepause
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+14:45
+</td>
+<td style="text-align:left;">
+Daten darstellen
+</td>
+<td style="text-align:left;">
+…Kennen die grundlegende Syntax von ggplot2<br />
+…können gängige Abbildungen quantitativer Daten erstellen
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+16:15
+</td>
+<td style="text-align:left;">
+Interessante Pakete und Hilfestellungen
+</td>
+<td style="text-align:left;">
+…Kennen erste Anlaufstellen bei Problemen mit R<br />
+…Kennen die Namen einer Reihe von nützlichen Paketen
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="voraussetzungen" class="section level3" number="1.0.2">
+<h3><span class="header-section-number">1.0.2</span> Voraussetzungen</h3>
+<p>Da der Kurs auf viele praktische Anwendungen setzen wird, sollte jeder Teilnehmer einen Rechner mitbringen, auf dem R und RStudio als grafische Oberfläche installiert sind. <br>
+Die Installationsdateien für R für Windows findet man <a href="https://cran.r-project.org/bin/windows/base/R-3.6.2-win.exe">hier</a> und für Mac <a href="https://cran.r-project.org/bin/macosx/R-3.6.2.pkg">hier</a>, die Installationsdateien für RStudio für Windows <a href="https://download1.rstudio.org/desktop/windows/RStudio-1.2.5033.exe">hier</a> und für Mac <a href="https://download1.rstudio.org/desktop/macos/RStudio-1.2.5033.dmg">hier</a>. <br> <br>
+Einer der zentralen Vorteile von R gegenüber anderen statistischen Software-Paketen ist die Möglichkeit, von der Community entwickelte Funktionen zu nutzen. Im Kurs sollen viele Aufgaben mit Hilfe einer Sammlung dieser in sogenannten <code>packages</code> in einem zentralen Archiv bereitgestellten Funktionserweiterungen gelöst werden. Diese Sammlung an Funktionen, das sogenannte <code>tidyverse</code>, bietet viele praktische Möglichkeiten, leichter lesbaren und verständlicheren R-Code zu schreiben.
+Installieren Sie bitte das <code>tidyverse</code> vor dem Kurs durch das Ausführen der folgenden Code-Zeile in R:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="index.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&#39;tidyverse&#39;</span>,<span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p>Öffnen Sie dafür nach der Installation RStudio und kopieren Sie die Zeile einfach in die <code>Console</code> links unten.
+Führen Sie die Zeile anschließend durch das Drücken der Enter-Taste aus.</p>
+
+<!-- # --- -->
+<!-- # title: "Rste Schritte" -->
+<!-- # author: "Max Brede" -->
+<!-- # date: "11/12/2020" -->
+<!-- # output: -->
+<!-- #   ioslides_presentation: -->
+<!-- #     transition: faster -->
+<!-- #     css: /home/brede/MEGA/Honorar/111220_KfN/styles.css -->
+<!-- #     slide_level: 3 -->
+<!-- # widescreen: true -->
+<!-- # bibliography: /home/brede/MEGA/Honorar/111220_KfN/references.bib -->
+<!-- # csl: /home/brede/MEGA/Honorar/111220_KfN/apa.csl -->
+<!-- # smaller: true  -->
+<!-- # --- -->
+<!-- ```{r,results='asis', echo = F} -->
+<!-- read_file('/home/brede/MEGA/Honorar/111220_KfN/ioTOC.html') %>% cat -->
+<!-- read_file('/home/brede/MEGA/Honorar/111220_KfN/scrollableSlides.html') %>% cat -->
+<!-- ``` -->
+<!-- ### Kursplan -->
+<!-- ```{r, echo = F} -->
+<!-- library(readxl) -->
+<!-- read_excel('/home/brede/MEGA/Honorar/111220_KfN/00_programm/Programm.xlsx') %>%  -->
+<!--   mutate(Uhrzeit = str_extract(as.character(Uhrzeit),'\\S+(?=:00)'), -->
+<!--          Lernziele = map_chr(str_split(Lernziele, '-;-'),~str_c(.,collapse = '\\\n'))) %>% -->
+<!--   mutate_all(~replace_na(.,'')) %>%  -->
+<!--   select(-3) %>%  -->
+<!--   slice(-1) %>%  -->
+<!--   kableExtra::kable() %>%  -->
+<!--   kableExtra::kable_classic() -->
+<!-- ``` -->
+<!-- ### Ablauf -->
+<!-- <div id="toc"></div> -->
+<!-- ### Warum R?  -->
+<!-- * R ist beliebt und weit verbreitet -->
+<!-- * R ist __Open Source__ und ständig von der Community weiterentwickelt -->
+<!-- * R  -->
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="rste-schritte.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["R - KfN 11.12.20.pdf"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

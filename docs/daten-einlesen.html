@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>4 Daten einlesen | 02_Aufgaben</title>
+  <meta name="description" content="Kurze Einführung in den Umgang mit R" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="4 Daten einlesen | 02_Aufgaben" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Kurze Einführung in den Umgang mit R" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="4 Daten einlesen | 02_Aufgaben" />
+  
+  <meta name="twitter:description" content="Kurze Einführung in den Umgang mit R" />
+  
+
+<meta name="author" content="Max Brede" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="daten-manipulieren.html"/>
+<link rel="next" href="daten-darstellen.html"/>
+<script src="libs/header-attrs-2.5/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="/home/brede/MEGA/Honorar/111220_KfN/styles.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R - KfN <br> 11.12.20</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Vorwort</a>
+<ul>
+<li class="chapter" data-level="1.0.1" data-path="index.html"><a href="index.html#ablaufplan"><i class="fa fa-check"></i><b>1.0.1</b> Ablaufplan</a></li>
+<li class="chapter" data-level="1.0.2" data-path="index.html"><a href="index.html#voraussetzungen"><i class="fa fa-check"></i><b>1.0.2</b> Voraussetzungen</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="rste-schritte.html"><a href="rste-schritte.html"><i class="fa fa-check"></i><b>2</b> Rste Schritte</a>
+<ul>
+<li class="chapter" data-level="2.0.1" data-path="rste-schritte.html"><a href="rste-schritte.html#warum-r"><i class="fa fa-check"></i><b>2.0.1</b> Warum R?</a></li>
+<li class="chapter" data-level="2.0.2" data-path="rste-schritte.html"><a href="rste-schritte.html#das-sind-nicht-alles-wissenschaftler"><i class="fa fa-check"></i><b>2.0.2</b> …das sind nicht alles Wissenschaftler!</a></li>
+<li class="chapter" data-level="2.0.3" data-path="rste-schritte.html"><a href="rste-schritte.html#das-sind-doch-alles-nur-hilfeschreie"><i class="fa fa-check"></i><b>2.0.3</b> … das sind doch alles nur Hilfeschreie!</a></li>
+<li class="chapter" data-level="2.0.4" data-path="rste-schritte.html"><a href="rste-schritte.html#warum-r-1"><i class="fa fa-check"></i><b>2.0.4</b> Warum R?</a></li>
+<li class="chapter" data-level="2.0.5" data-path="rste-schritte.html"><a href="rste-schritte.html#warum-benutzen-wir-dann-nicht-alle-r"><i class="fa fa-check"></i><b>2.0.5</b> Warum benutzen wir dann nicht alle R?</a></li>
+<li class="chapter" data-level="2.0.6" data-path="rste-schritte.html"><a href="rste-schritte.html#r-syntax-basics"><i class="fa fa-check"></i><b>2.0.6</b> R-Syntax Basics</a></li>
+<li class="chapter" data-level="2.0.7" data-path="rste-schritte.html"><a href="rste-schritte.html#zuweisungen-und-das-environment"><i class="fa fa-check"></i><b>2.0.7</b> 1. Zuweisungen und das Environment</a></li>
+<li class="chapter" data-level="2.0.8" data-path="rste-schritte.html"><a href="rste-schritte.html#zuweisungen-und-das-environment-1"><i class="fa fa-check"></i><b>2.0.8</b> 1. Zuweisungen und das <code>Environment</code></a></li>
+<li class="chapter" data-level="2.0.9" data-path="rste-schritte.html"><a href="rste-schritte.html#zuweisungen-und-das-environment-2"><i class="fa fa-check"></i><b>2.0.9</b> 1. Zuweisungen und das <code>Environment</code></a></li>
+<li class="chapter" data-level="2.0.10" data-path="rste-schritte.html"><a href="rste-schritte.html#funktionen-und-argumente"><i class="fa fa-check"></i><b>2.0.10</b> 2. Funktionen und Argumente</a></li>
+<li class="chapter" data-level="2.0.11" data-path="rste-schritte.html"><a href="rste-schritte.html#obligatorische-und-optionale-argumente"><i class="fa fa-check"></i><b>2.0.11</b> 2. obligatorische und optionale Argumente</a></li>
+<li class="chapter" data-level="2.0.12" data-path="rste-schritte.html"><a href="rste-schritte.html#obligatorische-und-optionale-argumente-1"><i class="fa fa-check"></i><b>2.0.12</b> 2. obligatorische und optionale Argumente</a></li>
+<li class="chapter" data-level="2.0.13" data-path="rste-schritte.html"><a href="rste-schritte.html#obligatorische-und-optionale-argumente-2"><i class="fa fa-check"></i><b>2.0.13</b> 2. obligatorische und optionale Argumente</a></li>
+<li class="chapter" data-level="2.0.14" data-path="rste-schritte.html"><a href="rste-schritte.html#obligatorische-und-optionale-argumente-3"><i class="fa fa-check"></i><b>2.0.14</b> 2. obligatorische und optionale Argumente</a></li>
+<li class="chapter" data-level="2.0.15" data-path="rste-schritte.html"><a href="rste-schritte.html#position-von-argumente"><i class="fa fa-check"></i><b>2.0.15</b> Position von Argumente</a></li>
+<li class="chapter" data-level="2.0.16" data-path="rste-schritte.html"><a href="rste-schritte.html#positionelle-argumente"><i class="fa fa-check"></i><b>2.0.16</b> positionelle Argumente</a></li>
+<li class="chapter" data-level="2.0.17" data-path="rste-schritte.html"><a href="rste-schritte.html#operatoren"><i class="fa fa-check"></i><b>2.0.17</b> Operatoren</a></li>
+<li class="chapter" data-level="2.0.18" data-path="rste-schritte.html"><a href="rste-schritte.html#indizierung"><i class="fa fa-check"></i><b>2.0.18</b> 3. Indizierung</a></li>
+<li class="chapter" data-level="2.0.19" data-path="rste-schritte.html"><a href="rste-schritte.html#indizierung-1"><i class="fa fa-check"></i><b>2.0.19</b> 3. Indizierung</a></li>
+<li class="chapter" data-level="2.0.20" data-path="rste-schritte.html"><a href="rste-schritte.html#indizierung-2"><i class="fa fa-check"></i><b>2.0.20</b> 3. Indizierung</a></li>
+<li class="chapter" data-level="2.0.21" data-path="rste-schritte.html"><a href="rste-schritte.html#indizierung-3"><i class="fa fa-check"></i><b>2.0.21</b> 3. Indizierung</a></li>
+<li class="chapter" data-level="2.0.22" data-path="rste-schritte.html"><a href="rste-schritte.html#logische-indizierung"><i class="fa fa-check"></i><b>2.0.22</b> logische Indizierung</a></li>
+<li class="chapter" data-level="2.0.23" data-path="rste-schritte.html"><a href="rste-schritte.html#logische-indizierung-1"><i class="fa fa-check"></i><b>2.0.23</b> 3. logische Indizierung</a></li>
+<li class="chapter" data-level="2.0.24" data-path="rste-schritte.html"><a href="rste-schritte.html#datenformate-in-r"><i class="fa fa-check"></i><b>2.0.24</b> Datenformate in R</a></li>
+<li class="chapter" data-level="2.0.25" data-path="rste-schritte.html"><a href="rste-schritte.html#datenformate-in-r-1"><i class="fa fa-check"></i><b>2.0.25</b> Datenformate in R</a></li>
+<li class="chapter" data-level="2.0.26" data-path="rste-schritte.html"><a href="rste-schritte.html#datenformate-in-r-2"><i class="fa fa-check"></i><b>2.0.26</b> Datenformate in R</a></li>
+<li class="chapter" data-level="2.0.27" data-path="rste-schritte.html"><a href="rste-schritte.html#datenformate-in-r-3"><i class="fa fa-check"></i><b>2.0.27</b> Datenformate in R</a></li>
+<li class="chapter" data-level="2.0.28" data-path="rste-schritte.html"><a href="rste-schritte.html#datenformate-in-r-4"><i class="fa fa-check"></i><b>2.0.28</b> Datenformate in R</a></li>
+<li class="chapter" data-level="2.0.29" data-path="rste-schritte.html"><a href="rste-schritte.html#datenformate-in-r-5"><i class="fa fa-check"></i><b>2.0.29</b> Datenformate in R</a></li>
+<li class="chapter" data-level="2.0.30" data-path="rste-schritte.html"><a href="rste-schritte.html#datenformate-in-r-6"><i class="fa fa-check"></i><b>2.0.30</b> Datenformate in R</a></li>
+<li class="chapter" data-level="2.0.31" data-path="rste-schritte.html"><a href="rste-schritte.html#datenformate-in-r-7"><i class="fa fa-check"></i><b>2.0.31</b> Datenformate in R</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html"><i class="fa fa-check"></i><b>3</b> Daten manipulieren</a>
+<ul>
+<li class="chapter" data-level="3.0.1" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#datensätze-in-r"><i class="fa fa-check"></i><b>3.0.1</b> Datensätze in R</a></li>
+<li class="chapter" data-level="3.0.2" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#datensätze-in-r-1"><i class="fa fa-check"></i><b>3.0.2</b> Datensätze in R</a></li>
+<li class="chapter" data-level="3.0.3" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#datensätze-in-r-2"><i class="fa fa-check"></i><b>3.0.3</b> Datensätze in R</a></li>
+<li class="chapter" data-level="3.0.4" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#übersicht-über-datensatz-verschaffen"><i class="fa fa-check"></i><b>3.0.4</b> Übersicht über Datensatz verschaffen</a></li>
+<li class="chapter" data-level="3.0.5" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#übersicht-über-datensatz-verschaffen-1"><i class="fa fa-check"></i><b>3.0.5</b> Übersicht über Datensatz verschaffen</a></li>
+<li class="chapter" data-level="3.0.6" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#aufgabe-deskriptive-kennwerte-berechnen"><i class="fa fa-check"></i><b>3.0.6</b> Aufgabe: Deskriptive Kennwerte berechnen</a></li>
+<li class="chapter" data-level="3.0.7" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#aufgabe-base-r-lösung"><i class="fa fa-check"></i><b>3.0.7</b> Aufgabe: Base-R Lösung</a></li>
+<li class="chapter" data-level="3.0.8" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#auftritt-tidyverse"><i class="fa fa-check"></i><b>3.0.8</b> Auftritt tidyverse</a></li>
+<li class="chapter" data-level="3.0.9" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#tidy-aggregation"><i class="fa fa-check"></i><b>3.0.9</b> tidy aggregation</a></li>
+<li class="chapter" data-level="3.0.10" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#tidy-aggregation-1"><i class="fa fa-check"></i><b>3.0.10</b> tidy aggregation</a></li>
+<li class="chapter" data-level="3.0.11" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#tidy-aggregation-2"><i class="fa fa-check"></i><b>3.0.11</b> tidy aggregation</a></li>
+<li class="chapter" data-level="3.0.12" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#tidy-aggregation-3"><i class="fa fa-check"></i><b>3.0.12</b> tidy aggregation</a></li>
+<li class="chapter" data-level="3.0.13" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#tidy-aggregation-4"><i class="fa fa-check"></i><b>3.0.13</b> tidy aggregation</a></li>
+<li class="chapter" data-level="3.0.14" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#tidy-aggregation-5"><i class="fa fa-check"></i><b>3.0.14</b> tidy aggregation</a></li>
+<li class="chapter" data-level="3.0.15" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#tidy-aggregation-6"><i class="fa fa-check"></i><b>3.0.15</b> tidy aggregation</a></li>
+<li class="chapter" data-level="3.0.16" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#aufgabe"><i class="fa fa-check"></i><b>3.0.16</b> Aufgabe</a></li>
+<li class="chapter" data-level="3.0.17" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#regressionen-in-r"><i class="fa fa-check"></i><b>3.0.17</b> Regressionen in R</a></li>
+<li class="chapter" data-level="3.0.18" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#beispiel-terme"><i class="fa fa-check"></i><b>3.0.18</b> Beispiel-Terme</a></li>
+<li class="chapter" data-level="3.0.19" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#regression"><i class="fa fa-check"></i><b>3.0.19</b> Regression</a></li>
+<li class="chapter" data-level="3.0.20" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#regression-1"><i class="fa fa-check"></i><b>3.0.20</b> Regression</a></li>
+<li class="chapter" data-level="3.0.21" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#regressionsanalyse"><i class="fa fa-check"></i><b>3.0.21</b> Regressionsanalyse</a></li>
+<li class="chapter" data-level="3.0.22" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#aufgabe-1"><i class="fa fa-check"></i><b>3.0.22</b> Aufgabe</a></li>
+<li class="chapter" data-level="3.0.23" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#aufgabe-2"><i class="fa fa-check"></i><b>3.0.23</b> Aufgabe</a></li>
+<li class="chapter" data-level="3.0.24" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#literatur"><i class="fa fa-check"></i><b>3.0.24</b> Literatur</a></li>
+<li class="chapter" data-level="3.0.25" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#aufgabe-1-1"><i class="fa fa-check"></i><b>3.0.25</b> Aufgabe 1</a></li>
+<li class="chapter" data-level="3.0.26" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#aufgabe-2-1"><i class="fa fa-check"></i><b>3.0.26</b> Aufgabe 2</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="daten-einlesen.html"><a href="daten-einlesen.html"><i class="fa fa-check"></i><b>4</b> Daten einlesen</a>
+<ul>
+<li class="chapter" data-level="4.0.1" data-path="daten-einlesen.html"><a href="daten-einlesen.html#einlesen-von-daten"><i class="fa fa-check"></i><b>4.0.1</b> Einlesen von Daten</a></li>
+<li class="chapter" data-level="4.0.2" data-path="daten-einlesen.html"><a href="daten-einlesen.html#einlesen-von-textdaten"><i class="fa fa-check"></i><b>4.0.2</b> Einlesen von Textdaten</a></li>
+<li class="chapter" data-level="4.0.3" data-path="daten-einlesen.html"><a href="daten-einlesen.html#problem"><i class="fa fa-check"></i><b>4.0.3</b> Problem</a></li>
+<li class="chapter" data-level="4.0.4" data-path="daten-einlesen.html"><a href="daten-einlesen.html#textbasierte-daten"><i class="fa fa-check"></i><b>4.0.4</b> textbasierte Daten</a></li>
+<li class="chapter" data-level="4.0.5" data-path="daten-einlesen.html"><a href="daten-einlesen.html#einlesen-von-textdaten-1"><i class="fa fa-check"></i><b>4.0.5</b> Einlesen von Textdaten</a></li>
+<li class="chapter" data-level="4.0.6" data-path="daten-einlesen.html"><a href="daten-einlesen.html#einlesen-von-textdateien"><i class="fa fa-check"></i><b>4.0.6</b> Einlesen von Textdateien</a></li>
+<li class="chapter" data-level="4.0.7" data-path="daten-einlesen.html"><a href="daten-einlesen.html#einlesen-von-textdateien-1"><i class="fa fa-check"></i><b>4.0.7</b> Einlesen von Textdateien</a></li>
+<li class="chapter" data-level="4.0.8" data-path="daten-einlesen.html"><a href="daten-einlesen.html#einlesen-von-textdateien-2"><i class="fa fa-check"></i><b>4.0.8</b> Einlesen von Textdateien</a></li>
+<li class="chapter" data-level="4.0.9" data-path="daten-einlesen.html"><a href="daten-einlesen.html#excel-arbeitsmappen"><i class="fa fa-check"></i><b>4.0.9</b> Excel-Arbeitsmappen</a></li>
+<li class="chapter" data-level="4.0.10" data-path="daten-einlesen.html"><a href="daten-einlesen.html#excel-arbeitsmappen-1"><i class="fa fa-check"></i><b>4.0.10</b> Excel-Arbeitsmappen</a></li>
+<li class="chapter" data-level="4.0.11" data-path="daten-einlesen.html"><a href="daten-einlesen.html#dateien-aus-anderer-software"><i class="fa fa-check"></i><b>4.0.11</b> Dateien aus anderer Software</a></li>
+<li class="chapter" data-level="4.0.12" data-path="daten-einlesen.html"><a href="daten-einlesen.html#dateien-aus-spss-einlesen"><i class="fa fa-check"></i><b>4.0.12</b> Dateien aus SPSS einlesen</a></li>
+<li class="chapter" data-level="4.0.13" data-path="daten-einlesen.html"><a href="daten-einlesen.html#dateien-aus-spss-einlesen-1"><i class="fa fa-check"></i><b>4.0.13</b> Dateien aus SPSS einlesen</a></li>
+<li class="chapter" data-level="4.0.14" data-path="daten-einlesen.html"><a href="daten-einlesen.html#dateien-aus-spss-einlesen-2"><i class="fa fa-check"></i><b>4.0.14</b> Dateien aus SPSS einlesen</a></li>
+<li class="chapter" data-level="4.0.15" data-path="daten-einlesen.html"><a href="daten-einlesen.html#datenaufbereitung"><i class="fa fa-check"></i><b>4.0.15</b> Datenaufbereitung</a></li>
+<li class="chapter" data-level="4.0.16" data-path="daten-einlesen.html"><a href="daten-einlesen.html#ausreißer-behandlung"><i class="fa fa-check"></i><b>4.0.16</b> Ausreißer-Behandlung</a></li>
+<li class="chapter" data-level="4.0.17" data-path="daten-einlesen.html"><a href="daten-einlesen.html#ausreißer-behandlung-1"><i class="fa fa-check"></i><b>4.0.17</b> Ausreißer-Behandlung</a></li>
+<li class="chapter" data-level="4.0.18" data-path="daten-einlesen.html"><a href="daten-einlesen.html#umgang-mit-fehlenden-werten"><i class="fa fa-check"></i><b>4.0.18</b> Umgang mit fehlenden Werten</a></li>
+<li class="chapter" data-level="4.0.19" data-path="daten-einlesen.html"><a href="daten-einlesen.html#umgang-mit-fehlenden-werten-1"><i class="fa fa-check"></i><b>4.0.19</b> Umgang mit fehlenden Werten</a></li>
+<li class="chapter" data-level="4.0.20" data-path="daten-einlesen.html"><a href="daten-einlesen.html#umgang-mit-fehlenden-werten-2"><i class="fa fa-check"></i><b>4.0.20</b> Umgang mit fehlenden Werten</a></li>
+<li class="chapter" data-level="4.0.21" data-path="daten-einlesen.html"><a href="daten-einlesen.html#recodieren-von-werten"><i class="fa fa-check"></i><b>4.0.21</b> Recodieren von Werten</a></li>
+<li class="chapter" data-level="4.0.22" data-path="daten-einlesen.html"><a href="daten-einlesen.html#zusammenführen-von-datensätzen"><i class="fa fa-check"></i><b>4.0.22</b> Zusammenführen von Datensätzen</a></li>
+<li class="chapter" data-level="4.0.23" data-path="daten-einlesen.html"><a href="daten-einlesen.html#vorbereitung"><i class="fa fa-check"></i><b>4.0.23</b> Vorbereitung</a></li>
+<li class="chapter" data-level="4.0.24" data-path="daten-einlesen.html"><a href="daten-einlesen.html#vorbereitung-1"><i class="fa fa-check"></i><b>4.0.24</b> Vorbereitung</a></li>
+<li class="chapter" data-level="4.0.25" data-path="daten-einlesen.html"><a href="daten-einlesen.html#vorbereitung-2"><i class="fa fa-check"></i><b>4.0.25</b> Vorbereitung</a></li>
+<li class="chapter" data-level="4.0.26" data-path="daten-einlesen.html"><a href="daten-einlesen.html#zusammenführen-von-datensätzen-1"><i class="fa fa-check"></i><b>4.0.26</b> Zusammenführen von Datensätzen</a></li>
+<li class="chapter" data-level="4.0.27" data-path="daten-einlesen.html"><a href="daten-einlesen.html#zusammenführen-von-datensätzen-2"><i class="fa fa-check"></i><b>4.0.27</b> Zusammenführen von Datensätzen</a></li>
+<li class="chapter" data-level="4.0.28" data-path="daten-einlesen.html"><a href="daten-einlesen.html#zusammenführen-von-datensätzen-3"><i class="fa fa-check"></i><b>4.0.28</b> Zusammenführen von Datensätzen</a></li>
+<li class="chapter" data-level="4.0.29" data-path="daten-einlesen.html"><a href="daten-einlesen.html#zusammenführen-von-datensätzen-4"><i class="fa fa-check"></i><b>4.0.29</b> Zusammenführen von Datensätzen</a></li>
+<li class="chapter" data-level="4.0.30" data-path="daten-einlesen.html"><a href="daten-einlesen.html#literatur-1"><i class="fa fa-check"></i><b>4.0.30</b> Literatur</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="daten-darstellen.html"><a href="daten-darstellen.html"><i class="fa fa-check"></i><b>5</b> Daten darstellen</a>
+<ul>
+<li class="chapter" data-level="5.0.1" data-path="daten-darstellen.html"><a href="daten-darstellen.html#pivotieren-von-datensätzen"><i class="fa fa-check"></i><b>5.0.1</b> pivotieren von Datensätzen</a></li>
+<li class="chapter" data-level="5.0.2" data-path="daten-darstellen.html"><a href="daten-darstellen.html#vorbereitung-zum-pivotieren"><i class="fa fa-check"></i><b>5.0.2</b> Vorbereitung zum Pivotieren</a></li>
+<li class="chapter" data-level="5.0.3" data-path="daten-darstellen.html"><a href="daten-darstellen.html#vorbereitung-zum-pivotieren-1"><i class="fa fa-check"></i><b>5.0.3</b> Vorbereitung zum Pivotieren</a></li>
+<li class="chapter" data-level="5.0.4" data-path="daten-darstellen.html"><a href="daten-darstellen.html#pivotieren-von-datensätzen-1"><i class="fa fa-check"></i><b>5.0.4</b> pivotieren von Datensätzen</a></li>
+<li class="chapter" data-level="5.0.5" data-path="daten-darstellen.html"><a href="daten-darstellen.html#vorbereitung-für-die-grafische-darstellung"><i class="fa fa-check"></i><b>5.0.5</b> Vorbereitung für die grafische Darstellung</a></li>
+<li class="chapter" data-level="5.0.6" data-path="daten-darstellen.html"><a href="daten-darstellen.html#ggplot2"><i class="fa fa-check"></i><b>5.0.6</b> ggplot2</a></li>
+<li class="chapter" data-level="5.0.7" data-path="daten-darstellen.html"><a href="daten-darstellen.html#ggplot2-1"><i class="fa fa-check"></i><b>5.0.7</b> ggplot2</a></li>
+<li class="chapter" data-level="5.0.8" data-path="daten-darstellen.html"><a href="daten-darstellen.html#ggplot2-2"><i class="fa fa-check"></i><b>5.0.8</b> ggplot2</a></li>
+<li class="chapter" data-level="5.0.9" data-path="daten-darstellen.html"><a href="daten-darstellen.html#aesthetics"><i class="fa fa-check"></i><b>5.0.9</b> aesthetics</a></li>
+<li class="chapter" data-level="5.0.10" data-path="daten-darstellen.html"><a href="daten-darstellen.html#aesthetics-1"><i class="fa fa-check"></i><b>5.0.10</b> aesthetics</a></li>
+<li class="chapter" data-level="5.0.11" data-path="daten-darstellen.html"><a href="daten-darstellen.html#aesthetics-2"><i class="fa fa-check"></i><b>5.0.11</b> aesthetics</a></li>
+<li class="chapter" data-level="5.0.12" data-path="daten-darstellen.html"><a href="daten-darstellen.html#aesthetics-3"><i class="fa fa-check"></i><b>5.0.12</b> aesthetics</a></li>
+<li class="chapter" data-level="5.0.13" data-path="daten-darstellen.html"><a href="daten-darstellen.html#geoms"><i class="fa fa-check"></i><b>5.0.13</b> geoms</a></li>
+<li class="chapter" data-level="5.0.14" data-path="daten-darstellen.html"><a href="daten-darstellen.html#geoms-1"><i class="fa fa-check"></i><b>5.0.14</b> geoms</a></li>
+<li class="chapter" data-level="5.0.15" data-path="daten-darstellen.html"><a href="daten-darstellen.html#aesthetics-4"><i class="fa fa-check"></i><b>5.0.15</b> aesthetics</a></li>
+<li class="chapter" data-level="5.0.16" data-path="daten-darstellen.html"><a href="daten-darstellen.html#facets"><i class="fa fa-check"></i><b>5.0.16</b> facets!</a></li>
+<li class="chapter" data-level="5.0.17" data-path="daten-darstellen.html"><a href="daten-darstellen.html#additional-tweeks"><i class="fa fa-check"></i><b>5.0.17</b> additional tweeks</a></li>
+<li class="chapter" data-level="5.0.18" data-path="daten-darstellen.html"><a href="daten-darstellen.html#additional-tweeks-1"><i class="fa fa-check"></i><b>5.0.18</b> additional tweeks</a></li>
+<li class="chapter" data-level="5.0.19" data-path="daten-darstellen.html"><a href="daten-darstellen.html#themes"><i class="fa fa-check"></i><b>5.0.19</b> themes</a></li>
+<li class="chapter" data-level="5.0.20" data-path="daten-darstellen.html"><a href="daten-darstellen.html#grafiken-exportieren"><i class="fa fa-check"></i><b>5.0.20</b> Grafiken exportieren</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>6</b> Appendix</a></li>
+<li class="chapter" data-level="" data-path="literatur-2.html"><a href="literatur-2.html"><i class="fa fa-check"></i>Literatur</a></li>
+<li class="divider"></li>
+<li><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons Lizenzvertrag" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">02_Aufgaben</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="daten-einlesen" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Daten einlesen</h1>
+<div id="einlesen-von-daten" class="section level3" number="4.0.1">
+<h3><span class="header-section-number">4.0.1</span> Einlesen von Daten</h3>
+<p>Das Rechnen mit den mit R mitgelieferten Datensätzen ist natürlich nur bedingt realitätsnah.</p>
+<p>Im durchschnittlichen Anwendungsfall müssen externe Datensätze eingelesen werden.</p>
+<p>Dabei sind im <code>tidyverse</code> dafür je nach Quelle folgende Pakete vorgesehen:</p>
+<ul>
+<li><p>Textbasierte Daten(<code>.txt, .csv, .tsv,...</code>) <span class="math inline">\(\rightarrow\)</span> <code>readr</code></p></li>
+<li><p>Excel-Mappen(<code>.xlsx, .xls</code>) <span class="math inline">\(\rightarrow\)</span> <code>readxl</code></p></li>
+<li><p>Daten aus anderen Statistikpaketen(<code>.sav, .dta,...</code>) <span class="math inline">\(\rightarrow\)</span> <code>haven</code></p></li>
+</ul>
+</div>
+<div id="einlesen-von-textdaten" class="section level3" number="4.0.2">
+<h3><span class="header-section-number">4.0.2</span> Einlesen von Textdaten</h3>
+Alle diese drei Pakete sind auch in der RStudio-GUI implementiert: <br>
+<div class="half-left">
+<p><img src="imgs/menu.png" width="80%" style="display: block; margin: auto;" /></p>
+</div>
+<div class="half-right">
+<p><img src="imgs/menu2.png" width="80%" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="problem" class="section level3" number="4.0.3">
+<h3><span class="header-section-number">4.0.3</span> Problem</h3>
+<p>Das Einlesen und Aufbereiten wird am folgenden Beispiel exerziert: <br>
+Uns interessiert der Zusammenhang von Drogenmissbrauch, Lebenszufriedenheit und Straftaten in Großbritannien. Dafür haben wir die folgenden drei Datensätz zur Verfügung:</p>
+<ul>
+<li><p><code>'crime.csv'</code> - Eine Textdatei mit nach Polizeibehörde aufgeschlüsselten Straftaten</p></li>
+<li><p><code>'drugs.xlsx'</code> - Eine Excel-Arbeitsmappe mit nach Region aufgeschlüsselten Zahlen zu Krankenhauseinweisungen mit drogenbedingten Diagnosen</p></li>
+<li><p><code>'satisfaction.sav'</code> - Ein in SPSS erstellter Datensatz mit nach Region aufgeschlüsselten Ergebnissen einer Bevölkerungsbefragung zur Lebenszufriedenheit</p></li>
+</ul>
+<!-- ### 2. Problem -->
+<!-- In den Aufgaben beschäftigen Sie sich mit dem folgenden Beispiel: <br> -->
+<!-- Die Berliner Hygieneaufsicht hat Restaurants unter die Lupe genommen. Dafür stehen uns die folgenden drei (simulierten) Datensätze zur Verfügung: -->
+<!-- * `'hygiene.csv'` - Eine Textdatei mit einer Liste von Hygiene- und Qualitätsratings mit zugehörigen Postleitzahlen und Rater-ID -->
+<!-- * `'plz.xlsx'` - Eine Excel-Arbeitsmappe mit einer Angabe der Einweisungen wegen Lebensmittelvergiftungen in Berliner Krankenhäusern -->
+<!-- * `'drugs.sav'` - Ein in SPSS erstellter Datensatz mit nach Region aufgeschlüsselten Ergebnissen einer Bevölkerungsbefragung zur Lebenszufriedenheit -->
+</div>
+<div id="textbasierte-daten" class="section level3 subsection" number="4.0.4">
+<h3><span class="header-section-number">4.0.4</span> textbasierte Daten</h3>
+<p>Die GUI ist hier ein guter Start. Wir wollen die Datei <code>'crime.csv'</code> einlesen. Diese enthält echte Daten über von britischen Polizeibehörden aufgezeichnete Straftaten von der <a href="https://www.gov.uk/government/statistics/historical-crime-data">Website der britischen Regierung</a>. Wenn ich dem Pfad im GUI folge, ergibt sich das folgende Bild:
+<img src="imgs/text.png" width="80%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="einlesen-von-textdaten-1" class="section level3" number="4.0.5">
+<h3><span class="header-section-number">4.0.5</span> Einlesen von Textdaten</h3>
+<p class="q">
+Was ist das Problem?
+</p>
+<div class="build">
+<p>Das Trennzeichen(Delimiter) ist falsch gesetzt. In den Daten sind die Zellen offensichtlich durch Semikolons getrennt.
+<img src="imgs/text2.png" width="80%" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="einlesen-von-textdateien" class="section level3" number="4.0.6">
+<h3><span class="header-section-number">4.0.6</span> Einlesen von Textdateien</h3>
+<p>Der für das Einlesen nötige Code wird dann von RStudio in die Konsole kopiert und ausgeführt.
+Um nicht jedes Mal beim Ausführen desselben Skriptes wieder per Hand den Datensatz einlesen zu müssen, kopiert man den Code dann an den Anfang des Skriptes.</p>
+<p><img src="imgs/text3.png" width="80%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="einlesen-von-textdateien-1" class="section level3 scrollable" number="4.0.7">
+<h3><span class="header-section-number">4.0.7</span> Einlesen von Textdateien</h3>
+<p>Was passiert hier?</p>
+<div class="tt-left">
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="daten-einlesen.html#cb85-1" aria-hidden="true" tabindex="-1"></a>crime <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">&quot;data/crime.csv&quot;</span>, </span></code></pre></div>
+</div>
+<div class="ot-right">
+<p class="codeComment">
+Lege in <code>crime</code> das Textfile mit Trennzeichen unter dem angegebenen Pfad ab. Dabei…
+</p>
+</div>
+<div class="tt-left">
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="daten-einlesen.html#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;;&quot;</span>, escape_double <span class="ot">=</span> <span class="cn">FALSE</span>, trim_ws <span class="ot">=</span> <span class="cn">TRUE</span><span class="er">)</span></span></code></pre></div>
+</div>
+<div class="ot-right">
+<p class="codeComment">
+…erwarte Semikolons als Trennzeichen, erwarte keine doppelten Anführungszeichen und schneide Leerzeichen von den Einträgen ab.
+</p>
+</div>
+<div class="tt-left">
+<pre><code>## 
+## ── Column specification ──────────────────────────
+## cols(
+##   .default = col_double(),
+##   Force = col_character()
+## )
+## ℹ Use `spec()` for the full column specifications.</code></pre>
+</div>
+<div class="ot-right">
+<p class="codeComment">
+R teilt mit, dass es Kommazahlen als Standard-Zelleninhalt versucht und bei nicht-Funktionieren auf <code>character</code> zurückfällt. Das ist trotz der Farbe <strong>keine</strong> Fehlermeldung
+</p>
+</div>
+<div class="tt-left">
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="daten-einlesen.html#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(crime)</span></code></pre></div>
+</div>
+<div class="ot-right">
+<p class="codeComment">
+Dann öffne den Datensatz zum Angucken.
+</p>
+</div>
+</div>
+<div id="einlesen-von-textdateien-2" class="section level3" number="4.0.8">
+<h3><span class="header-section-number">4.0.8</span> Einlesen von Textdateien</h3>
+<p>Noch zwei wichtige Tricks in dem Einlesetool sind die <font color='#0000FF'>locale-Schaltfläche</font> und das <font color='#00FFFF'>NA-Menü</font></p>
+<p><img src="imgs/text4.png" width="80%" style="display: block; margin: auto;" /></p>
+<p class="q">
+Was kann man hier anpassen?
+</p>
+<div class="build">
+<p class="o">
+Genau kontrollieren, ob Umlaute, Zellentrennung, fehlende Werte, Dezimaltrennzeichen,… richtig eingestellt waren!
+</p>
+</div>
+<!-- ### Aufgabe -->
+<!-- 1. Lesen Sie den Datensatz `'aerztVers.csv`' ein -->
+<!-- 2. Verschaffen Sie sich einen Überblick -->
+</div>
+<div id="excel-arbeitsmappen" class="section level3 subsection" number="4.0.9">
+<h3><span class="header-section-number">4.0.9</span> Excel-Arbeitsmappen</h3>
+<p>Für die Excel-Arbeitsmappen ist die GUI auch der einfachste Weg.</p>
+<p class="q">
+Wie würde man vorgehen um die Datei drugs.xlsx einzulesen?
+</p>
+<div class="build">
+<ul>
+<li>Import Dataset <span class="math inline">\(\rightarrow\)</span> From Excel</li>
+<li>Pfad zum file raussuchen
+<img src="imgs/excel1.png" width="80%" style="display: block; margin: auto;" /></li>
+<li>Richtiges <font color='#0000FF'>Sheet aussuchen</font></li>
+<li>unnötige <font color='#00FF00'>Zeilen überspringen</font></li>
+<li>etwaige von leeren Zellen abweichende <font color='#00FFFF'>NA-Codierung</font> anpassen</li>
+</ul>
+</div>
+</div>
+<div id="excel-arbeitsmappen-1" class="section level3" number="4.0.10">
+<h3><span class="header-section-number">4.0.10</span> Excel-Arbeitsmappen</h3>
+<p class="o">
+Auch bei Excel-Mappen an das Kopieren des Codes denken!
+</p>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="daten-einlesen.html#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb89-2"><a href="daten-einlesen.html#cb89-2" aria-hidden="true" tabindex="-1"></a>drugs <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;data/drugs.xlsx&quot;</span>,</span>
+<span id="cb89-3"><a href="daten-einlesen.html#cb89-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">sheet =</span> <span class="st">&quot;Table 2&quot;</span>, <span class="at">na =</span> <span class="st">&quot;*&quot;</span>, <span class="at">skip =</span> <span class="dv">10</span>)</span></code></pre></div>
+<pre><code>## New names:
+## * `` -&gt; ...1
+## * `` -&gt; ...2
+## * `` -&gt; ...3
+## * `` -&gt; ...4</code></pre>
+<p>Diese Daten sind übrigens auch Originaldaten von der Website des <a href="https://digital.nhs.uk/data-and-information/publications/statistical/statistics-on-drug-misuse/2018">britischen National Health Services</a></p>
+</div>
+<div id="dateien-aus-anderer-software" class="section level3 subsection" number="4.0.11">
+<h3><span class="header-section-number">4.0.11</span> Dateien aus anderer Software</h3>
+<p>Beispielhaft für SPSS, für Stata etc analog.
+Die GUI ist wieder ein guter Anfang und hier ziemlich selbsterklärend.</p>
+<p class="q">
+Wie würde man vorgehen um die Datei satisfaction.sav einzulesen?
+</p>
+<div class="build">
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="daten-einlesen.html#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
+<span id="cb91-2"><a href="daten-einlesen.html#cb91-2" aria-hidden="true" tabindex="-1"></a>satisfaction <span class="ot">&lt;-</span> <span class="fu">read_sav</span>(<span class="st">&quot;data/satisfaction.sav&quot;</span>)</span></code></pre></div>
+<p>Die Daten kommen diesmal vom britischen <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/wellbeing/adhocs/007955estimatesofpersonalwellbeingbrokendownbycountryofbirthfromtheukannualpopulationsurveyaps">Office for National Statistics</a>, wurden aber stark abgewandelt.</p>
+</div>
+</div>
+<div id="dateien-aus-spss-einlesen" class="section level3" number="4.0.12">
+<h3><span class="header-section-number">4.0.12</span> Dateien aus SPSS einlesen</h3>
+<p>Wenn man sich die Daten in der RStudio-Oberfläche anguckt, sieht man, dass die für SPSS typischen Variablendefinitionen konserviert wurden:</p>
+<p><img src="imgs/spss1.png" width="80%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="dateien-aus-spss-einlesen-1" class="section level3" number="4.0.13">
+<h3><span class="header-section-number">4.0.13</span> Dateien aus SPSS einlesen</h3>
+<p><code>haven</code> bietet mit der <code>as_factor</code>-Funktion eine Möglichkeit an, eine dieser Codierung enthaltenden Variablen in einen Faktor umzuwandeln.</p>
+<p>Faktoren sind eine Variante um in R kategoriale Variablen anzulegen.</p>
+<p>So könnten wir uns zum Beispiel entscheiden, einen neuen, zweiten Datensatz zu erstellen, der die Variablen mit den Verballabels aus SPSS enthält.
+Da wir auf alle Spalten dafür dieselbe Funktion anwenden wollen, können wir dafür die <code>mutate_all</code>-Funktion verwenden.</p>
+</div>
+<div id="dateien-aus-spss-einlesen-2" class="section level3 small" number="4.0.14">
+<h3><span class="header-section-number">4.0.14</span> Dateien aus SPSS einlesen</h3>
+<p>Dabei benutzen wir die im <code>tidyverse</code> beim Batchen von Funktionen verbreitete Funktionsschreibweise:</p>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="daten-einlesen.html#cb92-1" aria-hidden="true" tabindex="-1"></a>verbal_satisfaction <span class="ot">&lt;-</span> satisfaction <span class="sc">%&gt;%</span> </span>
+<span id="cb92-2"><a href="daten-einlesen.html#cb92-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_all</span>(<span class="sc">~</span><span class="fu">as_factor</span>(.)) <span class="do">## Nach der Tilde Funktion für alle Spalten</span></span>
+<span id="cb92-3"><a href="daten-einlesen.html#cb92-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Mit dem Punkt wird angegeben, wo die Variablen eingesetzt werden sollen</span></span></code></pre></div>
+<p>Das Ergebnis sieht in der Oberfläche dann so aus:</p>
+<p><img src="imgs/spss2.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>Für Tipps zur weitergehenden Bearbeitung von SPSS und Stata-Daten noch <a href="https://www.rdocumentation.org/packages/haven/versions/2.2.0/vignettes/semantics.Rmd">hier</a> die sehr gute <code>haven</code>-Vignette zu den nötigen Schritten.</p>
+</div>
+<div id="datenaufbereitung" class="section level3" number="4.0.15">
+<h3><span class="header-section-number">4.0.15</span> Datenaufbereitung</h3>
+<p>Datenaufbrereitung kann natürlich denkbar komplex sein, deswegen beschränken wir uns hier auf die folgenden Schritte:</p>
+<ol style="list-style-type: decimal">
+<li><p>Ausreißer-Behandlung</p></li>
+<li><p>Umgang mit fehlenden Werten</p></li>
+<li><p>Recodieren von Werten</p></li>
+</ol>
+</div>
+<div id="ausreißer-behandlung" class="section level3 subsection" number="4.0.16">
+<h3><span class="header-section-number">4.0.16</span> Ausreißer-Behandlung</h3>
+<p>Als ersten Schritt zur Bereinigung der drei Datensätze sollen Ausreißer erkannt und durch fehlende Werte ausgeschlossen werden.</p>
+<p>Dafür muss man sich natürlich zuerst überlegen, was das Kriterium dafür sein soll. Wir benutzen hier das Kriterium nach <span class="citation"><a href="literatur-2.html#ref-tukeyExploratoryDataAnalysis1977" role="doc-biblioref">Tukey</a> (<a href="literatur-2.html#ref-tukeyExploratoryDataAnalysis1977" role="doc-biblioref">1977</a>)</span>, also wollen wir gerade die Werte ausschlißen, die mehr als 1.5 Interquartilabstände über oder unter dem 25% bzw dem 75%-Quantil liegen.</p>
+<p>Um uns Tipparbeit zu sparen, schreiben wir dafür unsere erste Funktion:</p>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="daten-einlesen.html#cb93-1" aria-hidden="true" tabindex="-1"></a>remove_outlier <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb93-2"><a href="daten-einlesen.html#cb93-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ifelse</span>(<span class="fu">between</span>(x,</span>
+<span id="cb93-3"><a href="daten-einlesen.html#cb93-3" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">quantile</span>(x,.<span class="dv">25</span>) <span class="sc">-</span> <span class="fl">1.5</span> <span class="sc">*</span> <span class="fu">IQR</span>(x),</span>
+<span id="cb93-4"><a href="daten-einlesen.html#cb93-4" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">quantile</span>(x,.<span class="dv">75</span>) <span class="sc">+</span> <span class="fl">1.5</span> <span class="sc">*</span> <span class="fu">IQR</span>(x)),</span>
+<span id="cb93-5"><a href="daten-einlesen.html#cb93-5" aria-hidden="true" tabindex="-1"></a>          x,</span>
+<span id="cb93-6"><a href="daten-einlesen.html#cb93-6" aria-hidden="true" tabindex="-1"></a>          <span class="cn">NA</span>)}</span></code></pre></div>
+</div>
+<div id="ausreißer-behandlung-1" class="section level3" number="4.0.17">
+<h3><span class="header-section-number">4.0.17</span> Ausreißer-Behandlung</h3>
+<p>Kombiniert mit einem <code>mutate_if</code> können wir damit alle Ausreißer gegen fehlende Werte austauschen.<br> <code>mutate_if</code> ist mit <code>mutate_all</code> vergleichbar, nur dass man einen logischen Wert übergeben kann um die umzuwandelnden Spalten auszuwählen.</p>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="daten-einlesen.html#cb94-1" aria-hidden="true" tabindex="-1"></a>crime <span class="ot">&lt;-</span> crime <span class="sc">%&gt;%</span> </span>
+<span id="cb94-2"><a href="daten-einlesen.html#cb94-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_if</span>(<span class="at">.predicate =</span> is.numeric,</span>
+<span id="cb94-3"><a href="daten-einlesen.html#cb94-3" aria-hidden="true" tabindex="-1"></a>            <span class="sc">~</span><span class="fu">remove_outlier</span>(.))</span></code></pre></div>
+</div>
+<div id="umgang-mit-fehlenden-werten" class="section level3 subsection" number="4.0.18">
+<h3><span class="header-section-number">4.0.18</span> Umgang mit fehlenden Werten</h3>
+<p>Fehlende Werte werden in R generell mit <code>NA</code> codiert. Um damit umzugehen bietet das <code>tidyverse</code> ein paar Funktionen, wir beschränken uns hier auf zwei.</p>
+<p><code>drop_na</code> zum rigorosen Entfernen von Zeilen mit fehlenden Werten:</p>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="daten-einlesen.html#cb95-1" aria-hidden="true" tabindex="-1"></a>drugs <span class="sc">%&gt;%</span> </span>
+<span id="cb95-2"><a href="daten-einlesen.html#cb95-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>()</span></code></pre></div>
+<pre><code>## # A tibble: 0 x 7
+## # … with 7 variables: ...1 &lt;chr&gt;, ...2 &lt;chr&gt;,
+## #   ...3 &lt;chr&gt;, ...4 &lt;chr&gt;, `All persons9` &lt;dbl&gt;,
+## #   Male &lt;dbl&gt;, Female &lt;dbl&gt;</code></pre>
+<p>…in unserem Fall vielleicht ein bisschen zu rigoros</p>
+</div>
+<div id="umgang-mit-fehlenden-werten-1" class="section level3" number="4.0.19">
+<h3><span class="header-section-number">4.0.19</span> Umgang mit fehlenden Werten</h3>
+<p>Die zweite Möglichkeit ist <code>replace_na</code>, eine Funktion die, wie der Name schon sagt, <code>NA</code>s durch festgelegte Werte ersetzen kann. Mit einem <code>mutate_if</code> kombiniert, können wir so alle fehlenden Zahlen im Datensatz durch 0 ersetzen:</p>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="daten-einlesen.html#cb97-1" aria-hidden="true" tabindex="-1"></a>drugs <span class="sc">%&gt;%</span> </span>
+<span id="cb97-2"><a href="daten-einlesen.html#cb97-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_if</span>(is.numeric,<span class="sc">~</span><span class="fu">replace_na</span>(.,<span class="dv">0</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 195 x 7
+##   ...1  ...2  ...3  ...4  `All persons9`  Male
+##   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;          &lt;dbl&gt; &lt;dbl&gt;
+## 1 &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;               0     0
+## 2 E920… &lt;NA&gt;  &lt;NA&gt;  Engl…           7139  5294
+## 3 &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;               0     0
+## 4 U     &lt;NA&gt;  U     Unkn…            244   202
+## 5 &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;               0     0
+## # … with 190 more rows, and 1 more variable:
+## #   Female &lt;dbl&gt;</code></pre>
+</div>
+<div id="umgang-mit-fehlenden-werten-2" class="section level3" number="4.0.20">
+<h3><span class="header-section-number">4.0.20</span> Umgang mit fehlenden Werten</h3>
+<p>Jetzt können wir noch die fehlenden <code>character</code> umgewandeln:</p>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="daten-einlesen.html#cb99-1" aria-hidden="true" tabindex="-1"></a>drugs <span class="ot">&lt;-</span> drugs <span class="sc">%&gt;%</span> </span>
+<span id="cb99-2"><a href="daten-einlesen.html#cb99-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_if</span>(is.numeric,<span class="sc">~</span><span class="fu">replace_na</span>(.,<span class="dv">0</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb99-3"><a href="daten-einlesen.html#cb99-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_if</span>(is.character,<span class="sc">~</span><span class="fu">replace_na</span>(.,<span class="st">&#39;&#39;</span>))</span>
+<span id="cb99-4"><a href="daten-einlesen.html#cb99-4" aria-hidden="true" tabindex="-1"></a>drugs</span></code></pre></div>
+<pre><code>## # A tibble: 195 x 7
+##   ...1  ...2  ...3  ...4  `All persons9`  Male
+##   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;          &lt;dbl&gt; &lt;dbl&gt;
+## 1 &quot;&quot;    &quot;&quot;    &quot;&quot;    &quot;&quot;                 0     0
+## 2 &quot;E92… &quot;&quot;    &quot;&quot;    &quot;Eng…           7139  5294
+## 3 &quot;&quot;    &quot;&quot;    &quot;&quot;    &quot;&quot;                 0     0
+## 4 &quot;U&quot;   &quot;&quot;    &quot;U&quot;   &quot;Unk…            244   202
+## 5 &quot;&quot;    &quot;&quot;    &quot;&quot;    &quot;&quot;                 0     0
+## # … with 190 more rows, and 1 more variable:
+## #   Female &lt;dbl&gt;</code></pre>
+</div>
+<div id="recodieren-von-werten" class="section level3 subsection" number="4.0.21">
+<h3><span class="header-section-number">4.0.21</span> Recodieren von Werten</h3>
+<p>Das Recodieren von Werten funktioniert einfach über eine <code>mutate</code>-pipeline.</p>
+<p>Für Kategoriale Daten bietet das <code>tidyverse</code> die <code>recode</code>-Funktion, hier wollen wir uns aber auf numerische Daten beschränken.</p>
+<p class="q">
+Wie könnte ich die <em>Anxiety</em>-Skala im <code>satisfaction</code>-Datensatz umpolen?
+</p>
+<div class="build">
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="daten-einlesen.html#cb101-1" aria-hidden="true" tabindex="-1"></a>satisfaction <span class="ot">&lt;-</span> satisfaction <span class="sc">%&gt;%</span> </span>
+<span id="cb101-2"><a href="daten-einlesen.html#cb101-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Average_Anxious_Yesterday =</span> <span class="sc">-</span><span class="dv">1</span><span class="sc">*</span> (Average_Anxious_Yesterday<span class="dv">-10</span>))</span></code></pre></div>
+</div>
+</div>
+<div id="zusammenführen-von-datensätzen" class="section level3" number="4.0.22">
+<h3><span class="header-section-number">4.0.22</span> Zusammenführen von Datensätzen</h3>
+<p>Zu guter Letzt wollen wir die drei Datensätze zu einem Datensatz zusammenfügen.<br />
+Dieser soll pro Region
+1. die Anzahl aller drogenbezogenen Krankenhausaufenthalte
+2. die Anzahl der (versuchten) Mordfälle
+3. die mittlere Zufriedenheit über alle Skalen beinhalten</p>
+</div>
+<div id="vorbereitung" class="section level3" number="4.0.23">
+<h3><span class="header-section-number">4.0.23</span> Vorbereitung</h3>
+<p>Wir fangen damit an, die Datensätze wie gewünscht vorzubereiten.
+Aus dem <code>drugs</code>-Datensatz brauchen wir die Regionsbezeichnung, die ONS-Codes und natürlich die Zahl der Einweisungen:</p>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="daten-einlesen.html#cb102-1" aria-hidden="true" tabindex="-1"></a>drugs <span class="ot">&lt;-</span> drugs <span class="sc">%&gt;%</span> </span>
+<span id="cb102-2"><a href="daten-einlesen.html#cb102-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(...<span class="dv">1</span>,...<span class="dv">4</span>, <span class="st">`</span><span class="at">All persons9</span><span class="st">`</span>)</span></code></pre></div>
+</div>
+<div id="vorbereitung-1" class="section level3" number="4.0.24">
+<h3><span class="header-section-number">4.0.24</span> Vorbereitung</h3>
+<p>Aus dem <code>crime</code>-Datensatz brauchen wir die Bezeichnung der Niederlassung, Anzahl der Morde und die Anzahl der versuchten Morde:</p>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="daten-einlesen.html#cb103-1" aria-hidden="true" tabindex="-1"></a>crime <span class="ot">&lt;-</span> crime <span class="sc">%&gt;%</span> </span>
+<span id="cb103-2"><a href="daten-einlesen.html#cb103-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Force,HOMICIDE,<span class="st">`</span><span class="at">Attempted murder</span><span class="st">`</span>)</span></code></pre></div>
+</div>
+<div id="vorbereitung-2" class="section level3" number="4.0.25">
+<h3><span class="header-section-number">4.0.25</span> Vorbereitung</h3>
+<p>Aus dem <code>satisfaction</code>-Datensatz brauchen wir den ONS-Code und einen mittleren Zufriedenheitswert</p>
+<p class="q">
+Wie könnte ich das angehen?
+</p>
+<div class="build">
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="daten-einlesen.html#cb104-1" aria-hidden="true" tabindex="-1"></a>satisfaction <span class="ot">&lt;-</span> satisfaction <span class="sc">%&gt;%</span> </span>
+<span id="cb104-2"><a href="daten-einlesen.html#cb104-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transmute</span>(<span class="at">Code =</span> Code,</span>
+<span id="cb104-3"><a href="daten-einlesen.html#cb104-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">Satisfaction =</span> (Average_Satisfaction <span class="sc">+</span> Average_Worthwile <span class="sc">+</span> </span>
+<span id="cb104-4"><a href="daten-einlesen.html#cb104-4" aria-hidden="true" tabindex="-1"></a>              Average_Happy_Yesterday <span class="sc">+</span>Average_Anxious_Yesterday)<span class="sc">/</span><span class="dv">4</span>)</span></code></pre></div>
+<p class="o">
+<code>sum</code> ist keine vektorisierte Funktion! Um eine neue Summenwert pro Zeile zu bilden, sind <code>+</code> und <code>/</code> nötig
+</p>
+</div>
+</div>
+<div id="zusammenführen-von-datensätzen-1" class="section level3" number="4.0.26">
+<h3><span class="header-section-number">4.0.26</span> Zusammenführen von Datensätzen</h3>
+<p>Jetzt müssen wir das ganze nur noch zusammenfügen. Dafür benutzen wir die Familien der <code>join</code>-Funktionen</p>
+<p>Zuerst fügen wir die Anzahl der Straftaten zu der Anzahl der Krankenhauseinweisungen hinzu. Dabei matchen wir die Regionen über das Regions-Schlüsselwort und behalten nur die Fälle, in denen in beiden Datensätzen ein Schlüsselwort auftaucht:</p>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="daten-einlesen.html#cb105-1" aria-hidden="true" tabindex="-1"></a>overall <span class="ot">&lt;-</span> drugs <span class="sc">%&gt;%</span> </span>
+<span id="cb105-2"><a href="daten-einlesen.html#cb105-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(crime, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&#39;...4&#39;</span> <span class="ot">=</span> <span class="st">&#39;Force&#39;</span>))</span>
+<span id="cb105-3"><a href="daten-einlesen.html#cb105-3" aria-hidden="true" tabindex="-1"></a>overall</span></code></pre></div>
+<pre><code>## # A tibble: 21 x 5
+##   ...1  ...4  `All persons9` HOMICIDE
+##   &lt;chr&gt; &lt;chr&gt;          &lt;dbl&gt;    &lt;dbl&gt;
+## 1 E100… Cumb…             72        7
+## 2 E100… Lanc…            214       16
+## 3 E100… Nort…             44        9
+## 4 E100… Derb…             81        4
+## 5 E100… Leic…             56        6
+## # … with 16 more rows, and 1 more variable:
+## #   `Attempted murder` &lt;dbl&gt;</code></pre>
+</div>
+<div id="zusammenführen-von-datensätzen-2" class="section level3" number="4.0.27">
+<h3><span class="header-section-number">4.0.27</span> Zusammenführen von Datensätzen</h3>
+<p>Dem <code>overall</code>-Datensatz fügen wir jetzt noch die <code>satisfaction</code> hinzu. Hierzu nutzen wir die ONS-Codes. Dabei wollen wir alle Fälle in <code>overall</code> behalten:</p>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="daten-einlesen.html#cb107-1" aria-hidden="true" tabindex="-1"></a>overall <span class="ot">&lt;-</span> overall <span class="sc">%&gt;%</span> </span>
+<span id="cb107-2"><a href="daten-einlesen.html#cb107-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(satisfaction, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&#39;...1&#39;</span> <span class="ot">=</span> <span class="st">&#39;Code&#39;</span>))</span>
+<span id="cb107-3"><a href="daten-einlesen.html#cb107-3" aria-hidden="true" tabindex="-1"></a>overall</span></code></pre></div>
+<pre><code>## # A tibble: 21 x 6
+##   ...1  ...4  `All persons9` HOMICIDE
+##   &lt;chr&gt; &lt;chr&gt;          &lt;dbl&gt;    &lt;dbl&gt;
+## 1 E100… Cumb…             72        7
+## 2 E100… Lanc…            214       16
+## 3 E100… Nort…             44        9
+## 4 E100… Derb…             81        4
+## 5 E100… Leic…             56        6
+## # … with 16 more rows, and 2 more variables:
+## #   `Attempted murder` &lt;dbl&gt;, Satisfaction &lt;dbl&gt;</code></pre>
+</div>
+<div id="zusammenführen-von-datensätzen-3" class="section level3" number="4.0.28">
+<h3><span class="header-section-number">4.0.28</span> Zusammenführen von Datensätzen</h3>
+<p>Alles was jetzt noch fehlt, sind schönere Spaltennamen. Dafür benutzen wir entweder <code>rename</code>.
+<code>rename</code> erwartet die Angabe jedes Namens, der geändert werden soll als Wert und die neuen Namen als Namen der Argumente:</p>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="daten-einlesen.html#cb109-1" aria-hidden="true" tabindex="-1"></a>overall <span class="ot">&lt;-</span> overall <span class="sc">%&gt;%</span> </span>
+<span id="cb109-2"><a href="daten-einlesen.html#cb109-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">&#39;ONS_Code&#39;</span> <span class="ot">=</span> <span class="st">&#39;...1&#39;</span>,</span>
+<span id="cb109-3"><a href="daten-einlesen.html#cb109-3" aria-hidden="true" tabindex="-1"></a>         <span class="st">&#39;region&#39;</span> <span class="ot">=</span> <span class="st">&#39;...4&#39;</span>,</span>
+<span id="cb109-4"><a href="daten-einlesen.html#cb109-4" aria-hidden="true" tabindex="-1"></a>         <span class="st">&#39;admissions&#39;</span> <span class="ot">=</span> <span class="st">&#39;All persons9&#39;</span>,</span>
+<span id="cb109-5"><a href="daten-einlesen.html#cb109-5" aria-hidden="true" tabindex="-1"></a>         <span class="st">&#39;homicide&#39;</span> <span class="ot">=</span> <span class="st">&#39;HOMICIDE&#39;</span>)</span></code></pre></div>
+</div>
+<div id="zusammenführen-von-datensätzen-4" class="section level3" number="4.0.29">
+<h3><span class="header-section-number">4.0.29</span> Zusammenführen von Datensätzen</h3>
+<p>Damit ist unser Datensatz fertig:</p>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="daten-einlesen.html#cb110-1" aria-hidden="true" tabindex="-1"></a>overall</span></code></pre></div>
+<pre><code>## # A tibble: 21 x 6
+##   ONS_Code region admissions homicide
+##   &lt;chr&gt;    &lt;chr&gt;       &lt;dbl&gt;    &lt;dbl&gt;
+## 1 E100000… Cumbr…         72        7
+## 2 E100000… Lanca…        214       16
+## 3 E100000… North…         44        9
+## 4 E100000… Derby…         81        4
+## 5 E100000… Leice…         56        6
+## # … with 16 more rows, and 2 more variables:
+## #   `Attempted murder` &lt;dbl&gt;, Satisfaction &lt;dbl&gt;</code></pre>
+<p>Den speichern wir noch eben als csv-Datei ab.</p>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="daten-einlesen.html#cb112-1" aria-hidden="true" tabindex="-1"></a>overall <span class="sc">%&gt;%</span> <span class="fu">write_csv</span>(<span class="st">&#39;data/drugs_crime_UK.csv&#39;</span>)</span></code></pre></div>
+</div>
+<div id="literatur-1" class="section level3" number="4.0.30">
+<h3><span class="header-section-number">4.0.30</span> Literatur</h3>
+
+<!-- # --- -->
+<!-- # title: "Daten darstellen" -->
+<!-- # author: "Max Brede" -->
+<!-- # date: "11/12/2020" -->
+<!-- # output: -->
+<!-- #   ioslides_presentation: -->
+<!-- #     transition: faster -->
+<!-- #     css: /home/brede/MEGA/Honorar/111220_KfN/styles.css -->
+<!-- #     slide_level: 3 -->
+<!-- # widescreen: true -->
+<!-- # bibliography: /home/brede/MEGA/Honorar/111220_KfN/references.bib -->
+<!-- # csl: /home/brede/MEGA/Honorar/111220_KfN/apa.csl -->
+<!-- # smaller: true  -->
+<!-- # --- -->
+<!-- ```{r,results='asis', echo = F} -->
+<!-- read_file('/home/brede/MEGA/Honorar/111220_KfN/ioTOC.html') %>% cat -->
+<!-- read_file('/home/brede/MEGA/Honorar/111220_KfN/scrollableSlides.html') %>% cat -->
+<!-- ``` -->
+<!-- ### Ablauf -->
+<!-- <div id="toc"></div> -->
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="daten-manipulieren.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="daten-darstellen.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["R - KfN 11.12.20.pdf"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
