@@ -300,7 +300,7 @@ Als zweites Argument nach dem Datensatz erwartet <code>ggplot</code> eine Angabe
 <!-- ### ggplot2 {.scrollable} -->
 <p>Diese ‘leere Leinwand’ sieht so aus:</p>
 <div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="daten-darstellen.html#cb120-1" aria-hidden="true" tabindex="-1"></a>crime_plot</span></code></pre></div>
-<p><img src="R---KfN-11.12.20_files/figure-html/unnamed-chunk-94-1.png" width="1000px" style="display: block; margin: auto;" /></p>
+<p><img src="R_Einfuehrung_111220_files/figure-html/unnamed-chunk-94-1.png" width="1000px" style="display: block; margin: auto;" /></p>
 <div id="aesthetics" class="section level3 subsection">
 <h3>aesthetics</h3>
 <p>Auf diese Leinwand können wir dann eine Reihe von verschiedenen grafischen Elementen legen, den so genannten <code>geom</code>s. Das einfachste Beispiel auf der eben erstellten Leinwand ist ein Scatterplot.
@@ -409,7 +409,7 @@ Uns stehen die folgenden Informationen zur Verfügung:
 <span id="cb129-5"><a href="daten-darstellen.html#cb129-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> <span class="st">&#39;grey&#39;</span>) <span class="sc">+</span></span>
 <span id="cb129-6"><a href="daten-darstellen.html#cb129-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(offence<span class="sc">~</span>Country, <span class="do">## als facets mit Straftat in Zeilen und Landesteil in Spalten</span></span>
 <span id="cb129-7"><a href="daten-darstellen.html#cb129-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">scales =</span> <span class="st">&#39;free&#39;</span>) <span class="do">## mit individuellen Skalen</span></span></code></pre></div>
-<p><img src="R---KfN-11.12.20_files/figure-html/unnamed-chunk-107-1.png" width="1000px" style="display: block; margin: auto;" /></p>
+<p><img src="R_Einfuehrung_111220_files/figure-html/unnamed-chunk-107-1.png" width="1000px" style="display: block; margin: auto;" /></p>
 <p class="q">
 Wie können wir das noch verbessern?
 </p>
@@ -428,7 +428,7 @@ Wie können wir das noch verbessern?
 <span id="cb130-8"><a href="daten-darstellen.html#cb130-8" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> <span class="st">&#39;grey&#39;</span>) <span class="sc">+</span></span>
 <span id="cb130-9"><a href="daten-darstellen.html#cb130-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(offence<span class="sc">~</span>Country, </span>
 <span id="cb130-10"><a href="daten-darstellen.html#cb130-10" aria-hidden="true" tabindex="-1"></a>             <span class="at">scales =</span> <span class="st">&#39;free&#39;</span>)</span></code></pre></div>
-<p><img src="R---KfN-11.12.20_files/figure-html/unnamed-chunk-108-1.png" width="1000px" style="display: block; margin: auto;" /></p>
+<p><img src="R_Einfuehrung_111220_files/figure-html/unnamed-chunk-108-1.png" width="1000px" style="display: block; margin: auto;" /></p>
 <!-- ### additional tweeks -->
 <p>Um die einzelnen Stationen besser lesbar zu machen, können wir noch die Achsen austauschen.</p>
 <div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="daten-darstellen.html#cb131-1" aria-hidden="true" tabindex="-1"></a>crime_long <span class="sc">%&gt;%</span> </span>
@@ -442,7 +442,7 @@ Wie können wir das noch verbessern?
 <span id="cb131-9"><a href="daten-darstellen.html#cb131-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
 <span id="cb131-10"><a href="daten-darstellen.html#cb131-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(Country <span class="sc">~</span> offence, </span>
 <span id="cb131-11"><a href="daten-darstellen.html#cb131-11" aria-hidden="true" tabindex="-1"></a>             <span class="at">scales =</span> <span class="st">&#39;free&#39;</span>)</span></code></pre></div>
-<p><img src="R---KfN-11.12.20_files/figure-html/unnamed-chunk-109-1.png" width="1000px" style="display: block; margin: auto;" /></p>
+<p><img src="R_Einfuehrung_111220_files/figure-html/unnamed-chunk-109-1.png" width="1000px" style="display: block; margin: auto;" /></p>
 </div>
 <div id="themes" class="section level3 subsection">
 <h3>themes</h3>
@@ -467,7 +467,7 @@ Wie können wir das noch verbessern?
 <span id="cb132-14"><a href="daten-darstellen.html#cb132-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&#39;Gemeldete Straftaten pro englischer Polizeistation&#39;</span>) <span class="sc">+</span></span>
 <span id="cb132-15"><a href="daten-darstellen.html#cb132-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>,</span>
 <span id="cb132-16"><a href="daten-darstellen.html#cb132-16" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">hjust =</span> <span class="dv">1</span>))</span></code></pre></div>
-<p><img src="R---KfN-11.12.20_files/figure-html/unnamed-chunk-110-1.png" width="1000px" style="display: block; margin: auto;" /></p>
+<p><img src="R_Einfuehrung_111220_files/figure-html/unnamed-chunk-110-1.png" width="1000px" style="display: block; margin: auto;" /></p>
 </div>
 <div id="grafiken-exportieren" class="section level3 subsection">
 <h3>Grafiken exportieren</h3>
@@ -575,7 +575,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["R - KfN 11.12.20.pdf"],
+"download": ["R_Einfuehrung_111220.pdf"],
 "toc": {
 "collapse": "subsection"
 }
