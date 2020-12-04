@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="daten-darstellen.html"/>
-<link rel="next" href="literatur-3.html"/>
+<link rel="next" href="literatur.html"/>
 <script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -146,16 +146,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Vorwort</a></li>
-<li class="chapter" data-level="" data-path="rste-schritte.html"><a href="rste-schritte.html"><i class="fa fa-check"></i>Rste Schritte</a></li>
-<li class="chapter" data-level="" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html"><i class="fa fa-check"></i>Daten manipulieren</a></li>
-<li class="chapter" data-level="" data-path="daten-einlesen.html"><a href="daten-einlesen.html"><i class="fa fa-check"></i>Daten einlesen</a></li>
-<li class="chapter" data-level="" data-path="daten-darstellen.html"><a href="daten-darstellen.html"><i class="fa fa-check"></i>Daten darstellen</a></li>
+<li class="chapter" data-level="" data-path="rste-schritte.html"><a href="rste-schritte.html"><i class="fa fa-check"></i>Rste Schritte</a>
+<ul>
+<li class="chapter" data-level="" data-path="rste-schritte.html"><a href="rste-schritte.html#warum-r"><i class="fa fa-check"></i>Warum R?</a></li>
+<li class="chapter" data-level="" data-path="rste-schritte.html"><a href="rste-schritte.html#r-syntax-basics"><i class="fa fa-check"></i>R-Syntax Basics</a></li>
+<li class="chapter" data-level="" data-path="rste-schritte.html"><a href="rste-schritte.html#datenformate-in-r"><i class="fa fa-check"></i>Datenformate in R</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html"><i class="fa fa-check"></i>Daten manipulieren</a>
+<ul>
+<li class="chapter" data-level="" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#datensätze-in-r"><i class="fa fa-check"></i>Datensätze in R</a></li>
+<li class="chapter" data-level="" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#regressionen-in-r"><i class="fa fa-check"></i>Regressionen in R</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="daten-einlesen.html"><a href="daten-einlesen.html"><i class="fa fa-check"></i>Daten einlesen</a>
+<ul>
+<li class="chapter" data-level="" data-path="daten-einlesen.html"><a href="daten-einlesen.html#einlesen-von-daten"><i class="fa fa-check"></i>Einlesen von Daten</a></li>
+<li class="chapter" data-level="" data-path="daten-einlesen.html"><a href="daten-einlesen.html#datenaufbereitung"><i class="fa fa-check"></i>Datenaufbereitung</a></li>
+<li class="chapter" data-level="" data-path="daten-einlesen.html"><a href="daten-einlesen.html#zusammenführen-von-datensätzen"><i class="fa fa-check"></i>Zusammenführen von Datensätzen</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="daten-darstellen.html"><a href="daten-darstellen.html"><i class="fa fa-check"></i>Daten darstellen</a>
+<ul>
+<li class="chapter" data-level="" data-path="daten-darstellen.html"><a href="daten-darstellen.html#pivotieren-von-datensätzen"><i class="fa fa-check"></i>pivotieren von Datensätzen</a></li>
+<li class="chapter" data-level="" data-path="daten-darstellen.html"><a href="daten-darstellen.html#ggplot2"><i class="fa fa-check"></i>ggplot2</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i>Appendix</a>
 <ul>
 <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#nützliche-pakete"><i class="fa fa-check"></i>Nützliche Pakete</a></li>
 <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#andere-ressourcen"><i class="fa fa-check"></i>Andere Ressourcen</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="literatur-3.html"><a href="literatur-3.html"><i class="fa fa-check"></i>Literatur</a></li>
+<li class="chapter" data-level="" data-path="literatur.html"><a href="literatur.html"><i class="fa fa-check"></i>Literatur</a></li>
 <li class="divider"></li>
 <li><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons Lizenzvertrag" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a></li>
 
@@ -185,16 +203,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Das Rmarkdown - Biotop ist das Ergebnis des Versuchs, die Hürde zur Kommunikation von Datenanalysen so gering wie möglich zu gestalten.</p>
 <p>Mit der Hilfe der zugehörigen Pakete lassen sich in einer sehr einfachen Syntax schnell Code-Stücke aus inzwischen 6 Programmiersprachen mit Freitext und untereinander kombinieren und in einem Dokument verbinden. Dieses Dokument lässt sich dann dank Pandoc in einer Vielzahl von Formaten exportieren.</p>
 <p>Um den Kern von Rmarkdown ist ein riesiger Apparat an Erweiterungen entstanden, die den Funktionsumfang zu einem sehr mächtigen Tool zur Dokumenterstellung anwachsen lassen. Dieses Skript ist zum Beispiel vollständig in Rmarkdown geschrieben.</p>
-</div>
-<div id="die-erste-dokumentation" class="section level3">
-<h3>Die erste Dokumentation</h3>
+<!-- ### Die erste Dokumentation -->
 <p>Um ein Dokument zu erstellen muss man einfach auf “neues Dokument” <span class="math inline">\(\rightarrow\)</span> R Markdown klicken und schon kann man anfangen.</p>
 <p>Mit Paketen wie Bookdown, Shiny, Plotly und Blogdown lassen sich auch sehr attraktive interaktive Dokumente erstellen, die Beispielsweise direkt als Website nutzbar sind.</p>
-</div>
-<div id="wo-kann-ich-dazu-mehr-erfahren" class="section level3">
-<h3>Wo kann ich dazu mehr erfahren?</h3>
-<p><span class="citation"><a href="literatur-3.html#ref-grolemundMarkdownDefinitiveGuide" role="doc-biblioref">Xie, Allaire, and Grolemund</a> (<a href="literatur-3.html#ref-grolemundMarkdownDefinitiveGuide" role="doc-biblioref">2020</a>)</span> bieten <a href="https://bookdown.org/yihui/rmarkdown/">hier</a> ein frei zugängliches gitbook mit Antworten zu allen Fragen, die man zum Standard-markdown haben kann.</p>
+<div id="wo-kann-ich-dazu-mehr-erfahren" class="section level4">
+<h4>Wo kann ich dazu mehr erfahren?</h4>
+<p><span class="citation"><a href="literatur.html#ref-grolemundMarkdownDefinitiveGuide" role="doc-biblioref">Xie, Allaire, and Grolemund</a> (<a href="literatur.html#ref-grolemundMarkdownDefinitiveGuide" role="doc-biblioref">2020</a>)</span> bieten <a href="https://bookdown.org/yihui/rmarkdown/">hier</a> ein frei zugängliches gitbook mit Antworten zu allen Fragen, die man zum Standard-markdown haben kann.</p>
 <p>Yihui Xie, einer der Autoren, ist auch der Autor von <code>bookdown</code> und <code>blogdown</code>, seine Bücher dazu lassen sich auch empfehlen.</p>
+</div>
 </div>
 <div id="skimr" class="section level3 subsection">
 <h3><code>skimr</code></h3>
@@ -941,9 +957,8 @@ error
 </tr>
 </tbody>
 </table>
-</div>
-<div id="klassische-vorgehensweise-in-base-r" class="section level3">
-<h3>klassische Vorgehensweise in base R</h3>
+<div id="klassische-vorgehensweise-in-base-r" class="section level4">
+<h4>klassische Vorgehensweise in base R</h4>
 <div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="appendix.html#cb138-1" aria-hidden="true" tabindex="-1"></a>anova <span class="ot">&lt;-</span> <span class="fu">aov</span>(rt <span class="sc">~</span> cue <span class="sc">*</span> flank <span class="sc">+</span> <span class="fu">Error</span>(subnum), <span class="at">data =</span> ANT)</span>
 <span id="cb138-2"><a href="appendix.html#cb138-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(anova)</span></code></pre></div>
 <pre><code>## 
@@ -966,8 +981,8 @@ error
 ## Signif. codes:  
 ## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 </div>
-<div id="anova-mit-ez" class="section level3">
-<h3>ANOVA mit <code>ez</code></h3>
+<div id="anova-mit-ez" class="section level4">
+<h4>ANOVA mit <code>ez</code></h4>
 <div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="appendix.html#cb140-1" aria-hidden="true" tabindex="-1"></a>ANT <span class="sc">%&gt;%</span> </span>
 <span id="cb140-2"><a href="appendix.html#cb140-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ezANOVA</span>(</span>
 <span id="cb140-3"><a href="appendix.html#cb140-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">dv =</span> rt,</span>
@@ -1004,9 +1019,10 @@ error
 ## 3 0.9037852 4.869100e-31         *
 ## 4 0.7506166 2.015937e-03         *</code></pre>
 </div>
-<div id="wo-kann-ich-dazu-mehr-erfahren-1" class="section level3">
-<h3>Wo kann ich dazu mehr erfahren?</h3>
+<div id="wo-kann-ich-dazu-mehr-erfahren-1" class="section level4">
+<h4>Wo kann ich dazu mehr erfahren?</h4>
 <p>Die <a href="https://www.rdocumentation.org/packages/ez/versions/4.4-0">Dokumentation</a> von <code>ez</code> ist ziemlich gut.</p>
+</div>
 </div>
 <div id="ggwordcloud" class="section level3 subsection">
 <h3><code>ggwordcloud</code></h3>
@@ -1029,9 +1045,8 @@ error
 ##  3rd Qu.: 2.0000   3rd Qu.: 2405                
 ##  Max.   : 5.0000   Max.   :15223                
 ##  NA&#39;s   :445</code></pre>
-</div>
-<div id="darstellung-in-wordcloud" class="section level3">
-<h3>Darstellung in wordcloud</h3>
+<!-- ### Darstellung in wordcloud -->
+<p>Diesen Datensatz wollen wir jetzt als eine wordcloud pro Nation darstellen:</p>
 <div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="appendix.html#cb145-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggwordcloud)</span>
 <span id="cb145-2"><a href="appendix.html#cb145-2" aria-hidden="true" tabindex="-1"></a>stories <span class="sc">%&gt;%</span> </span>
 <span id="cb145-3"><a href="appendix.html#cb145-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">size =</span> n, </span>
@@ -1042,12 +1057,12 @@ error
 <span id="cb145-8"><a href="appendix.html#cb145-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(<span class="sc">~</span>country) <span class="sc">+</span></span>
 <span id="cb145-9"><a href="appendix.html#cb145-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
 <p><img src="imgs/wc.png" width="1000px" style="display: block; margin: auto auto auto 0;" /></p>
-</div>
-<div id="wo-kann-ich-dazu-mehr-erfahren-2" class="section level3">
-<h3>Wo kann ich dazu mehr erfahren?</h3>
+<div id="wo-kann-ich-dazu-mehr-erfahren-2" class="section level4">
+<h4>Wo kann ich dazu mehr erfahren?</h4>
 <p>Die Vignette von ggwordcloud bietet ein paar schöne Beispiele, an denen man sich gut entlang hangeln kann.</p>
 <p>Zum Öffnen nach dem Laden des Pakets einfach so aufrufen:</p>
 <div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="appendix.html#cb146-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vignette</span>(<span class="st">&#39;ggwordcloud&#39;</span>)</span></code></pre></div>
+</div>
 </div>
 <div id="plotly" class="section level3 subsection">
 <h3><code>plotly</code></h3>
@@ -1075,18 +1090,16 @@ error
 <span id="cb152-8"><a href="appendix.html#cb152-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb152-9"><a href="appendix.html#cb152-9" aria-hidden="true" tabindex="-1"></a>p</span></code></pre></div>
 <p><img src="R---KfN-11.12.20_files/figure-html/unnamed-chunk-121-1.png" width="1000px" style="display: block; margin: auto;" /></p>
-</div>
-<div id="umwandlung" class="section level3">
-<h3>Umwandlung</h3>
+<!-- ### Umwandlung -->
 <p>Um den Graphen interaktiv zu gestalten reicht es, ihn an <code>ggplotly</code> zu übergeben:</p>
 <div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="appendix.html#cb153-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplotly</span>(p)</span></code></pre></div>
 <div id="htmlwidget-2447a80b4d3437bd3bc3" style="width:1000px;height:480px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-2447a80b4d3437bd3bc3">{"x":{"data":[{"x":[3.5,3,3.2,3.1,3.6,3.9,3.4,3.4,2.9,3.1,3.7,3.4,3,3,4,4.4,3.9,3.5,3.8,3.8,3.4,3.7,3.6,3.3,3.4,3,3.4,3.5,3.4,3.2,3.1,3.4,4.1,4.2,3.1,3.2,3.5,3.6,3,3.4,3.5,2.3,3.2,3.5,3.8,3,3.8,3.2,3.7,3.3],"y":[5.1,4.9,4.7,4.6,5,5.4,4.6,5,4.4,4.9,5.4,4.8,4.8,4.3,5.8,5.7,5.4,5.1,5.7,5.1,5.4,5.1,4.6,5.1,4.8,5,5,5.2,5.2,4.7,4.8,5.4,5.2,5.5,4.9,5,5.5,4.9,4.4,5.1,5,4.5,4.4,5,5.1,4.8,5.1,4.6,5.3,5],"text":["Sepal.Width: 3.5<br />Sepal.Length: 5.1<br />Species: setosa","Sepal.Width: 3.0<br />Sepal.Length: 4.9<br />Species: setosa","Sepal.Width: 3.2<br />Sepal.Length: 4.7<br />Species: setosa","Sepal.Width: 3.1<br />Sepal.Length: 4.6<br />Species: setosa","Sepal.Width: 3.6<br />Sepal.Length: 5.0<br />Species: setosa","Sepal.Width: 3.9<br />Sepal.Length: 5.4<br />Species: setosa","Sepal.Width: 3.4<br />Sepal.Length: 4.6<br />Species: setosa","Sepal.Width: 3.4<br />Sepal.Length: 5.0<br />Species: setosa","Sepal.Width: 2.9<br />Sepal.Length: 4.4<br />Species: setosa","Sepal.Width: 3.1<br />Sepal.Length: 4.9<br />Species: setosa","Sepal.Width: 3.7<br />Sepal.Length: 5.4<br />Species: setosa","Sepal.Width: 3.4<br />Sepal.Length: 4.8<br />Species: setosa","Sepal.Width: 3.0<br />Sepal.Length: 4.8<br />Species: setosa","Sepal.Width: 3.0<br />Sepal.Length: 4.3<br />Species: setosa","Sepal.Width: 4.0<br />Sepal.Length: 5.8<br />Species: setosa","Sepal.Width: 4.4<br />Sepal.Length: 5.7<br />Species: setosa","Sepal.Width: 3.9<br />Sepal.Length: 5.4<br />Species: setosa","Sepal.Width: 3.5<br />Sepal.Length: 5.1<br />Species: setosa","Sepal.Width: 3.8<br />Sepal.Length: 5.7<br />Species: setosa","Sepal.Width: 3.8<br />Sepal.Length: 5.1<br />Species: setosa","Sepal.Width: 3.4<br />Sepal.Length: 5.4<br />Species: setosa","Sepal.Width: 3.7<br />Sepal.Length: 5.1<br />Species: setosa","Sepal.Width: 3.6<br />Sepal.Length: 4.6<br />Species: setosa","Sepal.Width: 3.3<br />Sepal.Length: 5.1<br />Species: setosa","Sepal.Width: 3.4<br />Sepal.Length: 4.8<br />Species: setosa","Sepal.Width: 3.0<br />Sepal.Length: 5.0<br />Species: setosa","Sepal.Width: 3.4<br />Sepal.Length: 5.0<br />Species: setosa","Sepal.Width: 3.5<br />Sepal.Length: 5.2<br />Species: setosa","Sepal.Width: 3.4<br />Sepal.Length: 5.2<br />Species: setosa","Sepal.Width: 3.2<br />Sepal.Length: 4.7<br />Species: setosa","Sepal.Width: 3.1<br />Sepal.Length: 4.8<br />Species: setosa","Sepal.Width: 3.4<br />Sepal.Length: 5.4<br />Species: setosa","Sepal.Width: 4.1<br />Sepal.Length: 5.2<br />Species: setosa","Sepal.Width: 4.2<br />Sepal.Length: 5.5<br />Species: setosa","Sepal.Width: 3.1<br />Sepal.Length: 4.9<br />Species: setosa","Sepal.Width: 3.2<br />Sepal.Length: 5.0<br />Species: setosa","Sepal.Width: 3.5<br />Sepal.Length: 5.5<br />Species: setosa","Sepal.Width: 3.6<br />Sepal.Length: 4.9<br />Species: setosa","Sepal.Width: 3.0<br />Sepal.Length: 4.4<br />Species: setosa","Sepal.Width: 3.4<br />Sepal.Length: 5.1<br />Species: setosa","Sepal.Width: 3.5<br />Sepal.Length: 5.0<br />Species: setosa","Sepal.Width: 2.3<br />Sepal.Length: 4.5<br />Species: setosa","Sepal.Width: 3.2<br />Sepal.Length: 4.4<br />Species: setosa","Sepal.Width: 3.5<br />Sepal.Length: 5.0<br />Species: setosa","Sepal.Width: 3.8<br />Sepal.Length: 5.1<br />Species: setosa","Sepal.Width: 3.0<br />Sepal.Length: 4.8<br />Species: setosa","Sepal.Width: 3.8<br />Sepal.Length: 5.1<br />Species: setosa","Sepal.Width: 3.2<br />Sepal.Length: 4.6<br />Species: setosa","Sepal.Width: 3.7<br />Sepal.Length: 5.3<br />Species: setosa","Sepal.Width: 3.3<br />Sepal.Length: 5.0<br />Species: setosa"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(27,158,119,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(27,158,119,1)"}},"hoveron":"points","name":"setosa","legendgroup":"setosa","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[3.2,3.2,3.1,2.3,2.8,2.8,3.3,2.4,2.9,2.7,2,3,2.2,2.9,2.9,3.1,3,2.7,2.2,2.5,3.2,2.8,2.5,2.8,2.9,3,2.8,3,2.9,2.6,2.4,2.4,2.7,2.7,3,3.4,3.1,2.3,3,2.5,2.6,3,2.6,2.3,2.7,3,2.9,2.9,2.5,2.8],"y":[7,6.4,6.9,5.5,6.5,5.7,6.3,4.9,6.6,5.2,5,5.9,6,6.1,5.6,6.7,5.6,5.8,6.2,5.6,5.9,6.1,6.3,6.1,6.4,6.6,6.8,6.7,6,5.7,5.5,5.5,5.8,6,5.4,6,6.7,6.3,5.6,5.5,5.5,6.1,5.8,5,5.6,5.7,5.7,6.2,5.1,5.7],"text":["Sepal.Width: 3.2<br />Sepal.Length: 7.0<br />Species: versicolor","Sepal.Width: 3.2<br />Sepal.Length: 6.4<br />Species: versicolor","Sepal.Width: 3.1<br />Sepal.Length: 6.9<br />Species: versicolor","Sepal.Width: 2.3<br />Sepal.Length: 5.5<br />Species: versicolor","Sepal.Width: 2.8<br />Sepal.Length: 6.5<br />Species: versicolor","Sepal.Width: 2.8<br />Sepal.Length: 5.7<br />Species: versicolor","Sepal.Width: 3.3<br />Sepal.Length: 6.3<br />Species: versicolor","Sepal.Width: 2.4<br />Sepal.Length: 4.9<br />Species: versicolor","Sepal.Width: 2.9<br />Sepal.Length: 6.6<br />Species: versicolor","Sepal.Width: 2.7<br />Sepal.Length: 5.2<br />Species: versicolor","Sepal.Width: 2.0<br />Sepal.Length: 5.0<br />Species: versicolor","Sepal.Width: 3.0<br />Sepal.Length: 5.9<br />Species: versicolor","Sepal.Width: 2.2<br />Sepal.Length: 6.0<br />Species: versicolor","Sepal.Width: 2.9<br />Sepal.Length: 6.1<br />Species: versicolor","Sepal.Width: 2.9<br />Sepal.Length: 5.6<br />Species: versicolor","Sepal.Width: 3.1<br />Sepal.Length: 6.7<br />Species: versicolor","Sepal.Width: 3.0<br />Sepal.Length: 5.6<br />Species: versicolor","Sepal.Width: 2.7<br />Sepal.Length: 5.8<br />Species: versicolor","Sepal.Width: 2.2<br />Sepal.Length: 6.2<br />Species: versicolor","Sepal.Width: 2.5<br />Sepal.Length: 5.6<br />Species: versicolor","Sepal.Width: 3.2<br />Sepal.Length: 5.9<br />Species: versicolor","Sepal.Width: 2.8<br />Sepal.Length: 6.1<br />Species: versicolor","Sepal.Width: 2.5<br />Sepal.Length: 6.3<br />Species: versicolor","Sepal.Width: 2.8<br />Sepal.Length: 6.1<br />Species: versicolor","Sepal.Width: 2.9<br />Sepal.Length: 6.4<br />Species: versicolor","Sepal.Width: 3.0<br />Sepal.Length: 6.6<br />Species: versicolor","Sepal.Width: 2.8<br />Sepal.Length: 6.8<br />Species: versicolor","Sepal.Width: 3.0<br />Sepal.Length: 6.7<br />Species: versicolor","Sepal.Width: 2.9<br />Sepal.Length: 6.0<br />Species: versicolor","Sepal.Width: 2.6<br />Sepal.Length: 5.7<br />Species: versicolor","Sepal.Width: 2.4<br />Sepal.Length: 5.5<br />Species: versicolor","Sepal.Width: 2.4<br />Sepal.Length: 5.5<br />Species: versicolor","Sepal.Width: 2.7<br />Sepal.Length: 5.8<br />Species: versicolor","Sepal.Width: 2.7<br />Sepal.Length: 6.0<br />Species: versicolor","Sepal.Width: 3.0<br />Sepal.Length: 5.4<br />Species: versicolor","Sepal.Width: 3.4<br />Sepal.Length: 6.0<br />Species: versicolor","Sepal.Width: 3.1<br />Sepal.Length: 6.7<br />Species: versicolor","Sepal.Width: 2.3<br />Sepal.Length: 6.3<br />Species: versicolor","Sepal.Width: 3.0<br />Sepal.Length: 5.6<br />Species: versicolor","Sepal.Width: 2.5<br />Sepal.Length: 5.5<br />Species: versicolor","Sepal.Width: 2.6<br />Sepal.Length: 5.5<br />Species: versicolor","Sepal.Width: 3.0<br />Sepal.Length: 6.1<br />Species: versicolor","Sepal.Width: 2.6<br />Sepal.Length: 5.8<br />Species: versicolor","Sepal.Width: 2.3<br />Sepal.Length: 5.0<br />Species: versicolor","Sepal.Width: 2.7<br />Sepal.Length: 5.6<br />Species: versicolor","Sepal.Width: 3.0<br />Sepal.Length: 5.7<br />Species: versicolor","Sepal.Width: 2.9<br />Sepal.Length: 5.7<br />Species: versicolor","Sepal.Width: 2.9<br />Sepal.Length: 6.2<br />Species: versicolor","Sepal.Width: 2.5<br />Sepal.Length: 5.1<br />Species: versicolor","Sepal.Width: 2.8<br />Sepal.Length: 5.7<br />Species: versicolor"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(217,95,2,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(217,95,2,1)"}},"hoveron":"points","name":"versicolor","legendgroup":"versicolor","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[3.3,2.7,3,2.9,3,3,2.5,2.9,2.5,3.6,3.2,2.7,3,2.5,2.8,3.2,3,3.8,2.6,2.2,3.2,2.8,2.8,2.7,3.3,3.2,2.8,3,2.8,3,2.8,3.8,2.8,2.8,2.6,3,3.4,3.1,3,3.1,3.1,3.1,2.7,3.2,3.3,3,2.5,3,3.4,3],"y":[6.3,5.8,7.1,6.3,6.5,7.6,4.9,7.3,6.7,7.2,6.5,6.4,6.8,5.7,5.8,6.4,6.5,7.7,7.7,6,6.9,5.6,7.7,6.3,6.7,7.2,6.2,6.1,6.4,7.2,7.4,7.9,6.4,6.3,6.1,7.7,6.3,6.4,6,6.9,6.7,6.9,5.8,6.8,6.7,6.7,6.3,6.5,6.2,5.9],"text":["Sepal.Width: 3.3<br />Sepal.Length: 6.3<br />Species: virginica","Sepal.Width: 2.7<br />Sepal.Length: 5.8<br />Species: virginica","Sepal.Width: 3.0<br />Sepal.Length: 7.1<br />Species: virginica","Sepal.Width: 2.9<br />Sepal.Length: 6.3<br />Species: virginica","Sepal.Width: 3.0<br />Sepal.Length: 6.5<br />Species: virginica","Sepal.Width: 3.0<br />Sepal.Length: 7.6<br />Species: virginica","Sepal.Width: 2.5<br />Sepal.Length: 4.9<br />Species: virginica","Sepal.Width: 2.9<br />Sepal.Length: 7.3<br />Species: virginica","Sepal.Width: 2.5<br />Sepal.Length: 6.7<br />Species: virginica","Sepal.Width: 3.6<br />Sepal.Length: 7.2<br />Species: virginica","Sepal.Width: 3.2<br />Sepal.Length: 6.5<br />Species: virginica","Sepal.Width: 2.7<br />Sepal.Length: 6.4<br />Species: virginica","Sepal.Width: 3.0<br />Sepal.Length: 6.8<br />Species: virginica","Sepal.Width: 2.5<br />Sepal.Length: 5.7<br />Species: virginica","Sepal.Width: 2.8<br />Sepal.Length: 5.8<br />Species: virginica","Sepal.Width: 3.2<br />Sepal.Length: 6.4<br />Species: virginica","Sepal.Width: 3.0<br />Sepal.Length: 6.5<br />Species: virginica","Sepal.Width: 3.8<br />Sepal.Length: 7.7<br />Species: virginica","Sepal.Width: 2.6<br />Sepal.Length: 7.7<br />Species: virginica","Sepal.Width: 2.2<br />Sepal.Length: 6.0<br />Species: virginica","Sepal.Width: 3.2<br />Sepal.Length: 6.9<br />Species: virginica","Sepal.Width: 2.8<br />Sepal.Length: 5.6<br />Species: virginica","Sepal.Width: 2.8<br />Sepal.Length: 7.7<br />Species: virginica","Sepal.Width: 2.7<br />Sepal.Length: 6.3<br />Species: virginica","Sepal.Width: 3.3<br />Sepal.Length: 6.7<br />Species: virginica","Sepal.Width: 3.2<br />Sepal.Length: 7.2<br />Species: virginica","Sepal.Width: 2.8<br />Sepal.Length: 6.2<br />Species: virginica","Sepal.Width: 3.0<br />Sepal.Length: 6.1<br />Species: virginica","Sepal.Width: 2.8<br />Sepal.Length: 6.4<br />Species: virginica","Sepal.Width: 3.0<br />Sepal.Length: 7.2<br />Species: virginica","Sepal.Width: 2.8<br />Sepal.Length: 7.4<br />Species: virginica","Sepal.Width: 3.8<br />Sepal.Length: 7.9<br />Species: virginica","Sepal.Width: 2.8<br />Sepal.Length: 6.4<br />Species: virginica","Sepal.Width: 2.8<br />Sepal.Length: 6.3<br />Species: virginica","Sepal.Width: 2.6<br />Sepal.Length: 6.1<br />Species: virginica","Sepal.Width: 3.0<br />Sepal.Length: 7.7<br />Species: virginica","Sepal.Width: 3.4<br />Sepal.Length: 6.3<br />Species: virginica","Sepal.Width: 3.1<br />Sepal.Length: 6.4<br />Species: virginica","Sepal.Width: 3.0<br />Sepal.Length: 6.0<br />Species: virginica","Sepal.Width: 3.1<br />Sepal.Length: 6.9<br />Species: virginica","Sepal.Width: 3.1<br />Sepal.Length: 6.7<br />Species: virginica","Sepal.Width: 3.1<br />Sepal.Length: 6.9<br />Species: virginica","Sepal.Width: 2.7<br />Sepal.Length: 5.8<br />Species: virginica","Sepal.Width: 3.2<br />Sepal.Length: 6.8<br />Species: virginica","Sepal.Width: 3.3<br />Sepal.Length: 6.7<br />Species: virginica","Sepal.Width: 3.0<br />Sepal.Length: 6.7<br />Species: virginica","Sepal.Width: 2.5<br />Sepal.Length: 6.3<br />Species: virginica","Sepal.Width: 3.0<br />Sepal.Length: 6.5<br />Species: virginica","Sepal.Width: 3.4<br />Sepal.Length: 6.2<br />Species: virginica","Sepal.Width: 3.0<br />Sepal.Length: 5.9<br />Species: virginica"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(117,112,179,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(117,112,179,1)"}},"hoveron":"points","name":"virginica","legendgroup":"virginica","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":26.2283105022831,"r":7.30593607305936,"b":40.1826484018265,"l":31.4155251141553},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[1.88,4.52],"tickmode":"array","ticktext":["2.0","2.5","3.0","3.5","4.0","4.5"],"tickvals":[2,2.5,3,3.5,4,4.5],"categoryorder":"array","categoryarray":["2.0","2.5","3.0","3.5","4.0","4.5"],"nticks":null,"ticks":"outside","tickcolor":"rgba(179,179,179,1)","ticklen":3.65296803652968,"tickwidth":0.33208800332088,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(222,222,222,1)","gridwidth":0.33208800332088,"zeroline":false,"anchor":"y","title":{"text":"Sepal.Width","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[4.12,8.08],"tickmode":"array","ticktext":["5","6","7","8"],"tickvals":[5,6,7,8],"categoryorder":"array","categoryarray":["5","6","7","8"],"nticks":null,"ticks":"outside","tickcolor":"rgba(179,179,179,1)","ticklen":3.65296803652968,"tickwidth":0.33208800332088,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(222,222,222,1)","gridwidth":0.33208800332088,"zeroline":false,"anchor":"x","title":{"text":"Sepal.Length","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":"transparent","line":{"color":"rgba(179,179,179,1)","width":0.66417600664176,"linetype":"solid"},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"1b1fc278181e4":{"x":{},"y":{},"colour":{},"type":"scatter"}},"cur_data":"1b1fc278181e4","visdat":{"1b1fc278181e4":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
-</div>
-<div id="wo-kann-ich-dazu-mehr-erfahren-3" class="section level3">
-<h3>Wo kann ich dazu mehr erfahren?</h3>
+<script type="application/json" data-for="htmlwidget-2447a80b4d3437bd3bc3">{"x":{"data":[{"x":[3.5,3,3.2,3.1,3.6,3.9,3.4,3.4,2.9,3.1,3.7,3.4,3,3,4,4.4,3.9,3.5,3.8,3.8,3.4,3.7,3.6,3.3,3.4,3,3.4,3.5,3.4,3.2,3.1,3.4,4.1,4.2,3.1,3.2,3.5,3.6,3,3.4,3.5,2.3,3.2,3.5,3.8,3,3.8,3.2,3.7,3.3],"y":[5.1,4.9,4.7,4.6,5,5.4,4.6,5,4.4,4.9,5.4,4.8,4.8,4.3,5.8,5.7,5.4,5.1,5.7,5.1,5.4,5.1,4.6,5.1,4.8,5,5,5.2,5.2,4.7,4.8,5.4,5.2,5.5,4.9,5,5.5,4.9,4.4,5.1,5,4.5,4.4,5,5.1,4.8,5.1,4.6,5.3,5],"text":["Sepal.Width: 3.5<br />Sepal.Length: 5.1<br />Species: setosa","Sepal.Width: 3.0<br />Sepal.Length: 4.9<br />Species: setosa","Sepal.Width: 3.2<br />Sepal.Length: 4.7<br />Species: setosa","Sepal.Width: 3.1<br />Sepal.Length: 4.6<br />Species: setosa","Sepal.Width: 3.6<br />Sepal.Length: 5.0<br />Species: setosa","Sepal.Width: 3.9<br />Sepal.Length: 5.4<br />Species: setosa","Sepal.Width: 3.4<br />Sepal.Length: 4.6<br />Species: setosa","Sepal.Width: 3.4<br />Sepal.Length: 5.0<br />Species: setosa","Sepal.Width: 2.9<br />Sepal.Length: 4.4<br />Species: setosa","Sepal.Width: 3.1<br />Sepal.Length: 4.9<br />Species: setosa","Sepal.Width: 3.7<br />Sepal.Length: 5.4<br />Species: setosa","Sepal.Width: 3.4<br />Sepal.Length: 4.8<br />Species: setosa","Sepal.Width: 3.0<br />Sepal.Length: 4.8<br />Species: setosa","Sepal.Width: 3.0<br />Sepal.Length: 4.3<br />Species: setosa","Sepal.Width: 4.0<br />Sepal.Length: 5.8<br />Species: setosa","Sepal.Width: 4.4<br />Sepal.Length: 5.7<br />Species: setosa","Sepal.Width: 3.9<br />Sepal.Length: 5.4<br />Species: setosa","Sepal.Width: 3.5<br />Sepal.Length: 5.1<br />Species: setosa","Sepal.Width: 3.8<br />Sepal.Length: 5.7<br />Species: setosa","Sepal.Width: 3.8<br />Sepal.Length: 5.1<br />Species: setosa","Sepal.Width: 3.4<br />Sepal.Length: 5.4<br />Species: setosa","Sepal.Width: 3.7<br />Sepal.Length: 5.1<br />Species: setosa","Sepal.Width: 3.6<br />Sepal.Length: 4.6<br />Species: setosa","Sepal.Width: 3.3<br />Sepal.Length: 5.1<br />Species: setosa","Sepal.Width: 3.4<br />Sepal.Length: 4.8<br />Species: setosa","Sepal.Width: 3.0<br />Sepal.Length: 5.0<br />Species: setosa","Sepal.Width: 3.4<br />Sepal.Length: 5.0<br />Species: setosa","Sepal.Width: 3.5<br />Sepal.Length: 5.2<br />Species: setosa","Sepal.Width: 3.4<br />Sepal.Length: 5.2<br />Species: setosa","Sepal.Width: 3.2<br />Sepal.Length: 4.7<br />Species: setosa","Sepal.Width: 3.1<br />Sepal.Length: 4.8<br />Species: setosa","Sepal.Width: 3.4<br />Sepal.Length: 5.4<br />Species: setosa","Sepal.Width: 4.1<br />Sepal.Length: 5.2<br />Species: setosa","Sepal.Width: 4.2<br />Sepal.Length: 5.5<br />Species: setosa","Sepal.Width: 3.1<br />Sepal.Length: 4.9<br />Species: setosa","Sepal.Width: 3.2<br />Sepal.Length: 5.0<br />Species: setosa","Sepal.Width: 3.5<br />Sepal.Length: 5.5<br />Species: setosa","Sepal.Width: 3.6<br />Sepal.Length: 4.9<br />Species: setosa","Sepal.Width: 3.0<br />Sepal.Length: 4.4<br />Species: setosa","Sepal.Width: 3.4<br />Sepal.Length: 5.1<br />Species: setosa","Sepal.Width: 3.5<br />Sepal.Length: 5.0<br />Species: setosa","Sepal.Width: 2.3<br />Sepal.Length: 4.5<br />Species: setosa","Sepal.Width: 3.2<br />Sepal.Length: 4.4<br />Species: setosa","Sepal.Width: 3.5<br />Sepal.Length: 5.0<br />Species: setosa","Sepal.Width: 3.8<br />Sepal.Length: 5.1<br />Species: setosa","Sepal.Width: 3.0<br />Sepal.Length: 4.8<br />Species: setosa","Sepal.Width: 3.8<br />Sepal.Length: 5.1<br />Species: setosa","Sepal.Width: 3.2<br />Sepal.Length: 4.6<br />Species: setosa","Sepal.Width: 3.7<br />Sepal.Length: 5.3<br />Species: setosa","Sepal.Width: 3.3<br />Sepal.Length: 5.0<br />Species: setosa"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(27,158,119,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(27,158,119,1)"}},"hoveron":"points","name":"setosa","legendgroup":"setosa","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[3.2,3.2,3.1,2.3,2.8,2.8,3.3,2.4,2.9,2.7,2,3,2.2,2.9,2.9,3.1,3,2.7,2.2,2.5,3.2,2.8,2.5,2.8,2.9,3,2.8,3,2.9,2.6,2.4,2.4,2.7,2.7,3,3.4,3.1,2.3,3,2.5,2.6,3,2.6,2.3,2.7,3,2.9,2.9,2.5,2.8],"y":[7,6.4,6.9,5.5,6.5,5.7,6.3,4.9,6.6,5.2,5,5.9,6,6.1,5.6,6.7,5.6,5.8,6.2,5.6,5.9,6.1,6.3,6.1,6.4,6.6,6.8,6.7,6,5.7,5.5,5.5,5.8,6,5.4,6,6.7,6.3,5.6,5.5,5.5,6.1,5.8,5,5.6,5.7,5.7,6.2,5.1,5.7],"text":["Sepal.Width: 3.2<br />Sepal.Length: 7.0<br />Species: versicolor","Sepal.Width: 3.2<br />Sepal.Length: 6.4<br />Species: versicolor","Sepal.Width: 3.1<br />Sepal.Length: 6.9<br />Species: versicolor","Sepal.Width: 2.3<br />Sepal.Length: 5.5<br />Species: versicolor","Sepal.Width: 2.8<br />Sepal.Length: 6.5<br />Species: versicolor","Sepal.Width: 2.8<br />Sepal.Length: 5.7<br />Species: versicolor","Sepal.Width: 3.3<br />Sepal.Length: 6.3<br />Species: versicolor","Sepal.Width: 2.4<br />Sepal.Length: 4.9<br />Species: versicolor","Sepal.Width: 2.9<br />Sepal.Length: 6.6<br />Species: versicolor","Sepal.Width: 2.7<br />Sepal.Length: 5.2<br />Species: versicolor","Sepal.Width: 2.0<br />Sepal.Length: 5.0<br />Species: versicolor","Sepal.Width: 3.0<br />Sepal.Length: 5.9<br />Species: versicolor","Sepal.Width: 2.2<br />Sepal.Length: 6.0<br />Species: versicolor","Sepal.Width: 2.9<br />Sepal.Length: 6.1<br />Species: versicolor","Sepal.Width: 2.9<br />Sepal.Length: 5.6<br />Species: versicolor","Sepal.Width: 3.1<br />Sepal.Length: 6.7<br />Species: versicolor","Sepal.Width: 3.0<br />Sepal.Length: 5.6<br />Species: versicolor","Sepal.Width: 2.7<br />Sepal.Length: 5.8<br />Species: versicolor","Sepal.Width: 2.2<br />Sepal.Length: 6.2<br />Species: versicolor","Sepal.Width: 2.5<br />Sepal.Length: 5.6<br />Species: versicolor","Sepal.Width: 3.2<br />Sepal.Length: 5.9<br />Species: versicolor","Sepal.Width: 2.8<br />Sepal.Length: 6.1<br />Species: versicolor","Sepal.Width: 2.5<br />Sepal.Length: 6.3<br />Species: versicolor","Sepal.Width: 2.8<br />Sepal.Length: 6.1<br />Species: versicolor","Sepal.Width: 2.9<br />Sepal.Length: 6.4<br />Species: versicolor","Sepal.Width: 3.0<br />Sepal.Length: 6.6<br />Species: versicolor","Sepal.Width: 2.8<br />Sepal.Length: 6.8<br />Species: versicolor","Sepal.Width: 3.0<br />Sepal.Length: 6.7<br />Species: versicolor","Sepal.Width: 2.9<br />Sepal.Length: 6.0<br />Species: versicolor","Sepal.Width: 2.6<br />Sepal.Length: 5.7<br />Species: versicolor","Sepal.Width: 2.4<br />Sepal.Length: 5.5<br />Species: versicolor","Sepal.Width: 2.4<br />Sepal.Length: 5.5<br />Species: versicolor","Sepal.Width: 2.7<br />Sepal.Length: 5.8<br />Species: versicolor","Sepal.Width: 2.7<br />Sepal.Length: 6.0<br />Species: versicolor","Sepal.Width: 3.0<br />Sepal.Length: 5.4<br />Species: versicolor","Sepal.Width: 3.4<br />Sepal.Length: 6.0<br />Species: versicolor","Sepal.Width: 3.1<br />Sepal.Length: 6.7<br />Species: versicolor","Sepal.Width: 2.3<br />Sepal.Length: 6.3<br />Species: versicolor","Sepal.Width: 3.0<br />Sepal.Length: 5.6<br />Species: versicolor","Sepal.Width: 2.5<br />Sepal.Length: 5.5<br />Species: versicolor","Sepal.Width: 2.6<br />Sepal.Length: 5.5<br />Species: versicolor","Sepal.Width: 3.0<br />Sepal.Length: 6.1<br />Species: versicolor","Sepal.Width: 2.6<br />Sepal.Length: 5.8<br />Species: versicolor","Sepal.Width: 2.3<br />Sepal.Length: 5.0<br />Species: versicolor","Sepal.Width: 2.7<br />Sepal.Length: 5.6<br />Species: versicolor","Sepal.Width: 3.0<br />Sepal.Length: 5.7<br />Species: versicolor","Sepal.Width: 2.9<br />Sepal.Length: 5.7<br />Species: versicolor","Sepal.Width: 2.9<br />Sepal.Length: 6.2<br />Species: versicolor","Sepal.Width: 2.5<br />Sepal.Length: 5.1<br />Species: versicolor","Sepal.Width: 2.8<br />Sepal.Length: 5.7<br />Species: versicolor"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(217,95,2,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(217,95,2,1)"}},"hoveron":"points","name":"versicolor","legendgroup":"versicolor","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[3.3,2.7,3,2.9,3,3,2.5,2.9,2.5,3.6,3.2,2.7,3,2.5,2.8,3.2,3,3.8,2.6,2.2,3.2,2.8,2.8,2.7,3.3,3.2,2.8,3,2.8,3,2.8,3.8,2.8,2.8,2.6,3,3.4,3.1,3,3.1,3.1,3.1,2.7,3.2,3.3,3,2.5,3,3.4,3],"y":[6.3,5.8,7.1,6.3,6.5,7.6,4.9,7.3,6.7,7.2,6.5,6.4,6.8,5.7,5.8,6.4,6.5,7.7,7.7,6,6.9,5.6,7.7,6.3,6.7,7.2,6.2,6.1,6.4,7.2,7.4,7.9,6.4,6.3,6.1,7.7,6.3,6.4,6,6.9,6.7,6.9,5.8,6.8,6.7,6.7,6.3,6.5,6.2,5.9],"text":["Sepal.Width: 3.3<br />Sepal.Length: 6.3<br />Species: virginica","Sepal.Width: 2.7<br />Sepal.Length: 5.8<br />Species: virginica","Sepal.Width: 3.0<br />Sepal.Length: 7.1<br />Species: virginica","Sepal.Width: 2.9<br />Sepal.Length: 6.3<br />Species: virginica","Sepal.Width: 3.0<br />Sepal.Length: 6.5<br />Species: virginica","Sepal.Width: 3.0<br />Sepal.Length: 7.6<br />Species: virginica","Sepal.Width: 2.5<br />Sepal.Length: 4.9<br />Species: virginica","Sepal.Width: 2.9<br />Sepal.Length: 7.3<br />Species: virginica","Sepal.Width: 2.5<br />Sepal.Length: 6.7<br />Species: virginica","Sepal.Width: 3.6<br />Sepal.Length: 7.2<br />Species: virginica","Sepal.Width: 3.2<br />Sepal.Length: 6.5<br />Species: virginica","Sepal.Width: 2.7<br />Sepal.Length: 6.4<br />Species: virginica","Sepal.Width: 3.0<br />Sepal.Length: 6.8<br />Species: virginica","Sepal.Width: 2.5<br />Sepal.Length: 5.7<br />Species: virginica","Sepal.Width: 2.8<br />Sepal.Length: 5.8<br />Species: virginica","Sepal.Width: 3.2<br />Sepal.Length: 6.4<br />Species: virginica","Sepal.Width: 3.0<br />Sepal.Length: 6.5<br />Species: virginica","Sepal.Width: 3.8<br />Sepal.Length: 7.7<br />Species: virginica","Sepal.Width: 2.6<br />Sepal.Length: 7.7<br />Species: virginica","Sepal.Width: 2.2<br />Sepal.Length: 6.0<br />Species: virginica","Sepal.Width: 3.2<br />Sepal.Length: 6.9<br />Species: virginica","Sepal.Width: 2.8<br />Sepal.Length: 5.6<br />Species: virginica","Sepal.Width: 2.8<br />Sepal.Length: 7.7<br />Species: virginica","Sepal.Width: 2.7<br />Sepal.Length: 6.3<br />Species: virginica","Sepal.Width: 3.3<br />Sepal.Length: 6.7<br />Species: virginica","Sepal.Width: 3.2<br />Sepal.Length: 7.2<br />Species: virginica","Sepal.Width: 2.8<br />Sepal.Length: 6.2<br />Species: virginica","Sepal.Width: 3.0<br />Sepal.Length: 6.1<br />Species: virginica","Sepal.Width: 2.8<br />Sepal.Length: 6.4<br />Species: virginica","Sepal.Width: 3.0<br />Sepal.Length: 7.2<br />Species: virginica","Sepal.Width: 2.8<br />Sepal.Length: 7.4<br />Species: virginica","Sepal.Width: 3.8<br />Sepal.Length: 7.9<br />Species: virginica","Sepal.Width: 2.8<br />Sepal.Length: 6.4<br />Species: virginica","Sepal.Width: 2.8<br />Sepal.Length: 6.3<br />Species: virginica","Sepal.Width: 2.6<br />Sepal.Length: 6.1<br />Species: virginica","Sepal.Width: 3.0<br />Sepal.Length: 7.7<br />Species: virginica","Sepal.Width: 3.4<br />Sepal.Length: 6.3<br />Species: virginica","Sepal.Width: 3.1<br />Sepal.Length: 6.4<br />Species: virginica","Sepal.Width: 3.0<br />Sepal.Length: 6.0<br />Species: virginica","Sepal.Width: 3.1<br />Sepal.Length: 6.9<br />Species: virginica","Sepal.Width: 3.1<br />Sepal.Length: 6.7<br />Species: virginica","Sepal.Width: 3.1<br />Sepal.Length: 6.9<br />Species: virginica","Sepal.Width: 2.7<br />Sepal.Length: 5.8<br />Species: virginica","Sepal.Width: 3.2<br />Sepal.Length: 6.8<br />Species: virginica","Sepal.Width: 3.3<br />Sepal.Length: 6.7<br />Species: virginica","Sepal.Width: 3.0<br />Sepal.Length: 6.7<br />Species: virginica","Sepal.Width: 2.5<br />Sepal.Length: 6.3<br />Species: virginica","Sepal.Width: 3.0<br />Sepal.Length: 6.5<br />Species: virginica","Sepal.Width: 3.4<br />Sepal.Length: 6.2<br />Species: virginica","Sepal.Width: 3.0<br />Sepal.Length: 5.9<br />Species: virginica"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(117,112,179,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(117,112,179,1)"}},"hoveron":"points","name":"virginica","legendgroup":"virginica","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":26.2283105022831,"r":7.30593607305936,"b":40.1826484018265,"l":31.4155251141553},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[1.88,4.52],"tickmode":"array","ticktext":["2.0","2.5","3.0","3.5","4.0","4.5"],"tickvals":[2,2.5,3,3.5,4,4.5],"categoryorder":"array","categoryarray":["2.0","2.5","3.0","3.5","4.0","4.5"],"nticks":null,"ticks":"outside","tickcolor":"rgba(179,179,179,1)","ticklen":3.65296803652968,"tickwidth":0.33208800332088,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(222,222,222,1)","gridwidth":0.33208800332088,"zeroline":false,"anchor":"y","title":{"text":"Sepal.Width","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[4.12,8.08],"tickmode":"array","ticktext":["5","6","7","8"],"tickvals":[5,6,7,8],"categoryorder":"array","categoryarray":["5","6","7","8"],"nticks":null,"ticks":"outside","tickcolor":"rgba(179,179,179,1)","ticklen":3.65296803652968,"tickwidth":0.33208800332088,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(222,222,222,1)","gridwidth":0.33208800332088,"zeroline":false,"anchor":"x","title":{"text":"Sepal.Length","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":"transparent","line":{"color":"rgba(179,179,179,1)","width":0.66417600664176,"linetype":"solid"},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"1c94d48e31ef7":{"x":{},"y":{},"colour":{},"type":"scatter"}},"cur_data":"1c94d48e31ef7","visdat":{"1c94d48e31ef7":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div id="wo-kann-ich-dazu-mehr-erfahren-3" class="section level4">
+<h4>Wo kann ich dazu mehr erfahren?</h4>
 <p>Wenn komplexere Grafiken gewünscht sind, ist die <a href="https://plotly.com/r/">plotly-Website</a> eine gute Ressource um anzufangen.</p>
 <p>Für die meisten Anwendungsfälle reicht es aber aus, den Graphen mit ggplot zu erstellen und den automatischen Port zu verwenden.</p>
+</div>
 </div>
 <div id="lavaan" class="section level3 subsection">
 <h3><code>lavaan</code></h3>
@@ -1096,10 +1109,8 @@ error
 </blockquote>
 <p>Und kann inzwischen genutzt werden um so gut wie jedes Modell zur Analyse latenter Variablen aufzustellen, zu schätzen und zu testen.</p>
 <p>Das Paket ist so umfrangreich, dass wir es hier nur in anekdotischer Art besprechen können, wir gehen aber ein Beispiel für ein SEM durch.</p>
-</div>
-<div id="das-beispiel" class="section level3">
-<h3>Das Beispiel</h3>
-<p>Wir versuchen die Auswertung aus <span class="citation"><a href="literatur-3.html#ref-pishghadamIntelligenceMetacognitionPredictors2013" role="doc-biblioref">Pishghadam and Khajavy</a> (<a href="literatur-3.html#ref-pishghadamIntelligenceMetacognitionPredictors2013" role="doc-biblioref">2013</a>)</span> mit lavaan nachzuvollziehen. Die Autoren berichten dankenswerterweise Korrelationsmatrizen und Streuungen, daraus können wir uns einfach die folgende Kovarianzmatrix bauen:</p>
+<!-- ### Das Beispiel -->
+<p>Wir versuchen die Auswertung aus <span class="citation"><a href="literatur.html#ref-pishghadamIntelligenceMetacognitionPredictors2013" role="doc-biblioref">Pishghadam and Khajavy</a> (<a href="literatur.html#ref-pishghadamIntelligenceMetacognitionPredictors2013" role="doc-biblioref">2013</a>)</span> mit lavaan nachzuvollziehen. Die Autoren berichten dankenswerterweise Korrelationsmatrizen und Streuungen, daraus können wir uns einfach die folgende Kovarianzmatrix bauen:</p>
 <table class=" lightable-classic lightable-classic" style="font-size: 15px; font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; margin-left: auto; margin-right: auto; font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
 <span id="tab:unnamed-chunk-123">Tab. 3: </span>kc steht für <em>knowledge of cognition</em>, rc für <em>regulation of cognition</em> und fla_test für das Ergebnis eines <em>foreign language achievement</em>
@@ -1316,9 +1327,7 @@ fla_test
 </tr>
 </tbody>
 </table>
-</div>
-<div id="das-modell" class="section level3">
-<h3>Das Modell</h3>
+<!-- ### Das Modell -->
 <p>Als nächsten Schritt laden wir <code>lavaan</code> und formulieren das Modell nach, das die Autoren aufgestellt haben:</p>
 <div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="appendix.html#cb154-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lavaan)</span></code></pre></div>
 <pre><code>## This is lavaan 0.6-7</code></pre>
@@ -1334,9 +1343,7 @@ fla_test
 <span id="cb157-9"><a href="appendix.html#cb157-9" aria-hidden="true" tabindex="-1"></a><span class="st">fla ~~ Intelligence </span></span>
 <span id="cb157-10"><a href="appendix.html#cb157-10" aria-hidden="true" tabindex="-1"></a><span class="st">fla ~~ Metacognition</span></span>
 <span id="cb157-11"><a href="appendix.html#cb157-11" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;</span></span></code></pre></div>
-</div>
-<div id="die-schätzung" class="section level3">
-<h3>Die Schätzung</h3>
+<!-- ### Die Schätzung -->
 <p>Das Gesamtmodell, die Stichprobengröße von 143 und die Kovarianzmatrix übergeben wir jetzt an <code>sem</code>:</p>
 <div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="appendix.html#cb158-1" aria-hidden="true" tabindex="-1"></a>sem_example <span class="ot">&lt;-</span> <span class="fu">sem</span>(</span>
 <span id="cb158-2"><a href="appendix.html#cb158-2" aria-hidden="true" tabindex="-1"></a>  my_model,</span>
@@ -1417,9 +1424,7 @@ fla_test
 ##     0.039    1.000    1.000
 ##     0.000    1.000    1.000
 ##     0.000    1.000    1.000</code></pre>
-</div>
-<div id="der-model-fit" class="section level3">
-<h3>Der Model-fit</h3>
+<!-- ### Der Model-fit -->
 <p>Mit <code>fitmeasures(sem_example)</code> können wir uns die gängigsten fit-Indizes und noch ein paar mehr ausgeben lassen:</p>
 <div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="appendix.html#cb160-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fitmeasures</span>(sem_example)</span></code></pre></div>
 <pre><code>##                npar                fmin 
@@ -1464,9 +1469,7 @@ fla_test
 ##               0.975               0.199 
 ##                 mfi                ecvi 
 ##               1.004               0.180</code></pre>
-</div>
-<div id="die-darstellung" class="section level3">
-<h3>Die Darstellung</h3>
+<!-- ### Die Darstellung -->
 <p>Und mit dem semPlot-Paket lässt sich das Modell auch darstellen:</p>
 <div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="appendix.html#cb162-1" aria-hidden="true" tabindex="-1"></a>semPlot<span class="sc">::</span><span class="fu">semPaths</span>(sem_example, </span>
 <span id="cb162-2"><a href="appendix.html#cb162-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">what =</span> <span class="st">&#39;path&#39;</span>, </span>
@@ -1478,17 +1481,17 @@ fla_test
 ##   plot.sim  BDgraph
 ##   print.sim BDgraph</code></pre>
 <p><img src="R---KfN-11.12.20_files/figure-html/unnamed-chunk-127-1.png" width="1000px" style="display: block; margin: auto;" /></p>
-</div>
-<div id="wo-kann-ich-dazu-mehr-erfahren-4" class="section level3">
-<h3>Wo kann ich dazu mehr erfahren?</h3>
+<div id="wo-kann-ich-dazu-mehr-erfahren-4" class="section level4">
+<h4>Wo kann ich dazu mehr erfahren?</h4>
 <p>Zum Lernen von <code>lavaan</code> stellen die Autoren <a href="https://lavaan.ugent.be/resources/teaching.html">hier</a> einen großen Pool an Materialien zur Verfügung.</p>
 <p>Für das <code>semPlot</code>-Paket sind die Ressourcen leider nicht so gut, die Dokumentation der <code>semPaths</code>-Funktion ist aber ziemlich gut, zu finden nach dem Laden des Pakets mit <code>?semPaths</code>.</p>
 </div>
 </div>
+</div>
 <div id="andere-ressourcen" class="section level2">
 <h2>Andere Ressourcen</h2>
-<div id="cheatsheets" class="section level3">
-<h3>Cheatsheets</h3>
+<div id="cheatsheets" class="section level4">
+<h4>Cheatsheets</h4>
 <p>RStudio stellt eine ganze Reihe von hilfreichen Spickzetteln zu Verfügung, die den workflow effizienter macen indem sie die wichtigsten Funktionen auf einen Blick übersichtlich machen. Die Cheatsheets finden sich <a href="https://rstudio.com/resources/cheatsheets/">hier</a></p>
 <p>Exemplarisch für die bisher besprochenen Pakete sind die folgenden Cheatsheets zu empfehlen:</p>
 <ul>
@@ -1499,16 +1502,14 @@ fla_test
 <li><p><a href="https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf">ggplot2</a></p></li>
 </ul>
 </div>
-<div id="bücher" class="section level3">
-<h3>Bücher</h3>
+<div id="bücher" class="section level4">
+<h4>Bücher</h4>
 <p>Wenn man tiefer in tidy data analysis mit R einsteigen möchte kommt man an den Büchern von Hadley Wickham (Autor von ggplot2 und Chief Scientist bei RStudio) nicht vorbei. Die wichtigsten sind frei online zugänglich, dabei sind besonders die folgenden zu empfehlen:</p>
 <ul>
-<li><p><span class="citation">(<em>R for Data Science</em> <a href="literatur-3.html#ref-grolemundDataScience" role="doc-biblioref">Grolemund and Wickham 2017</a>)</span>(<a href="https://r4ds.had.co.nz/" class="uri">https://r4ds.had.co.nz/</a>) für die Grundlagen und</p></li>
-<li><p><span class="citation">(<em>Advanced R</em> <a href="literatur-3.html#ref-wickhamAdvanced2019" role="doc-biblioref">Wickham 2019</a>)</span>(<a href="https://adv-r.hadley.nz/" class="uri">https://adv-r.hadley.nz/</a>) für fortgeschrittenere Themen</p></li>
+<li><p><span class="citation">(<em>R for Data Science</em> <a href="literatur.html#ref-grolemundDataScience" role="doc-biblioref">Grolemund and Wickham 2017</a>)</span>(<a href="https://r4ds.had.co.nz/" class="uri">https://r4ds.had.co.nz/</a>) für die Grundlagen und</p></li>
+<li><p><span class="citation">(<em>Advanced R</em> <a href="literatur.html#ref-wickhamAdvanced2019" role="doc-biblioref">Wickham 2019</a>)</span>(<a href="https://adv-r.hadley.nz/" class="uri">https://adv-r.hadley.nz/</a>) für fortgeschrittenere Themen</p></li>
 </ul>
-</div>
-<div id="literatur-2" class="section level3">
-<h3>Literatur</h3>
+<!-- ### Literatur -->
 
 </div>
 </div>
@@ -1519,7 +1520,7 @@ fla_test
         </div>
       </div>
 <a href="daten-darstellen.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="literatur-3.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="literatur.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

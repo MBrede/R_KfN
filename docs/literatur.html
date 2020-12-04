@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>R - KfN 11.12.20</title>
+  <title>Literatur | R - KfN 11.12.20</title>
   <meta name="description" content="Kurze Einführung in den Umgang mit R" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="R - KfN 11.12.20" />
+  <meta property="og:title" content="Literatur | R - KfN 11.12.20" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="R - KfN 11.12.20" />
+  <meta name="twitter:title" content="Literatur | R - KfN 11.12.20" />
   
   <meta name="twitter:description" content="Kurze Einführung in den Umgang mit R" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="appendix.html"/>
 
-<link rel="next" href="rste-schritte.html"/>
 <script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -194,207 +194,45 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">R - KfN 11.12.20</h1>
-<p class="author"><em>Max Brede</em></p>
-<p class="date"><em>2020-12-04</em></p>
-</div>
-<div id="vorwort" class="section level1">
-<h1>Vorwort</h1>
-<p>Dieses mit <code>bookdown</code> erstellte Dokument ist die Sammlung der in der Einführung am 11.12.20 für’s KfN Folien und Aufgaben.</p>
-<p>Die im Skript und in den Aufgaben genutzten Daten finden Sie unter <a href="https://mega.nz/folder/k2A0WZAZ">diesem Link</a>, der Schlüssel wird separat bekannt gegeben.</p>
-<footer>
-<div style="font-size: 75%; display: flex; align-items: center; justify-content: center;style="padding-top: 50px;">
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" style="padding-right: 10px;"><img alt="Creative Commons Lizenzvertrag" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a></li><p> Dieses Skript steht, wo nicht anders angegeben, unter der <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"> CC BY-SA 4.0-Lizenz</a>.</p>
-</div>
-</footer>
+<div id="literatur" class="section level1 unnumbered">
+<h1>Literatur</h1>
 
-<!-- # --- -->
-<!-- # title: "Grundlagen der Datenanalyse mit R" -->
-<!-- # author: "Max Brede" -->
-<!-- # date: "16.3.20" -->
-<!-- # output: -->
-<!-- #   html_document -->
-<!-- # --- -->
-<div id="ablaufplan" class="section level3">
-<h3>Ablaufplan</h3>
-<table>
-<thead>
-<tr>
-<th style="text-align:left;">
-Uhrzeit
-</th>
-<th style="text-align:left;">
-Thema
-</th>
-<th style="text-align:left;">
-Lernziele
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-</td>
-<td style="text-align:left;">
-</td>
-<td style="text-align:left;">
-Die Teilnehmenden…
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-09:00
-</td>
-<td style="text-align:left;">
-Rste Schritte
-</td>
-<td style="text-align:left;">
-…haben einen Eindruck von den Vor- und Nachteilen von R<br />
-…können in RStudio navigieren<br />
-…kennen die Grundlagen der R-Syntax<br />
-…können ein R-Skript erstellen<br />
-…kennen die in R gängigsten Datenformate und können diese benutzen
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-10:30
-</td>
-<td style="text-align:left;">
-Kaffeepause
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-10:45
-</td>
-<td style="text-align:left;">
-Daten manipulieren
-</td>
-<td style="text-align:left;">
-…Kennen die Grundlagen des tidyverse-Workflows<br />
-…Können Daten mit Hilfe von R aggregieren<br />
-…Können Regressionsanalytische Verfahren in R durchführen
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-12:15
-</td>
-<td style="text-align:left;">
-Mittagspause
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-13:00
-</td>
-<td style="text-align:left;">
-Daten einlesen und Zusammenfügen
-</td>
-<td style="text-align:left;">
-…können Text-, Excel und SPSS-Daten einlesen<br />
-…können rudimentäre Datenbereinigungen in R ausführen<br />
-…können Datensätze zusammenführen
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-14:30
-</td>
-<td style="text-align:left;">
-Kaffeepause
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-14:45
-</td>
-<td style="text-align:left;">
-Daten darstellen
-</td>
-<td style="text-align:left;">
-…Kennen die grundlegende Syntax von ggplot2<br />
-…können gängige Abbildungen quantitativer Daten erstellen
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-16:15
-</td>
-<td style="text-align:left;">
-Interessante Pakete und Hilfestellungen
-</td>
-<td style="text-align:left;">
-…Kennen erste Anlaufstellen bei Problemen mit R<br />
-…Kennen die Namen einer Reihe von nützlichen Paketen
-</td>
-</tr>
-</tbody>
-</table>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-andersonIrisesGaspePeninsula1935" class="csl-entry">
+Anderson, Edgar. 1935. <span>“The Irises of the <span>Gaspe Peninsula</span>.”</span> <em>Bull. Am. Iris Soc.</em> 59: 2–5.
 </div>
-<div id="voraussetzungen" class="section level3">
-<h3>Voraussetzungen</h3>
-<p>Da der Kurs auf viele praktische Anwendungen setzen wird, sollte jeder Teilnehmer einen Rechner mitbringen, auf dem R und RStudio als grafische Oberfläche installiert sind. <br>
-Die Installationsdateien für R für Windows findet man <a href="https://cran.r-project.org/bin/windows/base/R-4.0.3-win.exe">hier</a> und für Mac <a href="https://cran.r-project.org/bin/macosx/R-4.0.3.pkg">hier</a>, die Installationsdateien für RStudio für Windows <a href="https://download1.rstudio.org/desktop/windows/RStudio-1.3.1093.exe">hier</a> und für Mac <a href="https://download1.rstudio.org/desktop/macos/RStudio-1.3.1093.dmg">hier</a>. <br> <br>
-Einer der zentralen Vorteile von R gegenüber anderen statistischen Software-Paketen ist die Möglichkeit, von der Community entwickelte Funktionen zu nutzen. Im Kurs sollen viele Aufgaben mit Hilfe einer Sammlung dieser in sogenannten <code>packages</code> in einem zentralen Archiv bereitgestellten Funktionserweiterungen gelöst werden. Diese Sammlung an Funktionen, das sogenannte <code>tidyverse</code>, bietet viele praktische Möglichkeiten, leichter lesbaren und verständlicheren R-Code zu schreiben.
-Installieren Sie bitte das <code>tidyverse</code> vor dem Kurs durch das Ausführen der folgenden Code-Zeile in R:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="index.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&#39;tidyverse&#39;</span>,<span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<p>Öffnen Sie dafür nach der Installation RStudio und kopieren Sie die Zeile einfach in die <code>Console</code> links unten.
-Führen Sie die Zeile anschließend durch das Drücken der Enter-Taste aus.</p>
+<div id="ref-grolemundDataScience" class="csl-entry">
+Grolemund, Garrett, and Hadley Wickham. 2017. <em>R for <span>Data Science</span></em>.
+</div>
+<div id="ref-pishghadamIntelligenceMetacognitionPredictors2013" class="csl-entry">
+Pishghadam, Reza, and Gholam Hassan Khajavy. 2013. <span>“Intelligence and Metacognition as Predictors of Foreign Language Achievement: <span>A</span> Structural Equation Modeling Approach.”</span> <em>Learning and Individual Differences</em> 24 (April): 176–81. <a href="https://doi.org/10.1016/j.lindif.2012.12.004">https://doi.org/10.1016/j.lindif.2012.12.004</a>.
+</div>
+<div id="ref-tukeyExploratoryDataAnalysis1977" class="csl-entry">
+Tukey, John W. 1977. <em>Exploratory Data Analysis</em>. Vol. 2. <span>Reading, Mass.</span>
+</div>
+<div id="ref-wickhamAdvanced2019" class="csl-entry">
+Wickham, Hadley. 2019. <em>Advanced r</em>. <span>CRC press</span>.
+</div>
+<div id="ref-grolemundMarkdownDefinitiveGuide" class="csl-entry">
+Xie, Yihui, J. J. Allaire, and Garrett Grolemund. 2020. <em>R <span>Markdown</span>: <span>The Definitive Guide</span></em>.
+</div>
+</div>
+</div>
 
-<!-- # --- -->
-<!-- # title: "Rste Schritte" -->
-<!-- # author: "Max Brede" -->
-<!-- # date: "11/12/2020" -->
-<!-- # output: -->
-<!-- #   ioslides_presentation: -->
-<!-- #     transition: faster -->
-<!-- #     css: /home/brede/MEGA/Honorar/111220_KfN/styles.css -->
-<!-- #     slide_level: 3 -->
-<!-- # widescreen: true -->
-<!-- # bibliography: /home/brede/MEGA/Honorar/111220_KfN/references.bib -->
-<!-- # csl: /home/brede/MEGA/Honorar/111220_KfN/apa.csl -->
-<!-- # smaller: true  -->
-<!-- # --- -->
-<!-- ```{r,results='asis', echo = F} -->
-<!-- read_file('/home/brede/MEGA/Honorar/111220_KfN/ioTOC.html') %>% cat -->
-<!-- read_file('/home/brede/MEGA/Honorar/111220_KfN/scrollableSlides.html') %>% cat -->
-<!-- ``` -->
-<!-- ### Kursplan -->
-<!-- ```{r, echo = F} -->
-<!-- library(readxl) -->
-<!-- read_excel('/home/brede/MEGA/Honorar/111220_KfN/00_programm/Programm.xlsx') %>%  -->
-<!--   mutate(Uhrzeit = str_extract(as.character(Uhrzeit),'\\S+(?=:00)'), -->
-<!--          Lernziele = map_chr(str_split(Lernziele, '-;-'),~str_c(.,collapse = '\\\n'))) %>% -->
-<!--   mutate_all(~replace_na(.,'')) %>%  -->
-<!--   select(-3) %>%  -->
-<!--   slice(-1) %>%  -->
-<!--   kableExtra::kable() %>%  -->
-<!--   kableExtra::kable_classic() -->
-<!-- ``` -->
-<!-- ### Ablauf -->
-<!-- <div id="toc"></div> -->
-<!-- ### Warum R?  -->
-<!-- * R ist beliebt und weit verbreitet -->
-<!-- * R ist __Open Source__ und ständig von der Community weiterentwickelt -->
-<!-- * R  -->
-</div>
-</div>
+
+
+
+
+
+
+
             </section>
 
           </div>
         </div>
       </div>
+<a href="appendix.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="rste-schritte.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

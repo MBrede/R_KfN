@@ -206,7 +206,7 @@ Führen Sie die Zeile anschließend durch das Drücken der Enter-Taste aus.
 \chapter{Rste Schritte}\label{rste-schritte}}
 
 \hypertarget{warum-r}{%
-\subsection{Warum R?}\label{warum-r}}
+\section{Warum R?}\label{warum-r}}
 
 \hypertarget{r-ist-beliebt}{%
 \subsubsection{R ist beliebt}\label{r-ist-beliebt}}
@@ -310,7 +310,7 @@ Das zentrale Argument:
 \end{itemize}
 
 \hypertarget{r-syntax-basics}{%
-\subsection{R-Syntax Basics}\label{r-syntax-basics}}
+\section{R-Syntax Basics}\label{r-syntax-basics}}
 
 Die Absoluten Grundlagen der R Syntax sind:
 
@@ -337,15 +337,9 @@ Auch wenn es andere Möglichkeiten gibt, ist die Folgende die lesbarste:
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{zuweisungen-und-das-environment-1}{%
-\subsection{\texorpdfstring{1. Zuweisungen und das \texttt{Environment}}{1. Zuweisungen und das Environment}}\label{zuweisungen-und-das-environment-1}}
-
 Die Zahl 42 ist jetzt für weitere Verwendung im \texttt{Environment} abgelegt:
 
 \begin{center}\includegraphics[width=0.6\linewidth]{imgs/environment} \end{center}
-
-\hypertarget{zuweisungen-und-das-environment-2}{%
-\subsection{\texorpdfstring{1. Zuweisungen und das \texttt{Environment}}{1. Zuweisungen und das Environment}}\label{zuweisungen-und-das-environment-2}}
 
 Und wie die Zahl alleine weiterzuverwenden:
 
@@ -397,9 +391,6 @@ Wenn man keins oder ein falsches obligatorisches Argument übergibt, zeigt R ein
 
 \emph{optionale} Argumente nennt man die, für die die Autoren der Funktion einen Standard vorgesehen haben. Das sind dann meist Stellschrauben, an denen das gewünschte Ergebnis genauer festgelegt werden kann. Werden diese Argumente nicht explizit gesetzt, wird einfach der Standard verwendet.
 
-\hypertarget{obligatorische-und-optionale-argumente-1}{%
-\subsection{2. obligatorische und optionale Argumente}\label{obligatorische-und-optionale-argumente-1}}
-
 Ein Beispiel für eine Funktion, die obligatorische und optionale Argumente annimmt ist \texttt{round()}.
 
 Auf der Hilfeseite von \texttt{round()} finden wir folgendes\footnote{Die Hilfeseite lässt sich entweder über die grafische Oberfläche oder mit \texttt{help(\textquotesingle{}round\textquotesingle{})} aufrufen.} :
@@ -407,9 +398,6 @@ Auf der Hilfeseite von \texttt{round()} finden wir folgendes\footnote{Die Hilfes
 \begin{center}\includegraphics[width=0.8\linewidth]{imgs/help} \end{center}
 
 Was ist hier das optionale Argument und wie erkennt man es?
-
-\hypertarget{obligatorische-und-optionale-argumente-2}{%
-\subsection{2. obligatorische und optionale Argumente}\label{obligatorische-und-optionale-argumente-2}}
 
 \texttt{x} ist hier das obligatorische Argument (kein Standard durch ein \texttt{=}) angegeben
 
@@ -436,9 +424,6 @@ Wen man eine Zahl übergibt, wird auf ganze Zahlen gerundet:
 \begin{verbatim}
 ## [1] 3
 \end{verbatim}
-
-\hypertarget{obligatorische-und-optionale-argumente-3}{%
-\subsection{2. obligatorische und optionale Argumente}\label{obligatorische-und-optionale-argumente-3}}
 
 Das optionale Argument \texttt{digits}, ermöglicht dann, die gewünschte Anzahl der Nachkommastellen anzugeben:
 
@@ -479,9 +464,6 @@ Was versucht R, wenn ich die folgende Anweisung ausführe?
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{positionelle-argumente}{%
-\subsection{positionelle Argumente}\label{positionelle-argumente}}
-
 R rundet die Zahl 2 auf 3.1415 (also 3) Nachkommastellen.
 
 \begin{Shaded}
@@ -521,9 +503,6 @@ In R lassen sich Elemente eines Objektes auf viele verschiedene Arten aufrufen, 
 
 Für Vektoren reicht erstmal der \texttt{{[}{]}}-Operator.
 
-\hypertarget{indizierung-1}{%
-\subsection{3. Indizierung}\label{indizierung-1}}
-
 Das einfachste Beispiel ist der Versuch, den 3. Wert aus einer Zahlenreihe ausgeben zu lassen.
 
 Dafür erstellen wir zuerst die Zahlenreihe von 10 bis 15 und speichern diese im \texttt{Environment}
@@ -535,9 +514,6 @@ Wie mache ich das?
 \NormalTok{eine\_reihe\_von\_zahlen }\OtherTok{\textless{}{-}} \DecValTok{10}\SpecialCharTok{:}\DecValTok{15}
 \end{Highlighting}
 \end{Shaded}
-
-\hypertarget{indizierung-2}{%
-\subsection{3. Indizierung}\label{indizierung-2}}
 
 Jetzt kann ich den \texttt{{[}{]}}-Operator benutzen, um den 3. Wert anzeigen zu lassen:
 
@@ -552,9 +528,6 @@ Jetzt kann ich den \texttt{{[}{]}}-Operator benutzen, um den 3. Wert anzeigen zu
 \end{verbatim}
 
 Und fertig. So einfach.
-
-\hypertarget{indizierung-3}{%
-\subsection{3. Indizierung}\label{indizierung-3}}
 
 Der \texttt{{[}{]}}-Operator kann aber noch viel mehr. Ich kann zum Beispiel eine Sequenz übergeben, um eine Reihe von Zahlen ausgeben zu lassen:
 
@@ -605,9 +578,6 @@ Die einfachsten sind hier:
 ## [1] TRUE
 \end{verbatim}
 
-\hypertarget{logische-indizierung-1}{%
-\subsection{3. logische Indizierung}\label{logische-indizierung-1}}
-
 Diese Operatoren kann ich auch auf Vektoren anwenden:
 
 \begin{Shaded}
@@ -633,7 +603,7 @@ Und kann das Ergebnis auch mit dem \texttt{{[}{]}}-Operator kombinieren:
 \end{verbatim}
 
 \hypertarget{datenformate-in-r}{%
-\subsection{Datenformate in R}\label{datenformate-in-r}}
+\section{Datenformate in R}\label{datenformate-in-r}}
 
 Bei der letzten Operation haben wir zwei Datenformate kennengelernt:
 
@@ -646,9 +616,6 @@ Bei der letzten Operation haben wir zwei Datenformate kennengelernt:
 
 Jetzt kennen wir schon 2 der 3 wichtigsten einfachen oder \texttt{atomic} Datenformate in R
 
-\hypertarget{datenformate-in-r-1}{%
-\subsection{Datenformate in R}\label{datenformate-in-r-1}}
-
 Neben Zahlen muss R aber natürlich auch Text verarbeiten können. Dies geschieht über das \texttt{character}-Datenformat.
 
 Wie könnte ich versuchen, ein \texttt{character}-Objekt mit dem Inhalt ``Ich bin ein String'' anzulegen?
@@ -658,9 +625,6 @@ Wie könnte ich versuchen, ein \texttt{character}-Objekt mit dem Inhalt ``Ich bi
 \NormalTok{ein\_toller\_character }\OtherTok{\textless{}{-}} \StringTok{"Ich bin ein String"}
 \end{Highlighting}
 \end{Shaded}
-
-\hypertarget{datenformate-in-r-2}{%
-\subsection{Datenformate in R}\label{datenformate-in-r-2}}
 
 Diese einfachen Datenformate haben eine Hierarchie, die man so darzustellen versuchen könnte:
 
@@ -673,9 +637,6 @@ Um uns das zu verdeutlichen, lernen wir noch eine neue Funktion:
 \item
   \texttt{c()} - die Vektor-Funktion. Mit ihr können wir Vektoren erstellen und Werte zu bestehenden Vektoren hinzufügen.
 \end{itemize}
-
-\hypertarget{datenformate-in-r-3}{%
-\subsection{Datenformate in R}\label{datenformate-in-r-3}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -700,9 +661,6 @@ Um uns das zu verdeutlichen, lernen wir noch eine neue Funktion:
 
 Die logischen Werte wurden in Zahlen umgewandelt.
 
-\hypertarget{datenformate-in-r-4}{%
-\subsection{Datenformate in R}\label{datenformate-in-r-4}}
-
 Was passiert wohl, wenn wir eine 1 \emph{und} einen \texttt{character} hinzufügen?
 
 \begin{Shaded}
@@ -718,9 +676,6 @@ Was passiert wohl, wenn wir eine 1 \emph{und} einen \texttt{character} hinzufüg
 \end{verbatim}
 
 Die logischen Werte und die Zahl wurden in \texttt{character} umgewandelt
-
-\hypertarget{datenformate-in-r-5}{%
-\subsection{Datenformate in R}\label{datenformate-in-r-5}}
 
 Die \texttt{atomics} haben eine klare Hierarchie!
 
@@ -740,9 +695,6 @@ Rückgängig machen lässt sich das durch \texttt{as.logical}, \texttt{as.numeri
 \begin{verbatim}
 ## [1] NA  1 15 NA
 \end{verbatim}
-
-\hypertarget{datenformate-in-r-6}{%
-\subsection{Datenformate in R}\label{datenformate-in-r-6}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -772,16 +724,13 @@ Weil das \texttt{TRUE} inzwischen ein \texttt{character} ist.
 ## [1] "a"    "1"    "15"   "TRUE"
 \end{verbatim}
 
-\hypertarget{datenformate-in-r-7}{%
-\subsection{Datenformate in R}\label{datenformate-in-r-7}}
-
 Natürlich gibt es auch komplexere, mehrsimensionale Datenformate in R, um die kümmern wir uns dann nach der Pause.
 
 \hypertarget{daten-manipulieren}{%
 \chapter{Daten manipulieren}\label{daten-manipulieren}}
 
 \hypertarget{datensuxe4tze-in-r}{%
-\subsection{Datensätze in R}\label{datensuxe4tze-in-r}}
+\section{Datensätze in R}\label{datensuxe4tze-in-r}}
 
 Wie alle anderen Programme zur statistischen Auswertung hat R natürlich neben den Vektoren auch rechteckige Datenformate.
 
@@ -804,9 +753,6 @@ Der Konstruktor für ein solches Objekt heißt ist die gleichnamige Funktion, di
 ## 3 3  TRUE c
 \end{verbatim}
 
-\hypertarget{datensuxe4tze-in-r-1}{%
-\subsection{Datensätze in R}\label{datensuxe4tze-in-r-1}}
-
 Das Indizieren im Datensatz geht dann am \emph{Lesbarsten}, durch das Angeben der gewünschten Spalte mit dem \texttt{\$}-Operator und der Auswahl der Zeile durch den schon bekannten \texttt{{[}{]}}-Operator.
 
 \begin{Shaded}
@@ -822,9 +768,6 @@ Das Indizieren im Datensatz geht dann am \emph{Lesbarsten}, durch das Angeben de
 Wie könnte ich den 3. Wert in der \texttt{b}-Spalte indizieren?
 
 \texttt{df\$b{[}3{]}}
-
-\hypertarget{datensuxe4tze-in-r-2}{%
-\subsection{Datensätze in R}\label{datensuxe4tze-in-r-2}}
 
 Der \texttt{iris}-Datensatz ist ein im Grundumfang von R mitgelieferter Datensatz, der historische botanische Daten nach \citet{andersonIrisesGaspePeninsula1935} enthält.
 
@@ -1159,9 +1102,6 @@ Wenn man iris explizit in das Environment nimmt, kann man die Oberfläche von RS
 
 \begin{center}\includegraphics[width=1\linewidth]{imgs/summ2} \end{center}
 
-\hypertarget{uxfcbersicht-uxfcber-datensatz-verschaffen-1}{%
-\subsection{Übersicht über Datensatz verschaffen}\label{uxfcbersicht-uxfcber-datensatz-verschaffen-1}}
-
 \hypertarget{muxf6glichkeit-1}{%
 \subsubsection{2. Möglichkeit:}\label{muxf6glichkeit-1}}
 
@@ -1273,9 +1213,6 @@ Mit ihrer Hilfe werden Aufbereitungsschritte in einer stringenten Reihe an Opera
 
 Da die Funktionen im tidyverse alle mit einfachen Verben benannt sind, lässt sich die Operation von eben auch so lesen.
 
-\hypertarget{tidy-aggregation-1}{%
-\subsection{tidy aggregation}\label{tidy-aggregation-1}}
-
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{iris }\SpecialCharTok{\%\textgreater{}\%} 
@@ -1312,9 +1249,6 @@ Nimm \texttt{iris}, dann \ldots{}
 
 \ldots{} berechne die angegebenen Kenngrößen über die Gruppen.
 
-\hypertarget{tidy-aggregation-2}{%
-\subsection{tidy aggregation}\label{tidy-aggregation-2}}
-
 Zweite Beispielaufgabe:
 
 Wir möchten für den \texttt{iris}-Datensatz:
@@ -1331,9 +1265,6 @@ Wir möchten für den \texttt{iris}-Datensatz:
   Die Häufigkeiten der Kombinationen von Mediansplit-Gruppe und Spezies auszählen
 \end{enumerate}
 
-\hypertarget{tidy-aggregation-3}{%
-\subsection{tidy aggregation}\label{tidy-aggregation-3}}
-
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{df }\OtherTok{\textless{}{-}}\NormalTok{ iris }\SpecialCharTok{\%\textgreater{}\%} 
@@ -1344,9 +1275,6 @@ Wir möchten für den \texttt{iris}-Datensatz:
   \FunctionTok{select}\NormalTok{(Species, z\_length, med\_split) }
 \end{Highlighting}
 \end{Shaded}
-
-\hypertarget{tidy-aggregation-4}{%
-\subsection{tidy aggregation}\label{tidy-aggregation-4}}
 
 Hat das geklappt?
 
@@ -1375,9 +1303,6 @@ Wie könnte ich das überprüfen?
 ## 
 \end{verbatim}
 
-\hypertarget{tidy-aggregation-5}{%
-\subsection{tidy aggregation}\label{tidy-aggregation-5}}
-
 Jetzt noch Häufigkeiten auszählen:
 
 \begin{Shaded}
@@ -1402,9 +1327,6 @@ Jetzt noch Häufigkeiten auszählen:
 ## 3 versicolor upper        25
 ## 4 virginica  upper        50
 \end{verbatim}
-
-\hypertarget{tidy-aggregation-6}{%
-\subsection{tidy aggregation}\label{tidy-aggregation-6}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1449,7 +1371,7 @@ Erstellen Sie mit Hilfe einer pipeline einen Datensatz, der\ldots{}
 Erstellen Sie anschließend eine kurze pipeline, die den Datensatz mit dem Absteigenden Bildungsniveau als ersten Sortierschlüssel und dem aufsteigenden Anteil katholischer Familien als zweitem Schlüssel sortiert. Nutzen Sie dafür die Hilfeseite der \texttt{arrange}-Funktion.
 
 \hypertarget{regressionen-in-r}{%
-\subsection{Regressionen in R}\label{regressionen-in-r}}
+\section{Regressionen in R}\label{regressionen-in-r}}
 
 Viele Modelle in R benutzen eine \texttt{formula}, um die Modellparameter festzulegen.
 Dabei besteht jede \texttt{formula} erstmal aus einem Vorhersage- und einem vorhergesagten Term, die durch eine Tilde getrennt werden:
@@ -1504,9 +1426,6 @@ Als Beispiel rechnen wir hier mal die Vorhersage der Blatt-Breite duch die Kelch
 \NormalTok{model }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(Petal.Width }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Sepal.Length,}\AttributeTok{data =}\NormalTok{ iris)}
 \end{Highlighting}
 \end{Shaded}
-
-\hypertarget{regression-1}{%
-\subsection{Regression}\label{regression-1}}
 
 Der einfache Ausdruck des Modells sind erstmal nur die Schätzer:
 
@@ -1575,9 +1494,6 @@ Bearbeiten Sie auf Basis des eben erstellten Teil-Datensatzes von \texttt{swiss}
   Rufen Sie die Hilfeseiten der \texttt{tibble}-Funktion auf und erstellen Sie mit Ihrer Hilfe einen Datensatz, der Prädiktor und Kriterium enthält. Fügen Sie dann diesem Datensatz in einer \texttt{pipeline} mit Hilfe der \texttt{mutate}-Funktion eine Variable mit den vorhergesagten Werten und eine mit den Residuen hinzu. Rufen Sie dafür die Hilfeseiten der \texttt{fitted} und der \texttt{residuals}- Funktionen auf.
 \end{enumerate}
 
-\hypertarget{aufgabe-2}{%
-\subsection{Aufgabe}\label{aufgabe-2}}
-
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \setcounter{enumi}{2}
@@ -1597,9 +1513,6 @@ Bearbeiten Sie auf Basis des eben erstellten Teil-Datensatzes von \texttt{swiss}
 \item
   Berechnen Sie auf Basis dieses zweiten Modells das korrigierte \(R^2\)
 \end{enumerate}
-
-\hypertarget{literatur}{%
-\subsection{Literatur}\label{literatur}}
 
 \hypertarget{aufgabe-1-1}{%
 \subsection{Aufgabe 1}\label{aufgabe-1-1}}
@@ -1742,8 +1655,8 @@ Erstellen Sie anschließend eine kurze pipeline, die den Datensatz mit dem Abste
 ## 35     2.40         1
 \end{verbatim}
 
-\hypertarget{aufgabe-2-1}{%
-\subsection{Aufgabe 2}\label{aufgabe-2-1}}
+\hypertarget{aufgabe-2}{%
+\subsection{Aufgabe 2}\label{aufgabe-2}}
 
 Bearbeiten Sie auf Basis des eben erstellten Teil-Datensatzes von \texttt{swiss} die folgenden Aufgaben:
 
@@ -1822,7 +1735,7 @@ Bearbeiten Sie auf Basis des eben erstellten Teil-Datensatzes von \texttt{swiss}
 \chapter{Daten einlesen}\label{daten-einlesen}}
 
 \hypertarget{einlesen-von-daten}{%
-\subsection{Einlesen von Daten}\label{einlesen-von-daten}}
+\section{Einlesen von Daten}\label{einlesen-von-daten}}
 
 Das Rechnen mit den mit R mitgelieferten Datensätzen ist natürlich nur bedingt realitätsnah.
 
@@ -1870,25 +1783,16 @@ Die GUI ist hier ein guter Start. Wir wollen die Datei \texttt{\textquotesingle{
 
 \begin{center}\includegraphics[width=0.8\linewidth]{imgs/text} \end{center}
 
-\hypertarget{einlesen-von-textdaten-1}{%
-\subsection{Einlesen von Textdaten}\label{einlesen-von-textdaten-1}}
-
 Was ist das Problem?
 
 Das Trennzeichen(Delimiter) ist falsch gesetzt. In den Daten sind die Zellen offensichtlich durch Semikolons getrennt.
 
 \begin{center}\includegraphics[width=0.8\linewidth]{imgs/text2} \end{center}
 
-\hypertarget{einlesen-von-textdateien}{%
-\subsection{Einlesen von Textdateien}\label{einlesen-von-textdateien}}
-
 Der für das Einlesen nötige Code wird dann von RStudio in die Konsole kopiert und ausgeführt.
 Um nicht jedes Mal beim Ausführen desselben Skriptes wieder per Hand den Datensatz einlesen zu müssen, kopiert man den Code dann an den Anfang des Skriptes.
 
 \begin{center}\includegraphics[width=0.8\linewidth]{imgs/text3} \end{center}
-
-\hypertarget{einlesen-von-textdateien-1}{%
-\subsection{Einlesen von Textdateien}\label{einlesen-von-textdateien-1}}
 
 Was passiert hier?
 
@@ -1928,9 +1832,6 @@ R teilt mit, dass es Kommazahlen als Standard-Zelleninhalt versucht und bei nich
 
 Dann öffne den Datensatz zum Angucken.
 
-\hypertarget{einlesen-von-textdateien-2}{%
-\subsection{Einlesen von Textdateien}\label{einlesen-von-textdateien-2}}
-
 Noch zwei wichtige Tricks in dem Einlesetool sind die locale-Schaltfläche und das NA-Menü
 
 \begin{center}\includegraphics[width=0.8\linewidth]{imgs/text4} \end{center}
@@ -1965,9 +1866,6 @@ Wie würde man vorgehen um die Datei drugs.xlsx einzulesen?
 \item
   etwaige von leeren Zellen abweichende NA-Codierung anpassen
 \end{itemize}
-
-\hypertarget{excel-arbeitsmappen-1}{%
-\subsection{Excel-Arbeitsmappen}\label{excel-arbeitsmappen-1}}
 
 Auch bei Excel-Mappen an das Kopieren des Codes denken!
 
@@ -2013,18 +1911,12 @@ Wenn man sich die Daten in der RStudio-Oberfläche anguckt, sieht man, dass die 
 
 \begin{center}\includegraphics[width=0.8\linewidth]{imgs/spss1} \end{center}
 
-\hypertarget{dateien-aus-spss-einlesen-1}{%
-\subsection{Dateien aus SPSS einlesen}\label{dateien-aus-spss-einlesen-1}}
-
 \texttt{haven} bietet mit der \texttt{as\_factor}-Funktion eine Möglichkeit an, eine dieser Codierung enthaltenden Variablen in einen Faktor umzuwandeln.
 
 Faktoren sind eine Variante um in R kategoriale Variablen anzulegen.
 
 So könnten wir uns zum Beispiel entscheiden, einen neuen, zweiten Datensatz zu erstellen, der die Variablen mit den Verballabels aus SPSS enthält.
 Da wir auf alle Spalten dafür dieselbe Funktion anwenden wollen, können wir dafür die \texttt{mutate\_all}-Funktion verwenden.
-
-\hypertarget{dateien-aus-spss-einlesen-2}{%
-\subsection{Dateien aus SPSS einlesen}\label{dateien-aus-spss-einlesen-2}}
 
 Dabei benutzen wir die im \texttt{tidyverse} beim Batchen von Funktionen verbreitete Funktionsschreibweise:
 
@@ -2043,7 +1935,7 @@ Das Ergebnis sieht in der Oberfläche dann so aus:
 Für Tipps zur weitergehenden Bearbeitung von SPSS und Stata-Daten noch \href{https://www.rdocumentation.org/packages/haven/versions/2.2.0/vignettes/semantics.Rmd}{hier} die sehr gute \texttt{haven}-Vignette zu den nötigen Schritten.
 
 \hypertarget{datenaufbereitung}{%
-\subsection{Datenaufbereitung}\label{datenaufbereitung}}
+\section{Datenaufbereitung}\label{datenaufbereitung}}
 
 Datenaufbrereitung kann natürlich denkbar komplex sein, deswegen beschränken wir uns hier auf die folgenden Schritte:
 
@@ -2076,9 +1968,6 @@ Um uns Tipparbeit zu sparen, schreiben wir dafür unsere erste Funktion:
           \ConstantTok{NA}\NormalTok{)\}}
 \end{Highlighting}
 \end{Shaded}
-
-\hypertarget{ausreiuxdfer-behandlung-1}{%
-\subsection{Ausreißer-Behandlung}\label{ausreiuxdfer-behandlung-1}}
 
 Kombiniert mit einem \texttt{mutate\_if} können wir damit alle Ausreißer gegen fehlende Werte austauschen. \texttt{mutate\_if} ist mit \texttt{mutate\_all} vergleichbar, nur dass man einen logischen Wert übergeben kann um die umzuwandelnden Spalten auszuwählen.
 
@@ -2113,9 +2002,6 @@ Fehlende Werte werden in R generell mit \texttt{NA} codiert. Um damit umzugehen 
 
 \ldots in unserem Fall vielleicht ein bisschen zu rigoros
 
-\hypertarget{umgang-mit-fehlenden-werten-1}{%
-\subsection{Umgang mit fehlenden Werten}\label{umgang-mit-fehlenden-werten-1}}
-
 Die zweite Möglichkeit ist \texttt{replace\_na}, eine Funktion die, wie der Name schon sagt, \texttt{NA}s durch festgelegte Werte ersetzen kann. Mit einem \texttt{mutate\_if} kombiniert, können wir so alle fehlenden Zahlen im Datensatz durch 0 ersetzen:
 
 \begin{Shaded}
@@ -2137,9 +2023,6 @@ Die zweite Möglichkeit ist \texttt{replace\_na}, eine Funktion die, wie der Nam
 ## # ... with 190 more rows, and 1 more variable:
 ## #   Female <dbl>
 \end{verbatim}
-
-\hypertarget{umgang-mit-fehlenden-werten-2}{%
-\subsection{Umgang mit fehlenden Werten}\label{umgang-mit-fehlenden-werten-2}}
 
 Jetzt können wir noch die fehlenden \texttt{character} umgewandeln:
 
@@ -2182,16 +2065,13 @@ Wie könnte ich die \emph{Anxiety}-Skala im \texttt{satisfaction}-Datensatz umpo
 \end{Shaded}
 
 \hypertarget{zusammenfuxfchren-von-datensuxe4tzen}{%
-\subsection{Zusammenführen von Datensätzen}\label{zusammenfuxfchren-von-datensuxe4tzen}}
+\section{Zusammenführen von Datensätzen}\label{zusammenfuxfchren-von-datensuxe4tzen}}
 
 Zu guter Letzt wollen wir die drei Datensätze zu einem Datensatz zusammenfügen.\\
 Dieser soll pro Region
 1. die Anzahl aller drogenbezogenen Krankenhausaufenthalte
 2. die Anzahl der (versuchten) Mordfälle
 3. die mittlere Zufriedenheit über alle Skalen beinhalten
-
-\hypertarget{vorbereitung}{%
-\subsection{Vorbereitung}\label{vorbereitung}}
 
 Wir fangen damit an, die Datensätze wie gewünscht vorzubereiten.
 Aus dem \texttt{drugs}-Datensatz brauchen wir die Regionsbezeichnung, die ONS-Codes und natürlich die Zahl der Einweisungen:
@@ -2203,9 +2083,6 @@ Aus dem \texttt{drugs}-Datensatz brauchen wir die Regionsbezeichnung, die ONS-Co
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{vorbereitung-1}{%
-\subsection{Vorbereitung}\label{vorbereitung-1}}
-
 Aus dem \texttt{crime}-Datensatz brauchen wir die Bezeichnung der Niederlassung, Anzahl der Morde und die Anzahl der versuchten Morde:
 
 \begin{Shaded}
@@ -2214,9 +2091,6 @@ Aus dem \texttt{crime}-Datensatz brauchen wir die Bezeichnung der Niederlassung,
   \FunctionTok{select}\NormalTok{(Force,HOMICIDE,}\StringTok{\textasciigrave{}}\AttributeTok{Attempted murder}\StringTok{\textasciigrave{}}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
-
-\hypertarget{vorbereitung-2}{%
-\subsection{Vorbereitung}\label{vorbereitung-2}}
 
 Aus dem \texttt{satisfaction}-Datensatz brauchen wir den ONS-Code und einen mittleren Zufriedenheitswert
 
@@ -2232,9 +2106,6 @@ Wie könnte ich das angehen?
 \end{Shaded}
 
 \texttt{sum} ist keine vektorisierte Funktion! Um eine neue Summenwert pro Zeile zu bilden, sind \texttt{+} und \texttt{/} nötig
-
-\hypertarget{zusammenfuxfchren-von-datensuxe4tzen-1}{%
-\subsection{Zusammenführen von Datensätzen}\label{zusammenfuxfchren-von-datensuxe4tzen-1}}
 
 Jetzt müssen wir das ganze nur noch zusammenfügen. Dafür benutzen wir die Familien der \texttt{join}-Funktionen
 
@@ -2261,9 +2132,6 @@ Zuerst fügen wir die Anzahl der Straftaten zu der Anzahl der Krankenhauseinweis
 ## #   `Attempted murder` <dbl>
 \end{verbatim}
 
-\hypertarget{zusammenfuxfchren-von-datensuxe4tzen-2}{%
-\subsection{Zusammenführen von Datensätzen}\label{zusammenfuxfchren-von-datensuxe4tzen-2}}
-
 Dem \texttt{overall}-Datensatz fügen wir jetzt noch die \texttt{satisfaction} hinzu. Hierzu nutzen wir die ONS-Codes. Dabei wollen wir alle Fälle in \texttt{overall} behalten:
 
 \begin{Shaded}
@@ -2287,9 +2155,6 @@ Dem \texttt{overall}-Datensatz fügen wir jetzt noch die \texttt{satisfaction} h
 ## #   `Attempted murder` <dbl>, Satisfaction <dbl>
 \end{verbatim}
 
-\hypertarget{zusammenfuxfchren-von-datensuxe4tzen-3}{%
-\subsection{Zusammenführen von Datensätzen}\label{zusammenfuxfchren-von-datensuxe4tzen-3}}
-
 Alles was jetzt noch fehlt, sind schönere Spaltennamen. Dafür benutzen wir entweder \texttt{rename}.
 \texttt{rename} erwartet die Angabe jedes Namens, der geändert werden soll als Wert und die neuen Namen als Namen der Argumente:
 
@@ -2302,9 +2167,6 @@ Alles was jetzt noch fehlt, sind schönere Spaltennamen. Dafür benutzen wir ent
          \StringTok{\textquotesingle{}homicide\textquotesingle{}} \OtherTok{=} \StringTok{\textquotesingle{}HOMICIDE\textquotesingle{}}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
-
-\hypertarget{zusammenfuxfchren-von-datensuxe4tzen-4}{%
-\subsection{Zusammenführen von Datensätzen}\label{zusammenfuxfchren-von-datensuxe4tzen-4}}
 
 Damit ist unser Datensatz fertig:
 
@@ -2335,23 +2197,17 @@ Den speichern wir noch eben als csv-Datei ab.
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{literatur-1}{%
-\subsection{Literatur}\label{literatur-1}}
-
 \hypertarget{daten-darstellen}{%
 \chapter{Daten darstellen}\label{daten-darstellen}}
 
 \hypertarget{pivotieren-von-datensuxe4tzen}{%
-\subsection{pivotieren von Datensätzen}\label{pivotieren-von-datensuxe4tzen}}
+\section{pivotieren von Datensätzen}\label{pivotieren-von-datensuxe4tzen}}
 
 Als Vorbereitung auf die Darstellung von Daten brauchen wir noch eine Funktion.
 
 Für das Grafikpaket, das wir benutzen wollen, müssen die Daten im \texttt{long\ format} vorliegen. Das heißt, dass jede Variable eine Spalte und jede Zeile eine Beobachtung darstellt.
 
 Insbesondere müssen wir darauf achten, dass alle Werte, die wir zum Beispiel an einer Achse darstellen wollen in einer Variable vorliegen.
-
-\hypertarget{vorbereitung-zum-pivotieren}{%
-\subsection{Vorbereitung zum Pivotieren}\label{vorbereitung-zum-pivotieren}}
 
 Als Beispiel wollen wir den \texttt{\textquotesingle{}crime\textquotesingle{}}-Datensatz pivotieren. Um das ganze übersichtlicher zu halten, bereiten wir den Datensatz aber noch ein bisschen vor.
 
@@ -2369,9 +2225,6 @@ Wir wollen dafür
 \item
   Die \texttt{Total}-Zeile ausschließen.
 \end{enumerate}
-
-\hypertarget{vorbereitung-zum-pivotieren-1}{%
-\subsection{Vorbereitung zum Pivotieren}\label{vorbereitung-zum-pivotieren-1}}
 
 Wie machen wir das?
 
@@ -2398,9 +2251,6 @@ Wie machen wir das?
 ## $ `Violence with injury` <dbl> 9293, 4368, 22...
 ## $ `Assault with injury`  <dbl> 8716, 4171, 19...
 \end{verbatim}
-
-\hypertarget{pivotieren-von-datensuxe4tzen-1}{%
-\subsection{pivotieren von Datensätzen}\label{pivotieren-von-datensuxe4tzen-1}}
 
 Um den Datensatz in ein längeres Format zu pivotieren, benutzen wir die \texttt{pivot\_longer}-Funktion.
 Wir erstellen dafür hier einen zweiten Datensatz
@@ -2453,7 +2303,7 @@ Abschließend fügen wir noch für später Auswertungen eine Variable hinzu, die
 \end{verbatim}
 
 \hypertarget{ggplot2}{%
-\subsection{ggplot2}\label{ggplot2}}
+\section{ggplot2}\label{ggplot2}}
 
 Eins der stärksten Argumente für die Benutzung von R und dem \texttt{tidyverse} ist das Grafik-Paket \texttt{ggplot2}.
 
@@ -2466,9 +2316,6 @@ Dafür müssen wir zuerst eine Grundebene erstellen, auf die wir die Grafik ansc
 Diese Grundebene kann man sich ein bisschen wie eine leere Leinwand vorstellen.
 Dabei wird beim Erstellen der `Leinwand' direkt festgelegt, auf welchen Daten die Abbildung basieren soll und welche Variablen wie dargestellt werden sollen.
 
-\hypertarget{ggplot2-1}{%
-\subsection{ggplot2}\label{ggplot2-1}}
-
 Diese Leinwand erstellt man mit der \texttt{ggplot}-Funktion, in die man, wie in die meisten \texttt{tidyverse}-Funktionen, pipen kann.
 
 Als zweites Argument nach dem Datensatz erwartet \texttt{ggplot} eine Angabe, wie welche Variablen dargestellt werden sollen. Diese Angaben \emph{müssen} mit \texttt{aes} für aesthetics erstellt werden:
@@ -2479,9 +2326,6 @@ Als zweites Argument nach dem Datensatz erwartet \texttt{ggplot} eine Angabe, wi
   \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Homicide, }\AttributeTok{y =} \StringTok{\textasciigrave{}}\AttributeTok{Attempted murder}\StringTok{\textasciigrave{}}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
-
-\hypertarget{ggplot2-2}{%
-\subsection{ggplot2}\label{ggplot2-2}}
 
 Diese `leere Leinwand' sieht so aus:
 
@@ -2507,9 +2351,6 @@ Um der Leinwand Punkte hinzuzufügen, \emph{addieren} wir einfach einen \texttt{
 
 \begin{center}\includegraphics[width=333.333333333333pt]{imgs/pts} \end{center}
 
-\hypertarget{aesthetics-1}{%
-\subsection{aesthetics}\label{aesthetics-1}}
-
 Dieser sehr einfache Graph ist aber natürlich nicht alles. Die \texttt{aes}- und die \texttt{ggplot}-Funktionen können noch eine ganze Reihe an weiteren grafischen Parametern annehmen.
 
 Die für unseren Graphen attraktivsten sind:
@@ -2524,9 +2365,6 @@ Die für unseren Graphen attraktivsten sind:
   \texttt{shape} - für die Wahl der Symbole
 \end{itemize}
 
-\hypertarget{aesthetics-2}{%
-\subsection{aesthetics}\label{aesthetics-2}}
-
 Jedes \texttt{geom} hat auch die Möglichkeit, Daten und \texttt{aesthetics} zu nehmen. Wenn keine gesetzt werden, werden einfach die des ursprünglichen \texttt{ggplot}-Aufrufs übernommen.
 
 \begin{Shaded}
@@ -2539,9 +2377,6 @@ Jedes \texttt{geom} hat auch die Möglichkeit, Daten und \texttt{aesthetics} zu 
 \begin{center}\includegraphics[width=333.333333333333pt]{imgs/pts2} \end{center}
 
 Die aus mehreren Worten bestehenden Variablennamen sind mit Gravis eingeschlossen, nicht mit Anführungszeichen!
-
-\hypertarget{aesthetics-3}{%
-\subsection{aesthetics}\label{aesthetics-3}}
 
 Wenn \texttt{aesthetic}-Argumente außerhalb der \texttt{aes}-Funktion gesetzt werden, geben sie einen konstanten Wert für das \texttt{geom} an:
 
@@ -2560,9 +2395,6 @@ Wenn \texttt{aesthetic}-Argumente außerhalb der \texttt{aes}-Funktion gesetzt w
 Um andere Grafiken zu erstellen, ersetzt man einfach das \texttt{geom\_point}-geom durch ein anderes.
 
 Dabei kann es natürlich nötig sein, eine andere Leinwand zu definieren.
-
-\hypertarget{geoms-1}{%
-\subsection{geoms}\label{geoms-1}}
 
 Histogramme, Boxplots und Barcharts: \footnote{Für über eine Übersicht über mehr mögliche geoms lässt sich das \href{https://raw.githubusercontent.com/rstudio/cheatsheets/master/data-visualization-2.1.pdf}{ggplot2-cheatsheet} empfehlen.}
 
@@ -2601,8 +2433,8 @@ Histogramme, Boxplots und Barcharts: \footnote{Für über eine Übersicht über 
 
 \begin{center}\includegraphics[width=333.333333333333pt]{imgs/pts6} \end{center}
 
-\hypertarget{aesthetics-4}{%
-\subsection{aesthetics}\label{aesthetics-4}}
+\hypertarget{aesthetics-1}{%
+\subsection{aesthetics}\label{aesthetics-1}}
 
 Der Barchart ist ein guter Anlass, den Plot zu optimieren.
 
@@ -2670,9 +2502,6 @@ Dafür benutzen wir das \texttt{forcats}-Paket aus dem \texttt{tidyverse}. Ein P
 \end{Shaded}
 
 \begin{center}\includegraphics[width=333.333333333333pt]{R---KfN-11.12.20_files/figure-latex/unnamed-chunk-108-1} \end{center}
-
-\hypertarget{additional-tweeks-1}{%
-\subsection{additional tweeks}\label{additional-tweeks-1}}
 
 Um die einzelnen Stationen besser lesbar zu machen, können wir noch die Achsen austauschen.
 
@@ -2760,15 +2589,12 @@ Mit der Hilfe der zugehörigen Pakete lassen sich in einer sehr einfachen Syntax
 
 Um den Kern von Rmarkdown ist ein riesiger Apparat an Erweiterungen entstanden, die den Funktionsumfang zu einem sehr mächtigen Tool zur Dokumenterstellung anwachsen lassen. Dieses Skript ist zum Beispiel vollständig in Rmarkdown geschrieben.
 
-\hypertarget{die-erste-dokumentation}{%
-\subsection{Die erste Dokumentation}\label{die-erste-dokumentation}}
-
 Um ein Dokument zu erstellen muss man einfach auf ``neues Dokument'' \(\rightarrow\) R Markdown klicken und schon kann man anfangen.
 
 Mit Paketen wie Bookdown, Shiny, Plotly und Blogdown lassen sich auch sehr attraktive interaktive Dokumente erstellen, die Beispielsweise direkt als Website nutzbar sind.
 
 \hypertarget{wo-kann-ich-dazu-mehr-erfahren}{%
-\subsection{Wo kann ich dazu mehr erfahren?}\label{wo-kann-ich-dazu-mehr-erfahren}}
+\subsubsection{Wo kann ich dazu mehr erfahren?}\label{wo-kann-ich-dazu-mehr-erfahren}}
 
 \citet{grolemundMarkdownDefinitiveGuide} bieten \href{https://bookdown.org/yihui/rmarkdown/}{hier} ein frei zugängliches gitbook mit Antworten zu allen Fragen, die man zum Standard-markdown haben kann.
 
@@ -2803,7 +2629,7 @@ Als kleines Beispiel eine abhängige zweifaktorielle Varianzanalyse auf Basis de
 \end{Shaded}
 
 \hypertarget{klassische-vorgehensweise-in-base-r}{%
-\subsection{klassische Vorgehensweise in base R}\label{klassische-vorgehensweise-in-base-r}}
+\subsubsection{klassische Vorgehensweise in base R}\label{klassische-vorgehensweise-in-base-r}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2835,7 +2661,7 @@ Als kleines Beispiel eine abhängige zweifaktorielle Varianzanalyse auf Basis de
 \end{verbatim}
 
 \hypertarget{anova-mit-ez}{%
-\subsection{\texorpdfstring{ANOVA mit \texttt{ez}}{ANOVA mit ez}}\label{anova-mit-ez}}
+\subsubsection{\texorpdfstring{ANOVA mit \texttt{ez}}{ANOVA mit ez}}\label{anova-mit-ez}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2884,7 +2710,7 @@ Als kleines Beispiel eine abhängige zweifaktorielle Varianzanalyse auf Basis de
 \end{verbatim}
 
 \hypertarget{wo-kann-ich-dazu-mehr-erfahren-1}{%
-\subsection{Wo kann ich dazu mehr erfahren?}\label{wo-kann-ich-dazu-mehr-erfahren-1}}
+\subsubsection{Wo kann ich dazu mehr erfahren?}\label{wo-kann-ich-dazu-mehr-erfahren-1}}
 
 Die \href{https://www.rdocumentation.org/packages/ez/versions/4.4-0}{Dokumentation} von \texttt{ez} ist ziemlich gut.
 
@@ -2920,8 +2746,7 @@ Ein kleines Beispiel sind diese wordclouds, die auf einem Datensatz basieren, de
 ##  NA's   :445
 \end{verbatim}
 
-\hypertarget{darstellung-in-wordcloud}{%
-\subsection{Darstellung in wordcloud}\label{darstellung-in-wordcloud}}
+Diesen Datensatz wollen wir jetzt als eine wordcloud pro Nation darstellen:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2940,7 +2765,7 @@ Ein kleines Beispiel sind diese wordclouds, die auf einem Datensatz basieren, de
 \begin{flushleft}\includegraphics[width=333.333333333333pt]{imgs/wc} \end{flushleft}
 
 \hypertarget{wo-kann-ich-dazu-mehr-erfahren-2}{%
-\subsection{Wo kann ich dazu mehr erfahren?}\label{wo-kann-ich-dazu-mehr-erfahren-2}}
+\subsubsection{Wo kann ich dazu mehr erfahren?}\label{wo-kann-ich-dazu-mehr-erfahren-2}}
 
 Die Vignette von ggwordcloud bietet ein paar schöne Beispiele, an denen man sich gut entlang hangeln kann.
 
@@ -3004,9 +2829,6 @@ Wir können das, was wir für ggplot gelernt haben, einfach für plotly anwenden
 
 \begin{center}\includegraphics[width=333.333333333333pt]{R---KfN-11.12.20_files/figure-latex/unnamed-chunk-121-1} \end{center}
 
-\hypertarget{umwandlung}{%
-\subsection{Umwandlung}\label{umwandlung}}
-
 Um den Graphen interaktiv zu gestalten reicht es, ihn an \texttt{ggplotly} zu übergeben:
 
 \begin{Shaded}
@@ -3022,7 +2844,7 @@ Um den Graphen interaktiv zu gestalten reicht es, ihn an \texttt{ggplotly} zu ü
 \hypertarget{htmlwidget-640d7ea4c844e4648163}{}
 
 \hypertarget{wo-kann-ich-dazu-mehr-erfahren-3}{%
-\subsection{Wo kann ich dazu mehr erfahren?}\label{wo-kann-ich-dazu-mehr-erfahren-3}}
+\subsubsection{Wo kann ich dazu mehr erfahren?}\label{wo-kann-ich-dazu-mehr-erfahren-3}}
 
 Wenn komplexere Grafiken gewünscht sind, ist die \href{https://plotly.com/r/}{plotly-Website} eine gute Ressource um anzufangen.
 
@@ -3040,9 +2862,6 @@ The lavaan package is developed to provide useRs, researchers and teachers a fre
 Und kann inzwischen genutzt werden um so gut wie jedes Modell zur Analyse latenter Variablen aufzustellen, zu schätzen und zu testen.
 
 Das Paket ist so umfrangreich, dass wir es hier nur in anekdotischer Art besprechen können, wir gehen aber ein Beispiel für ein SEM durch.
-
-\hypertarget{das-beispiel}{%
-\subsection{Das Beispiel}\label{das-beispiel}}
 
 Wir versuchen die Auswertung aus \citet{pishghadamIntelligenceMetacognitionPredictors2013} mit lavaan nachzuvollziehen. Die Autoren berichten dankenswerterweise Korrelationsmatrizen und Streuungen, daraus können wir uns einfach die folgende Kovarianzmatrix bauen:
 
@@ -3067,9 +2886,6 @@ fla\_test & 3.45 & 4.22 & 7.75 & 31.46 & 53.20 & 84.43 & 33.99\\
 \end{tabular}
 
 \textbackslash end\{table\}
-
-\hypertarget{das-modell}{%
-\subsection{Das Modell}\label{das-modell}}
 
 Als nächsten Schritt laden wir \texttt{lavaan} und formulieren das Modell nach, das die Autoren aufgestellt haben:
 
@@ -3102,9 +2918,6 @@ Als nächsten Schritt laden wir \texttt{lavaan} und formulieren das Modell nach,
 \StringTok{\textquotesingle{}}
 \end{Highlighting}
 \end{Shaded}
-
-\hypertarget{die-schuxe4tzung}{%
-\subsection{Die Schätzung}\label{die-schuxe4tzung}}
 
 Das Gesamtmodell, die Stichprobengröße von 143 und die Kovarianzmatrix übergeben wir jetzt an \texttt{sem}:
 
@@ -3195,9 +3008,6 @@ Das Gesamtmodell, die Stichprobengröße von 143 und die Kovarianzmatrix überge
 ##     0.000    1.000    1.000
 \end{verbatim}
 
-\hypertarget{der-model-fit}{%
-\subsection{Der Model-fit}\label{der-model-fit}}
-
 Mit \texttt{fitmeasures(sem\_example)} können wir uns die gängigsten fit-Indizes und noch ein paar mehr ausgeben lassen:
 
 \begin{Shaded}
@@ -3251,9 +3061,6 @@ Mit \texttt{fitmeasures(sem\_example)} können wir uns die gängigsten fit-Indiz
 ##               1.004               0.180
 \end{verbatim}
 
-\hypertarget{die-darstellung}{%
-\subsection{Die Darstellung}\label{die-darstellung}}
-
 Und mit dem semPlot-Paket lässt sich das Modell auch darstellen:
 
 \begin{Shaded}
@@ -3276,7 +3083,7 @@ Und mit dem semPlot-Paket lässt sich das Modell auch darstellen:
 \begin{center}\includegraphics[width=333.333333333333pt]{R---KfN-11.12.20_files/figure-latex/unnamed-chunk-127-1} \end{center}
 
 \hypertarget{wo-kann-ich-dazu-mehr-erfahren-4}{%
-\subsection{Wo kann ich dazu mehr erfahren?}\label{wo-kann-ich-dazu-mehr-erfahren-4}}
+\subsubsection{Wo kann ich dazu mehr erfahren?}\label{wo-kann-ich-dazu-mehr-erfahren-4}}
 
 Zum Lernen von \texttt{lavaan} stellen die Autoren \href{https://lavaan.ugent.be/resources/teaching.html}{hier} einen großen Pool an Materialien zur Verfügung.
 
@@ -3286,7 +3093,7 @@ Für das \texttt{semPlot}-Paket sind die Ressourcen leider nicht so gut, die Dok
 \section{Andere Ressourcen}\label{andere-ressourcen}}
 
 \hypertarget{cheatsheets}{%
-\subsection{Cheatsheets}\label{cheatsheets}}
+\subsubsection{Cheatsheets}\label{cheatsheets}}
 
 RStudio stellt eine ganze Reihe von hilfreichen Spickzetteln zu Verfügung, die den workflow effizienter macen indem sie die wichtigsten Funktionen auf einen Blick übersichtlich machen. Die Cheatsheets finden sich \href{https://rstudio.com/resources/cheatsheets/}{hier}
 
@@ -3306,7 +3113,7 @@ Exemplarisch für die bisher besprochenen Pakete sind die folgenden Cheatsheets 
 \end{itemize}
 
 \hypertarget{buxfccher}{%
-\subsection{Bücher}\label{buxfccher}}
+\subsubsection{Bücher}\label{buxfccher}}
 
 Wenn man tiefer in tidy data analysis mit R einsteigen möchte kommt man an den Büchern von Hadley Wickham (Autor von ggplot2 und Chief Scientist bei RStudio) nicht vorbei. Die wichtigsten sind frei online zugänglich, dabei sind besonders die folgenden zu empfehlen:
 
@@ -3316,9 +3123,6 @@ Wenn man tiefer in tidy data analysis mit R einsteigen möchte kommt man an den 
 \item
   \citep[\emph{Advanced R}][]{wickhamAdvanced2019}(\url{https://adv-r.hadley.nz/}) für fortgeschrittenere Themen
 \end{itemize}
-
-\hypertarget{literatur-2}{%
-\subsection{Literatur}\label{literatur-2}}
 
   \bibliography{book.bib}
 

@@ -146,16 +146,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Vorwort</a></li>
-<li class="chapter" data-level="" data-path="rste-schritte.html"><a href="rste-schritte.html"><i class="fa fa-check"></i>Rste Schritte</a></li>
-<li class="chapter" data-level="" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html"><i class="fa fa-check"></i>Daten manipulieren</a></li>
-<li class="chapter" data-level="" data-path="daten-einlesen.html"><a href="daten-einlesen.html"><i class="fa fa-check"></i>Daten einlesen</a></li>
-<li class="chapter" data-level="" data-path="daten-darstellen.html"><a href="daten-darstellen.html"><i class="fa fa-check"></i>Daten darstellen</a></li>
+<li class="chapter" data-level="" data-path="rste-schritte.html"><a href="rste-schritte.html"><i class="fa fa-check"></i>Rste Schritte</a>
+<ul>
+<li class="chapter" data-level="" data-path="rste-schritte.html"><a href="rste-schritte.html#warum-r"><i class="fa fa-check"></i>Warum R?</a></li>
+<li class="chapter" data-level="" data-path="rste-schritte.html"><a href="rste-schritte.html#r-syntax-basics"><i class="fa fa-check"></i>R-Syntax Basics</a></li>
+<li class="chapter" data-level="" data-path="rste-schritte.html"><a href="rste-schritte.html#datenformate-in-r"><i class="fa fa-check"></i>Datenformate in R</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html"><i class="fa fa-check"></i>Daten manipulieren</a>
+<ul>
+<li class="chapter" data-level="" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#datensätze-in-r"><i class="fa fa-check"></i>Datensätze in R</a></li>
+<li class="chapter" data-level="" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#regressionen-in-r"><i class="fa fa-check"></i>Regressionen in R</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="daten-einlesen.html"><a href="daten-einlesen.html"><i class="fa fa-check"></i>Daten einlesen</a>
+<ul>
+<li class="chapter" data-level="" data-path="daten-einlesen.html"><a href="daten-einlesen.html#einlesen-von-daten"><i class="fa fa-check"></i>Einlesen von Daten</a></li>
+<li class="chapter" data-level="" data-path="daten-einlesen.html"><a href="daten-einlesen.html#datenaufbereitung"><i class="fa fa-check"></i>Datenaufbereitung</a></li>
+<li class="chapter" data-level="" data-path="daten-einlesen.html"><a href="daten-einlesen.html#zusammenführen-von-datensätzen"><i class="fa fa-check"></i>Zusammenführen von Datensätzen</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="daten-darstellen.html"><a href="daten-darstellen.html"><i class="fa fa-check"></i>Daten darstellen</a>
+<ul>
+<li class="chapter" data-level="" data-path="daten-darstellen.html"><a href="daten-darstellen.html#pivotieren-von-datensätzen"><i class="fa fa-check"></i>pivotieren von Datensätzen</a></li>
+<li class="chapter" data-level="" data-path="daten-darstellen.html"><a href="daten-darstellen.html#ggplot2"><i class="fa fa-check"></i>ggplot2</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i>Appendix</a>
 <ul>
 <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#nützliche-pakete"><i class="fa fa-check"></i>Nützliche Pakete</a></li>
 <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#andere-ressourcen"><i class="fa fa-check"></i>Andere Ressourcen</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="literatur-3.html"><a href="literatur-3.html"><i class="fa fa-check"></i>Literatur</a></li>
+<li class="chapter" data-level="" data-path="literatur.html"><a href="literatur.html"><i class="fa fa-check"></i>Literatur</a></li>
 <li class="divider"></li>
 <li><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons Lizenzvertrag" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a></li>
 
@@ -178,8 +196,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="daten-einlesen" class="section level1">
 <h1>Daten einlesen</h1>
-<div id="einlesen-von-daten" class="section level3">
-<h3>Einlesen von Daten</h3>
+<div id="einlesen-von-daten" class="section level2">
+<h2>Einlesen von Daten</h2>
 <p>Das Rechnen mit den mit R mitgelieferten Datensätzen ist natürlich nur bedingt realitätsnah.</p>
 <p>Im durchschnittlichen Anwendungsfall müssen externe Datensätze eingelesen werden.</p>
 <p>Dabei sind im <code>tidyverse</code> dafür je nach Quelle folgende Pakete vorgesehen:</p>
@@ -188,7 +206,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Excel-Mappen(<code>.xlsx, .xls</code>) <span class="math inline">\(\rightarrow\)</span> <code>readxl</code></p></li>
 <li><p>Daten aus anderen Statistikpaketen(<code>.sav, .dta,...</code>) <span class="math inline">\(\rightarrow\)</span> <code>haven</code></p></li>
 </ul>
-</div>
 <div id="einlesen-von-textdaten" class="section level3">
 <h3>Einlesen von Textdaten</h3>
 Alle diese drei Pakete sind auch in der RStudio-GUI implementiert: <br>
@@ -219,9 +236,7 @@ Uns interessiert der Zusammenhang von Drogenmissbrauch, Lebenszufriedenheit und 
 <h3>textbasierte Daten</h3>
 <p>Die GUI ist hier ein guter Start. Wir wollen die Datei <code>'crime.csv'</code> einlesen. Diese enthält echte Daten über von britischen Polizeibehörden aufgezeichnete Straftaten von der <a href="https://www.gov.uk/government/statistics/historical-crime-data">Website der britischen Regierung</a>. Wenn ich dem Pfad im GUI folge, ergibt sich das folgende Bild:
 <img src="imgs/text.png" width="80%" style="display: block; margin: auto;" /></p>
-</div>
-<div id="einlesen-von-textdaten-1" class="section level3">
-<h3>Einlesen von Textdaten</h3>
+<!-- ### Einlesen von Textdaten  -->
 <p class="q">
 Was ist das Problem?
 </p>
@@ -229,15 +244,11 @@ Was ist das Problem?
 <p>Das Trennzeichen(Delimiter) ist falsch gesetzt. In den Daten sind die Zellen offensichtlich durch Semikolons getrennt.
 <img src="imgs/text2.png" width="80%" style="display: block; margin: auto;" /></p>
 </div>
-</div>
-<div id="einlesen-von-textdateien" class="section level3">
-<h3>Einlesen von Textdateien</h3>
+<!-- ### Einlesen von Textdateien -->
 <p>Der für das Einlesen nötige Code wird dann von RStudio in die Konsole kopiert und ausgeführt.
 Um nicht jedes Mal beim Ausführen desselben Skriptes wieder per Hand den Datensatz einlesen zu müssen, kopiert man den Code dann an den Anfang des Skriptes.</p>
 <p><img src="imgs/text3.png" width="80%" style="display: block; margin: auto;" /></p>
-</div>
-<div id="einlesen-von-textdateien-1" class="section level3 scrollable">
-<h3>Einlesen von Textdateien</h3>
+<!-- ### Einlesen von Textdateien{.scrollable} -->
 <p>Was passiert hier?</p>
 <div class="tt-left">
 <div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="daten-einlesen.html#cb85-1" aria-hidden="true" tabindex="-1"></a>crime <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">&quot;data/crime.csv&quot;</span>, </span></code></pre></div>
@@ -277,9 +288,7 @@ R teilt mit, dass es Kommazahlen als Standard-Zelleninhalt versucht und bei nich
 Dann öffne den Datensatz zum Angucken.
 </p>
 </div>
-</div>
-<div id="einlesen-von-textdateien-2" class="section level3">
-<h3>Einlesen von Textdateien</h3>
+<!-- ### Einlesen von Textdateien -->
 <p>Noch zwei wichtige Tricks in dem Einlesetool sind die <font color='#0000FF'>locale-Schaltfläche</font> und das <font color='#00FFFF'>NA-Menü</font></p>
 <p><img src="imgs/text4.png" width="80%" style="display: block; margin: auto;" /></p>
 <p class="q">
@@ -310,9 +319,7 @@ Wie würde man vorgehen um die Datei drugs.xlsx einzulesen?
 <li>etwaige von leeren Zellen abweichende <font color='#00FFFF'>NA-Codierung</font> anpassen</li>
 </ul>
 </div>
-</div>
-<div id="excel-arbeitsmappen-1" class="section level3">
-<h3>Excel-Arbeitsmappen</h3>
+<!-- ### Excel-Arbeitsmappen -->
 <p class="o">
 Auch bei Excel-Mappen an das Kopieren des Codes denken!
 </p>
@@ -343,16 +350,12 @@ Wie würde man vorgehen um die Datei satisfaction.sav einzulesen?
 <h3>Dateien aus SPSS einlesen</h3>
 <p>Wenn man sich die Daten in der RStudio-Oberfläche anguckt, sieht man, dass die für SPSS typischen Variablendefinitionen konserviert wurden:</p>
 <p><img src="imgs/spss1.png" width="80%" style="display: block; margin: auto;" /></p>
-</div>
-<div id="dateien-aus-spss-einlesen-1" class="section level3">
-<h3>Dateien aus SPSS einlesen</h3>
+<!-- ### Dateien aus SPSS einlesen -->
 <p><code>haven</code> bietet mit der <code>as_factor</code>-Funktion eine Möglichkeit an, eine dieser Codierung enthaltenden Variablen in einen Faktor umzuwandeln.</p>
 <p>Faktoren sind eine Variante um in R kategoriale Variablen anzulegen.</p>
 <p>So könnten wir uns zum Beispiel entscheiden, einen neuen, zweiten Datensatz zu erstellen, der die Variablen mit den Verballabels aus SPSS enthält.
 Da wir auf alle Spalten dafür dieselbe Funktion anwenden wollen, können wir dafür die <code>mutate_all</code>-Funktion verwenden.</p>
-</div>
-<div id="dateien-aus-spss-einlesen-2" class="section level3 small">
-<h3>Dateien aus SPSS einlesen</h3>
+<!-- ### Dateien aus SPSS einlesen{.small} -->
 <p>Dabei benutzen wir die im <code>tidyverse</code> beim Batchen von Funktionen verbreitete Funktionsschreibweise:</p>
 <div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="daten-einlesen.html#cb92-1" aria-hidden="true" tabindex="-1"></a>verbal_satisfaction <span class="ot">&lt;-</span> satisfaction <span class="sc">%&gt;%</span> </span>
 <span id="cb92-2"><a href="daten-einlesen.html#cb92-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_all</span>(<span class="sc">~</span><span class="fu">as_factor</span>(.)) <span class="do">## Nach der Tilde Funktion für alle Spalten</span></span>
@@ -361,19 +364,19 @@ Da wir auf alle Spalten dafür dieselbe Funktion anwenden wollen, können wir da
 <p><img src="imgs/spss2.png" width="80%" style="display: block; margin: auto;" /></p>
 <p>Für Tipps zur weitergehenden Bearbeitung von SPSS und Stata-Daten noch <a href="https://www.rdocumentation.org/packages/haven/versions/2.2.0/vignettes/semantics.Rmd">hier</a> die sehr gute <code>haven</code>-Vignette zu den nötigen Schritten.</p>
 </div>
-<div id="datenaufbereitung" class="section level3">
-<h3>Datenaufbereitung</h3>
+</div>
+<div id="datenaufbereitung" class="section level2">
+<h2>Datenaufbereitung</h2>
 <p>Datenaufbrereitung kann natürlich denkbar komplex sein, deswegen beschränken wir uns hier auf die folgenden Schritte:</p>
 <ol style="list-style-type: decimal">
 <li><p>Ausreißer-Behandlung</p></li>
 <li><p>Umgang mit fehlenden Werten</p></li>
 <li><p>Recodieren von Werten</p></li>
 </ol>
-</div>
 <div id="ausreißer-behandlung" class="section level3 subsection">
 <h3>Ausreißer-Behandlung</h3>
 <p>Als ersten Schritt zur Bereinigung der drei Datensätze sollen Ausreißer erkannt und durch fehlende Werte ausgeschlossen werden.</p>
-<p>Dafür muss man sich natürlich zuerst überlegen, was das Kriterium dafür sein soll. Wir benutzen hier das Kriterium nach <span class="citation"><a href="literatur-3.html#ref-tukeyExploratoryDataAnalysis1977" role="doc-biblioref">Tukey</a> (<a href="literatur-3.html#ref-tukeyExploratoryDataAnalysis1977" role="doc-biblioref">1977</a>)</span>, also wollen wir gerade die Werte ausschlißen, die mehr als 1.5 Interquartilabstände über oder unter dem 25% bzw dem 75%-Quantil liegen.</p>
+<p>Dafür muss man sich natürlich zuerst überlegen, was das Kriterium dafür sein soll. Wir benutzen hier das Kriterium nach <span class="citation"><a href="literatur.html#ref-tukeyExploratoryDataAnalysis1977" role="doc-biblioref">Tukey</a> (<a href="literatur.html#ref-tukeyExploratoryDataAnalysis1977" role="doc-biblioref">1977</a>)</span>, also wollen wir gerade die Werte ausschlißen, die mehr als 1.5 Interquartilabstände über oder unter dem 25% bzw dem 75%-Quantil liegen.</p>
 <p>Um uns Tipparbeit zu sparen, schreiben wir dafür unsere erste Funktion:</p>
 <div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="daten-einlesen.html#cb93-1" aria-hidden="true" tabindex="-1"></a>remove_outlier <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
 <span id="cb93-2"><a href="daten-einlesen.html#cb93-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ifelse</span>(<span class="fu">between</span>(x,</span>
@@ -381,9 +384,7 @@ Da wir auf alle Spalten dafür dieselbe Funktion anwenden wollen, können wir da
 <span id="cb93-4"><a href="daten-einlesen.html#cb93-4" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">quantile</span>(x,.<span class="dv">75</span>) <span class="sc">+</span> <span class="fl">1.5</span> <span class="sc">*</span> <span class="fu">IQR</span>(x)),</span>
 <span id="cb93-5"><a href="daten-einlesen.html#cb93-5" aria-hidden="true" tabindex="-1"></a>          x,</span>
 <span id="cb93-6"><a href="daten-einlesen.html#cb93-6" aria-hidden="true" tabindex="-1"></a>          <span class="cn">NA</span>)}</span></code></pre></div>
-</div>
-<div id="ausreißer-behandlung-1" class="section level3">
-<h3>Ausreißer-Behandlung</h3>
+<!-- ### Ausreißer-Behandlung -->
 <p>Kombiniert mit einem <code>mutate_if</code> können wir damit alle Ausreißer gegen fehlende Werte austauschen.<br> <code>mutate_if</code> ist mit <code>mutate_all</code> vergleichbar, nur dass man einen logischen Wert übergeben kann um die umzuwandelnden Spalten auszuwählen.</p>
 <div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="daten-einlesen.html#cb94-1" aria-hidden="true" tabindex="-1"></a>crime <span class="ot">&lt;-</span> crime <span class="sc">%&gt;%</span> </span>
 <span id="cb94-2"><a href="daten-einlesen.html#cb94-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_if</span>(<span class="at">.predicate =</span> is.numeric,</span>
@@ -400,9 +401,7 @@ Da wir auf alle Spalten dafür dieselbe Funktion anwenden wollen, können wir da
 ## #   ...3 &lt;chr&gt;, ...4 &lt;chr&gt;, `All persons9` &lt;dbl&gt;,
 ## #   Male &lt;dbl&gt;, Female &lt;dbl&gt;</code></pre>
 <p>…in unserem Fall vielleicht ein bisschen zu rigoros</p>
-</div>
-<div id="umgang-mit-fehlenden-werten-1" class="section level3">
-<h3>Umgang mit fehlenden Werten</h3>
+<!-- ### Umgang mit fehlenden Werten -->
 <p>Die zweite Möglichkeit ist <code>replace_na</code>, eine Funktion die, wie der Name schon sagt, <code>NA</code>s durch festgelegte Werte ersetzen kann. Mit einem <code>mutate_if</code> kombiniert, können wir so alle fehlenden Zahlen im Datensatz durch 0 ersetzen:</p>
 <div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="daten-einlesen.html#cb97-1" aria-hidden="true" tabindex="-1"></a>drugs <span class="sc">%&gt;%</span> </span>
 <span id="cb97-2"><a href="daten-einlesen.html#cb97-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_if</span>(is.numeric,<span class="sc">~</span><span class="fu">replace_na</span>(.,<span class="dv">0</span>))</span></code></pre></div>
@@ -416,9 +415,7 @@ Da wir auf alle Spalten dafür dieselbe Funktion anwenden wollen, können wir da
 ## 5 &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;               0     0
 ## # … with 190 more rows, and 1 more variable:
 ## #   Female &lt;dbl&gt;</code></pre>
-</div>
-<div id="umgang-mit-fehlenden-werten-2" class="section level3">
-<h3>Umgang mit fehlenden Werten</h3>
+<!-- ### Umgang mit fehlenden Werten -->
 <p>Jetzt können wir noch die fehlenden <code>character</code> umgewandeln:</p>
 <div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="daten-einlesen.html#cb99-1" aria-hidden="true" tabindex="-1"></a>drugs <span class="ot">&lt;-</span> drugs <span class="sc">%&gt;%</span> </span>
 <span id="cb99-2"><a href="daten-einlesen.html#cb99-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_if</span>(is.numeric,<span class="sc">~</span><span class="fu">replace_na</span>(.,<span class="dv">0</span>)) <span class="sc">%&gt;%</span> </span>
@@ -447,29 +444,24 @@ Wie könnte ich die <em>Anxiety</em>-Skala im <code>satisfaction</code>-Datensat
 <span id="cb101-2"><a href="daten-einlesen.html#cb101-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Average_Anxious_Yesterday =</span> <span class="sc">-</span><span class="dv">1</span><span class="sc">*</span> (Average_Anxious_Yesterday<span class="dv">-10</span>))</span></code></pre></div>
 </div>
 </div>
-<div id="zusammenführen-von-datensätzen" class="section level3">
-<h3>Zusammenführen von Datensätzen</h3>
+</div>
+<div id="zusammenführen-von-datensätzen" class="section level2">
+<h2>Zusammenführen von Datensätzen</h2>
 <p>Zu guter Letzt wollen wir die drei Datensätze zu einem Datensatz zusammenfügen.<br />
 Dieser soll pro Region
 1. die Anzahl aller drogenbezogenen Krankenhausaufenthalte
 2. die Anzahl der (versuchten) Mordfälle
 3. die mittlere Zufriedenheit über alle Skalen beinhalten</p>
-</div>
-<div id="vorbereitung" class="section level3">
-<h3>Vorbereitung</h3>
+<!-- ### Vorbereitung -->
 <p>Wir fangen damit an, die Datensätze wie gewünscht vorzubereiten.
 Aus dem <code>drugs</code>-Datensatz brauchen wir die Regionsbezeichnung, die ONS-Codes und natürlich die Zahl der Einweisungen:</p>
 <div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="daten-einlesen.html#cb102-1" aria-hidden="true" tabindex="-1"></a>drugs <span class="ot">&lt;-</span> drugs <span class="sc">%&gt;%</span> </span>
 <span id="cb102-2"><a href="daten-einlesen.html#cb102-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(...<span class="dv">1</span>,...<span class="dv">4</span>, <span class="st">`</span><span class="at">All persons9</span><span class="st">`</span>)</span></code></pre></div>
-</div>
-<div id="vorbereitung-1" class="section level3">
-<h3>Vorbereitung</h3>
+<!-- ### Vorbereitung -->
 <p>Aus dem <code>crime</code>-Datensatz brauchen wir die Bezeichnung der Niederlassung, Anzahl der Morde und die Anzahl der versuchten Morde:</p>
 <div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="daten-einlesen.html#cb103-1" aria-hidden="true" tabindex="-1"></a>crime <span class="ot">&lt;-</span> crime <span class="sc">%&gt;%</span> </span>
 <span id="cb103-2"><a href="daten-einlesen.html#cb103-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Force,HOMICIDE,<span class="st">`</span><span class="at">Attempted murder</span><span class="st">`</span>)</span></code></pre></div>
-</div>
-<div id="vorbereitung-2" class="section level3">
-<h3>Vorbereitung</h3>
+<!-- ### Vorbereitung -->
 <p>Aus dem <code>satisfaction</code>-Datensatz brauchen wir den ONS-Code und einen mittleren Zufriedenheitswert</p>
 <p class="q">
 Wie könnte ich das angehen?
@@ -483,9 +475,7 @@ Wie könnte ich das angehen?
 <code>sum</code> ist keine vektorisierte Funktion! Um eine neue Summenwert pro Zeile zu bilden, sind <code>+</code> und <code>/</code> nötig
 </p>
 </div>
-</div>
-<div id="zusammenführen-von-datensätzen-1" class="section level3">
-<h3>Zusammenführen von Datensätzen</h3>
+<!-- ### Zusammenführen von Datensätzen -->
 <p>Jetzt müssen wir das ganze nur noch zusammenfügen. Dafür benutzen wir die Familien der <code>join</code>-Funktionen</p>
 <p>Zuerst fügen wir die Anzahl der Straftaten zu der Anzahl der Krankenhauseinweisungen hinzu. Dabei matchen wir die Regionen über das Regions-Schlüsselwort und behalten nur die Fälle, in denen in beiden Datensätzen ein Schlüsselwort auftaucht:</p>
 <div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="daten-einlesen.html#cb105-1" aria-hidden="true" tabindex="-1"></a>overall <span class="ot">&lt;-</span> drugs <span class="sc">%&gt;%</span> </span>
@@ -501,9 +491,7 @@ Wie könnte ich das angehen?
 ## 5 E100… Leic…             56        6
 ## # … with 16 more rows, and 1 more variable:
 ## #   `Attempted murder` &lt;dbl&gt;</code></pre>
-</div>
-<div id="zusammenführen-von-datensätzen-2" class="section level3">
-<h3>Zusammenführen von Datensätzen</h3>
+<!-- ### Zusammenführen von Datensätzen -->
 <p>Dem <code>overall</code>-Datensatz fügen wir jetzt noch die <code>satisfaction</code> hinzu. Hierzu nutzen wir die ONS-Codes. Dabei wollen wir alle Fälle in <code>overall</code> behalten:</p>
 <div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="daten-einlesen.html#cb107-1" aria-hidden="true" tabindex="-1"></a>overall <span class="ot">&lt;-</span> overall <span class="sc">%&gt;%</span> </span>
 <span id="cb107-2"><a href="daten-einlesen.html#cb107-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(satisfaction, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&#39;...1&#39;</span> <span class="ot">=</span> <span class="st">&#39;Code&#39;</span>))</span>
@@ -518,9 +506,7 @@ Wie könnte ich das angehen?
 ## 5 E100… Leic…             56        6
 ## # … with 16 more rows, and 2 more variables:
 ## #   `Attempted murder` &lt;dbl&gt;, Satisfaction &lt;dbl&gt;</code></pre>
-</div>
-<div id="zusammenführen-von-datensätzen-3" class="section level3">
-<h3>Zusammenführen von Datensätzen</h3>
+<!-- ### Zusammenführen von Datensätzen -->
 <p>Alles was jetzt noch fehlt, sind schönere Spaltennamen. Dafür benutzen wir entweder <code>rename</code>.
 <code>rename</code> erwartet die Angabe jedes Namens, der geändert werden soll als Wert und die neuen Namen als Namen der Argumente:</p>
 <div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="daten-einlesen.html#cb109-1" aria-hidden="true" tabindex="-1"></a>overall <span class="ot">&lt;-</span> overall <span class="sc">%&gt;%</span> </span>
@@ -528,9 +514,7 @@ Wie könnte ich das angehen?
 <span id="cb109-3"><a href="daten-einlesen.html#cb109-3" aria-hidden="true" tabindex="-1"></a>         <span class="st">&#39;region&#39;</span> <span class="ot">=</span> <span class="st">&#39;...4&#39;</span>,</span>
 <span id="cb109-4"><a href="daten-einlesen.html#cb109-4" aria-hidden="true" tabindex="-1"></a>         <span class="st">&#39;admissions&#39;</span> <span class="ot">=</span> <span class="st">&#39;All persons9&#39;</span>,</span>
 <span id="cb109-5"><a href="daten-einlesen.html#cb109-5" aria-hidden="true" tabindex="-1"></a>         <span class="st">&#39;homicide&#39;</span> <span class="ot">=</span> <span class="st">&#39;HOMICIDE&#39;</span>)</span></code></pre></div>
-</div>
-<div id="zusammenführen-von-datensätzen-4" class="section level3">
-<h3>Zusammenführen von Datensätzen</h3>
+<!-- ### Zusammenführen von Datensätzen -->
 <p>Damit ist unser Datensatz fertig:</p>
 <div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="daten-einlesen.html#cb110-1" aria-hidden="true" tabindex="-1"></a>overall</span></code></pre></div>
 <pre><code>## # A tibble: 21 x 6
@@ -545,9 +529,7 @@ Wie könnte ich das angehen?
 ## #   `Attempted murder` &lt;dbl&gt;, Satisfaction &lt;dbl&gt;</code></pre>
 <p>Den speichern wir noch eben als csv-Datei ab.</p>
 <div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="daten-einlesen.html#cb112-1" aria-hidden="true" tabindex="-1"></a>overall <span class="sc">%&gt;%</span> <span class="fu">write_csv</span>(<span class="st">&#39;data/drugs_crime_UK.csv&#39;</span>)</span></code></pre></div>
-</div>
-<div id="literatur-1" class="section level3">
-<h3>Literatur</h3>
+<!-- ### Literatur -->
 
 <!-- # --- -->
 <!-- # title: "Daten darstellen" -->

@@ -146,16 +146,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Vorwort</a></li>
-<li class="chapter" data-level="" data-path="rste-schritte.html"><a href="rste-schritte.html"><i class="fa fa-check"></i>Rste Schritte</a></li>
-<li class="chapter" data-level="" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html"><i class="fa fa-check"></i>Daten manipulieren</a></li>
-<li class="chapter" data-level="" data-path="daten-einlesen.html"><a href="daten-einlesen.html"><i class="fa fa-check"></i>Daten einlesen</a></li>
-<li class="chapter" data-level="" data-path="daten-darstellen.html"><a href="daten-darstellen.html"><i class="fa fa-check"></i>Daten darstellen</a></li>
+<li class="chapter" data-level="" data-path="rste-schritte.html"><a href="rste-schritte.html"><i class="fa fa-check"></i>Rste Schritte</a>
+<ul>
+<li class="chapter" data-level="" data-path="rste-schritte.html"><a href="rste-schritte.html#warum-r"><i class="fa fa-check"></i>Warum R?</a></li>
+<li class="chapter" data-level="" data-path="rste-schritte.html"><a href="rste-schritte.html#r-syntax-basics"><i class="fa fa-check"></i>R-Syntax Basics</a></li>
+<li class="chapter" data-level="" data-path="rste-schritte.html"><a href="rste-schritte.html#datenformate-in-r"><i class="fa fa-check"></i>Datenformate in R</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html"><i class="fa fa-check"></i>Daten manipulieren</a>
+<ul>
+<li class="chapter" data-level="" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#datensätze-in-r"><i class="fa fa-check"></i>Datensätze in R</a></li>
+<li class="chapter" data-level="" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#regressionen-in-r"><i class="fa fa-check"></i>Regressionen in R</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="daten-einlesen.html"><a href="daten-einlesen.html"><i class="fa fa-check"></i>Daten einlesen</a>
+<ul>
+<li class="chapter" data-level="" data-path="daten-einlesen.html"><a href="daten-einlesen.html#einlesen-von-daten"><i class="fa fa-check"></i>Einlesen von Daten</a></li>
+<li class="chapter" data-level="" data-path="daten-einlesen.html"><a href="daten-einlesen.html#datenaufbereitung"><i class="fa fa-check"></i>Datenaufbereitung</a></li>
+<li class="chapter" data-level="" data-path="daten-einlesen.html"><a href="daten-einlesen.html#zusammenführen-von-datensätzen"><i class="fa fa-check"></i>Zusammenführen von Datensätzen</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="daten-darstellen.html"><a href="daten-darstellen.html"><i class="fa fa-check"></i>Daten darstellen</a>
+<ul>
+<li class="chapter" data-level="" data-path="daten-darstellen.html"><a href="daten-darstellen.html#pivotieren-von-datensätzen"><i class="fa fa-check"></i>pivotieren von Datensätzen</a></li>
+<li class="chapter" data-level="" data-path="daten-darstellen.html"><a href="daten-darstellen.html#ggplot2"><i class="fa fa-check"></i>ggplot2</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i>Appendix</a>
 <ul>
 <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#nützliche-pakete"><i class="fa fa-check"></i>Nützliche Pakete</a></li>
 <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#andere-ressourcen"><i class="fa fa-check"></i>Andere Ressourcen</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="literatur-3.html"><a href="literatur-3.html"><i class="fa fa-check"></i>Literatur</a></li>
+<li class="chapter" data-level="" data-path="literatur.html"><a href="literatur.html"><i class="fa fa-check"></i>Literatur</a></li>
 <li class="divider"></li>
 <li><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons Lizenzvertrag" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a></li>
 
@@ -178,8 +196,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="daten-manipulieren" class="section level1">
 <h1>Daten manipulieren</h1>
-<div id="datensätze-in-r" class="section level3">
-<h3>Datensätze in R</h3>
+<div id="datensätze-in-r" class="section level2">
+<h2>Datensätze in R</h2>
 <p>Wie alle anderen Programme zur statistischen Auswertung hat R natürlich neben den Vektoren auch rechteckige Datenformate.
 <br></p>
 <p>Das typische rechteckige Datenformat in <code>base R</code> ist der <code>data.frame</code>. <br> Im Prinzip nichts anderes, als spaltenweise zusammengeklebte Vektoren.<br>
@@ -192,9 +210,7 @@ Der Konstruktor für ein solches Objekt heißt ist die gleichnamige Funktion, di
 ## 1 1  TRUE a
 ## 2 2 FALSE b
 ## 3 3  TRUE c</code></pre>
-</div>
-<div id="datensätze-in-r-1" class="section level3">
-<h3>Datensätze in R</h3>
+<!-- ### Datensätze in R -->
 <p>Das Indizieren im Datensatz geht dann am <em>Lesbarsten</em>, durch das Angeben der gewünschten Spalte mit dem <code>$</code>-Operator und der Auswahl der Zeile durch den schon bekannten <code>[]</code>-Operator.</p>
 <div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="daten-manipulieren.html#cb49-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>c[<span class="dv">2</span>] <span class="do">## 2. Wert in der &#39;c&#39;-Spalte.</span></span></code></pre></div>
 <pre><code>## [1] &quot;b&quot;</code></pre>
@@ -206,10 +222,8 @@ Wie könnte ich den 3. Wert in der <code>b</code>-Spalte indizieren?
 <div>
 
 
-</div>
-<div id="datensätze-in-r-2" class="section level3 scrollable">
-<h3>Datensätze in R</h3>
-<p>Der <code>iris</code>-Datensatz ist ein im Grundumfang von R mitgelieferter Datensatz, der historische botanische Daten nach <span class="citation"><a href="literatur-3.html#ref-andersonIrisesGaspePeninsula1935" role="doc-biblioref">Anderson</a> (<a href="literatur-3.html#ref-andersonIrisesGaspePeninsula1935" role="doc-biblioref">1935</a>)</span> enthält.</p>
+<!-- ### Datensätze in R {.scrollable} -->
+<p>Der <code>iris</code>-Datensatz ist ein im Grundumfang von R mitgelieferter Datensatz, der historische botanische Daten nach <span class="citation"><a href="literatur.html#ref-andersonIrisesGaspePeninsula1935" role="doc-biblioref">Anderson</a> (<a href="literatur.html#ref-andersonIrisesGaspePeninsula1935" role="doc-biblioref">1935</a>)</span> enthält.</p>
 <div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="daten-manipulieren.html#cb51-1" aria-hidden="true" tabindex="-1"></a>iris</span></code></pre></div>
 <pre><code>##     Sepal.Length Sepal.Width Petal.Length
 ## 1            5.1         3.5          1.4
@@ -513,7 +527,6 @@ Wie könnte ich den 3. Wert in der <code>b</code>-Spalte indizieren?
 ## 148         2.0  virginica
 ## 149         2.3  virginica
 ## 150         1.8  virginica</code></pre>
-</div>
 <div id="übersicht-über-datensatz-verschaffen" class="section level3">
 <h3>Übersicht über Datensatz verschaffen</h3>
 <p>Das ist natürlich ein bisschen unübersichtlich, wie kann man damit umgehen?</p>
@@ -527,10 +540,8 @@ Wie könnte ich den 3. Wert in der <code>b</code>-Spalte indizieren?
 <div class="half-right">
 <p><img src="imgs/summ2.png" width="100%" style="display: block; margin: auto;" /></p>
 </div>
+<!-- ### Übersicht über Datensatz verschaffen{.smaller} -->
 </div>
-</div>
-<div id="übersicht-über-datensatz-verschaffen-1" class="section level3 smaller">
-<h3>Übersicht über Datensatz verschaffen</h3>
 <div id="möglichkeit-1" class="section level4">
 <h4>2. Möglichkeit:</h4>
 <p>Die <code>summary</code>-Funktion, die genau das macht, was ihr Name suggeriert:</p>
@@ -604,9 +615,7 @@ Wie könnte ich den 3. Wert in der <code>b</code>-Spalte indizieren?
 <p>Ein zentrales Element dabei ist der <code>%&gt;%</code>-Operator, die sogenannte Pipeline. Beim Skript-Lesen und -Schreiben kann man sich diese am Besten als <em>‘dann’</em> vorstellen</p>
 <p>Mit ihrer Hilfe werden Aufbereitungsschritte in einer stringenten Reihe an Operationen formuliert, die sich am Besten als Satz verstehen lassen.</p>
 <p>Da die Funktionen im tidyverse alle mit einfachen Verben benannt sind, lässt sich die Operation von eben auch so lesen.</p>
-</div>
-<div id="tidy-aggregation-1" class="section level3">
-<h3>tidy aggregation</h3>
+<!-- ### tidy aggregation -->
 <div class="tt-left">
 <div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="daten-manipulieren.html#cb61-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span></code></pre></div>
 </div>
@@ -643,9 +652,7 @@ Nimm <code>iris</code>, dann …
 … berechne die angegebenen Kenngrößen über die Gruppen.
 </p>
 </div>
-</div>
-<div id="tidy-aggregation-2" class="section level3">
-<h3>tidy aggregation</h3>
+<!-- ### tidy aggregation -->
 <p>Zweite Beispielaufgabe:</p>
 <p>Wir möchten für den <code>iris</code>-Datensatz:</p>
 <ol style="list-style-type: decimal">
@@ -654,18 +661,14 @@ Nimm <code>iris</code>, dann …
 <li><p>Einen Datensatz erstellen, der nur die Spezies, die z-Transformierte und die Mediansplit-Variable enthält</p></li>
 <li><p>Die Häufigkeiten der Kombinationen von Mediansplit-Gruppe und Spezies auszählen</p></li>
 </ol>
-</div>
-<div id="tidy-aggregation-3" class="section level3 small">
-<h3>tidy aggregation</h3>
+<!-- ### tidy aggregation{.small} -->
 <div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="daten-manipulieren.html#cb65-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> </span>
 <span id="cb65-2"><a href="daten-manipulieren.html#cb65-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">z_length =</span> (Petal.Length<span class="sc">-</span><span class="fu">mean</span>(Petal.Length))<span class="sc">/</span><span class="fu">sd</span>(Petal.Length),</span>
 <span id="cb65-3"><a href="daten-manipulieren.html#cb65-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">med_split =</span> <span class="fu">ifelse</span>(z_length <span class="sc">&gt;=</span> <span class="fu">median</span>(z_length),</span>
 <span id="cb65-4"><a href="daten-manipulieren.html#cb65-4" aria-hidden="true" tabindex="-1"></a>                            <span class="st">&#39;upper&#39;</span>,</span>
 <span id="cb65-5"><a href="daten-manipulieren.html#cb65-5" aria-hidden="true" tabindex="-1"></a>                            <span class="st">&#39;lower&#39;</span>)) <span class="sc">%&gt;%</span> </span>
 <span id="cb65-6"><a href="daten-manipulieren.html#cb65-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Species, z_length, med_split) </span></code></pre></div>
-</div>
-<div id="tidy-aggregation-4" class="section level3">
-<h3>tidy aggregation</h3>
+<!-- ### tidy aggregation -->
 <p>Hat das geklappt?</p>
 <p class="q">
 Wie könnte ich das überprüfen?
@@ -687,9 +690,7 @@ Wie könnte ich das überprüfen?
 ##                    
 ## </code></pre>
 </div>
-</div>
-<div id="tidy-aggregation-5" class="section level3">
-<h3>tidy aggregation</h3>
+<!-- ### tidy aggregation -->
 <p>Jetzt noch Häufigkeiten auszählen:</p>
 <div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="daten-manipulieren.html#cb68-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
 <span id="cb68-2"><a href="daten-manipulieren.html#cb68-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Species, med_split) <span class="sc">%&gt;%</span> </span>
@@ -703,9 +704,7 @@ Wie könnte ich das überprüfen?
 ## 2 versicolor lower        25
 ## 3 versicolor upper        25
 ## 4 virginica  upper        50</code></pre>
-</div>
-<div id="tidy-aggregation-6" class="section level3">
-<h3>tidy aggregation</h3>
+<!-- ### tidy aggregation -->
 <div class="tt-left">
 <div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="daten-manipulieren.html#cb71-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span></code></pre></div>
 </div>
@@ -742,8 +741,9 @@ Erstellen Sie mit Hilfe einer pipeline einen Datensatz, der…</p>
 </ol>
 <p>Erstellen Sie anschließend eine kurze pipeline, die den Datensatz mit dem Absteigenden Bildungsniveau als ersten Sortierschlüssel und dem aufsteigenden Anteil katholischer Familien als zweitem Schlüssel sortiert. Nutzen Sie dafür die Hilfeseite der <code>arrange</code>-Funktion.</p>
 </div>
-<div id="regressionen-in-r" class="section level3">
-<h3>Regressionen in R</h3>
+</div>
+<div id="regressionen-in-r" class="section level2">
+<h2>Regressionen in R</h2>
 Viele Modelle in R benutzen eine <code>formula</code>, um die Modellparameter festzulegen.<br>
 Dabei besteht jede <code>formula</code> erstmal aus einem Vorhersage- und einem vorhergesagten Term, die durch eine Tilde getrennt werden:<br>
 <center>
@@ -781,7 +781,6 @@ Die Syntax dafür folgt dem folgenden Schema:</p>
 </tr>
 </tbody>
 </table>
-</div>
 <div id="beispiel-terme" class="section level3">
 <h3>Beispiel-Terme</h3>
 <p>Die Vohersage von <code>A</code> durch <code>B</code>:</p>
@@ -811,9 +810,7 @@ Die Syntax dafür folgt dem folgenden Schema:</p>
 <p>Dazu übergibt man einfach die gewünschte Modellformel der <code>lm</code>(für linear model)-Funktion. Mit dem <code>data</code>-Argument lässt sich außerdem der Datensatz festlegen, auf dessen Basis das Modell gerechnet werden soll.</p>
 <p>Als Beispiel rechnen wir hier mal die Vorhersage der Blatt-Breite duch die Kelch-Länge der Blumen im <code>iris</code>-Datansatz.</p>
 <div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="daten-manipulieren.html#cb74-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Petal.Width <span class="sc">~</span> Sepal.Length,<span class="at">data =</span> iris)</span></code></pre></div>
-</div>
-<div id="regression-1" class="section level3">
-<h3>Regression</h3>
+<!-- ### Regression -->
 <p>Der einfache Ausdruck des Modells sind erstmal nur die Schätzer:</p>
 <div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="daten-manipulieren.html#cb75-1" aria-hidden="true" tabindex="-1"></a>model</span></code></pre></div>
 <pre><code>## 
@@ -858,9 +855,7 @@ Die Syntax dafür folgt dem folgenden Schema:</p>
 <li><p>Ein lineares Regressionsmodell mit dem Bildungsniveau als Kriterium und dem Anteil katholischer Familien als Prädiktor</p></li>
 <li><p>Rufen Sie die Hilfeseiten der <code>tibble</code>-Funktion auf und erstellen Sie mit Ihrer Hilfe einen Datensatz, der Prädiktor und Kriterium enthält. <br> Fügen Sie dann diesem Datensatz in einer <code>pipeline</code> mit Hilfe der <code>mutate</code>-Funktion eine Variable mit den vorhergesagten Werten und eine mit den Residuen hinzu. <br> Rufen Sie dafür die Hilfeseiten der <code>fitted</code> und der <code>residuals</code>- Funktionen auf.</p></li>
 </ol>
-</div>
-<div id="aufgabe-2" class="section level3">
-<h3>Aufgabe</h3>
+<!-- ### Aufgabe -->
 <ol start="3" style="list-style-type: decimal">
 <li>Ein lineares Regressionsmodell mit der Kindersterblichkeit als Kriterium und den folgenden Prädiktoren:
 <ul>
@@ -870,9 +865,7 @@ Die Syntax dafür folgt dem folgenden Schema:</p>
 </ul></li>
 <li>Berechnen Sie auf Basis dieses zweiten Modells das korrigierte <span class="math inline">\(R^2\)</span></li>
 </ol>
-</div>
-<div id="literatur" class="section level3">
-<h3>Literatur</h3>
+<!-- ### Literatur -->
 
 <!-- # --- -->
 <!-- # title: "02_Aufgaben" -->
@@ -1017,7 +1010,7 @@ Erstellen Sie mit Hilfe einer pipeline einen Datensatz, der…</p>
 ## 35     2.40         1</code></pre>
 </div>
 </div>
-<div id="aufgabe-2-1" class="section level3">
+<div id="aufgabe-2" class="section level3">
 <h3>Aufgabe 2</h3>
 <p>Bearbeiten Sie auf Basis des eben erstellten Teil-Datensatzes von <code>swiss</code> die folgenden Aufgaben:</p>
 <ol style="list-style-type: decimal">
@@ -1095,6 +1088,7 @@ Erstellen Sie mit Hilfe einer pipeline einen Datensatz, der…</p>
 <!-- ``` -->
 <!-- ### Ablauf -->
 <!-- <div id="toc"></div> -->
+</div>
 </div>
 </div>
 <div class="footnotes">

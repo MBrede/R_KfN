@@ -146,16 +146,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Vorwort</a></li>
-<li class="chapter" data-level="" data-path="rste-schritte.html"><a href="rste-schritte.html"><i class="fa fa-check"></i>Rste Schritte</a></li>
-<li class="chapter" data-level="" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html"><i class="fa fa-check"></i>Daten manipulieren</a></li>
-<li class="chapter" data-level="" data-path="daten-einlesen.html"><a href="daten-einlesen.html"><i class="fa fa-check"></i>Daten einlesen</a></li>
-<li class="chapter" data-level="" data-path="daten-darstellen.html"><a href="daten-darstellen.html"><i class="fa fa-check"></i>Daten darstellen</a></li>
+<li class="chapter" data-level="" data-path="rste-schritte.html"><a href="rste-schritte.html"><i class="fa fa-check"></i>Rste Schritte</a>
+<ul>
+<li class="chapter" data-level="" data-path="rste-schritte.html"><a href="rste-schritte.html#warum-r"><i class="fa fa-check"></i>Warum R?</a></li>
+<li class="chapter" data-level="" data-path="rste-schritte.html"><a href="rste-schritte.html#r-syntax-basics"><i class="fa fa-check"></i>R-Syntax Basics</a></li>
+<li class="chapter" data-level="" data-path="rste-schritte.html"><a href="rste-schritte.html#datenformate-in-r"><i class="fa fa-check"></i>Datenformate in R</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html"><i class="fa fa-check"></i>Daten manipulieren</a>
+<ul>
+<li class="chapter" data-level="" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#datensätze-in-r"><i class="fa fa-check"></i>Datensätze in R</a></li>
+<li class="chapter" data-level="" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#regressionen-in-r"><i class="fa fa-check"></i>Regressionen in R</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="daten-einlesen.html"><a href="daten-einlesen.html"><i class="fa fa-check"></i>Daten einlesen</a>
+<ul>
+<li class="chapter" data-level="" data-path="daten-einlesen.html"><a href="daten-einlesen.html#einlesen-von-daten"><i class="fa fa-check"></i>Einlesen von Daten</a></li>
+<li class="chapter" data-level="" data-path="daten-einlesen.html"><a href="daten-einlesen.html#datenaufbereitung"><i class="fa fa-check"></i>Datenaufbereitung</a></li>
+<li class="chapter" data-level="" data-path="daten-einlesen.html"><a href="daten-einlesen.html#zusammenführen-von-datensätzen"><i class="fa fa-check"></i>Zusammenführen von Datensätzen</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="daten-darstellen.html"><a href="daten-darstellen.html"><i class="fa fa-check"></i>Daten darstellen</a>
+<ul>
+<li class="chapter" data-level="" data-path="daten-darstellen.html"><a href="daten-darstellen.html#pivotieren-von-datensätzen"><i class="fa fa-check"></i>pivotieren von Datensätzen</a></li>
+<li class="chapter" data-level="" data-path="daten-darstellen.html"><a href="daten-darstellen.html#ggplot2"><i class="fa fa-check"></i>ggplot2</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i>Appendix</a>
 <ul>
 <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#nützliche-pakete"><i class="fa fa-check"></i>Nützliche Pakete</a></li>
 <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#andere-ressourcen"><i class="fa fa-check"></i>Andere Ressourcen</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="literatur-3.html"><a href="literatur-3.html"><i class="fa fa-check"></i>Literatur</a></li>
+<li class="chapter" data-level="" data-path="literatur.html"><a href="literatur.html"><i class="fa fa-check"></i>Literatur</a></li>
 <li class="divider"></li>
 <li><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons Lizenzvertrag" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a></li>
 
@@ -178,8 +196,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="daten-darstellen" class="section level1">
 <h1>Daten darstellen</h1>
-<div id="pivotieren-von-datensätzen" class="section level3">
-<h3>pivotieren von Datensätzen</h3>
+<div id="pivotieren-von-datensätzen" class="section level2">
+<h2>pivotieren von Datensätzen</h2>
 <p>
 Als Vorbereitung auf die Darstellung von Daten brauchen wir noch eine Funktion.
 </p>
@@ -187,9 +205,7 @@ Als Vorbereitung auf die Darstellung von Daten brauchen wir noch eine Funktion.
 Für das Grafikpaket, das wir benutzen wollen, müssen die Daten im <code>long format</code> vorliegen. Das heißt, dass jede Variable eine Spalte und jede Zeile eine Beobachtung darstellt.
 </p>
 <p>Insbesondere müssen wir darauf achten, dass alle Werte, die wir zum Beispiel an einer Achse darstellen wollen in einer Variable vorliegen. <br></p>
-</div>
-<div id="vorbereitung-zum-pivotieren" class="section level3">
-<h3>Vorbereitung zum Pivotieren</h3>
+<!-- ### Vorbereitung zum Pivotieren -->
 <p>Als Beispiel wollen wir den <code>'crime'</code>-Datensatz pivotieren. Um das ganze übersichtlicher zu halten, bereiten wir den Datensatz aber noch ein bisschen vor.</p>
 <p>Wir wollen dafür</p>
 <ol style="list-style-type: decimal">
@@ -198,9 +214,7 @@ Für das Grafikpaket, das wir benutzen wollen, müssen die Daten im <code>long f
 <li>Die Mord-Spalte so umbenennen, dass der Name in das restliche Schema passt.</li>
 <li>Die <code>Total</code>-Zeile ausschließen.</li>
 </ol>
-</div>
-<div id="vorbereitung-zum-pivotieren-1" class="section level3">
-<h3>Vorbereitung zum Pivotieren</h3>
+<!-- ### Vorbereitung zum Pivotieren -->
 <p class="q">
 Wie machen wir das?
 </p>
@@ -222,9 +236,7 @@ Wie machen wir das?
 ## $ `Violence with injury` &lt;dbl&gt; 9293, 4368, 2200…
 ## $ `Assault with injury`  &lt;dbl&gt; 8716, 4171, 1905…</code></pre>
 </div>
-</div>
-<div id="pivotieren-von-datensätzen-1" class="section level3">
-<h3>pivotieren von Datensätzen</h3>
+<!-- ### pivotieren von Datensätzen -->
 <p>Um den Datensatz in ein längeres Format zu pivotieren, benutzen wir die <code>pivot_longer</code>-Funktion.
 Wir erstellen dafür hier einen zweiten Datensatz</p>
 <div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="daten-darstellen.html#cb115-1" aria-hidden="true" tabindex="-1"></a>crime_long <span class="ot">&lt;-</span> crime <span class="sc">%&gt;%</span> </span>
@@ -240,7 +252,6 @@ Wir erstellen dafür hier einen zweiten Datensatz</p>
 ## $ Country &lt;chr&gt; &quot;England&quot;, &quot;England&quot;, &quot;England&quot;…
 ## $ offence &lt;chr&gt; &quot;Homicide&quot;, &quot;Attempted murder&quot;,…
 ## $ count   &lt;dbl&gt; 10, 20, 9293, 8716, 4, 10, 4368…</code></pre>
-</div>
 <div id="vorbereitung-für-die-grafische-darstellung" class="section level3">
 <h3>Vorbereitung für die grafische Darstellung</h3>
 <p>Abschließend fügen wir noch für später Auswertungen eine Variable hinzu, die codiert, ob die Straftat in einer Verletzung ausgegangen ist oder versuchter/erfolgreicher Mord ist. Dafür benutzen wir die <code>str_detect</code>-Funktion.</p>
@@ -258,8 +269,9 @@ Wir erstellen dafür hier einen zweiten Datensatz</p>
 ## $ `Violence with injury` &lt;dbl&gt; 9293, 4368, 2200…
 ## $ `Assault with injury`  &lt;dbl&gt; 8716, 4171, 1905…</code></pre>
 </div>
-<div id="ggplot2" class="section level3">
-<h3>ggplot2</h3>
+</div>
+<div id="ggplot2" class="section level2">
+<h2>ggplot2</h2>
 <p>
 Eins der stärksten Argumente für die Benutzung von R und dem <code>tidyverse</code> ist das Grafik-Paket <code>ggplot2</code>.
 </p>
@@ -276,9 +288,7 @@ Diese Grundebene kann man sich ein bisschen wie eine leere Leinwand vorstellen.
 Dabei wird beim Erstellen der ‘Leinwand’ direkt festgelegt, auf welchen Daten die Abbildung basieren soll und welche Variablen wie dargestellt werden sollen.
 </p>
 </div>
-</div>
-<div id="ggplot2-1" class="section level3">
-<h3>ggplot2</h3>
+<!-- ### ggplot2 -->
 <p>
 Diese Leinwand erstellt man mit der <code>ggplot</code>-Funktion, in die man, wie in die meisten <code>tidyverse</code>-Funktionen, pipen kann.
 </p>
@@ -287,22 +297,17 @@ Als zweites Argument nach dem Datensatz erwartet <code>ggplot</code> eine Angabe
 </p>
 <div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="daten-darstellen.html#cb119-1" aria-hidden="true" tabindex="-1"></a>crime_plot <span class="ot">&lt;-</span> crime <span class="sc">%&gt;%</span> </span>
 <span id="cb119-2"><a href="daten-darstellen.html#cb119-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Homicide, <span class="at">y =</span> <span class="st">`</span><span class="at">Attempted murder</span><span class="st">`</span>))</span></code></pre></div>
-</div>
-<div id="ggplot2-2" class="section level3 scrollable">
-<h3>ggplot2</h3>
+<!-- ### ggplot2 {.scrollable} -->
 <p>Diese ‘leere Leinwand’ sieht so aus:</p>
 <div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="daten-darstellen.html#cb120-1" aria-hidden="true" tabindex="-1"></a>crime_plot</span></code></pre></div>
 <p><img src="R---KfN-11.12.20_files/figure-html/unnamed-chunk-94-1.png" width="1000px" style="display: block; margin: auto;" /></p>
-</div>
 <div id="aesthetics" class="section level3 subsection">
 <h3>aesthetics</h3>
 <p>Auf diese Leinwand können wir dann eine Reihe von verschiedenen grafischen Elementen legen, den so genannten <code>geom</code>s. Das einfachste Beispiel auf der eben erstellten Leinwand ist ein Scatterplot.
 Um der Leinwand Punkte hinzuzufügen, <em>addieren</em> wir einfach einen <code>geom_point</code>-Layer auf die Grafik:</p>
 <div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="daten-darstellen.html#cb121-1" aria-hidden="true" tabindex="-1"></a>crime_plot <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code></pre></div>
 <p><img src="imgs/pts.png" width="1000px" style="display: block; margin: auto;" /></p>
-</div>
-<div id="aesthetics-1" class="section level3">
-<h3>aesthetics</h3>
+<!-- ### aesthetics -->
 <p>
 Dieser sehr einfache Graph ist aber natürlich nicht alles. Die <code>aes</code>- und die <code>ggplot</code>-Funktionen können noch eine ganze Reihe an weiteren grafischen Parametern annehmen.
 </p>
@@ -314,9 +319,7 @@ Die für unseren Graphen attraktivsten sind:
 <li><code>color</code> - für die Farbe der Punkte</li>
 <li><code>shape</code> - für die Wahl der Symbole</li>
 </ul>
-</div>
-<div id="aesthetics-2" class="section level3">
-<h3>aesthetics</h3>
+<!-- ### aesthetics -->
 <p>Jedes <code>geom</code> hat auch die Möglichkeit, Daten und <code>aesthetics</code> zu nehmen. Wenn keine gesetzt werden, werden einfach die des ursprünglichen <code>ggplot</code>-Aufrufs übernommen.</p>
 <div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="daten-darstellen.html#cb122-1" aria-hidden="true" tabindex="-1"></a>crime_plot <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> <span class="st">`</span><span class="at">Violence with injury</span><span class="st">`</span>, </span>
 <span id="cb122-2"><a href="daten-darstellen.html#cb122-2" aria-hidden="true" tabindex="-1"></a>                            <span class="at">color =</span> <span class="st">`</span><span class="at">Assault with injury</span><span class="st">`</span>))</span></code></pre></div>
@@ -324,9 +327,7 @@ Die für unseren Graphen attraktivsten sind:
 <p class="o">
 Die aus mehreren Worten bestehenden Variablennamen sind mit Gravis eingeschlossen, nicht mit Anführungszeichen!
 </p>
-</div>
-<div id="aesthetics-3" class="section level3">
-<h3>aesthetics</h3>
+<!-- ### aesthetics -->
 <p>Wenn <code>aesthetic</code>-Argumente außerhalb der <code>aes</code>-Funktion gesetzt werden, geben sie einen konstanten Wert für das <code>geom</code> an:</p>
 <div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="daten-darstellen.html#cb123-1" aria-hidden="true" tabindex="-1"></a>crime_plot <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> <span class="st">`</span><span class="at">Violence with injury</span><span class="st">`</span>), </span>
 <span id="cb123-2"><a href="daten-darstellen.html#cb123-2" aria-hidden="true" tabindex="-1"></a>                            <span class="at">color =</span> <span class="st">&#39;purple&#39;</span>)</span></code></pre></div>
@@ -340,9 +341,7 @@ Um andere Grafiken zu erstellen, ersetzt man einfach das <code>geom_point</code>
 <p>
 Dabei kann es natürlich nötig sein, eine andere Leinwand zu definieren.
 </p>
-</div>
-<div id="geoms-1" class="section level3 scrollable">
-<h3>geoms</h3>
+<!-- ### geoms{.scrollable} -->
 <p>
 Histogramme, Boxplots und Barcharts:<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>
 </p>
@@ -382,7 +381,7 @@ Histogramme, Boxplots und Barcharts:<a href="#fn3" class="footnote-ref" id="fnre
 </div>
 </div>
 </div>
-<div id="aesthetics-4" class="section level3 subsection">
+<div id="aesthetics-1" class="section level3 subsection">
 <h3>aesthetics</h3>
 <p>
 Der Barchart ist ein guter Anlass, den Plot zu optimieren.
@@ -430,9 +429,7 @@ Wie können wir das noch verbessern?
 <span id="cb130-9"><a href="daten-darstellen.html#cb130-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(offence<span class="sc">~</span>Country, </span>
 <span id="cb130-10"><a href="daten-darstellen.html#cb130-10" aria-hidden="true" tabindex="-1"></a>             <span class="at">scales =</span> <span class="st">&#39;free&#39;</span>)</span></code></pre></div>
 <p><img src="R---KfN-11.12.20_files/figure-html/unnamed-chunk-108-1.png" width="1000px" style="display: block; margin: auto;" /></p>
-</div>
-<div id="additional-tweeks-1" class="section level3">
-<h3>additional tweeks</h3>
+<!-- ### additional tweeks -->
 <p>Um die einzelnen Stationen besser lesbar zu machen, können wir noch die Achsen austauschen.</p>
 <div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="daten-darstellen.html#cb131-1" aria-hidden="true" tabindex="-1"></a>crime_long <span class="sc">%&gt;%</span> </span>
 <span id="cb131-2"><a href="daten-darstellen.html#cb131-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
@@ -521,6 +518,7 @@ Wie können wir das noch verbessern?
 <!-- <!-- ``` -->
 <!-- <!-- ### Ablauf -->
 <!-- <!-- <div id="toc"></div> -->
+</div>
 </div>
 </div>
 <div class="footnotes">

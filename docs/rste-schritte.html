@@ -146,16 +146,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Vorwort</a></li>
-<li class="chapter" data-level="" data-path="rste-schritte.html"><a href="rste-schritte.html"><i class="fa fa-check"></i>Rste Schritte</a></li>
-<li class="chapter" data-level="" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html"><i class="fa fa-check"></i>Daten manipulieren</a></li>
-<li class="chapter" data-level="" data-path="daten-einlesen.html"><a href="daten-einlesen.html"><i class="fa fa-check"></i>Daten einlesen</a></li>
-<li class="chapter" data-level="" data-path="daten-darstellen.html"><a href="daten-darstellen.html"><i class="fa fa-check"></i>Daten darstellen</a></li>
+<li class="chapter" data-level="" data-path="rste-schritte.html"><a href="rste-schritte.html"><i class="fa fa-check"></i>Rste Schritte</a>
+<ul>
+<li class="chapter" data-level="" data-path="rste-schritte.html"><a href="rste-schritte.html#warum-r"><i class="fa fa-check"></i>Warum R?</a></li>
+<li class="chapter" data-level="" data-path="rste-schritte.html"><a href="rste-schritte.html#r-syntax-basics"><i class="fa fa-check"></i>R-Syntax Basics</a></li>
+<li class="chapter" data-level="" data-path="rste-schritte.html"><a href="rste-schritte.html#datenformate-in-r"><i class="fa fa-check"></i>Datenformate in R</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html"><i class="fa fa-check"></i>Daten manipulieren</a>
+<ul>
+<li class="chapter" data-level="" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#datensätze-in-r"><i class="fa fa-check"></i>Datensätze in R</a></li>
+<li class="chapter" data-level="" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#regressionen-in-r"><i class="fa fa-check"></i>Regressionen in R</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="daten-einlesen.html"><a href="daten-einlesen.html"><i class="fa fa-check"></i>Daten einlesen</a>
+<ul>
+<li class="chapter" data-level="" data-path="daten-einlesen.html"><a href="daten-einlesen.html#einlesen-von-daten"><i class="fa fa-check"></i>Einlesen von Daten</a></li>
+<li class="chapter" data-level="" data-path="daten-einlesen.html"><a href="daten-einlesen.html#datenaufbereitung"><i class="fa fa-check"></i>Datenaufbereitung</a></li>
+<li class="chapter" data-level="" data-path="daten-einlesen.html"><a href="daten-einlesen.html#zusammenführen-von-datensätzen"><i class="fa fa-check"></i>Zusammenführen von Datensätzen</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="daten-darstellen.html"><a href="daten-darstellen.html"><i class="fa fa-check"></i>Daten darstellen</a>
+<ul>
+<li class="chapter" data-level="" data-path="daten-darstellen.html"><a href="daten-darstellen.html#pivotieren-von-datensätzen"><i class="fa fa-check"></i>pivotieren von Datensätzen</a></li>
+<li class="chapter" data-level="" data-path="daten-darstellen.html"><a href="daten-darstellen.html#ggplot2"><i class="fa fa-check"></i>ggplot2</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i>Appendix</a>
 <ul>
 <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#nützliche-pakete"><i class="fa fa-check"></i>Nützliche Pakete</a></li>
 <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#andere-ressourcen"><i class="fa fa-check"></i>Andere Ressourcen</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="literatur-3.html"><a href="literatur-3.html"><i class="fa fa-check"></i>Literatur</a></li>
+<li class="chapter" data-level="" data-path="literatur.html"><a href="literatur.html"><i class="fa fa-check"></i>Literatur</a></li>
 <li class="divider"></li>
 <li><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons Lizenzvertrag" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a></li>
 
@@ -178,8 +196,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="rste-schritte" class="section level1">
 <h1>Rste Schritte</h1>
-<div id="warum-r" class="section level3">
-<h3>Warum R?</h3>
+<div id="warum-r" class="section level2">
+<h2>Warum R?</h2>
 <div id="r-ist-beliebt" class="section level4">
 <h4>R ist beliebt</h4>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-3"></span>
@@ -187,7 +205,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p class="caption">
 Abb. 1: Google Suchanfragen, links aus <a href="https://tinyurl.com/vosjrbz">Deutschland</a> und rechts <a href="https://tinyurl.com/vlwwp7a">weltweit</a>
 </p>
-</div>
 </div>
 </div>
 <div id="das-sind-nicht-alles-wissenschaftler" class="section level3">
@@ -264,28 +281,24 @@ Hier ein Beispiel von <a href="https://stackoverflow.com">stack overflow</a>:</p
 </ul>
 </div>
 </div>
-<div id="r-syntax-basics" class="section level3">
-<h3>R-Syntax Basics</h3>
+</div>
+<div id="r-syntax-basics" class="section level2">
+<h2>R-Syntax Basics</h2>
 <p>Die Absoluten Grundlagen der R Syntax sind:</p>
 <ol style="list-style-type: decimal">
 <li><p>Zuweisungen und das <code>environment</code></p></li>
 <li><p>Funktionen und Argumente</p></li>
 <li><p>Indizierung</p></li>
 </ol>
-</div>
 <div id="zuweisungen-und-das-environment" class="section level3 subsection">
 <h3>1. Zuweisungen und das Environment</h3>
 <p>Unter Zuweisung ist erstmal nichts anderes zu verstehen, als das Ablegen eines Zwischenergebnisses unter einem Namen, um es später weiterzuverwenden.</p>
 <p>Auch wenn es andere Möglichkeiten gibt, ist die Folgende die lesbarste:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="rste-schritte.html#cb2-1" aria-hidden="true" tabindex="-1"></a>a_number <span class="ot">&lt;-</span> <span class="dv">42</span></span></code></pre></div>
-</div>
-<div id="zuweisungen-und-das-environment-1" class="section level3">
-<h3>1. Zuweisungen und das <code>Environment</code></h3>
+<!-- ### 1. Zuweisungen und das `Environment` -->
 <p>Die Zahl 42 ist jetzt für weitere Verwendung im <code>Environment</code> abgelegt:</p>
 <p><img src="imgs/environment.png" width="60%" style="display: block; margin: auto;" /></p>
-</div>
-<div id="zuweisungen-und-das-environment-2" class="section level3">
-<h3>1. Zuweisungen und das <code>Environment</code></h3>
+<!-- ### 1. Zuweisungen und das `Environment` -->
 <p>Und wie die Zahl alleine weiterzuverwenden:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="rste-schritte.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dv">42</span><span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
 <pre><code>## [1] 1764</code></pre>
@@ -317,18 +330,14 @@ Obligatorische Argumente sind meistens die Werte, auf deren Basis gerade die Ope
 Wenn man keins oder ein falsches obligatorisches Argument übergibt, zeigt R einen Fehler an!
 </p>
 <p><em>optionale</em> Argumente nennt man die, für die die Autoren der Funktion einen Standard vorgesehen haben. Das sind dann meist Stellschrauben, an denen das gewünschte Ergebnis genauer festgelegt werden kann. Werden diese Argumente nicht explizit gesetzt, wird einfach der Standard verwendet.</p>
-</div>
-<div id="obligatorische-und-optionale-argumente-1" class="section level3">
-<h3>2. obligatorische und optionale Argumente</h3>
+<!-- ### 2. obligatorische und optionale Argumente -->
 <p>Ein Beispiel für eine Funktion, die obligatorische und optionale Argumente annimmt ist <code>round()</code>. <br></p>
 <p>Auf der Hilfeseite von <code>round()</code> finden wir folgendes<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> :
 <img src="imgs/help.png" width="80%" style="display: block; margin: auto;" /></p>
 <p class="q">
 Was ist hier das optionale Argument und wie erkennt man es?
 </p>
-</div>
-<div id="obligatorische-und-optionale-argumente-2" class="section level3">
-<h3>2. obligatorische und optionale Argumente</h3>
+<!-- ### 2. obligatorische und optionale Argumente -->
 <p><code>x</code> ist hier das obligatorische Argument (kein Standard durch ein <code>=</code>) angegeben</p>
 <p>Wenn man <code>round</code> ohne ausprobiert, gibt es einen Fehler:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="rste-schritte.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>()</span></code></pre></div>
@@ -336,9 +345,7 @@ Was ist hier das optionale Argument und wie erkennt man es?
 <p>Wen man eine Zahl übergibt, wird auf ganze Zahlen gerundet:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="rste-schritte.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fl">3.1415</span>)</span></code></pre></div>
 <pre><code>## [1] 3</code></pre>
-</div>
-<div id="obligatorische-und-optionale-argumente-3" class="section level3">
-<h3>2. obligatorische und optionale Argumente</h3>
+<!-- ### 2. obligatorische und optionale Argumente -->
 <p>Das optionale Argument <code>digits</code>, ermöglicht dann, die gewünschte Anzahl der Nachkommastellen anzugeben:</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="rste-schritte.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fl">3.1415</span>, <span class="at">digits =</span> <span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## [1] 3.14</code></pre>
@@ -354,9 +361,7 @@ Was ist hier das optionale Argument und wie erkennt man es?
 Was versucht R, wenn ich die folgende Anweisung ausführe?
 </p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="rste-schritte.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="dv">2</span>, <span class="fl">3.1415</span>)</span></code></pre></div>
-</div>
-<div id="positionelle-argumente" class="section level3">
-<h3>positionelle Argumente</h3>
+<!-- ### positionelle Argumente -->
 <p>R rundet die Zahl 2 auf 3.1415 (also 3) Nachkommastellen.</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="rste-schritte.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="dv">2</span>, <span class="fl">3.1415</span>) <span class="do">## funktioniert, aber vielleicht nicht wie erwartet</span></span></code></pre></div>
 <p class="o">
@@ -380,9 +385,7 @@ Hier wird aber eigentlich <code>`:`(1,3)</code> ausgeführt, das Funktionsschema
 <p>Da wir jetzt aber erste <code>Vektoren</code> mit mehr als einem Element erstellen können, gehen wir zu nächsten Part, der <em>Indizierung</em> über.</p>
 <p>In R lassen sich Elemente eines Objektes auf viele verschiedene Arten aufrufen, am Ende laufen diese aber auf den <code>[]</code>, den <code>[[]]</code> und den <code>$</code>-Operator hinaus.</p>
 <p>Für Vektoren reicht erstmal der <code>[]</code>-Operator.</p>
-</div>
-<div id="indizierung-1" class="section level3">
-<h3>3. Indizierung</h3>
+<!-- ### 3. Indizierung -->
 <p>Das einfachste Beispiel ist der Versuch, den 3. Wert aus einer Zahlenreihe ausgeben zu lassen.</p>
 <p>Dafür erstellen wir zuerst die Zahlenreihe von 10 bis 15 und speichern diese im <code>Environment</code></p>
 <p class="q">
@@ -391,16 +394,12 @@ Wie mache ich das?
 <div class="build">
 <div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="rste-schritte.html#cb19-1" aria-hidden="true" tabindex="-1"></a>eine_reihe_von_zahlen <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">15</span></span></code></pre></div>
 </div>
-</div>
-<div id="indizierung-2" class="section level3">
-<h3>3. Indizierung</h3>
+<!-- ### 3. Indizierung -->
 <p>Jetzt kann ich den <code>[]</code>-Operator benutzen, um den 3. Wert anzeigen zu lassen:</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="rste-schritte.html#cb20-1" aria-hidden="true" tabindex="-1"></a>eine_reihe_von_zahlen[<span class="dv">3</span>]</span></code></pre></div>
 <pre><code>## [1] 12</code></pre>
 <p>Und fertig. So einfach.</p>
-</div>
-<div id="indizierung-3" class="section level3">
-<h3>3. Indizierung</h3>
+<!-- ### 3. Indizierung -->
 <p>Der <code>[]</code>-Operator kann aber noch viel mehr. Ich kann zum Beispiel eine Sequenz übergeben, um eine Reihe von Zahlen ausgeben zu lassen:</p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="rste-schritte.html#cb22-1" aria-hidden="true" tabindex="-1"></a>eine_reihe_von_zahlen[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span></code></pre></div>
 <pre><code>## [1] 10 11 12</code></pre>
@@ -423,9 +422,7 @@ Der erste Wert ist die 10! der Index für die erste Stelle ist also die 1 (im Ge
 ## [1] TRUE
 ## [1] TRUE
 ## [1] TRUE</code></pre>
-</div>
-<div id="logische-indizierung-1" class="section level3">
-<h3>3. logische Indizierung</h3>
+<!-- ### 3. logische Indizierung -->
 <p>Diese Operatoren kann ich auch auf Vektoren anwenden:</p>
 <div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="rste-schritte.html#cb28-1" aria-hidden="true" tabindex="-1"></a>eine_reihe_von_zahlen<span class="sc">&gt;</span><span class="dv">11</span></span></code></pre></div>
 <pre><code>## [1] FALSE FALSE  TRUE  TRUE  TRUE  TRUE</code></pre>
@@ -433,17 +430,16 @@ Der erste Wert ist die 10! der Index für die erste Stelle ist also die 1 (im Ge
 <div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="rste-schritte.html#cb30-1" aria-hidden="true" tabindex="-1"></a>eine_reihe_von_zahlen[eine_reihe_von_zahlen<span class="sc">&gt;</span><span class="dv">11</span>]</span></code></pre></div>
 <pre><code>## [1] 12 13 14 15</code></pre>
 </div>
-<div id="datenformate-in-r" class="section level3">
-<h3>Datenformate in R</h3>
+</div>
+<div id="datenformate-in-r" class="section level2">
+<h2>Datenformate in R</h2>
 <p>Bei der letzten Operation haben wir zwei Datenformate kennengelernt:</p>
 <ul>
 <li><p><code>logical</code>, eine binär-logische Angabe und</p></li>
 <li><p><code>numeric</code>, alle ganze und (darstellbare) rationale Zahlen</p></li>
 </ul>
 <p>Jetzt kennen wir schon 2 der 3 wichtigsten einfachen oder <code>atomic</code> Datenformate in R</p>
-</div>
-<div id="datenformate-in-r-1" class="section level3">
-<h3>Datenformate in R</h3>
+<!-- ### Datenformate in R -->
 <p>Neben Zahlen muss R aber natürlich auch Text verarbeiten können. Dies geschieht über das <code>character</code>-Datenformat.</p>
 <p class="q">
 Wie könnte ich versuchen, ein <code>character</code>-Objekt mit dem Inhalt “Ich bin ein String” anzulegen?
@@ -451,9 +447,7 @@ Wie könnte ich versuchen, ein <code>character</code>-Objekt mit dem Inhalt “I
 <div class="build">
 <div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="rste-schritte.html#cb32-1" aria-hidden="true" tabindex="-1"></a>ein_toller_character <span class="ot">&lt;-</span> <span class="st">&quot;Ich bin ein String&quot;</span></span></code></pre></div>
 </div>
-</div>
-<div id="datenformate-in-r-2" class="section level3">
-<h3>Datenformate in R</h3>
+<!-- ### Datenformate in R -->
 <p>Diese einfachen Datenformate haben eine Hierarchie, die man so darzustellen versuchen könnte:</p>
 <center>
 <code> logical &lt; numeric &lt; character </code>
@@ -466,18 +460,14 @@ Wie könnte ich versuchen, ein <code>character</code>-Objekt mit dem Inhalt “I
 <li><code>c()</code> - die Vektor-Funktion. Mit ihr können wir Vektoren erstellen und Werte zu bestehenden Vektoren hinzufügen.</li>
 </ul>
 </div>
-</div>
-<div id="datenformate-in-r-3" class="section level3">
-<h3>Datenformate in R</h3>
+<!-- ### Datenformate in R -->
 <div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="rste-schritte.html#cb33-1" aria-hidden="true" tabindex="-1"></a>logical_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)</span>
 <span id="cb33-2"><a href="rste-schritte.html#cb33-2" aria-hidden="true" tabindex="-1"></a>logical_vector</span></code></pre></div>
 <pre><code>## [1]  TRUE  TRUE FALSE</code></pre>
 <div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="rste-schritte.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(logical_vector,<span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## [1] 1 1 0 1</code></pre>
 <p>Die logischen Werte wurden in Zahlen umgewandelt.</p>
-</div>
-<div id="datenformate-in-r-4" class="section level3">
-<h3>Datenformate in R</h3>
+<!-- ### Datenformate in R -->
 <p class="q">
 Was passiert wohl, wenn wir eine 1 <em>und</em> einen <code>character</code> hinzufügen?
 </p>
@@ -488,9 +478,7 @@ Was passiert wohl, wenn wir eine 1 <em>und</em> einen <code>character</code> hin
 ## [5] &quot;ein character&quot;</code></pre>
 <p>Die logischen Werte und die Zahl wurden in <code>character</code> umgewandelt</p>
 </div>
-</div>
-<div id="datenformate-in-r-5" class="section level3">
-<h3>Datenformate in R</h3>
+<!-- ### Datenformate in R -->
 <p class="o">
 Die <code>atomics</code> haben eine klare Hierarchie!
 </p>
@@ -499,9 +487,7 @@ Die <code>atomics</code> haben eine klare Hierarchie!
 <span id="cb39-2"><a href="rste-schritte.html#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(ein_umzuwandelnder_vektor)</span></code></pre></div>
 <pre><code>## Warning: NAs introduced by coercion</code></pre>
 <pre><code>## [1] NA  1 15 NA</code></pre>
-</div>
-<div id="datenformate-in-r-6" class="section level3">
-<h3>Datenformate in R</h3>
+<!-- ### Datenformate in R -->
 <div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="rste-schritte.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(ein_umzuwandelnder_vektor)</span></code></pre></div>
 <pre><code>## Warning: NAs introduced by coercion</code></pre>
 <pre><code>## [1] NA  1 15 NA</code></pre>
@@ -513,9 +499,7 @@ Warum fehlt auch der letzte Wert?
 <div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="rste-schritte.html#cb45-1" aria-hidden="true" tabindex="-1"></a>ein_umzuwandelnder_vektor</span></code></pre></div>
 <pre><code>## [1] &quot;a&quot;    &quot;1&quot;    &quot;15&quot;   &quot;TRUE&quot;</code></pre>
 </div>
-</div>
-<div id="datenformate-in-r-7" class="section level3">
-<h3>Datenformate in R</h3>
+<!-- ### Datenformate in R -->
 <p>Natürlich gibt es auch komplexere, mehrsimensionale Datenformate in R, um die kümmern wir uns dann nach der Pause.</p>
 
 <!-- # --- -->
