@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Daten darstellen | Grundlagen der Datenanalyse mit R</title>
+  <title>Daten darstellen | R - KfN 11.12.20</title>
   <meta name="description" content="Kurze Einführung in den Umgang mit R" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Daten darstellen | Grundlagen der Datenanalyse mit R" />
+  <meta property="og:title" content="Daten darstellen | R - KfN 11.12.20" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Daten darstellen | Grundlagen der Datenanalyse mit R" />
+  <meta name="twitter:title" content="Daten darstellen | R - KfN 11.12.20" />
   
   <meta name="twitter:description" content="Kurze Einführung in den Umgang mit R" />
   
@@ -24,6 +24,7 @@
 <meta name="author" content="Max Brede" />
 
 
+<meta name="date" content="2020-12-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -52,6 +53,15 @@
 
 <link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.2/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.9.2.1/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.52.2/plotly-latest.min.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -140,8 +150,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html"><i class="fa fa-check"></i>Daten manipulieren</a></li>
 <li class="chapter" data-level="" data-path="daten-einlesen.html"><a href="daten-einlesen.html"><i class="fa fa-check"></i>Daten einlesen</a></li>
 <li class="chapter" data-level="" data-path="daten-darstellen.html"><a href="daten-darstellen.html"><i class="fa fa-check"></i>Daten darstellen</a></li>
-<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i>Appendix</a></li>
-<li class="chapter" data-level="" data-path="literatur-2.html"><a href="literatur-2.html"><i class="fa fa-check"></i>Literatur</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i>Appendix</a>
+<ul>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#nützliche-pakete"><i class="fa fa-check"></i>Nützliche Pakete</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#andere-ressourcen"><i class="fa fa-check"></i>Andere Ressourcen</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="literatur-3.html"><a href="literatur-3.html"><i class="fa fa-check"></i>Literatur</a></li>
 <li class="divider"></li>
 <li><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons Lizenzvertrag" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a></li>
 
@@ -154,7 +168,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Grundlagen der Datenanalyse mit R</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R - KfN 11.12.20</a>
           </h1>
         </div>
 
@@ -278,14 +292,14 @@ Als zweites Argument nach dem Datensatz erwartet <code>ggplot</code> eine Angabe
 <h3>ggplot2</h3>
 <p>Diese ‘leere Leinwand’ sieht so aus:</p>
 <div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="daten-darstellen.html#cb120-1" aria-hidden="true" tabindex="-1"></a>crime_plot</span></code></pre></div>
-<p><img src="R---KfN-11.12.20_files/figure-html/unnamed-chunk-94-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="R---KfN-11.12.20_files/figure-html/unnamed-chunk-94-1.png" width="1000px" style="display: block; margin: auto;" /></p>
 </div>
 <div id="aesthetics" class="section level3 subsection">
 <h3>aesthetics</h3>
 <p>Auf diese Leinwand können wir dann eine Reihe von verschiedenen grafischen Elementen legen, den so genannten <code>geom</code>s. Das einfachste Beispiel auf der eben erstellten Leinwand ist ein Scatterplot.
 Um der Leinwand Punkte hinzuzufügen, <em>addieren</em> wir einfach einen <code>geom_point</code>-Layer auf die Grafik:</p>
 <div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="daten-darstellen.html#cb121-1" aria-hidden="true" tabindex="-1"></a>crime_plot <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code></pre></div>
-<p><img src="imgs/pts.png" width="864" style="display: block; margin: auto;" /></p>
+<p><img src="imgs/pts.png" width="1000px" style="display: block; margin: auto;" /></p>
 </div>
 <div id="aesthetics-1" class="section level3">
 <h3>aesthetics</h3>
@@ -306,7 +320,7 @@ Die für unseren Graphen attraktivsten sind:
 <p>Jedes <code>geom</code> hat auch die Möglichkeit, Daten und <code>aesthetics</code> zu nehmen. Wenn keine gesetzt werden, werden einfach die des ursprünglichen <code>ggplot</code>-Aufrufs übernommen.</p>
 <div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="daten-darstellen.html#cb122-1" aria-hidden="true" tabindex="-1"></a>crime_plot <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> <span class="st">`</span><span class="at">Violence with injury</span><span class="st">`</span>, </span>
 <span id="cb122-2"><a href="daten-darstellen.html#cb122-2" aria-hidden="true" tabindex="-1"></a>                            <span class="at">color =</span> <span class="st">`</span><span class="at">Assault with injury</span><span class="st">`</span>))</span></code></pre></div>
-<p><img src="imgs/pts2.png" width="864" style="display: block; margin: auto;" /></p>
+<p><img src="imgs/pts2.png" width="1000px" style="display: block; margin: auto;" /></p>
 <p class="o">
 Die aus mehreren Worten bestehenden Variablennamen sind mit Gravis eingeschlossen, nicht mit Anführungszeichen!
 </p>
@@ -316,7 +330,7 @@ Die aus mehreren Worten bestehenden Variablennamen sind mit Gravis eingeschlosse
 <p>Wenn <code>aesthetic</code>-Argumente außerhalb der <code>aes</code>-Funktion gesetzt werden, geben sie einen konstanten Wert für das <code>geom</code> an:</p>
 <div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="daten-darstellen.html#cb123-1" aria-hidden="true" tabindex="-1"></a>crime_plot <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> <span class="st">`</span><span class="at">Violence with injury</span><span class="st">`</span>), </span>
 <span id="cb123-2"><a href="daten-darstellen.html#cb123-2" aria-hidden="true" tabindex="-1"></a>                            <span class="at">color =</span> <span class="st">&#39;purple&#39;</span>)</span></code></pre></div>
-<p><img src="imgs/pts3.png" width="864" style="display: block; margin: auto;" /></p>
+<p><img src="imgs/pts3.png" width="1000px" style="display: block; margin: auto;" /></p>
 </div>
 <div id="geoms" class="section level3 subsection">
 <h3>geoms</h3>
@@ -341,7 +355,7 @@ Histogramme, Boxplots und Barcharts:<a href="#fn3" class="footnote-ref" id="fnre
 <span id="cb124-5"><a href="daten-darstellen.html#cb124-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">binwidth =</span> <span class="dv">3</span>)</span></code></pre></div>
 </div>
 <div class="col">
-<p><img src="imgs/pts4.png" width="432" style="display: block; margin: auto;" /></p>
+<p><img src="imgs/pts4.png" width="1000px" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 <div class="cols">
@@ -352,7 +366,7 @@ Histogramme, Boxplots und Barcharts:<a href="#fn3" class="footnote-ref" id="fnre
 <span id="cb125-4"><a href="daten-darstellen.html#cb125-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
 </div>
 <div class="col">
-<p><img src="imgs/pts5.png" width="432" style="display: block; margin: auto;" /></p>
+<p><img src="imgs/pts5.png" width="1000px" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 <div class="cols">
@@ -364,7 +378,7 @@ Histogramme, Boxplots und Barcharts:<a href="#fn3" class="footnote-ref" id="fnre
 <span id="cb126-5"><a href="daten-darstellen.html#cb126-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span></code></pre></div>
 </div>
 <div class="col">
-<p><img src="imgs/pts6.png" width="432" style="display: block; margin: auto;" /></p>
+<p><img src="imgs/pts6.png" width="1000px" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 </div>
@@ -396,7 +410,7 @@ Uns stehen die folgenden Informationen zur Verfügung:
 <span id="cb129-5"><a href="daten-darstellen.html#cb129-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> <span class="st">&#39;grey&#39;</span>) <span class="sc">+</span></span>
 <span id="cb129-6"><a href="daten-darstellen.html#cb129-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(offence<span class="sc">~</span>Country, <span class="do">## als facets mit Straftat in Zeilen und Landesteil in Spalten</span></span>
 <span id="cb129-7"><a href="daten-darstellen.html#cb129-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">scales =</span> <span class="st">&#39;free&#39;</span>) <span class="do">## mit individuellen Skalen</span></span></code></pre></div>
-<p><img src="R---KfN-11.12.20_files/figure-html/unnamed-chunk-107-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="R---KfN-11.12.20_files/figure-html/unnamed-chunk-107-1.png" width="1000px" style="display: block; margin: auto;" /></p>
 <p class="q">
 Wie können wir das noch verbessern?
 </p>
@@ -415,7 +429,7 @@ Wie können wir das noch verbessern?
 <span id="cb130-8"><a href="daten-darstellen.html#cb130-8" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> <span class="st">&#39;grey&#39;</span>) <span class="sc">+</span></span>
 <span id="cb130-9"><a href="daten-darstellen.html#cb130-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(offence<span class="sc">~</span>Country, </span>
 <span id="cb130-10"><a href="daten-darstellen.html#cb130-10" aria-hidden="true" tabindex="-1"></a>             <span class="at">scales =</span> <span class="st">&#39;free&#39;</span>)</span></code></pre></div>
-<p><img src="R---KfN-11.12.20_files/figure-html/unnamed-chunk-108-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="R---KfN-11.12.20_files/figure-html/unnamed-chunk-108-1.png" width="1000px" style="display: block; margin: auto;" /></p>
 </div>
 <div id="additional-tweeks-1" class="section level3">
 <h3>additional tweeks</h3>
@@ -431,7 +445,7 @@ Wie können wir das noch verbessern?
 <span id="cb131-9"><a href="daten-darstellen.html#cb131-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
 <span id="cb131-10"><a href="daten-darstellen.html#cb131-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(Country <span class="sc">~</span> offence, </span>
 <span id="cb131-11"><a href="daten-darstellen.html#cb131-11" aria-hidden="true" tabindex="-1"></a>             <span class="at">scales =</span> <span class="st">&#39;free&#39;</span>)</span></code></pre></div>
-<p><img src="R---KfN-11.12.20_files/figure-html/unnamed-chunk-109-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="R---KfN-11.12.20_files/figure-html/unnamed-chunk-109-1.png" width="1000px" style="display: block; margin: auto;" /></p>
 </div>
 <div id="themes" class="section level3 subsection">
 <h3>themes</h3>
@@ -456,7 +470,7 @@ Wie können wir das noch verbessern?
 <span id="cb132-14"><a href="daten-darstellen.html#cb132-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&#39;Gemeldete Straftaten pro englischer Polizeistation&#39;</span>) <span class="sc">+</span></span>
 <span id="cb132-15"><a href="daten-darstellen.html#cb132-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>,</span>
 <span id="cb132-16"><a href="daten-darstellen.html#cb132-16" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">hjust =</span> <span class="dv">1</span>))</span></code></pre></div>
-<p><img src="R---KfN-11.12.20_files/figure-html/unnamed-chunk-110-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="R---KfN-11.12.20_files/figure-html/unnamed-chunk-110-1.png" width="1000px" style="display: block; margin: auto;" /></p>
 </div>
 <div id="grafiken-exportieren" class="section level3 subsection">
 <h3>Grafiken exportieren</h3>
@@ -479,14 +493,34 @@ Wie können wir das noch verbessern?
 <!-- # widescreen: true -->
 <!-- # bibliography: /home/brede/MEGA/Honorar/111220_KfN/references.bib -->
 <!-- # csl: /home/brede/MEGA/Honorar/111220_KfN/apa.csl -->
-<!-- # smaller: true  -->
+<!-- # smaller: true -->
 <!-- # --- -->
-<!-- ```{r,results='asis', echo = F} -->
-<!-- read_file('/home/brede/MEGA/Honorar/111220_KfN/ioTOC.html') %>% cat -->
-<!-- read_file('/home/brede/MEGA/Honorar/111220_KfN/scrollableSlides.html') %>% cat -->
+<!-- ```{r setup 05, include=FALSE} -->
+<!-- options(width= 50,align = 'center',tibble.print_max = 10, tibble.print_min = 5) -->
+<!-- knitr::opts_chunk$set(fig.align = 'center', message = F, warning = F) -->
+<!-- library(tidyverse) -->
+<!-- library(knitr) -->
+<!-- ## ggplot <- function(...)ggplot2::ggplot(...) +  -->
+<!-- ##   theme_minimal(base_size = 8) +  -->
+<!-- ##   scale_color_brewer(palette = 'Dark2') + -->
+<!-- ##   theme(text = element_text(color = '#797979'), -->
+<!-- ##         axis.text = element_text(color = '#797979'), -->
+<!-- ##         strip.text = element_text(color = '#797979'), -->
+<!-- ##         panel.background = element_rect(fill = "transparent",color = NA),  -->
+<!-- ##         plot.background = element_rect(fill = "transparent", color = NA),  -->
+<!-- ##         legend.background = element_rect(fill = "transparent", color = NA), -->
+<!-- ##         legend.box.background = element_rect(fill = "transparent", color = NA)) -->
+<!-- ##  -->
+<!-- theme_add <- theme(text = element_text(size = 30)) -->
+<!-- ggsave <- function(plot = last_plot(),...)ggplot2::ggsave(plot = plot + theme_add, -->
+<!--                                                           ...,bg = 'transparent') -->
 <!-- ``` -->
-<!-- ### Ablauf -->
-<!-- <div id="toc"></div> -->
+<!-- <!-- ```{r,results='asis', echo = F} -->
+<!-- <!-- read_file('/home/brede/MEGA/Honorar/111220_KfN/ioTOC.html') %>% cat -->
+<!-- <!-- read_file('/home/brede/MEGA/Honorar/111220_KfN/scrollableSlides.html') %>% cat -->
+<!-- <!-- ``` -->
+<!-- <!-- ### Ablauf -->
+<!-- <!-- <div id="toc"></div> -->
 </div>
 </div>
 <div class="footnotes">

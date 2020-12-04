@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Rste Schritte | Grundlagen der Datenanalyse mit R</title>
+  <title>Rste Schritte | R - KfN 11.12.20</title>
   <meta name="description" content="Kurze Einführung in den Umgang mit R" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Rste Schritte | Grundlagen der Datenanalyse mit R" />
+  <meta property="og:title" content="Rste Schritte | R - KfN 11.12.20" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Rste Schritte | Grundlagen der Datenanalyse mit R" />
+  <meta name="twitter:title" content="Rste Schritte | R - KfN 11.12.20" />
   
   <meta name="twitter:description" content="Kurze Einführung in den Umgang mit R" />
   
@@ -24,6 +24,7 @@
 <meta name="author" content="Max Brede" />
 
 
+<meta name="date" content="2020-12-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -52,6 +53,15 @@
 
 <link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.2/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.9.2.1/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.52.2/plotly-latest.min.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -140,8 +150,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html"><i class="fa fa-check"></i>Daten manipulieren</a></li>
 <li class="chapter" data-level="" data-path="daten-einlesen.html"><a href="daten-einlesen.html"><i class="fa fa-check"></i>Daten einlesen</a></li>
 <li class="chapter" data-level="" data-path="daten-darstellen.html"><a href="daten-darstellen.html"><i class="fa fa-check"></i>Daten darstellen</a></li>
-<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i>Appendix</a></li>
-<li class="chapter" data-level="" data-path="literatur-2.html"><a href="literatur-2.html"><i class="fa fa-check"></i>Literatur</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i>Appendix</a>
+<ul>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#nützliche-pakete"><i class="fa fa-check"></i>Nützliche Pakete</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#andere-ressourcen"><i class="fa fa-check"></i>Andere Ressourcen</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="literatur-3.html"><a href="literatur-3.html"><i class="fa fa-check"></i>Literatur</a></li>
 <li class="divider"></li>
 <li><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons Lizenzvertrag" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a></li>
 
@@ -154,7 +168,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Grundlagen der Datenanalyse mit R</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R - KfN 11.12.20</a>
           </h1>
         </div>
 
@@ -169,7 +183,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="r-ist-beliebt" class="section level4">
 <h4>R ist beliebt</h4>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-3"></span>
-<img src="imgs/gTrends.png" alt="Google Suchanfragen, links aus [Deutschland](https://tinyurl.com/vosjrbz) und rechts [weltweit](https://tinyurl.com/vlwwp7a)" width="944" />
+<img src="imgs/gTrends.png" alt="Google Suchanfragen, links aus [Deutschland](https://tinyurl.com/vosjrbz) und rechts [weltweit](https://tinyurl.com/vlwwp7a)" width="1000px" />
 <p class="caption">
 Abb. 1: Google Suchanfragen, links aus <a href="https://tinyurl.com/vosjrbz">Deutschland</a> und rechts <a href="https://tinyurl.com/vlwwp7a">weltweit</a>
 </p>
@@ -529,7 +543,7 @@ Warum fehlt auch der letzte Wert?
 <div class="footnotes">
 <hr />
 <ol start="1">
-<li id="fn1"><p>Dabei nutzt die RStudio-IDE aber nur die <code>str()</code>(für structure)-Funktion.<a href="rste-schritte.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn1"><p>Die Hilfeseite lässt sich entweder über die grafische Oberfläche oder mit <code>help('round')</code> aufrufen.<a href="rste-schritte.html#fnref1" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

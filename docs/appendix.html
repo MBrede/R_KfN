@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Appendix | Grundlagen der Datenanalyse mit R</title>
+  <title>Appendix | R - KfN 11.12.20</title>
   <meta name="description" content="Kurze Einführung in den Umgang mit R" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Appendix | Grundlagen der Datenanalyse mit R" />
+  <meta property="og:title" content="Appendix | R - KfN 11.12.20" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Appendix | Grundlagen der Datenanalyse mit R" />
+  <meta name="twitter:title" content="Appendix | R - KfN 11.12.20" />
   
   <meta name="twitter:description" content="Kurze Einführung in den Umgang mit R" />
   
@@ -24,6 +24,7 @@
 <meta name="author" content="Max Brede" />
 
 
+<meta name="date" content="2020-12-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +32,7 @@
   
   
 <link rel="prev" href="daten-darstellen.html"/>
-<link rel="next" href="literatur-2.html"/>
+<link rel="next" href="literatur-3.html"/>
 <script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -52,6 +53,15 @@
 
 <link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.2/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.9.2.1/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.52.2/plotly-latest.min.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -140,8 +150,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html"><i class="fa fa-check"></i>Daten manipulieren</a></li>
 <li class="chapter" data-level="" data-path="daten-einlesen.html"><a href="daten-einlesen.html"><i class="fa fa-check"></i>Daten einlesen</a></li>
 <li class="chapter" data-level="" data-path="daten-darstellen.html"><a href="daten-darstellen.html"><i class="fa fa-check"></i>Daten darstellen</a></li>
-<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i>Appendix</a></li>
-<li class="chapter" data-level="" data-path="literatur-2.html"><a href="literatur-2.html"><i class="fa fa-check"></i>Literatur</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i>Appendix</a>
+<ul>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#nützliche-pakete"><i class="fa fa-check"></i>Nützliche Pakete</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#andere-ressourcen"><i class="fa fa-check"></i>Andere Ressourcen</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="literatur-3.html"><a href="literatur-3.html"><i class="fa fa-check"></i>Literatur</a></li>
 <li class="divider"></li>
 <li><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons Lizenzvertrag" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a></li>
 
@@ -154,7 +168,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Grundlagen der Datenanalyse mit R</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R - KfN 11.12.20</a>
           </h1>
         </div>
 
@@ -164,7 +178,1340 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="appendix" class="section level1">
 <h1>Appendix</h1>
+<div id="nützliche-pakete" class="section level2">
+<h2>Nützliche Pakete</h2>
+<div id="rmarkdown" class="section level3 subsection">
+<h3><code>Rmarkdown</code></h3>
+<p>Das Rmarkdown - Biotop ist das Ergebnis des Versuchs, die Hürde zur Kommunikation von Datenanalysen so gering wie möglich zu gestalten.</p>
+<p>Mit der Hilfe der zugehörigen Pakete lassen sich in einer sehr einfachen Syntax schnell Code-Stücke aus inzwischen 6 Programmiersprachen mit Freitext und untereinander kombinieren und in einem Dokument verbinden. Dieses Dokument lässt sich dann dank Pandoc in einer Vielzahl von Formaten exportieren.</p>
+<p>Um den Kern von Rmarkdown ist ein riesiger Apparat an Erweiterungen entstanden, die den Funktionsumfang zu einem sehr mächtigen Tool zur Dokumenterstellung anwachsen lassen. Dieses Skript ist zum Beispiel vollständig in Rmarkdown geschrieben.</p>
+</div>
+<div id="die-erste-dokumentation" class="section level3">
+<h3>Die erste Dokumentation</h3>
+<p>Um ein Dokument zu erstellen muss man einfach auf “neues Dokument” <span class="math inline">\(\rightarrow\)</span> R Markdown klicken und schon kann man anfangen.</p>
+<p>Mit Paketen wie Bookdown, Shiny, Plotly und Blogdown lassen sich auch sehr attraktive interaktive Dokumente erstellen, die Beispielsweise direkt als Website nutzbar sind.</p>
+</div>
+<div id="wo-kann-ich-dazu-mehr-erfahren" class="section level3">
+<h3>Wo kann ich dazu mehr erfahren?</h3>
+<p><span class="citation"><a href="literatur-3.html#ref-grolemundMarkdownDefinitiveGuide" role="doc-biblioref">Xie, Allaire, and Grolemund</a> (<a href="literatur-3.html#ref-grolemundMarkdownDefinitiveGuide" role="doc-biblioref">2020</a>)</span> bieten <a href="https://bookdown.org/yihui/rmarkdown/">hier</a> ein frei zugängliches gitbook mit Antworten zu allen Fragen, die man zum Standard-markdown haben kann.</p>
+<p>Yihui Xie, einer der Autoren, ist auch der Autor von <code>bookdown</code> und <code>blogdown</code>, seine Bücher dazu lassen sich auch empfehlen.</p>
+</div>
+<div id="skimr" class="section level3 subsection">
+<h3><code>skimr</code></h3>
+<p><code>glimpse</code> und <code>summary</code> sind zwar ganz nett, da ein guter Überblick über die vorliegenden Daten aber entscheidend für den Erfolg jeder Datenanalyse ist, sind mehr dargestellte Informationen nur im Ausnahmefall unerwünscht.</p>
+<p>Das <code>skimr</code>-Paket mit seiner <code>skim</code>-Funktion bietet fast alle Informationen, die man sich nur irgendwie wünschen kann.</p>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="appendix.html#cb134-1" aria-hidden="true" tabindex="-1"></a>skimr<span class="sc">::</span><span class="fu">skim</span>(iris)</span></code></pre></div>
+<table style="width: auto;" class="table table-condensed">
+<caption>
+<span id="tab:skimr">Tab. 1: </span>Data summary
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Name
+</td>
+<td style="text-align:left;">
+iris
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Number of rows
+</td>
+<td style="text-align:left;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Number of columns
+</td>
+<td style="text-align:left;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+_______________________
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Column type frequency:
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+factor
+</td>
+<td style="text-align:left;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+________________________
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Group variables
+</td>
+<td style="text-align:left;">
+None
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: factor</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+skim_variable
+</th>
+<th style="text-align:right;">
+n_missing
+</th>
+<th style="text-align:right;">
+complete_rate
+</th>
+<th style="text-align:left;">
+ordered
+</th>
+<th style="text-align:right;">
+n_unique
+</th>
+<th style="text-align:left;">
+top_counts
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Species
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+set: 50, ver: 50, vir: 50
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+skim_variable
+</th>
+<th style="text-align:right;">
+n_missing
+</th>
+<th style="text-align:right;">
+complete_rate
+</th>
+<th style="text-align:right;">
+mean
+</th>
+<th style="text-align:right;">
+sd
+</th>
+<th style="text-align:right;">
+p0
+</th>
+<th style="text-align:right;">
+p25
+</th>
+<th style="text-align:right;">
+p50
+</th>
+<th style="text-align:right;">
+p75
+</th>
+<th style="text-align:right;">
+p100
+</th>
+<th style="text-align:left;">
+hist
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Sepal.Length
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+5.84
+</td>
+<td style="text-align:right;">
+0.83
+</td>
+<td style="text-align:right;">
+4.3
+</td>
+<td style="text-align:right;">
+5.1
+</td>
+<td style="text-align:right;">
+5.80
+</td>
+<td style="text-align:right;">
+6.4
+</td>
+<td style="text-align:right;">
+7.9
+</td>
+<td style="text-align:left;">
+▆▇▇▅▂
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sepal.Width
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+3.06
+</td>
+<td style="text-align:right;">
+0.44
+</td>
+<td style="text-align:right;">
+2.0
+</td>
+<td style="text-align:right;">
+2.8
+</td>
+<td style="text-align:right;">
+3.00
+</td>
+<td style="text-align:right;">
+3.3
+</td>
+<td style="text-align:right;">
+4.4
+</td>
+<td style="text-align:left;">
+▁▆▇▂▁
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Petal.Length
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+3.76
+</td>
+<td style="text-align:right;">
+1.77
+</td>
+<td style="text-align:right;">
+1.0
+</td>
+<td style="text-align:right;">
+1.6
+</td>
+<td style="text-align:right;">
+4.35
+</td>
+<td style="text-align:right;">
+5.1
+</td>
+<td style="text-align:right;">
+6.9
+</td>
+<td style="text-align:left;">
+▇▁▆▇▂
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Petal.Width
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1.20
+</td>
+<td style="text-align:right;">
+0.76
+</td>
+<td style="text-align:right;">
+0.1
+</td>
+<td style="text-align:right;">
+0.3
+</td>
+<td style="text-align:right;">
+1.30
+</td>
+<td style="text-align:right;">
+1.8
+</td>
+<td style="text-align:right;">
+2.5
+</td>
+<td style="text-align:left;">
+▇▁▇▅▃
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="ez" class="section level3 subsection">
+<h3><code>ez</code></h3>
+<p>Das <code>ez</code>-Paket stellt eine wesentliche Verbesserung der R-Syntax zur Auswertung faktorieller Experimente dar.</p>
+<p>Als kleines Beispiel eine abhängige zweifaktorielle Varianzanalyse auf Basis des in <code>ez</code> mitgelieferten <code>ANT</code>-Datensatzes, der simulierte Ergebnisse des Attention Network Tests beinhalted.</p>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="appendix.html#cb135-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ez)</span></code></pre></div>
+<pre><code>## Registered S3 methods overwritten by &#39;lme4&#39;:
+##   method                          from
+##   cooks.distance.influence.merMod car 
+##   influence.merMod                car 
+##   dfbeta.influence.merMod         car 
+##   dfbetas.influence.merMod        car</code></pre>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="appendix.html#cb137-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(ANT)</span>
+<span id="cb137-2"><a href="appendix.html#cb137-2" aria-hidden="true" tabindex="-1"></a>skimr<span class="sc">::</span><span class="fu">skim</span>(ANT)</span></code></pre></div>
+<table style="width: auto;" class="table table-condensed">
+<caption>
+<span id="tab:ez1">Tab. 2: </span>Data summary
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Name
+</td>
+<td style="text-align:left;">
+ANT
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Number of rows
+</td>
+<td style="text-align:left;">
+5760
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Number of columns
+</td>
+<td style="text-align:left;">
+10
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+_______________________
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Column type frequency:
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+factor
+</td>
+<td style="text-align:left;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+________________________
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Group variables
+</td>
+<td style="text-align:left;">
+None
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: factor</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+skim_variable
+</th>
+<th style="text-align:right;">
+n_missing
+</th>
+<th style="text-align:right;">
+complete_rate
+</th>
+<th style="text-align:left;">
+ordered
+</th>
+<th style="text-align:right;">
+n_unique
+</th>
+<th style="text-align:left;">
+top_counts
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+subnum
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:left;">
+1: 288, 2: 288, 3: 288, 4: 288
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+group
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+Con: 2880, Tre: 2880
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+cue
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+Non: 1440, Cen: 1440, Dou: 1440, Spa: 1440
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+flank
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+Neu: 1920, Con: 1920, Inc: 1920
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+location
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+dow: 2880, up: 2880
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+direction
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+lef: 2880, rig: 2880
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+skim_variable
+</th>
+<th style="text-align:right;">
+n_missing
+</th>
+<th style="text-align:right;">
+complete_rate
+</th>
+<th style="text-align:right;">
+mean
+</th>
+<th style="text-align:right;">
+sd
+</th>
+<th style="text-align:right;">
+p0
+</th>
+<th style="text-align:right;">
+p25
+</th>
+<th style="text-align:right;">
+p50
+</th>
+<th style="text-align:right;">
+p75
+</th>
+<th style="text-align:right;">
+p100
+</th>
+<th style="text-align:left;">
+hist
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+block
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+3.50
+</td>
+<td style="text-align:right;">
+1.71
+</td>
+<td style="text-align:right;">
+1.0
+</td>
+<td style="text-align:right;">
+2.00
+</td>
+<td style="text-align:right;">
+3.50
+</td>
+<td style="text-align:right;">
+5.00
+</td>
+<td style="text-align:right;">
+6.0
+</td>
+<td style="text-align:left;">
+▇▃▃▃▃
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+trial
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+24.50
+</td>
+<td style="text-align:right;">
+13.85
+</td>
+<td style="text-align:right;">
+1.0
+</td>
+<td style="text-align:right;">
+12.75
+</td>
+<td style="text-align:right;">
+24.50
+</td>
+<td style="text-align:right;">
+36.25
+</td>
+<td style="text-align:right;">
+48.0
+</td>
+<td style="text-align:left;">
+▇▇▇▇▇
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+rt
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+406.91
+</td>
+<td style="text-align:right;">
+70.55
+</td>
+<td style="text-align:right;">
+179.6
+</td>
+<td style="text-align:right;">
+356.24
+</td>
+<td style="text-align:right;">
+404.99
+</td>
+<td style="text-align:right;">
+454.49
+</td>
+<td style="text-align:right;">
+657.7
+</td>
+<td style="text-align:left;">
+▁▅▇▃▁
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+error
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0.10
+</td>
+<td style="text-align:right;">
+0.30
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+1.0
+</td>
+<td style="text-align:left;">
+▇▁▁▁▁
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="klassische-vorgehensweise-in-base-r" class="section level3">
+<h3>klassische Vorgehensweise in base R</h3>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="appendix.html#cb138-1" aria-hidden="true" tabindex="-1"></a>anova <span class="ot">&lt;-</span> <span class="fu">aov</span>(rt <span class="sc">~</span> cue <span class="sc">*</span> flank <span class="sc">+</span> <span class="fu">Error</span>(subnum), <span class="at">data =</span> ANT)</span>
+<span id="cb138-2"><a href="appendix.html#cb138-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(anova)</span></code></pre></div>
+<pre><code>## 
+## Error: subnum
+##           Df Sum Sq Mean Sq F value Pr(&gt;F)
+## Residuals 19  85489    4499               
+## 
+## Error: Within
+##             Df   Sum Sq Mean Sq  F value   Pr(&gt;F)
+## cue          3  5523668 1841223  698.350  &lt; 2e-16
+## flank        2  7871119 3935559 1492.703  &lt; 2e-16
+## cue:flank    6    79837   13306    5.047 3.58e-05
+## Residuals 5729 15104697    2637                  
+##              
+## cue       ***
+## flank     ***
+## cue:flank ***
+## Residuals    
+## ---
+## Signif. codes:  
+## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+</div>
+<div id="anova-mit-ez" class="section level3">
+<h3>ANOVA mit <code>ez</code></h3>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="appendix.html#cb140-1" aria-hidden="true" tabindex="-1"></a>ANT <span class="sc">%&gt;%</span> </span>
+<span id="cb140-2"><a href="appendix.html#cb140-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ezANOVA</span>(</span>
+<span id="cb140-3"><a href="appendix.html#cb140-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">dv =</span> rt,</span>
+<span id="cb140-4"><a href="appendix.html#cb140-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">wid =</span> subnum,</span>
+<span id="cb140-5"><a href="appendix.html#cb140-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">within =</span> .(cue,flank)</span>
+<span id="cb140-6"><a href="appendix.html#cb140-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
+<pre><code>## Warning: Collapsing data to cell means. *IF* the
+## requested effects are a subset of the full design,
+## you must use the &quot;within_full&quot; argument, else
+## results may be inaccurate.</code></pre>
+<pre><code>## $ANOVA
+##      Effect DFn DFd           F            p
+## 2       cue   3  57  540.862407 7.988172e-42
+## 3     flank   2  38 1066.037656 4.196305e-34
+## 4 cue:flank   6 114    4.357093 5.356773e-04
+##   p&lt;.05        ges
+## 2     * 0.87793881
+## 3     * 0.91110583
+## 4     * 0.09416982
+## 
+## $`Mauchly&#39;s Test for Sphericity`
+##      Effect         W          p p&lt;.05
+## 2       cue 0.8431739 0.69690404      
+## 3     flank 0.7999302 0.13411237      
+## 4 cue:flank 0.1378186 0.03419366     *
+## 
+## $`Sphericity Corrections`
+##      Effect       GGe        p[GG] p[GG]&lt;.05
+## 2       cue 0.9016877 6.126025e-38         *
+## 3     flank 0.8332849 8.590878e-29         *
+## 4 cue:flank 0.5956263 4.652864e-03         *
+##         HFe        p[HF] p[HF]&lt;.05
+## 2 1.0657965 7.988172e-42         *
+## 3 0.9037852 4.869100e-31         *
+## 4 0.7506166 2.015937e-03         *</code></pre>
+</div>
+<div id="wo-kann-ich-dazu-mehr-erfahren-1" class="section level3">
+<h3>Wo kann ich dazu mehr erfahren?</h3>
+<p>Die <a href="https://www.rdocumentation.org/packages/ez/versions/4.4-0">Dokumentation</a> von <code>ez</code> ist ziemlich gut.</p>
+</div>
+<div id="ggwordcloud" class="section level3 subsection">
+<h3><code>ggwordcloud</code></h3>
+<p>Für eher qualitative Darstellungen von Textdaten sind wordclouds manchmal ganz nett, das <code>ggwordcloud</code>-Paket kombiniert diesen Anspruch mit den Anpassungsmöglichkeiten von <code>ggplot2</code>.</p>
+<p>Ein kleines Beispiel sind diese wordclouds, die auf einem Datensatz basieren, der die Berichterstattung über Corona in Schweden und Deutschland aus dem jeweils anderen Land abbildet:</p>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="appendix.html#cb143-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(stories)</span></code></pre></div>
+<pre><code>##      word           translation       
+##  Length:500         Length:500        
+##  Class :character   Class :character  
+##  Mode  :character   Mode  :character  
+##                                       
+##                                       
+##                                       
+##                                       
+##    sentiment             n            country   
+##  Min.   :-5.0000   Min.   :  440   Germany:250  
+##  1st Qu.:-1.5000   1st Qu.:  698   Sweden :250  
+##  Median : 1.0000   Median : 1656                
+##  Mean   : 0.4639   Mean   : 1989                
+##  3rd Qu.: 2.0000   3rd Qu.: 2405                
+##  Max.   : 5.0000   Max.   :15223                
+##  NA&#39;s   :445</code></pre>
+</div>
+<div id="darstellung-in-wordcloud" class="section level3">
+<h3>Darstellung in wordcloud</h3>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="appendix.html#cb145-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggwordcloud)</span>
+<span id="cb145-2"><a href="appendix.html#cb145-2" aria-hidden="true" tabindex="-1"></a>stories <span class="sc">%&gt;%</span> </span>
+<span id="cb145-3"><a href="appendix.html#cb145-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">size =</span> n, </span>
+<span id="cb145-4"><a href="appendix.html#cb145-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">label =</span> word,</span>
+<span id="cb145-5"><a href="appendix.html#cb145-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">alpha =</span> n)) <span class="sc">+</span></span>
+<span id="cb145-6"><a href="appendix.html#cb145-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_wordcloud</span>(<span class="at">rm_outside =</span> T,</span>
+<span id="cb145-7"><a href="appendix.html#cb145-7" aria-hidden="true" tabindex="-1"></a>                      <span class="at">color =</span> <span class="st">&#39;darkblue&#39;</span>) <span class="sc">+</span></span>
+<span id="cb145-8"><a href="appendix.html#cb145-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(<span class="sc">~</span>country) <span class="sc">+</span></span>
+<span id="cb145-9"><a href="appendix.html#cb145-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="imgs/wc.png" width="1000px" style="display: block; margin: auto auto auto 0;" /></p>
+</div>
+<div id="wo-kann-ich-dazu-mehr-erfahren-2" class="section level3">
+<h3>Wo kann ich dazu mehr erfahren?</h3>
+<p>Die Vignette von ggwordcloud bietet ein paar schöne Beispiele, an denen man sich gut entlang hangeln kann.</p>
+<p>Zum Öffnen nach dem Laden des Pakets einfach so aufrufen:</p>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="appendix.html#cb146-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vignette</span>(<span class="st">&#39;ggwordcloud&#39;</span>)</span></code></pre></div>
+</div>
+<div id="plotly" class="section level3 subsection">
+<h3><code>plotly</code></h3>
+<p>Plotly ist ein nicht nur in R implementiertes Software-Paket, dass es mit wenigen Schritten ermöglicht, interaktive Grafiken zu erstellen.</p>
+<p>Wir können das, was wir für ggplot gelernt haben, einfach für plotly anwenden:</p>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="appendix.html#cb147-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plotly)</span></code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;plotly&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:ggplot2&#39;:
+## 
+##     last_plot</code></pre>
+<pre><code>## The following object is masked from &#39;package:stats&#39;:
+## 
+##     filter</code></pre>
+<pre><code>## The following object is masked from &#39;package:graphics&#39;:
+## 
+##     layout</code></pre>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="appendix.html#cb152-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> </span>
+<span id="cb152-2"><a href="appendix.html#cb152-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Sepal.Width,</span>
+<span id="cb152-3"><a href="appendix.html#cb152-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">y =</span> Sepal.Length,</span>
+<span id="cb152-4"><a href="appendix.html#cb152-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> Species)) <span class="sc">+</span></span>
+<span id="cb152-5"><a href="appendix.html#cb152-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb152-6"><a href="appendix.html#cb152-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>() <span class="sc">+</span></span>
+<span id="cb152-7"><a href="appendix.html#cb152-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&#39;none&#39;</span>)</span>
+<span id="cb152-8"><a href="appendix.html#cb152-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb152-9"><a href="appendix.html#cb152-9" aria-hidden="true" tabindex="-1"></a>p</span></code></pre></div>
+<p><img src="R---KfN-11.12.20_files/figure-html/unnamed-chunk-121-1.png" width="1000px" style="display: block; margin: auto;" /></p>
+</div>
+<div id="umwandlung" class="section level3">
+<h3>Umwandlung</h3>
+<p>Um den Graphen interaktiv zu gestalten reicht es, ihn an <code>ggplotly</code> zu übergeben:</p>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="appendix.html#cb153-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplotly</span>(p)</span></code></pre></div>
+<div id="htmlwidget-2447a80b4d3437bd3bc3" style="width:1000px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2447a80b4d3437bd3bc3">{"x":{"data":[{"x":[3.5,3,3.2,3.1,3.6,3.9,3.4,3.4,2.9,3.1,3.7,3.4,3,3,4,4.4,3.9,3.5,3.8,3.8,3.4,3.7,3.6,3.3,3.4,3,3.4,3.5,3.4,3.2,3.1,3.4,4.1,4.2,3.1,3.2,3.5,3.6,3,3.4,3.5,2.3,3.2,3.5,3.8,3,3.8,3.2,3.7,3.3],"y":[5.1,4.9,4.7,4.6,5,5.4,4.6,5,4.4,4.9,5.4,4.8,4.8,4.3,5.8,5.7,5.4,5.1,5.7,5.1,5.4,5.1,4.6,5.1,4.8,5,5,5.2,5.2,4.7,4.8,5.4,5.2,5.5,4.9,5,5.5,4.9,4.4,5.1,5,4.5,4.4,5,5.1,4.8,5.1,4.6,5.3,5],"text":["Sepal.Width: 3.5<br />Sepal.Length: 5.1<br />Species: setosa","Sepal.Width: 3.0<br />Sepal.Length: 4.9<br />Species: setosa","Sepal.Width: 3.2<br />Sepal.Length: 4.7<br />Species: setosa","Sepal.Width: 3.1<br />Sepal.Length: 4.6<br />Species: setosa","Sepal.Width: 3.6<br />Sepal.Length: 5.0<br />Species: setosa","Sepal.Width: 3.9<br />Sepal.Length: 5.4<br />Species: setosa","Sepal.Width: 3.4<br />Sepal.Length: 4.6<br />Species: setosa","Sepal.Width: 3.4<br />Sepal.Length: 5.0<br />Species: setosa","Sepal.Width: 2.9<br />Sepal.Length: 4.4<br />Species: setosa","Sepal.Width: 3.1<br />Sepal.Length: 4.9<br />Species: setosa","Sepal.Width: 3.7<br />Sepal.Length: 5.4<br />Species: setosa","Sepal.Width: 3.4<br />Sepal.Length: 4.8<br />Species: setosa","Sepal.Width: 3.0<br />Sepal.Length: 4.8<br />Species: setosa","Sepal.Width: 3.0<br />Sepal.Length: 4.3<br />Species: setosa","Sepal.Width: 4.0<br />Sepal.Length: 5.8<br />Species: setosa","Sepal.Width: 4.4<br />Sepal.Length: 5.7<br />Species: setosa","Sepal.Width: 3.9<br />Sepal.Length: 5.4<br />Species: setosa","Sepal.Width: 3.5<br />Sepal.Length: 5.1<br />Species: setosa","Sepal.Width: 3.8<br />Sepal.Length: 5.7<br />Species: setosa","Sepal.Width: 3.8<br />Sepal.Length: 5.1<br />Species: setosa","Sepal.Width: 3.4<br />Sepal.Length: 5.4<br />Species: setosa","Sepal.Width: 3.7<br />Sepal.Length: 5.1<br />Species: setosa","Sepal.Width: 3.6<br />Sepal.Length: 4.6<br />Species: setosa","Sepal.Width: 3.3<br />Sepal.Length: 5.1<br />Species: setosa","Sepal.Width: 3.4<br />Sepal.Length: 4.8<br />Species: setosa","Sepal.Width: 3.0<br />Sepal.Length: 5.0<br />Species: setosa","Sepal.Width: 3.4<br />Sepal.Length: 5.0<br />Species: setosa","Sepal.Width: 3.5<br />Sepal.Length: 5.2<br />Species: setosa","Sepal.Width: 3.4<br />Sepal.Length: 5.2<br />Species: setosa","Sepal.Width: 3.2<br />Sepal.Length: 4.7<br />Species: setosa","Sepal.Width: 3.1<br />Sepal.Length: 4.8<br />Species: setosa","Sepal.Width: 3.4<br />Sepal.Length: 5.4<br />Species: setosa","Sepal.Width: 4.1<br />Sepal.Length: 5.2<br />Species: setosa","Sepal.Width: 4.2<br />Sepal.Length: 5.5<br />Species: setosa","Sepal.Width: 3.1<br />Sepal.Length: 4.9<br />Species: setosa","Sepal.Width: 3.2<br />Sepal.Length: 5.0<br />Species: setosa","Sepal.Width: 3.5<br />Sepal.Length: 5.5<br />Species: setosa","Sepal.Width: 3.6<br />Sepal.Length: 4.9<br />Species: setosa","Sepal.Width: 3.0<br />Sepal.Length: 4.4<br />Species: setosa","Sepal.Width: 3.4<br />Sepal.Length: 5.1<br />Species: setosa","Sepal.Width: 3.5<br />Sepal.Length: 5.0<br />Species: setosa","Sepal.Width: 2.3<br />Sepal.Length: 4.5<br />Species: setosa","Sepal.Width: 3.2<br />Sepal.Length: 4.4<br />Species: setosa","Sepal.Width: 3.5<br />Sepal.Length: 5.0<br />Species: setosa","Sepal.Width: 3.8<br />Sepal.Length: 5.1<br />Species: setosa","Sepal.Width: 3.0<br />Sepal.Length: 4.8<br />Species: setosa","Sepal.Width: 3.8<br />Sepal.Length: 5.1<br />Species: setosa","Sepal.Width: 3.2<br />Sepal.Length: 4.6<br />Species: setosa","Sepal.Width: 3.7<br />Sepal.Length: 5.3<br />Species: setosa","Sepal.Width: 3.3<br />Sepal.Length: 5.0<br />Species: setosa"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(27,158,119,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(27,158,119,1)"}},"hoveron":"points","name":"setosa","legendgroup":"setosa","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[3.2,3.2,3.1,2.3,2.8,2.8,3.3,2.4,2.9,2.7,2,3,2.2,2.9,2.9,3.1,3,2.7,2.2,2.5,3.2,2.8,2.5,2.8,2.9,3,2.8,3,2.9,2.6,2.4,2.4,2.7,2.7,3,3.4,3.1,2.3,3,2.5,2.6,3,2.6,2.3,2.7,3,2.9,2.9,2.5,2.8],"y":[7,6.4,6.9,5.5,6.5,5.7,6.3,4.9,6.6,5.2,5,5.9,6,6.1,5.6,6.7,5.6,5.8,6.2,5.6,5.9,6.1,6.3,6.1,6.4,6.6,6.8,6.7,6,5.7,5.5,5.5,5.8,6,5.4,6,6.7,6.3,5.6,5.5,5.5,6.1,5.8,5,5.6,5.7,5.7,6.2,5.1,5.7],"text":["Sepal.Width: 3.2<br />Sepal.Length: 7.0<br />Species: versicolor","Sepal.Width: 3.2<br />Sepal.Length: 6.4<br />Species: versicolor","Sepal.Width: 3.1<br />Sepal.Length: 6.9<br />Species: versicolor","Sepal.Width: 2.3<br />Sepal.Length: 5.5<br />Species: versicolor","Sepal.Width: 2.8<br />Sepal.Length: 6.5<br />Species: versicolor","Sepal.Width: 2.8<br />Sepal.Length: 5.7<br />Species: versicolor","Sepal.Width: 3.3<br />Sepal.Length: 6.3<br />Species: versicolor","Sepal.Width: 2.4<br />Sepal.Length: 4.9<br />Species: versicolor","Sepal.Width: 2.9<br />Sepal.Length: 6.6<br />Species: versicolor","Sepal.Width: 2.7<br />Sepal.Length: 5.2<br />Species: versicolor","Sepal.Width: 2.0<br />Sepal.Length: 5.0<br />Species: versicolor","Sepal.Width: 3.0<br />Sepal.Length: 5.9<br />Species: versicolor","Sepal.Width: 2.2<br />Sepal.Length: 6.0<br />Species: versicolor","Sepal.Width: 2.9<br />Sepal.Length: 6.1<br />Species: versicolor","Sepal.Width: 2.9<br />Sepal.Length: 5.6<br />Species: versicolor","Sepal.Width: 3.1<br />Sepal.Length: 6.7<br />Species: versicolor","Sepal.Width: 3.0<br />Sepal.Length: 5.6<br />Species: versicolor","Sepal.Width: 2.7<br />Sepal.Length: 5.8<br />Species: versicolor","Sepal.Width: 2.2<br />Sepal.Length: 6.2<br />Species: versicolor","Sepal.Width: 2.5<br />Sepal.Length: 5.6<br />Species: versicolor","Sepal.Width: 3.2<br />Sepal.Length: 5.9<br />Species: versicolor","Sepal.Width: 2.8<br />Sepal.Length: 6.1<br />Species: versicolor","Sepal.Width: 2.5<br />Sepal.Length: 6.3<br />Species: versicolor","Sepal.Width: 2.8<br />Sepal.Length: 6.1<br />Species: versicolor","Sepal.Width: 2.9<br />Sepal.Length: 6.4<br />Species: versicolor","Sepal.Width: 3.0<br />Sepal.Length: 6.6<br />Species: versicolor","Sepal.Width: 2.8<br />Sepal.Length: 6.8<br />Species: versicolor","Sepal.Width: 3.0<br />Sepal.Length: 6.7<br />Species: versicolor","Sepal.Width: 2.9<br />Sepal.Length: 6.0<br />Species: versicolor","Sepal.Width: 2.6<br />Sepal.Length: 5.7<br />Species: versicolor","Sepal.Width: 2.4<br />Sepal.Length: 5.5<br />Species: versicolor","Sepal.Width: 2.4<br />Sepal.Length: 5.5<br />Species: versicolor","Sepal.Width: 2.7<br />Sepal.Length: 5.8<br />Species: versicolor","Sepal.Width: 2.7<br />Sepal.Length: 6.0<br />Species: versicolor","Sepal.Width: 3.0<br />Sepal.Length: 5.4<br />Species: versicolor","Sepal.Width: 3.4<br />Sepal.Length: 6.0<br />Species: versicolor","Sepal.Width: 3.1<br />Sepal.Length: 6.7<br />Species: versicolor","Sepal.Width: 2.3<br />Sepal.Length: 6.3<br />Species: versicolor","Sepal.Width: 3.0<br />Sepal.Length: 5.6<br />Species: versicolor","Sepal.Width: 2.5<br />Sepal.Length: 5.5<br />Species: versicolor","Sepal.Width: 2.6<br />Sepal.Length: 5.5<br />Species: versicolor","Sepal.Width: 3.0<br />Sepal.Length: 6.1<br />Species: versicolor","Sepal.Width: 2.6<br />Sepal.Length: 5.8<br />Species: versicolor","Sepal.Width: 2.3<br />Sepal.Length: 5.0<br />Species: versicolor","Sepal.Width: 2.7<br />Sepal.Length: 5.6<br />Species: versicolor","Sepal.Width: 3.0<br />Sepal.Length: 5.7<br />Species: versicolor","Sepal.Width: 2.9<br />Sepal.Length: 5.7<br />Species: versicolor","Sepal.Width: 2.9<br />Sepal.Length: 6.2<br />Species: versicolor","Sepal.Width: 2.5<br />Sepal.Length: 5.1<br />Species: versicolor","Sepal.Width: 2.8<br />Sepal.Length: 5.7<br />Species: versicolor"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(217,95,2,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(217,95,2,1)"}},"hoveron":"points","name":"versicolor","legendgroup":"versicolor","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[3.3,2.7,3,2.9,3,3,2.5,2.9,2.5,3.6,3.2,2.7,3,2.5,2.8,3.2,3,3.8,2.6,2.2,3.2,2.8,2.8,2.7,3.3,3.2,2.8,3,2.8,3,2.8,3.8,2.8,2.8,2.6,3,3.4,3.1,3,3.1,3.1,3.1,2.7,3.2,3.3,3,2.5,3,3.4,3],"y":[6.3,5.8,7.1,6.3,6.5,7.6,4.9,7.3,6.7,7.2,6.5,6.4,6.8,5.7,5.8,6.4,6.5,7.7,7.7,6,6.9,5.6,7.7,6.3,6.7,7.2,6.2,6.1,6.4,7.2,7.4,7.9,6.4,6.3,6.1,7.7,6.3,6.4,6,6.9,6.7,6.9,5.8,6.8,6.7,6.7,6.3,6.5,6.2,5.9],"text":["Sepal.Width: 3.3<br />Sepal.Length: 6.3<br />Species: virginica","Sepal.Width: 2.7<br />Sepal.Length: 5.8<br />Species: virginica","Sepal.Width: 3.0<br />Sepal.Length: 7.1<br />Species: virginica","Sepal.Width: 2.9<br />Sepal.Length: 6.3<br />Species: virginica","Sepal.Width: 3.0<br />Sepal.Length: 6.5<br />Species: virginica","Sepal.Width: 3.0<br />Sepal.Length: 7.6<br />Species: virginica","Sepal.Width: 2.5<br />Sepal.Length: 4.9<br />Species: virginica","Sepal.Width: 2.9<br />Sepal.Length: 7.3<br />Species: virginica","Sepal.Width: 2.5<br />Sepal.Length: 6.7<br />Species: virginica","Sepal.Width: 3.6<br />Sepal.Length: 7.2<br />Species: virginica","Sepal.Width: 3.2<br />Sepal.Length: 6.5<br />Species: virginica","Sepal.Width: 2.7<br />Sepal.Length: 6.4<br />Species: virginica","Sepal.Width: 3.0<br />Sepal.Length: 6.8<br />Species: virginica","Sepal.Width: 2.5<br />Sepal.Length: 5.7<br />Species: virginica","Sepal.Width: 2.8<br />Sepal.Length: 5.8<br />Species: virginica","Sepal.Width: 3.2<br />Sepal.Length: 6.4<br />Species: virginica","Sepal.Width: 3.0<br />Sepal.Length: 6.5<br />Species: virginica","Sepal.Width: 3.8<br />Sepal.Length: 7.7<br />Species: virginica","Sepal.Width: 2.6<br />Sepal.Length: 7.7<br />Species: virginica","Sepal.Width: 2.2<br />Sepal.Length: 6.0<br />Species: virginica","Sepal.Width: 3.2<br />Sepal.Length: 6.9<br />Species: virginica","Sepal.Width: 2.8<br />Sepal.Length: 5.6<br />Species: virginica","Sepal.Width: 2.8<br />Sepal.Length: 7.7<br />Species: virginica","Sepal.Width: 2.7<br />Sepal.Length: 6.3<br />Species: virginica","Sepal.Width: 3.3<br />Sepal.Length: 6.7<br />Species: virginica","Sepal.Width: 3.2<br />Sepal.Length: 7.2<br />Species: virginica","Sepal.Width: 2.8<br />Sepal.Length: 6.2<br />Species: virginica","Sepal.Width: 3.0<br />Sepal.Length: 6.1<br />Species: virginica","Sepal.Width: 2.8<br />Sepal.Length: 6.4<br />Species: virginica","Sepal.Width: 3.0<br />Sepal.Length: 7.2<br />Species: virginica","Sepal.Width: 2.8<br />Sepal.Length: 7.4<br />Species: virginica","Sepal.Width: 3.8<br />Sepal.Length: 7.9<br />Species: virginica","Sepal.Width: 2.8<br />Sepal.Length: 6.4<br />Species: virginica","Sepal.Width: 2.8<br />Sepal.Length: 6.3<br />Species: virginica","Sepal.Width: 2.6<br />Sepal.Length: 6.1<br />Species: virginica","Sepal.Width: 3.0<br />Sepal.Length: 7.7<br />Species: virginica","Sepal.Width: 3.4<br />Sepal.Length: 6.3<br />Species: virginica","Sepal.Width: 3.1<br />Sepal.Length: 6.4<br />Species: virginica","Sepal.Width: 3.0<br />Sepal.Length: 6.0<br />Species: virginica","Sepal.Width: 3.1<br />Sepal.Length: 6.9<br />Species: virginica","Sepal.Width: 3.1<br />Sepal.Length: 6.7<br />Species: virginica","Sepal.Width: 3.1<br />Sepal.Length: 6.9<br />Species: virginica","Sepal.Width: 2.7<br />Sepal.Length: 5.8<br />Species: virginica","Sepal.Width: 3.2<br />Sepal.Length: 6.8<br />Species: virginica","Sepal.Width: 3.3<br />Sepal.Length: 6.7<br />Species: virginica","Sepal.Width: 3.0<br />Sepal.Length: 6.7<br />Species: virginica","Sepal.Width: 2.5<br />Sepal.Length: 6.3<br />Species: virginica","Sepal.Width: 3.0<br />Sepal.Length: 6.5<br />Species: virginica","Sepal.Width: 3.4<br />Sepal.Length: 6.2<br />Species: virginica","Sepal.Width: 3.0<br />Sepal.Length: 5.9<br />Species: virginica"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(117,112,179,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(117,112,179,1)"}},"hoveron":"points","name":"virginica","legendgroup":"virginica","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":26.2283105022831,"r":7.30593607305936,"b":40.1826484018265,"l":31.4155251141553},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[1.88,4.52],"tickmode":"array","ticktext":["2.0","2.5","3.0","3.5","4.0","4.5"],"tickvals":[2,2.5,3,3.5,4,4.5],"categoryorder":"array","categoryarray":["2.0","2.5","3.0","3.5","4.0","4.5"],"nticks":null,"ticks":"outside","tickcolor":"rgba(179,179,179,1)","ticklen":3.65296803652968,"tickwidth":0.33208800332088,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(222,222,222,1)","gridwidth":0.33208800332088,"zeroline":false,"anchor":"y","title":{"text":"Sepal.Width","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[4.12,8.08],"tickmode":"array","ticktext":["5","6","7","8"],"tickvals":[5,6,7,8],"categoryorder":"array","categoryarray":["5","6","7","8"],"nticks":null,"ticks":"outside","tickcolor":"rgba(179,179,179,1)","ticklen":3.65296803652968,"tickwidth":0.33208800332088,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(222,222,222,1)","gridwidth":0.33208800332088,"zeroline":false,"anchor":"x","title":{"text":"Sepal.Length","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":"transparent","line":{"color":"rgba(179,179,179,1)","width":0.66417600664176,"linetype":"solid"},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"1b1fc278181e4":{"x":{},"y":{},"colour":{},"type":"scatter"}},"cur_data":"1b1fc278181e4","visdat":{"1b1fc278181e4":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="wo-kann-ich-dazu-mehr-erfahren-3" class="section level3">
+<h3>Wo kann ich dazu mehr erfahren?</h3>
+<p>Wenn komplexere Grafiken gewünscht sind, ist die <a href="https://plotly.com/r/">plotly-Website</a> eine gute Ressource um anzufangen.</p>
+<p>Für die meisten Anwendungsfälle reicht es aber aus, den Graphen mit ggplot zu erstellen und den automatischen Port zu verwenden.</p>
+</div>
+<div id="lavaan" class="section level3 subsection">
+<h3><code>lavaan</code></h3>
+<p>Das <code>lavaan</code>-Projekt und das zugehörige Paket ist in den Worten der Entwickler:</p>
+<blockquote>
+<p>The lavaan package is developed to provide useRs, researchers and teachers a free open-source, but commercial-quality package for latent variable modeling. <a href="https://lavaan.ugent.be/index.html">Von der lavaan-Homepage</a></p>
+</blockquote>
+<p>Und kann inzwischen genutzt werden um so gut wie jedes Modell zur Analyse latenter Variablen aufzustellen, zu schätzen und zu testen.</p>
+<p>Das Paket ist so umfrangreich, dass wir es hier nur in anekdotischer Art besprechen können, wir gehen aber ein Beispiel für ein SEM durch.</p>
+</div>
+<div id="das-beispiel" class="section level3">
+<h3>Das Beispiel</h3>
+<p>Wir versuchen die Auswertung aus <span class="citation"><a href="literatur-3.html#ref-pishghadamIntelligenceMetacognitionPredictors2013" role="doc-biblioref">Pishghadam and Khajavy</a> (<a href="literatur-3.html#ref-pishghadamIntelligenceMetacognitionPredictors2013" role="doc-biblioref">2013</a>)</span> mit lavaan nachzuvollziehen. Die Autoren berichten dankenswerterweise Korrelationsmatrizen und Streuungen, daraus können wir uns einfach die folgende Kovarianzmatrix bauen:</p>
+<table class=" lightable-classic lightable-classic" style="font-size: 15px; font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; margin-left: auto; margin-right: auto; font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:unnamed-chunk-123">Tab. 3: </span>kc steht für <em>knowledge of cognition</em>, rc für <em>regulation of cognition</em> und fla_test für das Ergebnis eines <em>foreign language achievement</em>
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+IQ1
+</th>
+<th style="text-align:right;">
+IQ2
+</th>
+<th style="text-align:right;">
+Total Intelligence
+</th>
+<th style="text-align:right;">
+kc
+</th>
+<th style="text-align:right;">
+rc
+</th>
+<th style="text-align:right;">
+total_metacognition
+</th>
+<th style="text-align:right;">
+fla_test
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+IQ1
+</td>
+<td style="text-align:right;">
+7.95
+</td>
+<td style="text-align:right;">
+3.62
+</td>
+<td style="text-align:right;">
+8.79
+</td>
+<td style="text-align:right;">
+4.60
+</td>
+<td style="text-align:right;">
+5.28
+</td>
+<td style="text-align:right;">
+9.96
+</td>
+<td style="text-align:right;">
+3.45
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+IQ2
+</td>
+<td style="text-align:right;">
+3.62
+</td>
+<td style="text-align:right;">
+10.82
+</td>
+<td style="text-align:right;">
+11.10
+</td>
+<td style="text-align:right;">
+8.26
+</td>
+<td style="text-align:right;">
+7.70
+</td>
+<td style="text-align:right;">
+16.27
+</td>
+<td style="text-align:right;">
+4.22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Total Intelligence
+</td>
+<td style="text-align:right;">
+8.79
+</td>
+<td style="text-align:right;">
+11.10
+</td>
+<td style="text-align:right;">
+26.11
+</td>
+<td style="text-align:right;">
+12.83
+</td>
+<td style="text-align:right;">
+13.15
+</td>
+<td style="text-align:right;">
+27.07
+</td>
+<td style="text-align:right;">
+7.75
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+kc
+</td>
+<td style="text-align:right;">
+4.60
+</td>
+<td style="text-align:right;">
+8.26
+</td>
+<td style="text-align:right;">
+12.83
+</td>
+<td style="text-align:right;">
+157.50
+</td>
+<td style="text-align:right;">
+185.01
+</td>
+<td style="text-align:right;">
+261.53
+</td>
+<td style="text-align:right;">
+31.46
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+rc
+</td>
+<td style="text-align:right;">
+5.28
+</td>
+<td style="text-align:right;">
+7.70
+</td>
+<td style="text-align:right;">
+13.15
+</td>
+<td style="text-align:right;">
+185.01
+</td>
+<td style="text-align:right;">
+547.56
+</td>
+<td style="text-align:right;">
+512.42
+</td>
+<td style="text-align:right;">
+53.20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+total_metacognition
+</td>
+<td style="text-align:right;">
+9.96
+</td>
+<td style="text-align:right;">
+16.27
+</td>
+<td style="text-align:right;">
+27.07
+</td>
+<td style="text-align:right;">
+261.53
+</td>
+<td style="text-align:right;">
+512.42
+</td>
+<td style="text-align:right;">
+1247.50
+</td>
+<td style="text-align:right;">
+84.43
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+fla_test
+</td>
+<td style="text-align:right;">
+3.45
+</td>
+<td style="text-align:right;">
+4.22
+</td>
+<td style="text-align:right;">
+7.75
+</td>
+<td style="text-align:right;">
+31.46
+</td>
+<td style="text-align:right;">
+53.20
+</td>
+<td style="text-align:right;">
+84.43
+</td>
+<td style="text-align:right;">
+33.99
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="das-modell" class="section level3">
+<h3>Das Modell</h3>
+<p>Als nächsten Schritt laden wir <code>lavaan</code> und formulieren das Modell nach, das die Autoren aufgestellt haben:</p>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="appendix.html#cb154-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lavaan)</span></code></pre></div>
+<pre><code>## This is lavaan 0.6-7</code></pre>
+<pre><code>## lavaan is BETA software! Please report any bugs.</code></pre>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="appendix.html#cb157-1" aria-hidden="true" tabindex="-1"></a>my_model <span class="ot">&lt;-</span> <span class="st">&#39;</span></span>
+<span id="cb157-2"><a href="appendix.html#cb157-2" aria-hidden="true" tabindex="-1"></a><span class="st">## Definiton latenter Variablen:</span></span>
+<span id="cb157-3"><a href="appendix.html#cb157-3" aria-hidden="true" tabindex="-1"></a><span class="st">Intelligence =~ IQ1 + IQ2</span></span>
+<span id="cb157-4"><a href="appendix.html#cb157-4" aria-hidden="true" tabindex="-1"></a><span class="st">Metacognition =~ kc + rc</span></span>
+<span id="cb157-5"><a href="appendix.html#cb157-5" aria-hidden="true" tabindex="-1"></a><span class="st">fla =~ fla_test</span></span>
+<span id="cb157-6"><a href="appendix.html#cb157-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb157-7"><a href="appendix.html#cb157-7" aria-hidden="true" tabindex="-1"></a><span class="st"># Korrelationen</span></span>
+<span id="cb157-8"><a href="appendix.html#cb157-8" aria-hidden="true" tabindex="-1"></a><span class="st">Intelligence ~~ Metacognition</span></span>
+<span id="cb157-9"><a href="appendix.html#cb157-9" aria-hidden="true" tabindex="-1"></a><span class="st">fla ~~ Intelligence </span></span>
+<span id="cb157-10"><a href="appendix.html#cb157-10" aria-hidden="true" tabindex="-1"></a><span class="st">fla ~~ Metacognition</span></span>
+<span id="cb157-11"><a href="appendix.html#cb157-11" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;</span></span></code></pre></div>
+</div>
+<div id="die-schätzung" class="section level3">
+<h3>Die Schätzung</h3>
+<p>Das Gesamtmodell, die Stichprobengröße von 143 und die Kovarianzmatrix übergeben wir jetzt an <code>sem</code>:</p>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="appendix.html#cb158-1" aria-hidden="true" tabindex="-1"></a>sem_example <span class="ot">&lt;-</span> <span class="fu">sem</span>(</span>
+<span id="cb158-2"><a href="appendix.html#cb158-2" aria-hidden="true" tabindex="-1"></a>  my_model,</span>
+<span id="cb158-3"><a href="appendix.html#cb158-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">sample.cov =</span> cov_mat,</span>
+<span id="cb158-4"><a href="appendix.html#cb158-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">sample.nobs =</span> <span class="dv">143</span>)</span>
+<span id="cb158-5"><a href="appendix.html#cb158-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb158-6"><a href="appendix.html#cb158-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(sem_example, <span class="at">standardized =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## lavaan 0.6-7 ended normally after 142 iterations
+## 
+##   Estimator                                         ML
+##   Optimization method                           NLMINB
+##   Number of free parameters                         12
+##                                                       
+##   Number of observations                           143
+##                                                       
+## Model Test User Model:
+##                                                       
+##   Test statistic                                 1.790
+##   Degrees of freedom                                 3
+##   P-value (Chi-square)                           0.617
+## 
+## Parameter Estimates:
+## 
+##   Standard errors                             Standard
+##   Information                                 Expected
+##   Information saturated (h1) model          Structured
+## 
+## Latent Variables:
+##                    Estimate  Std.Err  z-value
+##   Intelligence =~                            
+##     IQ1               1.000                  
+##     IQ2               1.313    0.548    2.399
+##   Metacognition =~                           
+##     kc                1.000                  
+##     rc                1.641    0.289    5.669
+##   fla =~                                     
+##     fla_test          1.000                  
+##   P(&gt;|z|)   Std.lv  Std.all
+##                            
+##              1.654    0.589
+##     0.016    2.172    0.663
+##                            
+##             10.581    0.846
+##     0.000   17.363    0.745
+##                            
+##              5.810    1.000
+## 
+## Covariances:
+##                    Estimate  Std.Err  z-value
+##   Intelligence ~~                            
+##     Metacognition     4.852    2.545    1.907
+##     fla               3.287    1.371    2.397
+##   Metacognition ~~                           
+##     fla              31.557    6.618    4.768
+##   P(&gt;|z|)   Std.lv  Std.all
+##                            
+##     0.057    0.277    0.277
+##     0.017    0.342    0.342
+##                            
+##     0.000    0.513    0.513
+## 
+## Variances:
+##                    Estimate  Std.Err  z-value
+##    .IQ1               5.161    1.278    4.037
+##    .IQ2               6.030    2.064    2.921
+##    .kc               44.446   18.448    2.409
+##    .rc              242.250   55.573    4.359
+##    .fla_test          0.000                  
+##     Intelligence      2.736    1.327    2.061
+##     Metacognition   111.955   25.044    4.470
+##     fla              33.751    3.992    8.456
+##   P(&gt;|z|)   Std.lv  Std.all
+##     0.000    5.161    0.654
+##     0.003    6.030    0.561
+##     0.016   44.446    0.284
+##     0.000  242.250    0.446
+##              0.000    0.000
+##     0.039    1.000    1.000
+##     0.000    1.000    1.000
+##     0.000    1.000    1.000</code></pre>
+</div>
+<div id="der-model-fit" class="section level3">
+<h3>Der Model-fit</h3>
+<p>Mit <code>fitmeasures(sem_example)</code> können wir uns die gängigsten fit-Indizes und noch ein paar mehr ausgeben lassen:</p>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="appendix.html#cb160-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fitmeasures</span>(sem_example)</span></code></pre></div>
+<pre><code>##                npar                fmin 
+##              12.000               0.006 
+##               chisq                  df 
+##               1.790               3.000 
+##              pvalue      baseline.chisq 
+##               0.617             141.806 
+##         baseline.df     baseline.pvalue 
+##              10.000               0.000 
+##                 cfi                 tli 
+##               1.000               1.031 
+##                nnfi                 rfi 
+##               1.031               0.958 
+##                 nfi                pnfi 
+##               0.987               0.296 
+##                 ifi                 rni 
+##               1.009               1.009 
+##                logl   unrestricted.logl 
+##           -2325.277           -2324.382 
+##                 aic                 bic 
+##            4674.555            4710.109 
+##              ntotal                bic2 
+##             143.000            4672.139 
+##               rmsea      rmsea.ci.lower 
+##               0.000               0.000 
+##      rmsea.ci.upper        rmsea.pvalue 
+##               0.116               0.735 
+##                 rmr          rmr_nomean 
+##               1.154               1.154 
+##                srmr        srmr_bentler 
+##               0.019               0.019 
+## srmr_bentler_nomean                crmr 
+##               0.019               0.023 
+##         crmr_nomean          srmr_mplus 
+##               0.023               0.019 
+##   srmr_mplus_nomean               cn_05 
+##               0.019             625.194 
+##               cn_01                 gfi 
+##             907.160               0.995 
+##                agfi                pgfi 
+##               0.975               0.199 
+##                 mfi                ecvi 
+##               1.004               0.180</code></pre>
+</div>
+<div id="die-darstellung" class="section level3">
+<h3>Die Darstellung</h3>
+<p>Und mit dem semPlot-Paket lässt sich das Modell auch darstellen:</p>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="appendix.html#cb162-1" aria-hidden="true" tabindex="-1"></a>semPlot<span class="sc">::</span><span class="fu">semPaths</span>(sem_example, </span>
+<span id="cb162-2"><a href="appendix.html#cb162-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">what =</span> <span class="st">&#39;path&#39;</span>, </span>
+<span id="cb162-3"><a href="appendix.html#cb162-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">whatLabels =</span> <span class="st">&#39;std&#39;</span>, </span>
+<span id="cb162-4"><a href="appendix.html#cb162-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">layout =</span> <span class="st">&#39;spring&#39;</span>, </span>
+<span id="cb162-5"><a href="appendix.html#cb162-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">residuals =</span> F)</span></code></pre></div>
+<pre><code>## Registered S3 methods overwritten by &#39;huge&#39;:
+##   method    from   
+##   plot.sim  BDgraph
+##   print.sim BDgraph</code></pre>
+<p><img src="R---KfN-11.12.20_files/figure-html/unnamed-chunk-127-1.png" width="1000px" style="display: block; margin: auto;" /></p>
+</div>
+<div id="wo-kann-ich-dazu-mehr-erfahren-4" class="section level3">
+<h3>Wo kann ich dazu mehr erfahren?</h3>
+<p>Zum Lernen von <code>lavaan</code> stellen die Autoren <a href="https://lavaan.ugent.be/resources/teaching.html">hier</a> einen großen Pool an Materialien zur Verfügung.</p>
+<p>Für das <code>semPlot</code>-Paket sind die Ressourcen leider nicht so gut, die Dokumentation der <code>semPaths</code>-Funktion ist aber ziemlich gut, zu finden nach dem Laden des Pakets mit <code>?semPaths</code>.</p>
+</div>
+</div>
+<div id="andere-ressourcen" class="section level2">
+<h2>Andere Ressourcen</h2>
+<div id="cheatsheets" class="section level3">
+<h3>Cheatsheets</h3>
+<p>RStudio stellt eine ganze Reihe von hilfreichen Spickzetteln zu Verfügung, die den workflow effizienter macen indem sie die wichtigsten Funktionen auf einen Blick übersichtlich machen. Die Cheatsheets finden sich <a href="https://rstudio.com/resources/cheatsheets/">hier</a></p>
+<p>Exemplarisch für die bisher besprochenen Pakete sind die folgenden Cheatsheets zu empfehlen:</p>
+<ul>
+<li><p><a href="https://github.com/rstudio/cheatsheets/raw/master/factors.pdf">forcats</a></p></li>
+<li><p><a href="https://github.com/rstudio/cheatsheets/raw/master/data-import.pdf">Daten importieren</a></p></li>
+<li><p><a href="https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf">dplyr</a></p></li>
+<li><p><a href="https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf">die RStudio-IDE</a></p></li>
+<li><p><a href="https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf">ggplot2</a></p></li>
+</ul>
+</div>
+<div id="bücher" class="section level3">
+<h3>Bücher</h3>
+<p>Wenn man tiefer in tidy data analysis mit R einsteigen möchte kommt man an den Büchern von Hadley Wickham (Autor von ggplot2 und Chief Scientist bei RStudio) nicht vorbei. Die wichtigsten sind frei online zugänglich, dabei sind besonders die folgenden zu empfehlen:</p>
+<ul>
+<li><p><span class="citation">(<em>R for Data Science</em> <a href="literatur-3.html#ref-grolemundDataScience" role="doc-biblioref">Grolemund and Wickham 2017</a>)</span>(<a href="https://r4ds.had.co.nz/" class="uri">https://r4ds.had.co.nz/</a>) für die Grundlagen und</p></li>
+<li><p><span class="citation">(<em>Advanced R</em> <a href="literatur-3.html#ref-wickhamAdvanced2019" role="doc-biblioref">Wickham 2019</a>)</span>(<a href="https://adv-r.hadley.nz/" class="uri">https://adv-r.hadley.nz/</a>) für fortgeschrittenere Themen</p></li>
+</ul>
+</div>
+<div id="literatur-2" class="section level3">
+<h3>Literatur</h3>
 
+</div>
+</div>
 </div>
             </section>
 
@@ -172,7 +1519,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
 <a href="daten-darstellen.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="literatur-2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="literatur-3.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
