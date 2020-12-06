@@ -24,7 +24,7 @@
 <meta name="author" content="Max Brede" />
 
 
-<meta name="date" content="2020-12-04" />
+<meta name="date" content="2020-12-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -156,17 +156,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#datensätze-in-r"><i class="fa fa-check"></i>Datensätze in R</a></li>
 <li class="chapter" data-level="" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#regressionen-in-r"><i class="fa fa-check"></i>Regressionen in R</a></li>
+<li class="chapter" data-level="" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#aufgaben-teil-1"><i class="fa fa-check"></i>Aufgaben Teil 1</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="daten-einlesen.html"><a href="daten-einlesen.html"><i class="fa fa-check"></i>Daten einlesen</a>
 <ul>
 <li class="chapter" data-level="" data-path="daten-einlesen.html"><a href="daten-einlesen.html#einlesen-von-daten"><i class="fa fa-check"></i>Einlesen von Daten</a></li>
 <li class="chapter" data-level="" data-path="daten-einlesen.html"><a href="daten-einlesen.html#datenaufbereitung"><i class="fa fa-check"></i>Datenaufbereitung</a></li>
 <li class="chapter" data-level="" data-path="daten-einlesen.html"><a href="daten-einlesen.html#zusammenführen-von-datensätzen"><i class="fa fa-check"></i>Zusammenführen von Datensätzen</a></li>
+<li class="chapter" data-level="" data-path="daten-einlesen.html"><a href="daten-einlesen.html#aufgaben-teil-2"><i class="fa fa-check"></i>Aufgaben Teil 2</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="daten-darstellen.html"><a href="daten-darstellen.html"><i class="fa fa-check"></i>Daten darstellen</a>
 <ul>
 <li class="chapter" data-level="" data-path="daten-darstellen.html"><a href="daten-darstellen.html#pivotieren-von-datensätzen"><i class="fa fa-check"></i>pivotieren von Datensätzen</a></li>
 <li class="chapter" data-level="" data-path="daten-darstellen.html"><a href="daten-darstellen.html#ggplot2"><i class="fa fa-check"></i>ggplot2</a></li>
+<li class="chapter" data-level="" data-path="daten-darstellen.html"><a href="daten-darstellen.html#aufgaben-teil-3"><i class="fa fa-check"></i>Aufgaben Teil 3</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i>Appendix</a>
 <ul>
@@ -364,6 +367,10 @@ Da wir auf alle Spalten dafür dieselbe Funktion anwenden wollen, können wir da
 <p><img src="imgs/spss2.png" width="80%" style="display: block; margin: auto;" /></p>
 <p>Für Tipps zur weitergehenden Bearbeitung von SPSS und Stata-Daten noch <a href="https://www.rdocumentation.org/packages/haven/versions/2.2.0/vignettes/semantics.Rmd">hier</a> die sehr gute <code>haven</code>-Vignette zu den nötigen Schritten.</p>
 </div>
+<div id="aufgabe-1-2" class="section level3">
+<h3>Aufgabe 1</h3>
+<p>Lesen Sie die drei Datensätze <code>temp.csv</code>, <code>charts.xlsx</code> und <code>covid_cases.sav</code> ein und verschaffen Sie sich einen Überblick.</p>
+</div>
 </div>
 <div id="datenaufbereitung" class="section level2">
 <h2>Datenaufbereitung</h2>
@@ -443,6 +450,15 @@ Wie könnte ich die <em>Anxiety</em>-Skala im <code>satisfaction</code>-Datensat
 <div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="daten-einlesen.html#cb101-1" aria-hidden="true" tabindex="-1"></a>satisfaction <span class="ot">&lt;-</span> satisfaction <span class="sc">%&gt;%</span> </span>
 <span id="cb101-2"><a href="daten-einlesen.html#cb101-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Average_Anxious_Yesterday =</span> <span class="sc">-</span><span class="dv">1</span><span class="sc">*</span> (Average_Anxious_Yesterday<span class="dv">-10</span>))</span></code></pre></div>
 </div>
+</div>
+<div id="aufgabe-2-1" class="section level3">
+<h3>Aufgabe 2</h3>
+<p>Transformieren Sie nun die Datensätze in der folgenden Art und Weise:</p>
+<ul>
+<li><p>Fassen Sie den Covid-Datensatz so zusammen, dass pro Kalenderwoche eine Summe der jeweils neuen Fälle übrigbleibt. Ersetzen Sie vorher die fehlenden Werte entweder durch Nullen, oder wenn Sie sich eine kleine Herausforderung wünschen, durch die Mittelwerte der jeweiligen Kalenderwoche. Als kleiner Tipp: schauen Sie sich dafür die Hilfeseiten von <code>group_split</code> und <code>map_dfr</code> an.</p></li>
+<li><p>Fassen Sie den Temperatur-Datensatz bitte auch pro Kalenderwoche zusammen, diesmal aber mit der mittleren Temperatur als Ergebnis</p></li>
+<li><p>Im Charts-Datensatz haben sich ein paar unrealistische Platzierungen eingeschlichen. Entfernen Sie diese bitte. Wir wollen für unsere folgenden Analysen pro Lied einen Score benutzen, der zwischen 1 und 0 liegt. Je größer dieser Score ist, desto höher soll der Song platziert gewesen sein und umgekehrt. Rechnen Sie die Position bitte in diesen Score um.</p></li>
+</ul>
 </div>
 </div>
 <div id="zusammenführen-von-datensätzen" class="section level2">
@@ -529,7 +545,231 @@ Wie könnte ich das angehen?
 ## #   `Attempted murder` &lt;dbl&gt;, Satisfaction &lt;dbl&gt;</code></pre>
 <p>Den speichern wir noch eben als csv-Datei ab.</p>
 <div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="daten-einlesen.html#cb112-1" aria-hidden="true" tabindex="-1"></a>overall <span class="sc">%&gt;%</span> <span class="fu">write_csv</span>(<span class="st">&#39;data/drugs_crime_UK.csv&#39;</span>)</span></code></pre></div>
+<div id="aufgabe-3" class="section level3">
+<h3>Aufgabe 3</h3>
+<p>Fügen Sie den Covid und den Temperatur-Datensatz anhand der Kalenderwoche zusammen. Dabei sollen alle Zeilen, die im Temperatur-Datensatz vorliegen auch im neuen Datensatz vorliegen.
+Ersetzen Sie anschließend alle möglicherweise vorliegenden fehlenden Werte durch Nullen.</p>
+<p>Benennen Sie abschließend die Kalender-Wochen-Spalte in <code>calendar_week</code> und die Fall-Spalte im <code>new_covid_cases</code> um.</p>
+<p>Speichern Sie sich den so erstellten Datensatz für später als ‘temp_covid.csv’ ab und den vorbereiteten Charts-Datensatz unter ‘chart_overview.csv’ ab.</p>
 <!-- ### Literatur -->
+
+<!-- # --- -->
+<!-- # title: "03_Aufgaben" -->
+<!-- # author: "Max Brede" -->
+<!-- # date: "11.12.2020" -->
+<!-- # output: html_document -->
+<!-- # --- -->
+<script type="text/javascript">
+<!--
+    function showSolution(x){
+        element=document.getElementById('solution' + x)
+        if(element.style.visibility=='visible'){
+            element.style.visibility='hidden';
+            element.style.display='none';
+        }else{
+            element.style.visibility="visible";
+            element.style.display='block';
+        }
+    }
+
+    -->
+
+</script>
+<!-- ## Für die Data Scientists: -->
+<!-- Die Aufgaben sind eigentlich für eine andere Zielgruppe, denen ich die Datensätz fertig gebe. -->
+<!-- Deren Erstellung ist für Euch aber auch vielleicht interessant. -->
+<!-- Wir wollen 3 Datensätze bauen, die wir dann zu joinen versuchen wollen.  -->
+<!-- 1. Einen Spotify-Chart-Datensatz mit den ersten 10 Plätzen für Deutschland für alle Wochen bis heute. Dabei soll für später um das Joinen einfacher zu machen eine KW-Spalte angelegt werden, die als einfache integer die Woche angibt, auf die sich die Daten beziehen.  -->
+<!-- 2. Einen Wetter-Datensatz von [hier](https://www.dwd.de/DE/leistungen/klimadatendeutschland/klarchivtagmonat.html), der für Kiel für jeden Tag eine Temperatur beinhaltet(Spalte `TMK`). Deren Daten sind ein bisschen tricky, aber das schafft Ihr. Hier bitte auch eine Kalenderwochenspalte anfügen. -->
+<!-- 3. Die aktuellen [Covid-Fallzahlen](https://covid.ourworldindata.org/data/owid-covid-data.csv). Bitte die deutschen Fälle auswählen und wieder eine KW-Spalte anfügen. -->
+<!-- <input type='button' value='Lösung' onclick='showSolution(0);'/> -->
+<!-- <div id='solution0' style='visibility:hidden;display:none' > -->
+<!-- ```{r, eval = F} -->
+<!-- library(lubridate) -->
+<!-- library(tidyverse) -->
+<!-- library(glue) -->
+<!-- ## die spotify-URL-Geschichte kennt Ihr ja schon -->
+<!-- week_range <- as.Date('2020-01-02') + 0:51 * 7  -->
+<!-- week_range <- week_range[week_range < Sys.Date()] %>%  -->
+<!--   as.character() -->
+<!-- url <- 'https://spotifycharts.com/viral/de/weekly/{.}--{.}/download' -->
+<!-- charts <- map_dfr(week_range,  -->
+<!--                   ~read_csv(glue(url)), -->
+<!--                   .id = 'date') %>%  -->
+<!--   mutate(date = as.numeric(date)) -->
+<!-- # helper um gleich die Kalenderwoche einteilen zu können -->
+<!-- determine_cw <- function(date){ -->
+<!--   weeks <- tibble(start = as.Date('2020-01-01') + 0:51 * 7, -->
+<!--                 end = start + 6, -->
+<!--                 kw = 1:52) -->
+<!--   weeks$kw[weeks$start <= date & weeks$end >= date] -->
+<!-- } -->
+<!-- # pre-processing -->
+<!-- temp <- read_delim('data/produkt_klima_tag_20190604_20201204_02564.txt', -->
+<!--                    delim = ';', -->
+<!--                    col_types = cols(.default = 'c')) %>%  -->
+<!--   filter(MESS_DATUM > 20200101) %>%  -->
+<!--   select(date = MESS_DATUM, -->
+<!--          temp = contains('TMK')) %>%  -->
+<!--   mutate(temp = as.numeric(temp), -->
+<!--          date = as.Date(date,format = '%Y%m%d'), -->
+<!--          cw = map_dbl(date, determine_cw))  -->
+<!-- charts <- charts %>%  -->
+<!--   select(kw = date, -->
+<!--          everything()) %>%  -->
+<!--   filter(Position <= 10) %>%  -->
+<!--   mutate(track = glue('{Artist} - {`Track Name`}'))  -->
+<!-- covid <- read_csv('https://covid.ourworldindata.org/data/owid-covid-data.csv') %>%  -->
+<!--   filter(location == 'Germany') %>%  -->
+<!--   select(date, new_cases) %>%  -->
+<!--   mutate(calendar_week = map_dbl(date, determine_cw))  -->
+<!-- ``` -->
+<!-- </div> -->
+<!-- ```{r, include =F, eval = F} -->
+<!-- temp %>%  -->
+<!--   write_csv2('data/temps_kiel.csv') -->
+<!-- i <- sample(seq_along(charts$Position), 10) -->
+<!-- charts$Position[i] <- charts$Position[i] * -15 -->
+<!-- charts %>%  -->
+<!--   select(kw, Position, track) %>% -->
+<!--   openxlsx::write.xlsx('data/charts.xlsx') -->
+<!-- i <- sample(seq_along(covid$new_cases), 10) -->
+<!-- covid$new_cases[i] <- NA -->
+<!-- covid %>%  -->
+<!--   haven::write_sav('data/covid_cases.sav') -->
+<!-- charts <- charts %>%  -->
+<!--   pivot_wider(names_from = Position, -->
+<!--               values_from = track, -->
+<!--               names_prefix = 'position_') -->
+<!-- ``` -->
+</div>
+</div>
+<div id="aufgaben-teil-2" class="section level2">
+<h2>Aufgaben Teil 2</h2>
+<div id="aufgabe-1-3" class="section level3">
+<h3>Aufgabe 1</h3>
+<p>Lesen Sie die drei Datensätze <code>temp.csv</code>, <code>charts.xlsx</code> und <code>covid_cases.sav</code> ein und verschaffen Sie sich einen Überblick.</p>
+<input type='button' value='Lösung' onclick='showSolution(1);'/>
+<div id="solution1" style="visibility:hidden;display:none">
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="daten-einlesen.html#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb113-2"><a href="daten-einlesen.html#cb113-2" aria-hidden="true" tabindex="-1"></a>temps_kiel <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(</span>
+<span id="cb113-3"><a href="daten-einlesen.html#cb113-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/temps_kiel.csv&quot;</span>,</span>
+<span id="cb113-4"><a href="daten-einlesen.html#cb113-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">delim =</span> <span class="st">&quot;;&quot;</span>,</span>
+<span id="cb113-5"><a href="daten-einlesen.html#cb113-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">escape_double =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb113-6"><a href="daten-einlesen.html#cb113-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">col_types =</span> <span class="fu">cols</span>(<span class="at">date =</span> <span class="fu">col_date</span>(<span class="at">format =</span> <span class="st">&quot;%Y-%m-%d&quot;</span>)),</span>
+<span id="cb113-7"><a href="daten-einlesen.html#cb113-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">&quot;,&quot;</span>),</span>
+<span id="cb113-8"><a href="daten-einlesen.html#cb113-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">trim_ws =</span> <span class="cn">TRUE</span></span>
+<span id="cb113-9"><a href="daten-einlesen.html#cb113-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb113-10"><a href="daten-einlesen.html#cb113-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-11"><a href="daten-einlesen.html#cb113-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-12"><a href="daten-einlesen.html#cb113-12" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(temps_kiel)</span></code></pre></div>
+<pre><code>##       date                 temp       
+##  Min.   :2020-01-02   Min.   : 0.000  
+##  1st Qu.:2020-03-26   1st Qu.: 6.425  
+##  Median :2020-06-18   Median :10.900  
+##  Mean   :2020-06-18   Mean   :11.153  
+##  3rd Qu.:2020-09-10   3rd Qu.:15.200  
+##  Max.   :2020-12-04   Max.   :24.300  
+##        cw       
+##  Min.   : 1.00  
+##  1st Qu.:13.00  
+##  Median :25.00  
+##  Mean   :24.79  
+##  3rd Qu.:37.00  
+##  Max.   :49.00</code></pre>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="daten-einlesen.html#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb115-2"><a href="daten-einlesen.html#cb115-2" aria-hidden="true" tabindex="-1"></a>charts <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;data/charts.xlsx&quot;</span>)</span>
+<span id="cb115-3"><a href="daten-einlesen.html#cb115-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb115-4"><a href="daten-einlesen.html#cb115-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(charts)</span></code></pre></div>
+<pre><code>##        kw        Position       
+##  Min.   : 1   Min.   :-135.000  
+##  1st Qu.:13   1st Qu.:   3.000  
+##  Median :25   Median :   5.000  
+##  Mean   :25   Mean   :   3.508  
+##  3rd Qu.:37   3rd Qu.:   8.000  
+##  Max.   :49   Max.   :  10.000  
+##     track          
+##  Length:490        
+##  Class :character  
+##  Mode  :character  
+##                    
+##                    
+## </code></pre>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="daten-einlesen.html#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
+<span id="cb117-2"><a href="daten-einlesen.html#cb117-2" aria-hidden="true" tabindex="-1"></a>covid_cases <span class="ot">&lt;-</span> <span class="fu">read_sav</span>(<span class="st">&quot;data/covid_cases.sav&quot;</span>)</span>
+<span id="cb117-3"><a href="daten-einlesen.html#cb117-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb117-4"><a href="daten-einlesen.html#cb117-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(covid_cases)</span></code></pre></div>
+<pre><code>##       date              new_cases    
+##  Min.   :2020-01-23   Min.   :    0  
+##  1st Qu.:2020-04-11   1st Qu.:  368  
+##  Median :2020-06-29   Median : 1075  
+##  Mean   :2020-06-29   Mean   : 3676  
+##  3rd Qu.:2020-09-16   3rd Qu.: 3124  
+##  Max.   :2020-12-05   Max.   :32687  
+##                       NA&#39;s   :10     
+##  calendar_week  
+##  Min.   : 4.00  
+##  1st Qu.:15.00  
+##  Median :26.00  
+##  Mean   :26.36  
+##  3rd Qu.:38.00  
+##  Max.   :49.00  
+## </code></pre>
+</div>
+</div>
+<div id="aufgabe-2-2" class="section level3">
+<h3>Aufgabe 2</h3>
+<p>Transformieren Sie nun die Datensätze in der folgenden Art und Weise:</p>
+<ul>
+<li><p>Fassen Sie den Covid-Datensatz so zusammen, dass pro Kalenderwoche eine Summe der jeweils neuen Fälle übrigbleibt. Ersetzen Sie vorher die fehlenden Werte entweder durch Nullen, oder wenn Sie sich eine kleine Herausforderung wünschen, durch die Mittelwerte der jeweiligen Kalenderwoche. Als kleiner Tipp: schauen Sie sich dafür die Hilfeseiten von <code>group_split</code> und <code>map_dfr</code> an.</p></li>
+<li><p>Fassen Sie den Temperatur-Datensatz bitte auch pro Kalenderwoche zusammen, diesmal aber mit der mittleren Temperatur als Ergebnis</p></li>
+<li><p>Im Charts-Datensatz haben sich ein paar unrealistische Platzierungen eingeschlichen. Entfernen Sie diese bitte. Wir wollen für unsere folgenden Analysen pro Lied einen Score benutzen, der zwischen 1 und 0 liegt. Je größer dieser Score ist, desto höher soll der Song platziert gewesen sein und umgekehrt. Rechnen Sie die Position bitte in diesen Score um.</p></li>
+</ul>
+<input type='button' value='Lösung' onclick='showSolution(2);'/>
+<div id="solution2" style="visibility:hidden;display:none">
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="daten-einlesen.html#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="do">## einfache Version:</span></span>
+<span id="cb119-2"><a href="daten-einlesen.html#cb119-2" aria-hidden="true" tabindex="-1"></a>covid_cases <span class="ot">&lt;-</span> covid_cases <span class="sc">%&gt;%</span></span>
+<span id="cb119-3"><a href="daten-einlesen.html#cb119-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_if</span>(is.numeric, <span class="sc">~</span><span class="fu">replace_na</span>(.,<span class="dv">0</span>))</span>
+<span id="cb119-4"><a href="daten-einlesen.html#cb119-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb119-5"><a href="daten-einlesen.html#cb119-5" aria-hidden="true" tabindex="-1"></a><span class="do">## etwas komplizierter:</span></span>
+<span id="cb119-6"><a href="daten-einlesen.html#cb119-6" aria-hidden="true" tabindex="-1"></a>covid_cases <span class="ot">&lt;-</span> covid_cases <span class="sc">%&gt;%</span></span>
+<span id="cb119-7"><a href="daten-einlesen.html#cb119-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(calendar_week) <span class="sc">%&gt;%</span> </span>
+<span id="cb119-8"><a href="daten-einlesen.html#cb119-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_split</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb119-9"><a href="daten-einlesen.html#cb119-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map_dfr</span>(<span class="sc">~</span><span class="fu">mutate</span>(.,<span class="at">new_cases =</span> <span class="fu">replace_na</span>(new_cases, </span>
+<span id="cb119-10"><a href="daten-einlesen.html#cb119-10" aria-hidden="true" tabindex="-1"></a>                                           <span class="fu">mean</span>(new_cases, </span>
+<span id="cb119-11"><a href="daten-einlesen.html#cb119-11" aria-hidden="true" tabindex="-1"></a>                                                <span class="at">na.rm=</span>T))))</span>
+<span id="cb119-12"><a href="daten-einlesen.html#cb119-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb119-13"><a href="daten-einlesen.html#cb119-13" aria-hidden="true" tabindex="-1"></a>covid_cases <span class="ot">&lt;-</span> covid_cases <span class="sc">%&gt;%</span> </span>
+<span id="cb119-14"><a href="daten-einlesen.html#cb119-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(calendar_week) <span class="sc">%&gt;%</span> </span>
+<span id="cb119-15"><a href="daten-einlesen.html#cb119-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">cases =</span> <span class="fu">sum</span>(new_cases))</span></code></pre></div>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="daten-einlesen.html#cb121-1" aria-hidden="true" tabindex="-1"></a>temps_kiel <span class="ot">&lt;-</span> temps_kiel <span class="sc">%&gt;%</span> </span>
+<span id="cb121-2"><a href="daten-einlesen.html#cb121-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(cw) <span class="sc">%&gt;%</span> </span>
+<span id="cb121-3"><a href="daten-einlesen.html#cb121-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">m_temp =</span> <span class="fu">mean</span>(temp))</span></code></pre></div>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="daten-einlesen.html#cb123-1" aria-hidden="true" tabindex="-1"></a>charts <span class="ot">&lt;-</span> charts <span class="sc">%&gt;%</span> </span>
+<span id="cb123-2"><a href="daten-einlesen.html#cb123-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">between</span>(Position, <span class="dv">0</span>, <span class="dv">10</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb123-3"><a href="daten-einlesen.html#cb123-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Score =</span> <span class="sc">-</span><span class="dv">1</span> <span class="sc">*</span> Position <span class="sc">+</span> <span class="dv">11</span>,</span>
+<span id="cb123-4"><a href="daten-einlesen.html#cb123-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">Score =</span> Score <span class="sc">/</span> <span class="dv">10</span>)</span></code></pre></div>
+</div>
+</div>
+<div id="aufgabe-3-1" class="section level3">
+<h3>Aufgabe 3</h3>
+<p>Fügen Sie den Covid und den Temperatur-Datensatz anhand der Kalenderwoche zusammen. Dabei sollen alle Zeilen, die im Temperatur-Datensatz vorliegen auch im neuen Datensatz vorliegen.
+Ersetzen Sie anschließend alle möglicherweise vorliegenden fehlenden Werte durch Nullen.</p>
+<p>Benennen Sie abschließend die Kalender-Wochen-Spalte in <code>calendar_week</code> und die Fall-Spalte im <code>new_covid_cases</code> um.</p>
+<p>Speichern Sie sich den so erstellten Datensatz für später als ‘temp_covid.csv’ ab und den vorbereiteten Charts-Datensatz unter ‘chart_overview.csv’ ab.</p>
+<input type='button' value='Lösung' onclick='showSolution(3);'/>
+<div id="solution3" style="visibility:hidden;display:none">
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="daten-einlesen.html#cb124-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">left_join</span>(temps_kiel, covid_cases, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&#39;cw&#39;</span> <span class="ot">=</span> <span class="st">&#39;calendar_week&#39;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb124-2"><a href="daten-einlesen.html#cb124-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_if</span>(is.numeric, <span class="sc">~</span><span class="fu">replace_na</span>(., <span class="dv">0</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb124-3"><a href="daten-einlesen.html#cb124-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">&#39;calendar_week&#39;</span> <span class="ot">=</span> <span class="st">&#39;cw&#39;</span>,</span>
+<span id="cb124-4"><a href="daten-einlesen.html#cb124-4" aria-hidden="true" tabindex="-1"></a>         <span class="st">&#39;new_covid_cases&#39;</span> <span class="ot">=</span> <span class="st">&#39;cases&#39;</span>)</span>
+<span id="cb124-5"><a href="daten-einlesen.html#cb124-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb124-6"><a href="daten-einlesen.html#cb124-6" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> <span class="fu">write_csv</span>(<span class="st">&#39;data/temp_covid.csv&#39;</span>)</span>
+<span id="cb124-7"><a href="daten-einlesen.html#cb124-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb124-8"><a href="daten-einlesen.html#cb124-8" aria-hidden="true" tabindex="-1"></a>charts <span class="sc">%&gt;%</span> <span class="fu">write_csv</span>(<span class="st">&#39;data/chart_overview.csv&#39;</span>)</span></code></pre></div>
+</div>
 
 <!-- # --- -->
 <!-- # title: "Daten darstellen" -->
@@ -551,6 +791,7 @@ Wie könnte ich das angehen?
 <!-- ``` -->
 <!-- ### Ablauf -->
 <!-- <div id="toc"></div> -->
+</div>
 </div>
 </div>
             </section>

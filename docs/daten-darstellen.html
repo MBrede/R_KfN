@@ -24,7 +24,7 @@
 <meta name="author" content="Max Brede" />
 
 
-<meta name="date" content="2020-12-04" />
+<meta name="date" content="2020-12-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -156,17 +156,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#datensätze-in-r"><i class="fa fa-check"></i>Datensätze in R</a></li>
 <li class="chapter" data-level="" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#regressionen-in-r"><i class="fa fa-check"></i>Regressionen in R</a></li>
+<li class="chapter" data-level="" data-path="daten-manipulieren.html"><a href="daten-manipulieren.html#aufgaben-teil-1"><i class="fa fa-check"></i>Aufgaben Teil 1</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="daten-einlesen.html"><a href="daten-einlesen.html"><i class="fa fa-check"></i>Daten einlesen</a>
 <ul>
 <li class="chapter" data-level="" data-path="daten-einlesen.html"><a href="daten-einlesen.html#einlesen-von-daten"><i class="fa fa-check"></i>Einlesen von Daten</a></li>
 <li class="chapter" data-level="" data-path="daten-einlesen.html"><a href="daten-einlesen.html#datenaufbereitung"><i class="fa fa-check"></i>Datenaufbereitung</a></li>
 <li class="chapter" data-level="" data-path="daten-einlesen.html"><a href="daten-einlesen.html#zusammenführen-von-datensätzen"><i class="fa fa-check"></i>Zusammenführen von Datensätzen</a></li>
+<li class="chapter" data-level="" data-path="daten-einlesen.html"><a href="daten-einlesen.html#aufgaben-teil-2"><i class="fa fa-check"></i>Aufgaben Teil 2</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="daten-darstellen.html"><a href="daten-darstellen.html"><i class="fa fa-check"></i>Daten darstellen</a>
 <ul>
 <li class="chapter" data-level="" data-path="daten-darstellen.html"><a href="daten-darstellen.html#pivotieren-von-datensätzen"><i class="fa fa-check"></i>pivotieren von Datensätzen</a></li>
 <li class="chapter" data-level="" data-path="daten-darstellen.html"><a href="daten-darstellen.html#ggplot2"><i class="fa fa-check"></i>ggplot2</a></li>
+<li class="chapter" data-level="" data-path="daten-darstellen.html"><a href="daten-darstellen.html#aufgaben-teil-3"><i class="fa fa-check"></i>Aufgaben Teil 3</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i>Appendix</a>
 <ul>
@@ -219,14 +222,14 @@ Für das Grafikpaket, das wir benutzen wollen, müssen die Daten im <code>long f
 Wie machen wir das?
 </p>
 <div class="build">
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="daten-darstellen.html#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb113-2"><a href="daten-darstellen.html#cb113-2" aria-hidden="true" tabindex="-1"></a>crime <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">&quot;data/crime_plot.csv&quot;</span>, </span>
-<span id="cb113-3"><a href="daten-darstellen.html#cb113-3" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;;&quot;</span>, <span class="at">escape_double =</span> <span class="cn">FALSE</span>, <span class="at">trim_ws =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb113-4"><a href="daten-darstellen.html#cb113-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Force,HOMICIDE,Country,<span class="st">`</span><span class="at">Attempted murder</span><span class="st">`</span>, </span>
-<span id="cb113-5"><a href="daten-darstellen.html#cb113-5" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Violence with injury</span><span class="st">`</span>, <span class="st">`</span><span class="at">Assault with injury</span><span class="st">`</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb113-6"><a href="daten-darstellen.html#cb113-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">&#39;Homicide&#39;</span> <span class="ot">=</span> <span class="st">&#39;HOMICIDE&#39;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb113-7"><a href="daten-darstellen.html#cb113-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Force <span class="sc">!=</span> <span class="st">&#39;Total&#39;</span>)</span>
-<span id="cb113-8"><a href="daten-darstellen.html#cb113-8" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(crime)</span></code></pre></div>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="daten-darstellen.html#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb125-2"><a href="daten-darstellen.html#cb125-2" aria-hidden="true" tabindex="-1"></a>crime <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">&quot;data/crime_plot.csv&quot;</span>, </span>
+<span id="cb125-3"><a href="daten-darstellen.html#cb125-3" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;;&quot;</span>, <span class="at">escape_double =</span> <span class="cn">FALSE</span>, <span class="at">trim_ws =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb125-4"><a href="daten-darstellen.html#cb125-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Force,HOMICIDE,Country,<span class="st">`</span><span class="at">Attempted murder</span><span class="st">`</span>, </span>
+<span id="cb125-5"><a href="daten-darstellen.html#cb125-5" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Violence with injury</span><span class="st">`</span>, <span class="st">`</span><span class="at">Assault with injury</span><span class="st">`</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb125-6"><a href="daten-darstellen.html#cb125-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">&#39;Homicide&#39;</span> <span class="ot">=</span> <span class="st">&#39;HOMICIDE&#39;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb125-7"><a href="daten-darstellen.html#cb125-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Force <span class="sc">!=</span> <span class="st">&#39;Total&#39;</span>)</span>
+<span id="cb125-8"><a href="daten-darstellen.html#cb125-8" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(crime)</span></code></pre></div>
 <pre><code>## Rows: 44
 ## Columns: 6
 ## $ Force                  &lt;chr&gt; &quot;Avon and Somers…
@@ -239,13 +242,13 @@ Wie machen wir das?
 <!-- ### pivotieren von Datensätzen -->
 <p>Um den Datensatz in ein längeres Format zu pivotieren, benutzen wir die <code>pivot_longer</code>-Funktion.
 Wir erstellen dafür hier einen zweiten Datensatz</p>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="daten-darstellen.html#cb115-1" aria-hidden="true" tabindex="-1"></a>crime_long <span class="ot">&lt;-</span> crime <span class="sc">%&gt;%</span> </span>
-<span id="cb115-2"><a href="daten-darstellen.html#cb115-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
-<span id="cb115-3"><a href="daten-darstellen.html#cb115-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">c</span>(<span class="st">&#39;Homicide&#39;</span>,<span class="st">&#39;Attempted murder&#39;</span>, </span>
-<span id="cb115-4"><a href="daten-darstellen.html#cb115-4" aria-hidden="true" tabindex="-1"></a>             <span class="st">&#39;Violence with injury&#39;</span>, <span class="st">&#39;Assault with injury&#39;</span>),</span>
-<span id="cb115-5"><a href="daten-darstellen.html#cb115-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">&#39;offence&#39;</span>, </span>
-<span id="cb115-6"><a href="daten-darstellen.html#cb115-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">&#39;count&#39;</span>)</span>
-<span id="cb115-7"><a href="daten-darstellen.html#cb115-7" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(crime_long)</span></code></pre></div>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="daten-darstellen.html#cb127-1" aria-hidden="true" tabindex="-1"></a>crime_long <span class="ot">&lt;-</span> crime <span class="sc">%&gt;%</span> </span>
+<span id="cb127-2"><a href="daten-darstellen.html#cb127-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb127-3"><a href="daten-darstellen.html#cb127-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">c</span>(<span class="st">&#39;Homicide&#39;</span>,<span class="st">&#39;Attempted murder&#39;</span>, </span>
+<span id="cb127-4"><a href="daten-darstellen.html#cb127-4" aria-hidden="true" tabindex="-1"></a>             <span class="st">&#39;Violence with injury&#39;</span>, <span class="st">&#39;Assault with injury&#39;</span>),</span>
+<span id="cb127-5"><a href="daten-darstellen.html#cb127-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">&#39;offence&#39;</span>, </span>
+<span id="cb127-6"><a href="daten-darstellen.html#cb127-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">&#39;count&#39;</span>)</span>
+<span id="cb127-7"><a href="daten-darstellen.html#cb127-7" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(crime_long)</span></code></pre></div>
 <pre><code>## Rows: 176
 ## Columns: 4
 ## $ Force   &lt;chr&gt; &quot;Avon and Somerset&quot;, &quot;Avon and …
@@ -255,11 +258,11 @@ Wir erstellen dafür hier einen zweiten Datensatz</p>
 <div id="vorbereitung-für-die-grafische-darstellung" class="section level3">
 <h3>Vorbereitung für die grafische Darstellung</h3>
 <p>Abschließend fügen wir noch für später Auswertungen eine Variable hinzu, die codiert, ob die Straftat in einer Verletzung ausgegangen ist oder versuchter/erfolgreicher Mord ist. Dafür benutzen wir die <code>str_detect</code>-Funktion.</p>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="daten-darstellen.html#cb117-1" aria-hidden="true" tabindex="-1"></a>crime_long <span class="ot">&lt;-</span> crime_long <span class="sc">%&gt;%</span> </span>
-<span id="cb117-2"><a href="daten-darstellen.html#cb117-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">type_of_offence =</span> <span class="fu">ifelse</span>(<span class="fu">str_detect</span>(offence, <span class="st">&#39;injury&#39;</span>),</span>
-<span id="cb117-3"><a href="daten-darstellen.html#cb117-3" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">&#39;injury&#39;</span>,</span>
-<span id="cb117-4"><a href="daten-darstellen.html#cb117-4" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">&#39;(attempted) homicide&#39;</span>))</span>
-<span id="cb117-5"><a href="daten-darstellen.html#cb117-5" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(crime)</span></code></pre></div>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="daten-darstellen.html#cb129-1" aria-hidden="true" tabindex="-1"></a>crime_long <span class="ot">&lt;-</span> crime_long <span class="sc">%&gt;%</span> </span>
+<span id="cb129-2"><a href="daten-darstellen.html#cb129-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">type_of_offence =</span> <span class="fu">ifelse</span>(<span class="fu">str_detect</span>(offence, <span class="st">&#39;injury&#39;</span>),</span>
+<span id="cb129-3"><a href="daten-darstellen.html#cb129-3" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">&#39;injury&#39;</span>,</span>
+<span id="cb129-4"><a href="daten-darstellen.html#cb129-4" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">&#39;(attempted) homicide&#39;</span>))</span>
+<span id="cb129-5"><a href="daten-darstellen.html#cb129-5" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(crime)</span></code></pre></div>
 <pre><code>## Rows: 44
 ## Columns: 6
 ## $ Force                  &lt;chr&gt; &quot;Avon and Somers…
@@ -268,6 +271,22 @@ Wir erstellen dafür hier einen zweiten Datensatz</p>
 ## $ `Attempted murder`     &lt;dbl&gt; 20, 10, 3, 13, 6…
 ## $ `Violence with injury` &lt;dbl&gt; 9293, 4368, 2200…
 ## $ `Assault with injury`  &lt;dbl&gt; 8716, 4171, 1905…</code></pre>
+</div>
+<div id="aufgabe-1-4" class="section level3">
+<h3>Aufgabe 1</h3>
+<p>Lesen Sie die zwei in den letzten Aufgaben abgespeicherten ‘temp_covid.csv’ und ‘chart_overview.csv’ ein.</p>
+<p>Entfernen Sie zuerst die Platzierungs-Spalte aus dem Chart-Datensatz.</p>
+<p>Legen Sie dann einen Vektor mit den Namen der 5 erfolgreichsten Songs über das ganze Jahr an. Berechnen Sie dafür zuerst den Summen-Score pro Song.</p>
+<p>Die nächsten, grau hinterlegten Schritte sind etwas fortgeschritten, Sie können sie überspringen indem Sie den ‘chart_top5.csv’-Datensatz einlesen.</p>
+<div style="background-color: #eeeeee;">
+<p>Mit der <code>arrange</code>-Funktion können Sie sich dann die Songs nach Erfolg sortieren lassen. Probieren Sie die ersten beiden Beispiele auf der Hilfeseite aus um ein Gefühl für die nötige Funktion zu bekommen.</p>
+<p>Die 5 erfolgreichsten Songs können Sie sich dann per Indizierung ausgeben lassen.</p>
+<p>Nutzen Sie im nächsten Schritt den erstellten Vektor um den Chart-Datensatz zu filtern. Lesen Sie dafür den Hilfe-Eintrag des <code>%in%</code>-Operators.</p>
+<p>Pivotieren Sie den Datensatz abschließend derart, dass jedem der Songs eine Spalte zugeordnet ist. Lesen Sie dazu die Hilfeseite der <code>pivot_wider</code>-Funktion.</p>
+</div>
+<p>Fügen Sie den Datensatz anschließend dem Covid-Temperatur-Datensatz an. Alle Zeilen aus dem Covid-Temperatur-Datensatz sollen erhalten bleiben.</p>
+<p>Standardisieren Sie anschließend die mittlere Temperatur und die neuen Fälle derart, dass sie sich auch in ienem Bereich zwischen 0 und 1 bewegen.</p>
+<p>Pivotieren Sie den gesamten Datensatz zum Schluss ins long-Format, so dass eine Spalte mit der Kalenderwoche, eine Spalte mit dem Variablennamen und eine Spalte mit den Chart-Scores übrigbleibt.</p>
 </div>
 </div>
 <div id="ggplot2" class="section level2">
@@ -295,17 +314,17 @@ Diese Leinwand erstellt man mit der <code>ggplot</code>-Funktion, in die man, wi
 <p>
 Als zweites Argument nach dem Datensatz erwartet <code>ggplot</code> eine Angabe, wie welche Variablen dargestellt werden sollen. Diese Angaben <em>müssen</em> mit <code>aes</code> für aesthetics erstellt werden:
 </p>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="daten-darstellen.html#cb119-1" aria-hidden="true" tabindex="-1"></a>crime_plot <span class="ot">&lt;-</span> crime <span class="sc">%&gt;%</span> </span>
-<span id="cb119-2"><a href="daten-darstellen.html#cb119-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Homicide, <span class="at">y =</span> <span class="st">`</span><span class="at">Attempted murder</span><span class="st">`</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="daten-darstellen.html#cb131-1" aria-hidden="true" tabindex="-1"></a>crime_plot <span class="ot">&lt;-</span> crime <span class="sc">%&gt;%</span> </span>
+<span id="cb131-2"><a href="daten-darstellen.html#cb131-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Homicide, <span class="at">y =</span> <span class="st">`</span><span class="at">Attempted murder</span><span class="st">`</span>))</span></code></pre></div>
 <!-- ### ggplot2 {.scrollable} -->
 <p>Diese ‘leere Leinwand’ sieht so aus:</p>
-<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="daten-darstellen.html#cb120-1" aria-hidden="true" tabindex="-1"></a>crime_plot</span></code></pre></div>
-<p><img src="R_Einfuehrung_111220_files/figure-html/unnamed-chunk-94-1.png" width="1000px" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="daten-darstellen.html#cb132-1" aria-hidden="true" tabindex="-1"></a>crime_plot</span></code></pre></div>
+<p><img src="R_Einfuehrung_111220_files/figure-html/unnamed-chunk-97-1.png" width="1000px" style="display: block; margin: auto;" /></p>
 <div id="aesthetics" class="section level3 subsection">
 <h3>aesthetics</h3>
 <p>Auf diese Leinwand können wir dann eine Reihe von verschiedenen grafischen Elementen legen, den so genannten <code>geom</code>s. Das einfachste Beispiel auf der eben erstellten Leinwand ist ein Scatterplot.
 Um der Leinwand Punkte hinzuzufügen, <em>addieren</em> wir einfach einen <code>geom_point</code>-Layer auf die Grafik:</p>
-<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="daten-darstellen.html#cb121-1" aria-hidden="true" tabindex="-1"></a>crime_plot <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="daten-darstellen.html#cb133-1" aria-hidden="true" tabindex="-1"></a>crime_plot <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code></pre></div>
 <p><img src="imgs/pts.png" width="1000px" style="display: block; margin: auto;" /></p>
 <!-- ### aesthetics -->
 <p>
@@ -321,16 +340,16 @@ Die für unseren Graphen attraktivsten sind:
 </ul>
 <!-- ### aesthetics -->
 <p>Jedes <code>geom</code> hat auch die Möglichkeit, Daten und <code>aesthetics</code> zu nehmen. Wenn keine gesetzt werden, werden einfach die des ursprünglichen <code>ggplot</code>-Aufrufs übernommen.</p>
-<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="daten-darstellen.html#cb122-1" aria-hidden="true" tabindex="-1"></a>crime_plot <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> <span class="st">`</span><span class="at">Violence with injury</span><span class="st">`</span>, </span>
-<span id="cb122-2"><a href="daten-darstellen.html#cb122-2" aria-hidden="true" tabindex="-1"></a>                            <span class="at">color =</span> <span class="st">`</span><span class="at">Assault with injury</span><span class="st">`</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="daten-darstellen.html#cb134-1" aria-hidden="true" tabindex="-1"></a>crime_plot <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> <span class="st">`</span><span class="at">Violence with injury</span><span class="st">`</span>, </span>
+<span id="cb134-2"><a href="daten-darstellen.html#cb134-2" aria-hidden="true" tabindex="-1"></a>                            <span class="at">color =</span> <span class="st">`</span><span class="at">Assault with injury</span><span class="st">`</span>))</span></code></pre></div>
 <p><img src="imgs/pts2.png" width="1000px" style="display: block; margin: auto;" /></p>
 <p class="o">
 Die aus mehreren Worten bestehenden Variablennamen sind mit Gravis eingeschlossen, nicht mit Anführungszeichen!
 </p>
 <!-- ### aesthetics -->
 <p>Wenn <code>aesthetic</code>-Argumente außerhalb der <code>aes</code>-Funktion gesetzt werden, geben sie einen konstanten Wert für das <code>geom</code> an:</p>
-<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="daten-darstellen.html#cb123-1" aria-hidden="true" tabindex="-1"></a>crime_plot <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> <span class="st">`</span><span class="at">Violence with injury</span><span class="st">`</span>), </span>
-<span id="cb123-2"><a href="daten-darstellen.html#cb123-2" aria-hidden="true" tabindex="-1"></a>                            <span class="at">color =</span> <span class="st">&#39;purple&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="daten-darstellen.html#cb135-1" aria-hidden="true" tabindex="-1"></a>crime_plot <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> <span class="st">`</span><span class="at">Violence with injury</span><span class="st">`</span>), </span>
+<span id="cb135-2"><a href="daten-darstellen.html#cb135-2" aria-hidden="true" tabindex="-1"></a>                            <span class="at">color =</span> <span class="st">&#39;purple&#39;</span>)</span></code></pre></div>
 <p><img src="imgs/pts3.png" width="1000px" style="display: block; margin: auto;" /></p>
 </div>
 <div id="geoms" class="section level3 subsection">
@@ -347,11 +366,11 @@ Histogramme, Boxplots und Barcharts:<a href="#fn3" class="footnote-ref" id="fnre
 </p>
 <div class="cols">
 <div class="col">
-<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="daten-darstellen.html#cb124-1" aria-hidden="true" tabindex="-1"></a>crime <span class="sc">%&gt;%</span> </span>
-<span id="cb124-2"><a href="daten-darstellen.html#cb124-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Homicide)) <span class="sc">+</span></span>
-<span id="cb124-3"><a href="daten-darstellen.html#cb124-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">fill =</span> <span class="st">&#39;white&#39;</span>,</span>
-<span id="cb124-4"><a href="daten-darstellen.html#cb124-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">color =</span> <span class="st">&#39;black&#39;</span>,</span>
-<span id="cb124-5"><a href="daten-darstellen.html#cb124-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">binwidth =</span> <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="daten-darstellen.html#cb136-1" aria-hidden="true" tabindex="-1"></a>crime <span class="sc">%&gt;%</span> </span>
+<span id="cb136-2"><a href="daten-darstellen.html#cb136-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Homicide)) <span class="sc">+</span></span>
+<span id="cb136-3"><a href="daten-darstellen.html#cb136-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">fill =</span> <span class="st">&#39;white&#39;</span>,</span>
+<span id="cb136-4"><a href="daten-darstellen.html#cb136-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">color =</span> <span class="st">&#39;black&#39;</span>,</span>
+<span id="cb136-5"><a href="daten-darstellen.html#cb136-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">binwidth =</span> <span class="dv">3</span>)</span></code></pre></div>
 </div>
 <div class="col">
 <p><img src="imgs/pts4.png" width="1000px" style="display: block; margin: auto;" /></p>
@@ -359,10 +378,10 @@ Histogramme, Boxplots und Barcharts:<a href="#fn3" class="footnote-ref" id="fnre
 </div>
 <div class="cols">
 <div class="col">
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="daten-darstellen.html#cb125-1" aria-hidden="true" tabindex="-1"></a>crime_long <span class="sc">%&gt;%</span> </span>
-<span id="cb125-2"><a href="daten-darstellen.html#cb125-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> count, </span>
-<span id="cb125-3"><a href="daten-darstellen.html#cb125-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">x =</span> offence)) <span class="sc">+</span></span>
-<span id="cb125-4"><a href="daten-darstellen.html#cb125-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="daten-darstellen.html#cb137-1" aria-hidden="true" tabindex="-1"></a>crime_long <span class="sc">%&gt;%</span> </span>
+<span id="cb137-2"><a href="daten-darstellen.html#cb137-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> count, </span>
+<span id="cb137-3"><a href="daten-darstellen.html#cb137-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">x =</span> offence)) <span class="sc">+</span></span>
+<span id="cb137-4"><a href="daten-darstellen.html#cb137-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
 </div>
 <div class="col">
 <p><img src="imgs/pts5.png" width="1000px" style="display: block; margin: auto;" /></p>
@@ -370,26 +389,34 @@ Histogramme, Boxplots und Barcharts:<a href="#fn3" class="footnote-ref" id="fnre
 </div>
 <div class="cols">
 <div class="col">
-<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="daten-darstellen.html#cb126-1" aria-hidden="true" tabindex="-1"></a>crime_long <span class="sc">%&gt;%</span></span>
-<span id="cb126-2"><a href="daten-darstellen.html#cb126-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> count,</span>
-<span id="cb126-3"><a href="daten-darstellen.html#cb126-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">x =</span> offence</span>
-<span id="cb126-4"><a href="daten-darstellen.html#cb126-4" aria-hidden="true" tabindex="-1"></a>             )) <span class="sc">+</span></span>
-<span id="cb126-5"><a href="daten-darstellen.html#cb126-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="daten-darstellen.html#cb138-1" aria-hidden="true" tabindex="-1"></a>crime_long <span class="sc">%&gt;%</span></span>
+<span id="cb138-2"><a href="daten-darstellen.html#cb138-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> count,</span>
+<span id="cb138-3"><a href="daten-darstellen.html#cb138-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">x =</span> offence</span>
+<span id="cb138-4"><a href="daten-darstellen.html#cb138-4" aria-hidden="true" tabindex="-1"></a>             )) <span class="sc">+</span></span>
+<span id="cb138-5"><a href="daten-darstellen.html#cb138-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span></code></pre></div>
 </div>
 <div class="col">
 <p><img src="imgs/pts6.png" width="1000px" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 </div>
-<div id="aesthetics-1" class="section level3 subsection">
-<h3>aesthetics</h3>
+<div id="aufgabe-2-3" class="section level3">
+<h3>Aufgabe 2</h3>
+<p>Für die Darstellung ist der standardisierte long-Format-Datensatz aus der letzten Aufgabe nötig.</p>
+<p>Sollten Sie nicht ganz zum Ende der Aufgabe gekommen sein, können Sie auch den <code>darst_aufg_1.csv</code>-Datensatz einlesen.</p>
+<p>Erstellen Sie den folgenden Graphen:</p>
+<p><img src="imgs/task_ts.png" width="1000px" style="display: block; margin: auto;" /></p>
+<p>Finden Sie dafür im Hilfe-Eintrag der <code>theme</code>- Funktion heraus, wie Sie die Position der Legende verändern können und im Hilfeeintrag der <code>labs</code>-Funktion wie Sie die Beschriftungen anpassen können.</p>
+</div>
+<div id="finetuning" class="section level3 subsection">
+<h3>finetuning</h3>
 <p>
 Der Barchart ist ein guter Anlass, den Plot zu optimieren.
 </p>
 <p>
 Uns stehen die folgenden Informationen zur Verfügung:
 </p>
-<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="daten-darstellen.html#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(crime_long)</span></code></pre></div>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="daten-darstellen.html#cb139-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(crime_long)</span></code></pre></div>
 <pre><code>## Rows: 176
 ## Columns: 5
 ## $ Force           &lt;chr&gt; &quot;Avon and Somerset&quot;, &quot;A…
@@ -402,14 +429,14 @@ Uns stehen die folgenden Informationen zur Verfügung:
 <div id="facets" class="section level3">
 <h3>facets!</h3>
 <p>Facets lassen uns einfach mehrere Subplots definieren, um zusätzlich zu den in unseren <code>geom</code>s und <code>aes</code>-Aufrufen definierten Aspekten Subgruppen darzustellen.</p>
-<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="daten-darstellen.html#cb129-1" aria-hidden="true" tabindex="-1"></a>crime_long <span class="sc">%&gt;%</span>  </span>
-<span id="cb129-2"><a href="daten-darstellen.html#cb129-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> count,</span>
-<span id="cb129-3"><a href="daten-darstellen.html#cb129-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">x =</span> Force)) <span class="sc">+</span></span>
-<span id="cb129-4"><a href="daten-darstellen.html#cb129-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">&#39;white&#39;</span>,</span>
-<span id="cb129-5"><a href="daten-darstellen.html#cb129-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> <span class="st">&#39;grey&#39;</span>) <span class="sc">+</span></span>
-<span id="cb129-6"><a href="daten-darstellen.html#cb129-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(offence<span class="sc">~</span>Country, <span class="do">## als facets mit Straftat in Zeilen und Landesteil in Spalten</span></span>
-<span id="cb129-7"><a href="daten-darstellen.html#cb129-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">scales =</span> <span class="st">&#39;free&#39;</span>) <span class="do">## mit individuellen Skalen</span></span></code></pre></div>
-<p><img src="R_Einfuehrung_111220_files/figure-html/unnamed-chunk-107-1.png" width="1000px" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="daten-darstellen.html#cb141-1" aria-hidden="true" tabindex="-1"></a>crime_long <span class="sc">%&gt;%</span>  </span>
+<span id="cb141-2"><a href="daten-darstellen.html#cb141-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> count,</span>
+<span id="cb141-3"><a href="daten-darstellen.html#cb141-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">x =</span> Force)) <span class="sc">+</span></span>
+<span id="cb141-4"><a href="daten-darstellen.html#cb141-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">&#39;white&#39;</span>,</span>
+<span id="cb141-5"><a href="daten-darstellen.html#cb141-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> <span class="st">&#39;grey&#39;</span>) <span class="sc">+</span></span>
+<span id="cb141-6"><a href="daten-darstellen.html#cb141-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(offence<span class="sc">~</span>Country, <span class="do">## als facets mit Straftat in Zeilen und Landesteil in Spalten</span></span>
+<span id="cb141-7"><a href="daten-darstellen.html#cb141-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">scales =</span> <span class="st">&#39;free&#39;</span>) <span class="do">## mit individuellen Skalen</span></span></code></pre></div>
+<p><img src="R_Einfuehrung_111220_files/figure-html/unnamed-chunk-112-1.png" width="1000px" style="display: block; margin: auto;" /></p>
 <p class="q">
 Wie können wir das noch verbessern?
 </p>
@@ -418,31 +445,31 @@ Wie können wir das noch verbessern?
 <h3>additional tweeks</h3>
 <p>Zuerst sortieren wir die Polizeistationen in absteigender Reihenfolge der jeweiligen mittleren Fallzahlen.</p>
 <p>Dafür benutzen wir das <code>forcats</code>-Paket aus dem <code>tidyverse</code>. Ein Paket, dass Funktionen zum Verändern und Sortieren von Faktoren bietet.</p>
-<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="daten-darstellen.html#cb130-1" aria-hidden="true" tabindex="-1"></a>crime_long <span class="sc">%&gt;%</span> </span>
-<span id="cb130-2"><a href="daten-darstellen.html#cb130-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb130-3"><a href="daten-darstellen.html#cb130-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">Force =</span> <span class="fu">as_factor</span>(Force), <span class="do">## zuerst in Faktor umwandeln</span></span>
-<span id="cb130-4"><a href="daten-darstellen.html#cb130-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">Force =</span> <span class="fu">fct_reorder</span>(Force, count,<span class="at">.fun =</span> mean, <span class="at">.desc =</span> T)) <span class="sc">%&gt;%</span> <span class="do">## dann absteigend sortieren</span></span>
-<span id="cb130-5"><a href="daten-darstellen.html#cb130-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> count,</span>
-<span id="cb130-6"><a href="daten-darstellen.html#cb130-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">x =</span> Force)) <span class="sc">+</span></span>
-<span id="cb130-7"><a href="daten-darstellen.html#cb130-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">&#39;white&#39;</span>,</span>
-<span id="cb130-8"><a href="daten-darstellen.html#cb130-8" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> <span class="st">&#39;grey&#39;</span>) <span class="sc">+</span></span>
-<span id="cb130-9"><a href="daten-darstellen.html#cb130-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(offence<span class="sc">~</span>Country, </span>
-<span id="cb130-10"><a href="daten-darstellen.html#cb130-10" aria-hidden="true" tabindex="-1"></a>             <span class="at">scales =</span> <span class="st">&#39;free&#39;</span>)</span></code></pre></div>
-<p><img src="R_Einfuehrung_111220_files/figure-html/unnamed-chunk-108-1.png" width="1000px" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="daten-darstellen.html#cb142-1" aria-hidden="true" tabindex="-1"></a>crime_long <span class="sc">%&gt;%</span> </span>
+<span id="cb142-2"><a href="daten-darstellen.html#cb142-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb142-3"><a href="daten-darstellen.html#cb142-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">Force =</span> <span class="fu">as_factor</span>(Force), <span class="do">## zuerst in Faktor umwandeln</span></span>
+<span id="cb142-4"><a href="daten-darstellen.html#cb142-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">Force =</span> <span class="fu">fct_reorder</span>(Force, count,<span class="at">.fun =</span> mean, <span class="at">.desc =</span> T)) <span class="sc">%&gt;%</span> <span class="do">## dann absteigend sortieren</span></span>
+<span id="cb142-5"><a href="daten-darstellen.html#cb142-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> count,</span>
+<span id="cb142-6"><a href="daten-darstellen.html#cb142-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">x =</span> Force)) <span class="sc">+</span></span>
+<span id="cb142-7"><a href="daten-darstellen.html#cb142-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">&#39;white&#39;</span>,</span>
+<span id="cb142-8"><a href="daten-darstellen.html#cb142-8" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> <span class="st">&#39;grey&#39;</span>) <span class="sc">+</span></span>
+<span id="cb142-9"><a href="daten-darstellen.html#cb142-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(offence<span class="sc">~</span>Country, </span>
+<span id="cb142-10"><a href="daten-darstellen.html#cb142-10" aria-hidden="true" tabindex="-1"></a>             <span class="at">scales =</span> <span class="st">&#39;free&#39;</span>)</span></code></pre></div>
+<p><img src="R_Einfuehrung_111220_files/figure-html/unnamed-chunk-113-1.png" width="1000px" style="display: block; margin: auto;" /></p>
 <!-- ### additional tweeks -->
 <p>Um die einzelnen Stationen besser lesbar zu machen, können wir noch die Achsen austauschen.</p>
-<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="daten-darstellen.html#cb131-1" aria-hidden="true" tabindex="-1"></a>crime_long <span class="sc">%&gt;%</span> </span>
-<span id="cb131-2"><a href="daten-darstellen.html#cb131-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb131-3"><a href="daten-darstellen.html#cb131-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">Force =</span> <span class="fu">as_factor</span>(Force), <span class="do">## zuerst in Faktor umwandeln</span></span>
-<span id="cb131-4"><a href="daten-darstellen.html#cb131-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">Force =</span> <span class="fu">fct_reorder</span>(Force, count,<span class="at">.fun =</span> mean, <span class="at">.desc =</span> T)) <span class="sc">%&gt;%</span> <span class="do">## dann absteigend sortieren</span></span>
-<span id="cb131-5"><a href="daten-darstellen.html#cb131-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> count,</span>
-<span id="cb131-6"><a href="daten-darstellen.html#cb131-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">x =</span> Force)) <span class="sc">+</span></span>
-<span id="cb131-7"><a href="daten-darstellen.html#cb131-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">&#39;white&#39;</span>,</span>
-<span id="cb131-8"><a href="daten-darstellen.html#cb131-8" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> <span class="st">&#39;grey&#39;</span>) <span class="sc">+</span></span>
-<span id="cb131-9"><a href="daten-darstellen.html#cb131-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb131-10"><a href="daten-darstellen.html#cb131-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(Country <span class="sc">~</span> offence, </span>
-<span id="cb131-11"><a href="daten-darstellen.html#cb131-11" aria-hidden="true" tabindex="-1"></a>             <span class="at">scales =</span> <span class="st">&#39;free&#39;</span>)</span></code></pre></div>
-<p><img src="R_Einfuehrung_111220_files/figure-html/unnamed-chunk-109-1.png" width="1000px" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="daten-darstellen.html#cb143-1" aria-hidden="true" tabindex="-1"></a>crime_long <span class="sc">%&gt;%</span> </span>
+<span id="cb143-2"><a href="daten-darstellen.html#cb143-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb143-3"><a href="daten-darstellen.html#cb143-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">Force =</span> <span class="fu">as_factor</span>(Force), <span class="do">## zuerst in Faktor umwandeln</span></span>
+<span id="cb143-4"><a href="daten-darstellen.html#cb143-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">Force =</span> <span class="fu">fct_reorder</span>(Force, count,<span class="at">.fun =</span> mean, <span class="at">.desc =</span> T)) <span class="sc">%&gt;%</span> <span class="do">## dann absteigend sortieren</span></span>
+<span id="cb143-5"><a href="daten-darstellen.html#cb143-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> count,</span>
+<span id="cb143-6"><a href="daten-darstellen.html#cb143-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">x =</span> Force)) <span class="sc">+</span></span>
+<span id="cb143-7"><a href="daten-darstellen.html#cb143-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">&#39;white&#39;</span>,</span>
+<span id="cb143-8"><a href="daten-darstellen.html#cb143-8" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> <span class="st">&#39;grey&#39;</span>) <span class="sc">+</span></span>
+<span id="cb143-9"><a href="daten-darstellen.html#cb143-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb143-10"><a href="daten-darstellen.html#cb143-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(Country <span class="sc">~</span> offence, </span>
+<span id="cb143-11"><a href="daten-darstellen.html#cb143-11" aria-hidden="true" tabindex="-1"></a>             <span class="at">scales =</span> <span class="st">&#39;free&#39;</span>)</span></code></pre></div>
+<p><img src="R_Einfuehrung_111220_files/figure-html/unnamed-chunk-114-1.png" width="1000px" style="display: block; margin: auto;" /></p>
 </div>
 <div id="themes" class="section level3 subsection">
 <h3>themes</h3>
@@ -451,32 +478,165 @@ Wie können wir das noch verbessern?
 <li><p>Die Achsenbeschriftungen und Überschriften lassen sich mit der <code>labs</code>-Funktion festlegen</p></li>
 <li><p>Die Ausrichtung der Beschriftung (wie die meisten grafischen Aspekte) lassen sich mit der <code>theme</code>-Funktion fine-tunen</p></li>
 </ul>
-<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="daten-darstellen.html#cb132-1" aria-hidden="true" tabindex="-1"></a>crime_long <span class="sc">%&gt;%</span> </span>
-<span id="cb132-2"><a href="daten-darstellen.html#cb132-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb132-3"><a href="daten-darstellen.html#cb132-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">Force =</span> <span class="fu">as_factor</span>(Force), <span class="do">## zuerst in Faktor umwandeln</span></span>
-<span id="cb132-4"><a href="daten-darstellen.html#cb132-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">Force =</span> <span class="fu">fct_reorder</span>(Force, count,<span class="at">.fun =</span> mean, <span class="at">.desc =</span> T)) <span class="sc">%&gt;%</span> <span class="do">## dann absteigend sortieren</span></span>
-<span id="cb132-5"><a href="daten-darstellen.html#cb132-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> count,</span>
-<span id="cb132-6"><a href="daten-darstellen.html#cb132-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">x =</span> Force)) <span class="sc">+</span></span>
-<span id="cb132-7"><a href="daten-darstellen.html#cb132-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">&#39;white&#39;</span>,</span>
-<span id="cb132-8"><a href="daten-darstellen.html#cb132-8" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> <span class="st">&#39;grey&#39;</span>) <span class="sc">+</span></span>
-<span id="cb132-9"><a href="daten-darstellen.html#cb132-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb132-10"><a href="daten-darstellen.html#cb132-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(Country <span class="sc">~</span> offence, </span>
-<span id="cb132-11"><a href="daten-darstellen.html#cb132-11" aria-hidden="true" tabindex="-1"></a>             <span class="at">scales =</span> <span class="st">&#39;free&#39;</span>) <span class="sc">+</span></span>
-<span id="cb132-12"><a href="daten-darstellen.html#cb132-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&#39;Anzahl&#39;</span>,</span>
-<span id="cb132-13"><a href="daten-darstellen.html#cb132-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&#39;Polizeistation&#39;</span>,</span>
-<span id="cb132-14"><a href="daten-darstellen.html#cb132-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&#39;Gemeldete Straftaten pro englischer Polizeistation&#39;</span>) <span class="sc">+</span></span>
-<span id="cb132-15"><a href="daten-darstellen.html#cb132-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>,</span>
-<span id="cb132-16"><a href="daten-darstellen.html#cb132-16" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">hjust =</span> <span class="dv">1</span>))</span></code></pre></div>
-<p><img src="R_Einfuehrung_111220_files/figure-html/unnamed-chunk-110-1.png" width="1000px" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="daten-darstellen.html#cb144-1" aria-hidden="true" tabindex="-1"></a>crime_long <span class="sc">%&gt;%</span> </span>
+<span id="cb144-2"><a href="daten-darstellen.html#cb144-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb144-3"><a href="daten-darstellen.html#cb144-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">Force =</span> <span class="fu">as_factor</span>(Force), <span class="do">## zuerst in Faktor umwandeln</span></span>
+<span id="cb144-4"><a href="daten-darstellen.html#cb144-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">Force =</span> <span class="fu">fct_reorder</span>(Force, count,<span class="at">.fun =</span> mean, <span class="at">.desc =</span> T)) <span class="sc">%&gt;%</span> <span class="do">## dann absteigend sortieren</span></span>
+<span id="cb144-5"><a href="daten-darstellen.html#cb144-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> count,</span>
+<span id="cb144-6"><a href="daten-darstellen.html#cb144-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">x =</span> Force)) <span class="sc">+</span></span>
+<span id="cb144-7"><a href="daten-darstellen.html#cb144-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">&#39;white&#39;</span>,</span>
+<span id="cb144-8"><a href="daten-darstellen.html#cb144-8" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> <span class="st">&#39;grey&#39;</span>) <span class="sc">+</span></span>
+<span id="cb144-9"><a href="daten-darstellen.html#cb144-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb144-10"><a href="daten-darstellen.html#cb144-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(Country <span class="sc">~</span> offence, </span>
+<span id="cb144-11"><a href="daten-darstellen.html#cb144-11" aria-hidden="true" tabindex="-1"></a>             <span class="at">scales =</span> <span class="st">&#39;free&#39;</span>) <span class="sc">+</span></span>
+<span id="cb144-12"><a href="daten-darstellen.html#cb144-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&#39;Anzahl&#39;</span>,</span>
+<span id="cb144-13"><a href="daten-darstellen.html#cb144-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&#39;Polizeistation&#39;</span>,</span>
+<span id="cb144-14"><a href="daten-darstellen.html#cb144-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&#39;Gemeldete Straftaten pro englischer Polizeistation&#39;</span>) <span class="sc">+</span></span>
+<span id="cb144-15"><a href="daten-darstellen.html#cb144-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>,</span>
+<span id="cb144-16"><a href="daten-darstellen.html#cb144-16" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">hjust =</span> <span class="dv">1</span>))</span></code></pre></div>
+<p><img src="R_Einfuehrung_111220_files/figure-html/unnamed-chunk-115-1.png" width="1000px" style="display: block; margin: auto;" /></p>
+</div>
+<div id="aufgabe-3-2" class="section level3">
+<h3>Aufgabe 3</h3>
+<p>Nutzen Sie den Hilfe-Eintrag der <code>theme</code>-Funktion und der <code>scale_color_manual</code>-Funktion, sowie eine beliebige Anzahl an <code>aesthetics</code>, um den Graph aus der vorigen Aufgabe so sehr zu verunstalten wie Ihnen irgendwie möglich ist.</p>
 </div>
 <div id="grafiken-exportieren" class="section level3 subsection">
 <h3>Grafiken exportieren</h3>
 <p>Um die Auflösung zu verbessern können wir jetzt noch die Grafik mit anderen Seitenverhältnissen exportieren. Die <code>ggsave</code>-Funktion lässt uns einfach Grafiken in beliebigen Formaten exportieren.</p>
-<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="daten-darstellen.html#cb133-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="at">filename =</span> <span class="st">&#39;imgs/police_stations.png&#39;</span>,</span>
-<span id="cb133-2"><a href="daten-darstellen.html#cb133-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">width =</span> <span class="dv">50</span>,</span>
-<span id="cb133-3"><a href="daten-darstellen.html#cb133-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">height =</span> <span class="dv">100</span>,</span>
-<span id="cb133-4"><a href="daten-darstellen.html#cb133-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">units =</span> <span class="st">&#39;cm&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="daten-darstellen.html#cb145-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="at">filename =</span> <span class="st">&#39;imgs/police_stations.png&#39;</span>,</span>
+<span id="cb145-2"><a href="daten-darstellen.html#cb145-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">width =</span> <span class="dv">50</span>,</span>
+<span id="cb145-3"><a href="daten-darstellen.html#cb145-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">height =</span> <span class="dv">100</span>,</span>
+<span id="cb145-4"><a href="daten-darstellen.html#cb145-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">units =</span> <span class="st">&#39;cm&#39;</span>)</span></code></pre></div>
 <p><img src="imgs/police_stations.png" width="600px" style="display: block; margin: auto;" /></p>
+
+<!-- # --- -->
+<!-- # title: "04_Aufgaben" -->
+<!-- # author: "Max Brede" -->
+<!-- # date: "11.12.2020" -->
+<!-- # output: html_document -->
+<!-- # --- -->
+<script type="text/javascript">
+<!--
+    function showSolution(x){
+        element=document.getElementById('solution' + x)
+        if(element.style.visibility=='visible'){
+            element.style.visibility='hidden';
+            element.style.display='none';
+        }else{
+            element.style.visibility="visible";
+            element.style.display='block';
+        }
+    }
+
+    -->
+
+</script>
+</div>
+</div>
+<div id="aufgaben-teil-3" class="section level2">
+<h2>Aufgaben Teil 3</h2>
+<div id="aufgabe-1-5" class="section level3">
+<h3>Aufgabe 1</h3>
+<p>Lesen Sie die zwei in den letzten Aufgaben abgespeicherten ‘temp_covid.csv’ und ‘chart_overview.csv’ ein.</p>
+<p>Entfernen Sie zuerst die Platzierungs-Spalte aus dem Chart-Datensatz.</p>
+<p>Legen Sie dann einen Vektor mit den Namen der 5 erfolgreichsten Songs über das ganze Jahr an. Berechnen Sie dafür zuerst den Summen-Score pro Song.</p>
+<p>Die nächsten, grau hinterlegten Schritte sind etwas fortgeschritten, Sie können sie überspringen indem Sie den ‘chart_top5.csv’-Datensatz einlesen.</p>
+<div style="background-color: #eeeeee;">
+<p>Mit der <code>arrange</code>-Funktion können Sie sich dann die Songs nach Erfolg sortieren lassen. Probieren Sie die ersten beiden Beispiele auf der Hilfeseite aus um ein Gefühl für die nötige Funktion zu bekommen.</p>
+<p>Die 5 erfolgreichsten Songs können Sie sich dann per Indizierung ausgeben lassen.</p>
+<p>Nutzen Sie im nächsten Schritt den erstellten Vektor um den Chart-Datensatz zu filtern. Lesen Sie dafür den Hilfe-Eintrag des <code>%in%</code>-Operators.</p>
+<p>Pivotieren Sie den Datensatz abschließend derart, dass jedem der Songs eine Spalte zugeordnet ist. Lesen Sie dazu die Hilfeseite der <code>pivot_wider</code>-Funktion.</p>
+</div>
+<p>Fügen Sie den Datensatz anschließend dem Covid-Temperatur-Datensatz an. Alle Zeilen aus dem Covid-Temperatur-Datensatz sollen erhalten bleiben.</p>
+<p>Standardisieren Sie anschließend die mittlere Temperatur und die neuen Fälle derart, dass sie sich auch in ienem Bereich zwischen 0 und 1 bewegen.</p>
+<p>Pivotieren Sie den gesamten Datensatz zum Schluss ins long-Format, so dass eine Spalte mit der Kalenderwoche, eine Spalte mit dem Variablennamen und eine Spalte mit den Chart-Scores übrigbleibt.</p>
+<input type='button' value='Lösung' onclick='showSolution(1);'/>
+<div id="solution1" style="visibility:hidden;display:none">
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="daten-darstellen.html#cb146-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb146-2"><a href="daten-darstellen.html#cb146-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb146-3"><a href="daten-darstellen.html#cb146-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb146-4"><a href="daten-darstellen.html#cb146-4" aria-hidden="true" tabindex="-1"></a>temp_covid <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&#39;data/temp_covid.csv&#39;</span>)</span>
+<span id="cb146-5"><a href="daten-darstellen.html#cb146-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb146-6"><a href="daten-darstellen.html#cb146-6" aria-hidden="true" tabindex="-1"></a>chart_overview <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&#39;data/chart_overview.csv&#39;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb146-7"><a href="daten-darstellen.html#cb146-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span> Position) </span>
+<span id="cb146-8"><a href="daten-darstellen.html#cb146-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb146-9"><a href="daten-darstellen.html#cb146-9" aria-hidden="true" tabindex="-1"></a>chart_overview_summary <span class="ot">&lt;-</span>  chart_overview <span class="sc">%&gt;%</span> </span>
+<span id="cb146-10"><a href="daten-darstellen.html#cb146-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(track) <span class="sc">%&gt;%</span> </span>
+<span id="cb146-11"><a href="daten-darstellen.html#cb146-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">sum_score =</span> <span class="fu">sum</span>(Score))<span class="sc">%&gt;%</span> </span>
+<span id="cb146-12"><a href="daten-darstellen.html#cb146-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(sum_score))</span>
+<span id="cb146-13"><a href="daten-darstellen.html#cb146-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb146-14"><a href="daten-darstellen.html#cb146-14" aria-hidden="true" tabindex="-1"></a>best_songs <span class="ot">&lt;-</span> chart_overview_summary<span class="sc">$</span>track[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<span id="cb146-15"><a href="daten-darstellen.html#cb146-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb146-16"><a href="daten-darstellen.html#cb146-16" aria-hidden="true" tabindex="-1"></a>chart_overview <span class="ot">&lt;-</span>  chart_overview <span class="sc">%&gt;%</span> </span>
+<span id="cb146-17"><a href="daten-darstellen.html#cb146-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(track <span class="sc">%in%</span> best_songs) <span class="sc">%&gt;%</span> </span>
+<span id="cb146-18"><a href="daten-darstellen.html#cb146-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> track,</span>
+<span id="cb146-19"><a href="daten-darstellen.html#cb146-19" aria-hidden="true" tabindex="-1"></a>              <span class="at">values_from =</span> Score)</span>
+<span id="cb146-20"><a href="daten-darstellen.html#cb146-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb146-21"><a href="daten-darstellen.html#cb146-21" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(chart_overview,<span class="st">&#39;data/chart_top5.csv&#39;</span>)</span>
+<span id="cb146-22"><a href="daten-darstellen.html#cb146-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb146-23"><a href="daten-darstellen.html#cb146-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb146-24"><a href="daten-darstellen.html#cb146-24" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> temp_covid <span class="sc">%&gt;%</span> </span>
+<span id="cb146-25"><a href="daten-darstellen.html#cb146-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(chart_overview, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&#39;calendar_week&#39;</span> <span class="ot">=</span> <span class="st">&#39;kw&#39;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb146-26"><a href="daten-darstellen.html#cb146-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">m_temp =</span> m_temp <span class="sc">/</span> <span class="fu">max</span>(m_temp),</span>
+<span id="cb146-27"><a href="daten-darstellen.html#cb146-27" aria-hidden="true" tabindex="-1"></a>         <span class="at">new_covid_cases =</span> new_covid_cases <span class="sc">/</span> <span class="fu">max</span>(new_covid_cases)) <span class="sc">%&gt;%</span> </span>
+<span id="cb146-28"><a href="daten-darstellen.html#cb146-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">8</span>,</span>
+<span id="cb146-29"><a href="daten-darstellen.html#cb146-29" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">&#39;measurement&#39;</span>,</span>
+<span id="cb146-30"><a href="daten-darstellen.html#cb146-30" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">&#39;value&#39;</span>)</span>
+<span id="cb146-31"><a href="daten-darstellen.html#cb146-31" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb146-32"><a href="daten-darstellen.html#cb146-32" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb146-33"><a href="daten-darstellen.html#cb146-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">write_csv</span>(<span class="st">&#39;data/darst_aufg_1.csv&#39;</span>)</span></code></pre></div>
+</div>
+</div>
+<div id="aufgabe-2-4" class="section level3">
+<h3>Aufgabe 2</h3>
+<p>Für die Darstellung ist der standardisierte long-Format-Datensatz aus der letzten Aufgabe nötig.</p>
+<p>Sollten Sie nicht ganz zum Ende der Aufgabe gekommen sein, können Sie auch den <code>darst_aufg_1.csv</code>-Datensatz einlesen.</p>
+<p>Erstellen Sie den folgenden Graphen:</p>
+<p><img src="imgs/task_ts.png" width="1000px" style="display: block; margin: auto;" /></p>
+<p>Finden Sie dafür im Hilfe-Eintrag der <code>theme</code>- Funktion heraus, wie Sie die Position der Legende verändern können und im Hilfeeintrag der <code>labs</code>-Funktion wie Sie die Beschriftungen anpassen können.</p>
+<input type='button' value='Lösung' onclick='showSolution(2);'/>
+<div id="solution2" style="visibility:hidden;display:none">
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="daten-darstellen.html#cb147-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb147-2"><a href="daten-darstellen.html#cb147-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> calendar_week)) <span class="sc">+</span></span>
+<span id="cb147-3"><a href="daten-darstellen.html#cb147-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> value, <span class="at">color =</span> measurement)) <span class="sc">+</span></span>
+<span id="cb147-4"><a href="daten-darstellen.html#cb147-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&#39;bottom&#39;</span>) <span class="sc">+</span></span>
+<span id="cb147-5"><a href="daten-darstellen.html#cb147-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&#39;Kalenderwoche&#39;</span>,</span>
+<span id="cb147-6"><a href="daten-darstellen.html#cb147-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&#39;normalisierte Werte&#39;</span>,</span>
+<span id="cb147-7"><a href="daten-darstellen.html#cb147-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&#39;Covid-Fälle, Temperatur und Spotify-Charts&#39;</span>,</span>
+<span id="cb147-8"><a href="daten-darstellen.html#cb147-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">&#39;Auf ein Maximum von 1 normalisiert&#39;</span>)</span></code></pre></div>
+</div>
+</div>
+<div id="aufgabe-3-3" class="section level3">
+<h3>Aufgabe 3</h3>
+<p>Nutzen Sie den Hilfe-Eintrag der <code>theme</code>-Funktion und der <code>scale_color_manual</code>-Funktion, sowie eine beliebige Anzahl an <code>aesthetics</code>, um den Graph aus der vorigen Aufgabe so sehr zu verunstalten wie Ihnen irgendwie möglich ist.</p>
+<input type='button' value='Lösung' onclick='showSolution(3);'/>
+<div id="solution3" style="visibility:hidden;display:none">
+<p>Mein Vorschlag:</p>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="daten-darstellen.html#cb148-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(extrafont)</span>
+<span id="cb148-2"><a href="daten-darstellen.html#cb148-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb148-3"><a href="daten-darstellen.html#cb148-3" aria-hidden="true" tabindex="-1"></a><span class="fu">loadfonts</span>()</span>
+<span id="cb148-4"><a href="daten-darstellen.html#cb148-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb148-5"><a href="daten-darstellen.html#cb148-5" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb148-6"><a href="daten-darstellen.html#cb148-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> calendar_week)) <span class="sc">+</span></span>
+<span id="cb148-7"><a href="daten-darstellen.html#cb148-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> value, </span>
+<span id="cb148-8"><a href="daten-darstellen.html#cb148-8" aria-hidden="true" tabindex="-1"></a>                <span class="at">color =</span> measurement, </span>
+<span id="cb148-9"><a href="daten-darstellen.html#cb148-9" aria-hidden="true" tabindex="-1"></a>                <span class="at">alpha =</span> calendar_week,</span>
+<span id="cb148-10"><a href="daten-darstellen.html#cb148-10" aria-hidden="true" tabindex="-1"></a>                <span class="at">size =</span> calendar_week)) <span class="sc">+</span></span>
+<span id="cb148-11"><a href="daten-darstellen.html#cb148-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&#39;bottom&#39;</span>,</span>
+<span id="cb148-12"><a href="daten-darstellen.html#cb148-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">&#39;salmon&#39;</span>),</span>
+<span id="cb148-13"><a href="daten-darstellen.html#cb148-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">&#39;chartreuse&#39;</span>),</span>
+<span id="cb148-14"><a href="daten-darstellen.html#cb148-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid =</span> <span class="fu">element_line</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">color =</span> <span class="st">&#39;black&#39;</span>),</span>
+<span id="cb148-15"><a href="daten-darstellen.html#cb148-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">&#39;pink&#39;</span>),</span>
+<span id="cb148-16"><a href="daten-darstellen.html#cb148-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">&#39;xkcd&#39;</span>)) <span class="sc">+</span></span>
+<span id="cb148-17"><a href="daten-darstellen.html#cb148-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&#39;Kalenderwoche&#39;</span>,</span>
+<span id="cb148-18"><a href="daten-darstellen.html#cb148-18" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&#39;normalisierte Werte&#39;</span>,</span>
+<span id="cb148-19"><a href="daten-darstellen.html#cb148-19" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&#39;Covid-Fälle, Temperatur und Spotify-Charts&#39;</span>,</span>
+<span id="cb148-20"><a href="daten-darstellen.html#cb148-20" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">&#39;Auf ein Maximum von 1 normalisiert&#39;</span>) <span class="sc">+</span></span>
+<span id="cb148-21"><a href="daten-darstellen.html#cb148-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&#39;pink&#39;</span>, <span class="st">&#39;brown&#39;</span>, <span class="st">&#39;orange&#39;</span>, <span class="st">&#39;green&#39;</span>, <span class="st">&#39;grey&#39;</span>, <span class="st">&#39;blue&#39;</span>, <span class="st">&#39;white&#39;</span>))</span></code></pre></div>
+<pre><code>## Warning: Removed 194 row(s) containing missing
+## values (geom_path).</code></pre>
+<p><img src="R_Einfuehrung_111220_files/figure-html/unnamed-chunk-122-1.png" width="1000px" style="display: block; margin: auto;" /></p>
+</div>
 
 <!-- # --- -->
 <!-- # title: "Anhang" -->

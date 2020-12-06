@@ -132,7 +132,7 @@
 
 \title{R - KfN 11.12.20}
 \author{Max Brede}
-\date{2020-12-04}
+\date{2020-12-06}
 
 \begin{document}
 \maketitle
@@ -1514,6 +1514,9 @@ Bearbeiten Sie auf Basis des eben erstellten Teil-Datensatzes von \texttt{swiss}
   Berechnen Sie auf Basis dieses zweiten Modells das korrigierte \(R^2\)
 \end{enumerate}
 
+\hypertarget{aufgaben-teil-1}{%
+\section{Aufgaben Teil 1}\label{aufgaben-teil-1}}
+
 \hypertarget{aufgabe-1-1}{%
 \subsection{Aufgabe 1}\label{aufgabe-1-1}}
 
@@ -1934,6 +1937,11 @@ Das Ergebnis sieht in der Oberfläche dann so aus:
 
 Für Tipps zur weitergehenden Bearbeitung von SPSS und Stata-Daten noch \href{https://www.rdocumentation.org/packages/haven/versions/2.2.0/vignettes/semantics.Rmd}{hier} die sehr gute \texttt{haven}-Vignette zu den nötigen Schritten.
 
+\hypertarget{aufgabe-1-2}{%
+\subsection{Aufgabe 1}\label{aufgabe-1-2}}
+
+Lesen Sie die drei Datensätze \texttt{temp.csv}, \texttt{charts.xlsx} und \texttt{covid\_cases.sav} ein und verschaffen Sie sich einen Überblick.
+
 \hypertarget{datenaufbereitung}{%
 \section{Datenaufbereitung}\label{datenaufbereitung}}
 
@@ -2063,6 +2071,20 @@ Wie könnte ich die \emph{Anxiety}-Skala im \texttt{satisfaction}-Datensatz umpo
   \FunctionTok{mutate}\NormalTok{(}\AttributeTok{Average\_Anxious\_Yesterday =} \SpecialCharTok{{-}}\DecValTok{1}\SpecialCharTok{*}\NormalTok{ (Average\_Anxious\_Yesterday}\DecValTok{{-}10}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
+
+\hypertarget{aufgabe-2-1}{%
+\subsection{Aufgabe 2}\label{aufgabe-2-1}}
+
+Transformieren Sie nun die Datensätze in der folgenden Art und Weise:
+
+\begin{itemize}
+\item
+  Fassen Sie den Covid-Datensatz so zusammen, dass pro Kalenderwoche eine Summe der jeweils neuen Fälle übrigbleibt. Ersetzen Sie vorher die fehlenden Werte entweder durch Nullen, oder wenn Sie sich eine kleine Herausforderung wünschen, durch die Mittelwerte der jeweiligen Kalenderwoche. Als kleiner Tipp: schauen Sie sich dafür die Hilfeseiten von \texttt{group\_split} und \texttt{map\_dfr} an.
+\item
+  Fassen Sie den Temperatur-Datensatz bitte auch pro Kalenderwoche zusammen, diesmal aber mit der mittleren Temperatur als Ergebnis
+\item
+  Im Charts-Datensatz haben sich ein paar unrealistische Platzierungen eingeschlichen. Entfernen Sie diese bitte. Wir wollen für unsere folgenden Analysen pro Lied einen Score benutzen, der zwischen 1 und 0 liegt. Je größer dieser Score ist, desto höher soll der Song platziert gewesen sein und umgekehrt. Rechnen Sie die Position bitte in diesen Score um.
+\end{itemize}
 
 \hypertarget{zusammenfuxfchren-von-datensuxe4tzen}{%
 \section{Zusammenführen von Datensätzen}\label{zusammenfuxfchren-von-datensuxe4tzen}}
@@ -2197,6 +2219,197 @@ Den speichern wir noch eben als csv-Datei ab.
 \end{Highlighting}
 \end{Shaded}
 
+\hypertarget{aufgabe-3}{%
+\subsection{Aufgabe 3}\label{aufgabe-3}}
+
+Fügen Sie den Covid und den Temperatur-Datensatz anhand der Kalenderwoche zusammen. Dabei sollen alle Zeilen, die im Temperatur-Datensatz vorliegen auch im neuen Datensatz vorliegen.
+Ersetzen Sie anschließend alle möglicherweise vorliegenden fehlenden Werte durch Nullen.
+
+Benennen Sie abschließend die Kalender-Wochen-Spalte in \texttt{calendar\_week} und die Fall-Spalte im \texttt{new\_covid\_cases} um.
+
+Speichern Sie sich den so erstellten Datensatz für später als `temp\_covid.csv' ab und den vorbereiteten Charts-Datensatz unter `chart\_overview.csv' ab.
+
+\hypertarget{aufgaben-teil-2}{%
+\section{Aufgaben Teil 2}\label{aufgaben-teil-2}}
+
+\hypertarget{aufgabe-1-3}{%
+\subsection{Aufgabe 1}\label{aufgabe-1-3}}
+
+Lesen Sie die drei Datensätze \texttt{temp.csv}, \texttt{charts.xlsx} und \texttt{covid\_cases.sav} ein und verschaffen Sie sich einen Überblick.
+
+\hypertarget{solution1}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\NormalTok{temps\_kiel }\OtherTok{\textless{}{-}} \FunctionTok{read\_delim}\NormalTok{(}
+  \StringTok{"data/temps\_kiel.csv"}\NormalTok{,}
+  \AttributeTok{delim =} \StringTok{";"}\NormalTok{,}
+  \AttributeTok{escape\_double =} \ConstantTok{FALSE}\NormalTok{,}
+  \AttributeTok{col\_types =} \FunctionTok{cols}\NormalTok{(}\AttributeTok{date =} \FunctionTok{col\_date}\NormalTok{(}\AttributeTok{format =} \StringTok{"\%Y{-}\%m{-}\%d"}\NormalTok{)),}
+  \AttributeTok{locale =} \FunctionTok{locale}\NormalTok{(}\AttributeTok{decimal\_mark =} \StringTok{","}\NormalTok{),}
+  \AttributeTok{trim\_ws =} \ConstantTok{TRUE}
+\NormalTok{)}
+
+
+\FunctionTok{summary}\NormalTok{(temps\_kiel)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       date                 temp       
+##  Min.   :2020-01-02   Min.   : 0.000  
+##  1st Qu.:2020-03-26   1st Qu.: 6.425  
+##  Median :2020-06-18   Median :10.900  
+##  Mean   :2020-06-18   Mean   :11.153  
+##  3rd Qu.:2020-09-10   3rd Qu.:15.200  
+##  Max.   :2020-12-04   Max.   :24.300  
+##        cw       
+##  Min.   : 1.00  
+##  1st Qu.:13.00  
+##  Median :25.00  
+##  Mean   :24.79  
+##  3rd Qu.:37.00  
+##  Max.   :49.00
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(readxl)}
+\NormalTok{charts }\OtherTok{\textless{}{-}} \FunctionTok{read\_excel}\NormalTok{(}\StringTok{"data/charts.xlsx"}\NormalTok{)}
+
+\FunctionTok{summary}\NormalTok{(charts)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##        kw        Position       
+##  Min.   : 1   Min.   :-135.000  
+##  1st Qu.:13   1st Qu.:   3.000  
+##  Median :25   Median :   5.000  
+##  Mean   :25   Mean   :   3.508  
+##  3rd Qu.:37   3rd Qu.:   8.000  
+##  Max.   :49   Max.   :  10.000  
+##     track          
+##  Length:490        
+##  Class :character  
+##  Mode  :character  
+##                    
+##                    
+## 
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(haven)}
+\NormalTok{covid\_cases }\OtherTok{\textless{}{-}} \FunctionTok{read\_sav}\NormalTok{(}\StringTok{"data/covid\_cases.sav"}\NormalTok{)}
+
+\FunctionTok{summary}\NormalTok{(covid\_cases)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       date              new_cases    
+##  Min.   :2020-01-23   Min.   :    0  
+##  1st Qu.:2020-04-11   1st Qu.:  368  
+##  Median :2020-06-29   Median : 1075  
+##  Mean   :2020-06-29   Mean   : 3676  
+##  3rd Qu.:2020-09-16   3rd Qu.: 3124  
+##  Max.   :2020-12-05   Max.   :32687  
+##                       NA's   :10     
+##  calendar_week  
+##  Min.   : 4.00  
+##  1st Qu.:15.00  
+##  Median :26.00  
+##  Mean   :26.36  
+##  3rd Qu.:38.00  
+##  Max.   :49.00  
+## 
+\end{verbatim}
+
+\hypertarget{aufgabe-2-2}{%
+\subsection{Aufgabe 2}\label{aufgabe-2-2}}
+
+Transformieren Sie nun die Datensätze in der folgenden Art und Weise:
+
+\begin{itemize}
+\item
+  Fassen Sie den Covid-Datensatz so zusammen, dass pro Kalenderwoche eine Summe der jeweils neuen Fälle übrigbleibt. Ersetzen Sie vorher die fehlenden Werte entweder durch Nullen, oder wenn Sie sich eine kleine Herausforderung wünschen, durch die Mittelwerte der jeweiligen Kalenderwoche. Als kleiner Tipp: schauen Sie sich dafür die Hilfeseiten von \texttt{group\_split} und \texttt{map\_dfr} an.
+\item
+  Fassen Sie den Temperatur-Datensatz bitte auch pro Kalenderwoche zusammen, diesmal aber mit der mittleren Temperatur als Ergebnis
+\item
+  Im Charts-Datensatz haben sich ein paar unrealistische Platzierungen eingeschlichen. Entfernen Sie diese bitte. Wir wollen für unsere folgenden Analysen pro Lied einen Score benutzen, der zwischen 1 und 0 liegt. Je größer dieser Score ist, desto höher soll der Song platziert gewesen sein und umgekehrt. Rechnen Sie die Position bitte in diesen Score um.
+\end{itemize}
+
+\hypertarget{solution2}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# einfache Version:}
+\NormalTok{covid\_cases }\OtherTok{\textless{}{-}}\NormalTok{ covid\_cases }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate\_if}\NormalTok{(is.numeric, }\SpecialCharTok{\textasciitilde{}}\FunctionTok{replace\_na}\NormalTok{(.,}\DecValTok{0}\NormalTok{))}
+
+\DocumentationTok{\#\# etwas komplizierter:}
+\NormalTok{covid\_cases }\OtherTok{\textless{}{-}}\NormalTok{ covid\_cases }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(calendar\_week) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{group\_split}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{map\_dfr}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\FunctionTok{mutate}\NormalTok{(.,}\AttributeTok{new\_cases =} \FunctionTok{replace\_na}\NormalTok{(new\_cases, }
+                                           \FunctionTok{mean}\NormalTok{(new\_cases, }
+                                                \AttributeTok{na.rm=}\NormalTok{T))))}
+
+\NormalTok{covid\_cases }\OtherTok{\textless{}{-}}\NormalTok{ covid\_cases }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{group\_by}\NormalTok{(calendar\_week) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{cases =} \FunctionTok{sum}\NormalTok{(new\_cases))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `summarise()` ungrouping output (override with `.groups` argument)
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{temps\_kiel }\OtherTok{\textless{}{-}}\NormalTok{ temps\_kiel }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{group\_by}\NormalTok{(cw) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{m\_temp =} \FunctionTok{mean}\NormalTok{(temp))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `summarise()` ungrouping output (override with `.groups` argument)
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{charts }\OtherTok{\textless{}{-}}\NormalTok{ charts }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{filter}\NormalTok{(}\FunctionTok{between}\NormalTok{(Position, }\DecValTok{0}\NormalTok{, }\DecValTok{10}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{Score =} \SpecialCharTok{{-}}\DecValTok{1} \SpecialCharTok{*}\NormalTok{ Position }\SpecialCharTok{+} \DecValTok{11}\NormalTok{,}
+         \AttributeTok{Score =}\NormalTok{ Score }\SpecialCharTok{/} \DecValTok{10}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{aufgabe-3-1}{%
+\subsection{Aufgabe 3}\label{aufgabe-3-1}}
+
+Fügen Sie den Covid und den Temperatur-Datensatz anhand der Kalenderwoche zusammen. Dabei sollen alle Zeilen, die im Temperatur-Datensatz vorliegen auch im neuen Datensatz vorliegen.
+Ersetzen Sie anschließend alle möglicherweise vorliegenden fehlenden Werte durch Nullen.
+
+Benennen Sie abschließend die Kalender-Wochen-Spalte in \texttt{calendar\_week} und die Fall-Spalte im \texttt{new\_covid\_cases} um.
+
+Speichern Sie sich den so erstellten Datensatz für später als `temp\_covid.csv' ab und den vorbereiteten Charts-Datensatz unter `chart\_overview.csv' ab.
+
+\hypertarget{solution3}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df }\OtherTok{\textless{}{-}} \FunctionTok{left\_join}\NormalTok{(temps\_kiel, covid\_cases, }\AttributeTok{by =} \FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}cw\textquotesingle{}} \OtherTok{=} \StringTok{\textquotesingle{}calendar\_week\textquotesingle{}}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{mutate\_if}\NormalTok{(is.numeric, }\SpecialCharTok{\textasciitilde{}}\FunctionTok{replace\_na}\NormalTok{(., }\DecValTok{0}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{rename}\NormalTok{(}\StringTok{\textquotesingle{}calendar\_week\textquotesingle{}} \OtherTok{=} \StringTok{\textquotesingle{}cw\textquotesingle{}}\NormalTok{,}
+         \StringTok{\textquotesingle{}new\_covid\_cases\textquotesingle{}} \OtherTok{=} \StringTok{\textquotesingle{}cases\textquotesingle{}}\NormalTok{)}
+
+\NormalTok{df }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{write\_csv}\NormalTok{(}\StringTok{\textquotesingle{}data/temp\_covid.csv\textquotesingle{}}\NormalTok{)}
+
+\NormalTok{charts }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{write\_csv}\NormalTok{(}\StringTok{\textquotesingle{}data/chart\_overview.csv\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
 \hypertarget{daten-darstellen}{%
 \chapter{Daten darstellen}\label{daten-darstellen}}
 
@@ -2302,6 +2515,31 @@ Abschließend fügen wir noch für später Auswertungen eine Variable hinzu, die
 ## $ `Assault with injury`  <dbl> 8716, 4171, 19...
 \end{verbatim}
 
+\hypertarget{aufgabe-1-4}{%
+\subsection{Aufgabe 1}\label{aufgabe-1-4}}
+
+Lesen Sie die zwei in den letzten Aufgaben abgespeicherten `temp\_covid.csv' und `chart\_overview.csv' ein.
+
+Entfernen Sie zuerst die Platzierungs-Spalte aus dem Chart-Datensatz.
+
+Legen Sie dann einen Vektor mit den Namen der 5 erfolgreichsten Songs über das ganze Jahr an. Berechnen Sie dafür zuerst den Summen-Score pro Song.
+
+Die nächsten, grau hinterlegten Schritte sind etwas fortgeschritten, Sie können sie überspringen indem Sie den `chart\_top5.csv'-Datensatz einlesen.
+
+Mit der \texttt{arrange}-Funktion können Sie sich dann die Songs nach Erfolg sortieren lassen. Probieren Sie die ersten beiden Beispiele auf der Hilfeseite aus um ein Gefühl für die nötige Funktion zu bekommen.
+
+Die 5 erfolgreichsten Songs können Sie sich dann per Indizierung ausgeben lassen.
+
+Nutzen Sie im nächsten Schritt den erstellten Vektor um den Chart-Datensatz zu filtern. Lesen Sie dafür den Hilfe-Eintrag des \texttt{\%in\%}-Operators.
+
+Pivotieren Sie den Datensatz abschließend derart, dass jedem der Songs eine Spalte zugeordnet ist. Lesen Sie dazu die Hilfeseite der \texttt{pivot\_wider}-Funktion.
+
+Fügen Sie den Datensatz anschließend dem Covid-Temperatur-Datensatz an. Alle Zeilen aus dem Covid-Temperatur-Datensatz sollen erhalten bleiben.
+
+Standardisieren Sie anschließend die mittlere Temperatur und die neuen Fälle derart, dass sie sich auch in ienem Bereich zwischen 0 und 1 bewegen.
+
+Pivotieren Sie den gesamten Datensatz zum Schluss ins long-Format, so dass eine Spalte mit der Kalenderwoche, eine Spalte mit dem Variablennamen und eine Spalte mit den Chart-Scores übrigbleibt.
+
 \hypertarget{ggplot2}{%
 \section{ggplot2}\label{ggplot2}}
 
@@ -2335,7 +2573,7 @@ Diese `leere Leinwand' sieht so aus:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=333.333333333333pt]{R_Einfuehrung_111220_files/figure-latex/unnamed-chunk-94-1} \end{center}
+\begin{center}\includegraphics[width=333.333333333333pt]{R_Einfuehrung_111220_files/figure-latex/unnamed-chunk-97-1} \end{center}
 
 \hypertarget{aesthetics}{%
 \subsection{aesthetics}\label{aesthetics}}
@@ -2433,8 +2671,21 @@ Histogramme, Boxplots und Barcharts: \footnote{Für über eine Übersicht über 
 
 \begin{center}\includegraphics[width=333.333333333333pt]{imgs/pts6} \end{center}
 
-\hypertarget{aesthetics-1}{%
-\subsection{aesthetics}\label{aesthetics-1}}
+\hypertarget{aufgabe-2-3}{%
+\subsection{Aufgabe 2}\label{aufgabe-2-3}}
+
+Für die Darstellung ist der standardisierte long-Format-Datensatz aus der letzten Aufgabe nötig.
+
+Sollten Sie nicht ganz zum Ende der Aufgabe gekommen sein, können Sie auch den \texttt{darst\_aufg\_1.csv}-Datensatz einlesen.
+
+Erstellen Sie den folgenden Graphen:
+
+\begin{center}\includegraphics[width=333.333333333333pt]{imgs/task_ts} \end{center}
+
+Finden Sie dafür im Hilfe-Eintrag der \texttt{theme}- Funktion heraus, wie Sie die Position der Legende verändern können und im Hilfeeintrag der \texttt{labs}-Funktion wie Sie die Beschriftungen anpassen können.
+
+\hypertarget{finetuning}{%
+\subsection{finetuning}\label{finetuning}}
 
 Der Barchart ist ein guter Anlass, den Plot zu optimieren.
 
@@ -2475,7 +2726,7 @@ Facets lassen uns einfach mehrere Subplots definieren, um zusätzlich zu den in 
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=333.333333333333pt]{R_Einfuehrung_111220_files/figure-latex/unnamed-chunk-107-1} \end{center}
+\begin{center}\includegraphics[width=333.333333333333pt]{R_Einfuehrung_111220_files/figure-latex/unnamed-chunk-112-1} \end{center}
 
 Wie können wir das noch verbessern?
 
@@ -2501,7 +2752,7 @@ Dafür benutzen wir das \texttt{forcats}-Paket aus dem \texttt{tidyverse}. Ein P
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=333.333333333333pt]{R_Einfuehrung_111220_files/figure-latex/unnamed-chunk-108-1} \end{center}
+\begin{center}\includegraphics[width=333.333333333333pt]{R_Einfuehrung_111220_files/figure-latex/unnamed-chunk-113-1} \end{center}
 
 Um die einzelnen Stationen besser lesbar zu machen, können wir noch die Achsen austauschen.
 
@@ -2521,7 +2772,7 @@ Um die einzelnen Stationen besser lesbar zu machen, können wir noch die Achsen 
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=333.333333333333pt]{R_Einfuehrung_111220_files/figure-latex/unnamed-chunk-109-1} \end{center}
+\begin{center}\includegraphics[width=333.333333333333pt]{R_Einfuehrung_111220_files/figure-latex/unnamed-chunk-114-1} \end{center}
 
 \hypertarget{themes}{%
 \subsection{themes}\label{themes}}
@@ -2556,7 +2807,12 @@ Und zuletzt die Achsenbeschriftungen anpassen und die x-Achsen-Beschriftung roti
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=333.333333333333pt]{R_Einfuehrung_111220_files/figure-latex/unnamed-chunk-110-1} \end{center}
+\begin{center}\includegraphics[width=333.333333333333pt]{R_Einfuehrung_111220_files/figure-latex/unnamed-chunk-115-1} \end{center}
+
+\hypertarget{aufgabe-3-2}{%
+\subsection{Aufgabe 3}\label{aufgabe-3-2}}
+
+Nutzen Sie den Hilfe-Eintrag der \texttt{theme}-Funktion und der \texttt{scale\_color\_manual}-Funktion, sowie eine beliebige Anzahl an \texttt{aesthetics}, um den Graph aus der vorigen Aufgabe so sehr zu verunstalten wie Ihnen irgendwie möglich ist.
 
 \hypertarget{grafiken-exportieren}{%
 \subsection{Grafiken exportieren}\label{grafiken-exportieren}}
@@ -2573,6 +2829,2461 @@ Um die Auflösung zu verbessern können wir jetzt noch die Grafik mit anderen Se
 \end{Shaded}
 
 \begin{center}\includegraphics[width=.8\textwidth]{imgs/police_stations} \end{center}
+
+\hypertarget{aufgaben-teil-3}{%
+\section{Aufgaben Teil 3}\label{aufgaben-teil-3}}
+
+\hypertarget{aufgabe-1-5}{%
+\subsection{Aufgabe 1}\label{aufgabe-1-5}}
+
+Lesen Sie die zwei in den letzten Aufgaben abgespeicherten `temp\_covid.csv' und `chart\_overview.csv' ein.
+
+Entfernen Sie zuerst die Platzierungs-Spalte aus dem Chart-Datensatz.
+
+Legen Sie dann einen Vektor mit den Namen der 5 erfolgreichsten Songs über das ganze Jahr an. Berechnen Sie dafür zuerst den Summen-Score pro Song.
+
+Die nächsten, grau hinterlegten Schritte sind etwas fortgeschritten, Sie können sie überspringen indem Sie den `chart\_top5.csv'-Datensatz einlesen.
+
+Mit der \texttt{arrange}-Funktion können Sie sich dann die Songs nach Erfolg sortieren lassen. Probieren Sie die ersten beiden Beispiele auf der Hilfeseite aus um ein Gefühl für die nötige Funktion zu bekommen.
+
+Die 5 erfolgreichsten Songs können Sie sich dann per Indizierung ausgeben lassen.
+
+Nutzen Sie im nächsten Schritt den erstellten Vektor um den Chart-Datensatz zu filtern. Lesen Sie dafür den Hilfe-Eintrag des \texttt{\%in\%}-Operators.
+
+Pivotieren Sie den Datensatz abschließend derart, dass jedem der Songs eine Spalte zugeordnet ist. Lesen Sie dazu die Hilfeseite der \texttt{pivot\_wider}-Funktion.
+
+Fügen Sie den Datensatz anschließend dem Covid-Temperatur-Datensatz an. Alle Zeilen aus dem Covid-Temperatur-Datensatz sollen erhalten bleiben.
+
+Standardisieren Sie anschließend die mittlere Temperatur und die neuen Fälle derart, dass sie sich auch in ienem Bereich zwischen 0 und 1 bewegen.
+
+Pivotieren Sie den gesamten Datensatz zum Schluss ins long-Format, so dass eine Spalte mit der Kalenderwoche, eine Spalte mit dem Variablennamen und eine Spalte mit den Chart-Scores übrigbleibt.
+
+\hypertarget{solution1}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tidyverse)}
+
+
+\NormalTok{temp\_covid }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{\textquotesingle{}data/temp\_covid.csv\textquotesingle{}}\NormalTok{)}
+
+\NormalTok{chart\_overview }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{\textquotesingle{}data/chart\_overview.csv\textquotesingle{}}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{ Position) }
+
+\NormalTok{chart\_overview\_summary }\OtherTok{\textless{}{-}}\NormalTok{  chart\_overview }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{group\_by}\NormalTok{(track) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{sum\_score =} \FunctionTok{sum}\NormalTok{(Score))}\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{arrange}\NormalTok{(}\FunctionTok{desc}\NormalTok{(sum\_score))}
+
+\NormalTok{best\_songs }\OtherTok{\textless{}{-}}\NormalTok{ chart\_overview\_summary}\SpecialCharTok{$}\NormalTok{track[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{5}\NormalTok{]}
+
+\NormalTok{chart\_overview }\OtherTok{\textless{}{-}}\NormalTok{  chart\_overview }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{filter}\NormalTok{(track }\SpecialCharTok{\%in\%}\NormalTok{ best\_songs) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{pivot\_wider}\NormalTok{(}\AttributeTok{names\_from =}\NormalTok{ track,}
+              \AttributeTok{values\_from =}\NormalTok{ Score)}
+
+\FunctionTok{write\_csv}\NormalTok{(chart\_overview,}\StringTok{\textquotesingle{}data/chart\_top5.csv\textquotesingle{}}\NormalTok{)}
+
+
+\NormalTok{df }\OtherTok{\textless{}{-}}\NormalTok{ temp\_covid }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{left\_join}\NormalTok{(chart\_overview, }\AttributeTok{by =} \FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}calendar\_week\textquotesingle{}} \OtherTok{=} \StringTok{\textquotesingle{}kw\textquotesingle{}}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{m\_temp =}\NormalTok{ m\_temp }\SpecialCharTok{/} \FunctionTok{max}\NormalTok{(m\_temp),}
+         \AttributeTok{new\_covid\_cases =}\NormalTok{ new\_covid\_cases }\SpecialCharTok{/} \FunctionTok{max}\NormalTok{(new\_covid\_cases)) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{pivot\_longer}\NormalTok{(}\AttributeTok{cols =} \DecValTok{2}\SpecialCharTok{:}\DecValTok{8}\NormalTok{,}
+               \AttributeTok{names\_to =} \StringTok{\textquotesingle{}measurement\textquotesingle{}}\NormalTok{,}
+               \AttributeTok{values\_to =} \StringTok{\textquotesingle{}value\textquotesingle{}}\NormalTok{)}
+ 
+\NormalTok{df }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{write\_csv}\NormalTok{(}\StringTok{\textquotesingle{}data/darst\_aufg\_1.csv\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{aufgabe-2-4}{%
+\subsection{Aufgabe 2}\label{aufgabe-2-4}}
+
+Für die Darstellung ist der standardisierte long-Format-Datensatz aus der letzten Aufgabe nötig.
+
+Sollten Sie nicht ganz zum Ende der Aufgabe gekommen sein, können Sie auch den \texttt{darst\_aufg\_1.csv}-Datensatz einlesen.
+
+Erstellen Sie den folgenden Graphen:
+
+\begin{center}\includegraphics[width=333.333333333333pt]{imgs/task_ts} \end{center}
+
+Finden Sie dafür im Hilfe-Eintrag der \texttt{theme}- Funktion heraus, wie Sie die Position der Legende verändern können und im Hilfeeintrag der \texttt{labs}-Funktion wie Sie die Beschriftungen anpassen können.
+
+\hypertarget{solution2}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ calendar\_week)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_line}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{y =}\NormalTok{ value, }\AttributeTok{color =}\NormalTok{ measurement)) }\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{legend.position =} \StringTok{\textquotesingle{}bottom\textquotesingle{}}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{x =} \StringTok{\textquotesingle{}Kalenderwoche\textquotesingle{}}\NormalTok{,}
+       \AttributeTok{y =} \StringTok{\textquotesingle{}normalisierte Werte\textquotesingle{}}\NormalTok{,}
+       \AttributeTok{title =} \StringTok{\textquotesingle{}Covid{-}Fälle, Temperatur und Spotify{-}Charts\textquotesingle{}}\NormalTok{,}
+       \AttributeTok{subtitle =} \StringTok{\textquotesingle{}Auf ein Maximum von 1 normalisiert\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{aufgabe-3-3}{%
+\subsection{Aufgabe 3}\label{aufgabe-3-3}}
+
+Nutzen Sie den Hilfe-Eintrag der \texttt{theme}-Funktion und der \texttt{scale\_color\_manual}-Funktion, sowie eine beliebige Anzahl an \texttt{aesthetics}, um den Graph aus der vorigen Aufgabe so sehr zu verunstalten wie Ihnen irgendwie möglich ist.
+
+\leavevmode\hypertarget{solution3}{}%
+Mein Vorschlag:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(extrafont)}
+
+\FunctionTok{loadfonts}\NormalTok{()}
+
+\NormalTok{df }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ calendar\_week)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_line}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{y =}\NormalTok{ value, }
+                \AttributeTok{color =}\NormalTok{ measurement, }
+                \AttributeTok{alpha =}\NormalTok{ calendar\_week,}
+                \AttributeTok{size =}\NormalTok{ calendar\_week)) }\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{legend.position =} \StringTok{\textquotesingle{}bottom\textquotesingle{}}\NormalTok{,}
+        \AttributeTok{plot.background =} \FunctionTok{element\_rect}\NormalTok{(}\AttributeTok{fill =} \StringTok{\textquotesingle{}salmon\textquotesingle{}}\NormalTok{),}
+        \AttributeTok{legend.background =} \FunctionTok{element\_rect}\NormalTok{(}\AttributeTok{fill =} \StringTok{\textquotesingle{}chartreuse\textquotesingle{}}\NormalTok{),}
+        \AttributeTok{panel.grid =} \FunctionTok{element\_line}\NormalTok{(}\AttributeTok{size =} \DecValTok{3}\NormalTok{, }\AttributeTok{color =} \StringTok{\textquotesingle{}black\textquotesingle{}}\NormalTok{),}
+        \AttributeTok{panel.background =} \FunctionTok{element\_rect}\NormalTok{(}\AttributeTok{fill =} \StringTok{\textquotesingle{}pink\textquotesingle{}}\NormalTok{),}
+        \AttributeTok{text =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{family =} \StringTok{\textquotesingle{}xkcd\textquotesingle{}}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{x =} \StringTok{\textquotesingle{}Kalenderwoche\textquotesingle{}}\NormalTok{,}
+       \AttributeTok{y =} \StringTok{\textquotesingle{}normalisierte Werte\textquotesingle{}}\NormalTok{,}
+       \AttributeTok{title =} \StringTok{\textquotesingle{}Covid{-}Fälle, Temperatur und Spotify{-}Charts\textquotesingle{}}\NormalTok{,}
+       \AttributeTok{subtitle =} \StringTok{\textquotesingle{}Auf ein Maximum von 1 normalisiert\textquotesingle{}}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{scale\_color\_manual}\NormalTok{(}\AttributeTok{values =} \FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}pink\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}brown\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}orange\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}green\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}grey\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}blue\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}white\textquotesingle{}}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: Removed 194 row(s) containing missing
+## values (geom_path).
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call.graphics(C_text,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call.graphics(C_text,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call.graphics(C_text,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call.graphics(C_text,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call.graphics(C_text,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call.graphics(C_text,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call.graphics(C_text,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call.graphics(C_text,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call.graphics(C_text,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call.graphics(C_text,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call.graphics(C_text,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call.graphics(C_text,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call.graphics(C_text,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call.graphics(C_text,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call.graphics(C_text,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x28
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call.graphics(C_text,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x29
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call.graphics(C_text,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x5f
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+
+## Warning in grid.Call(C_textBounds,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call.graphics(C_text,
+## as.graphicsAnnot(x$label), x$x, x$y, : font width
+## unknown for character 0x2d
+\end{verbatim}
+
+\begin{center}\includegraphics[width=333.333333333333pt]{R_Einfuehrung_111220_files/figure-latex/unnamed-chunk-122-1} \end{center}
 
 \hypertarget{appendix}{%
 \chapter{Appendix}\label{appendix}}
@@ -2827,7 +5538,7 @@ Wir können das, was wir für ggplot gelernt haben, einfach für plotly anwenden
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=333.333333333333pt]{R_Einfuehrung_111220_files/figure-latex/unnamed-chunk-121-1} \end{center}
+\begin{center}\includegraphics[width=333.333333333333pt]{R_Einfuehrung_111220_files/figure-latex/unnamed-chunk-131-1} \end{center}
 
 Um den Graphen interaktiv zu gestalten reicht es, ihn an \texttt{ggplotly} zu übergeben:
 
@@ -2841,7 +5552,7 @@ Um den Graphen interaktiv zu gestalten reicht es, ihn an \texttt{ggplotly} zu ü
 ## PhantomJS not found. You can install it with webshot::install_phantomjs(). If it is installed, please make sure the phantomjs executable can be found via the PATH variable.
 \end{verbatim}
 
-\hypertarget{htmlwidget-e4ceb87f7068dc58768f}{}
+\hypertarget{htmlwidget-7f79be3dff95dfd35684}{}
 
 \hypertarget{wo-kann-ich-dazu-mehr-erfahren-3}{%
 \subsubsection{Wo kann ich dazu mehr erfahren?}\label{wo-kann-ich-dazu-mehr-erfahren-3}}
@@ -2867,7 +5578,7 @@ Wir versuchen die Auswertung aus \citet{pishghadamIntelligenceMetacognitionPredi
 
 \textbackslash begin\{table\}
 
-\textbackslash caption\{\label{tab:unnamed-chunk-123}kc steht für \emph{knowledge of cognition}, rc für \emph{regulation of cognition} und fla\_test für das Ergebnis eines \emph{foreign language achievement}\}
+\textbackslash caption\{\label{tab:unnamed-chunk-133}kc steht für \emph{knowledge of cognition}, rc für \emph{regulation of cognition} und fla\_test für das Ergebnis eines \emph{foreign language achievement}\}
 \centering
 
 \begin{tabular}[t]{lrrrrrrr}
@@ -3080,7 +5791,7 @@ Und mit dem semPlot-Paket lässt sich das Modell auch darstellen:
 ##   print.sim BDgraph
 \end{verbatim}
 
-\begin{center}\includegraphics[width=333.333333333333pt]{R_Einfuehrung_111220_files/figure-latex/unnamed-chunk-127-1} \end{center}
+\begin{center}\includegraphics[width=333.333333333333pt]{R_Einfuehrung_111220_files/figure-latex/unnamed-chunk-137-1} \end{center}
 
 \hypertarget{wo-kann-ich-dazu-mehr-erfahren-4}{%
 \subsubsection{Wo kann ich dazu mehr erfahren?}\label{wo-kann-ich-dazu-mehr-erfahren-4}}
