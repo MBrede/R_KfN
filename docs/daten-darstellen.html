@@ -24,7 +24,7 @@
 <meta name="author" content="Max Brede" />
 
 
-<meta name="date" content="2020-12-06" />
+<meta name="date" content="2020-12-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -319,7 +319,7 @@ Als zweites Argument nach dem Datensatz erwartet <code>ggplot</code> eine Angabe
 <!-- ### ggplot2 {.scrollable} -->
 <p>Diese ‘leere Leinwand’ sieht so aus:</p>
 <div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="daten-darstellen.html#cb132-1" aria-hidden="true" tabindex="-1"></a>crime_plot</span></code></pre></div>
-<p><img src="R_Einfuehrung_111220_files/figure-html/unnamed-chunk-97-1.png" width="1000px" style="display: block; margin: auto;" /></p>
+<p><img src="R_Einfuehrung_111220_files/figure-html/unnamed-chunk-98-1.png" width="1000px" style="display: block; margin: auto;" /></p>
 <div id="aesthetics" class="section level3 subsection">
 <h3>aesthetics</h3>
 <p>Auf diese Leinwand können wir dann eine Reihe von verschiedenen grafischen Elementen legen, den so genannten <code>geom</code>s. Das einfachste Beispiel auf der eben erstellten Leinwand ist ein Scatterplot.
@@ -436,7 +436,7 @@ Uns stehen die folgenden Informationen zur Verfügung:
 <span id="cb141-5"><a href="daten-darstellen.html#cb141-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> <span class="st">&#39;grey&#39;</span>) <span class="sc">+</span></span>
 <span id="cb141-6"><a href="daten-darstellen.html#cb141-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(offence<span class="sc">~</span>Country, <span class="do">## als facets mit Straftat in Zeilen und Landesteil in Spalten</span></span>
 <span id="cb141-7"><a href="daten-darstellen.html#cb141-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">scales =</span> <span class="st">&#39;free&#39;</span>) <span class="do">## mit individuellen Skalen</span></span></code></pre></div>
-<p><img src="R_Einfuehrung_111220_files/figure-html/unnamed-chunk-112-1.png" width="1000px" style="display: block; margin: auto;" /></p>
+<p><img src="R_Einfuehrung_111220_files/figure-html/unnamed-chunk-113-1.png" width="1000px" style="display: block; margin: auto;" /></p>
 <p class="q">
 Wie können wir das noch verbessern?
 </p>
@@ -455,7 +455,7 @@ Wie können wir das noch verbessern?
 <span id="cb142-8"><a href="daten-darstellen.html#cb142-8" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> <span class="st">&#39;grey&#39;</span>) <span class="sc">+</span></span>
 <span id="cb142-9"><a href="daten-darstellen.html#cb142-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(offence<span class="sc">~</span>Country, </span>
 <span id="cb142-10"><a href="daten-darstellen.html#cb142-10" aria-hidden="true" tabindex="-1"></a>             <span class="at">scales =</span> <span class="st">&#39;free&#39;</span>)</span></code></pre></div>
-<p><img src="R_Einfuehrung_111220_files/figure-html/unnamed-chunk-113-1.png" width="1000px" style="display: block; margin: auto;" /></p>
+<p><img src="R_Einfuehrung_111220_files/figure-html/unnamed-chunk-114-1.png" width="1000px" style="display: block; margin: auto;" /></p>
 <!-- ### additional tweeks -->
 <p>Um die einzelnen Stationen besser lesbar zu machen, können wir noch die Achsen austauschen.</p>
 <div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="daten-darstellen.html#cb143-1" aria-hidden="true" tabindex="-1"></a>crime_long <span class="sc">%&gt;%</span> </span>
@@ -469,7 +469,7 @@ Wie können wir das noch verbessern?
 <span id="cb143-9"><a href="daten-darstellen.html#cb143-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
 <span id="cb143-10"><a href="daten-darstellen.html#cb143-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(Country <span class="sc">~</span> offence, </span>
 <span id="cb143-11"><a href="daten-darstellen.html#cb143-11" aria-hidden="true" tabindex="-1"></a>             <span class="at">scales =</span> <span class="st">&#39;free&#39;</span>)</span></code></pre></div>
-<p><img src="R_Einfuehrung_111220_files/figure-html/unnamed-chunk-114-1.png" width="1000px" style="display: block; margin: auto;" /></p>
+<p><img src="R_Einfuehrung_111220_files/figure-html/unnamed-chunk-115-1.png" width="1000px" style="display: block; margin: auto;" /></p>
 </div>
 <div id="themes" class="section level3 subsection">
 <h3>themes</h3>
@@ -494,7 +494,7 @@ Wie können wir das noch verbessern?
 <span id="cb144-14"><a href="daten-darstellen.html#cb144-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&#39;Gemeldete Straftaten pro englischer Polizeistation&#39;</span>) <span class="sc">+</span></span>
 <span id="cb144-15"><a href="daten-darstellen.html#cb144-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>,</span>
 <span id="cb144-16"><a href="daten-darstellen.html#cb144-16" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">hjust =</span> <span class="dv">1</span>))</span></code></pre></div>
-<p><img src="R_Einfuehrung_111220_files/figure-html/unnamed-chunk-115-1.png" width="1000px" style="display: block; margin: auto;" /></p>
+<p><img src="R_Einfuehrung_111220_files/figure-html/unnamed-chunk-116-1.png" width="1000px" style="display: block; margin: auto;" /></p>
 </div>
 <div id="aufgabe-3-2" class="section level3">
 <h3>Aufgabe 3</h3>
@@ -635,7 +635,7 @@ Wie können wir das noch verbessern?
 <span id="cb148-21"><a href="daten-darstellen.html#cb148-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&#39;pink&#39;</span>, <span class="st">&#39;brown&#39;</span>, <span class="st">&#39;orange&#39;</span>, <span class="st">&#39;green&#39;</span>, <span class="st">&#39;grey&#39;</span>, <span class="st">&#39;blue&#39;</span>, <span class="st">&#39;white&#39;</span>))</span></code></pre></div>
 <pre><code>## Warning: Removed 194 row(s) containing missing
 ## values (geom_path).</code></pre>
-<p><img src="R_Einfuehrung_111220_files/figure-html/unnamed-chunk-122-1.png" width="1000px" style="display: block; margin: auto;" /></p>
+<p><img src="R_Einfuehrung_111220_files/figure-html/unnamed-chunk-123-1.png" width="1000px" style="display: block; margin: auto;" /></p>
 </div>
 
 <!-- # --- -->
